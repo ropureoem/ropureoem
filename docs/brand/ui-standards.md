@@ -130,7 +130,7 @@ Fixed bottom-right link, 24px from desktop edges and 16px mobile; petrol backgro
 
 ## 8. Product-image standard and source acceptance
 
-Use only verified ROPureOEM repo/source/catalogue images. Check model identity before editing; best-source priority is a clean full product cutout, then a clear catalogue photo, then a recoverable source photo. Never replace a model with a visually similar different model. WT-T13 is the silver standard-housing faucet confirmed on catalogue page 12; never use the gold/blue-light WT-T15 photo.
+Use only verified ROPureOEM repo/source/catalogue images. Check model identity before editing; best-source priority is a clean full product cutout, then a clear catalogue photo, then a recoverable source photo. Never replace a model with a visually similar different model. RP-F02 is the silver standard-housing faucet confirmed on catalogue page 12; never use the gold/blue-light photo.
 
 Retouch must preserve product geometry, controls, connectors, material colour and included components. Use background isolation and conservative non-generative tonal cleanup. Do not synthesize product parts or relight in a way that changes finish/colour. No arbitrary colour presets, AI-generated replacement products, upscaling presented as recovered detail, or fake reflections.
 
@@ -153,7 +153,7 @@ Before release verify:
 - 75 HTML pages and exactly the existing 62 product-detail models; all specifications and non-homepage main content retained, apart from deliberate image-status presentation and catalogue filtering UI.
 - One consistent header/nav/footer and accessible search on every page; no broken relative href/src/action links in root or nested pages.
 - Homepage split hero, six range cards, catalogue search/query and thermal collection, language placeholders, inquiry shortcut and quote-model prefill work.
-- Original approved logo bytes, petrol/cyan/coral identity, info@ropureoem.com and correct silver WT-T13 identity retained.
+- Original approved logo bytes, petrol/cyan/coral identity, info@ropureoem.com and correct silver RP-F02 identity retained.
 - Every displayed product image has a passing audit entry, or a clear missing-image state and report. No bad-photo fallback.
 - JSON-LD remains valid and references accepted images only; omit an unavailable product image rather than reference a placeholder as a product photograph.
 - Preview is self-contained in `preview/v6/`; the full ZIP is `releases/ropureoem-v6-preview.zip`. Preserve the v5 preview/release as a prior version.

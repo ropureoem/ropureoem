@@ -50,9 +50,9 @@ for p in english:
  assert [n.get_text() for n in en.select('[name=model] option') if n.get('value') not in ['',None]]!=[] or p.name!='get-quote.html'
  if p.name=='get-quote.html':
   assert [n.get('value') for n in en.select('[name=model] option')]==[n.get('value') for n in zh.select('[name=model] option')]
- if p.name.startswith('WT-'):
+ if p.name.startswith('RP-'):
   assert re.search('[\u4e00-\u9fff]',zh.select_one('.lede').get_text())
-  assert re.findall('WT-[A-Z0-9]+',en.h1.get_text())==re.findall('WT-[A-Z0-9]+',zh.h1.get_text())
+  assert re.findall('RP-[A-Z0-9]+',en.h1.get_text())==re.findall('RP-[A-Z0-9]+',zh.h1.get_text())
 urls=[n.text for n in ET.parse('sitemap.xml').findall('{*}url/{*}loc')]
 assert len(urls)==len(set(urls))==75 and set(urls)=={url(p) for p in english}
 print('PASS: 75 EN sitemap URLs, 0 ZH; noindex 75/75 ZH, 0/75 EN; all reciprocal header/footer switches/hreflang/canonicals; Chinese titles/headings/spec labels; identical specification values, models, units and image sources; all links/fragments.')
@@ -80,7 +80,7 @@ if '--browser' in sys.argv:
     assert search['y']>=quote['y']+quote['height']
   for width in [320,390,699,700,768,1024,1100,1199,1200,1440]:
    page.set_viewport_size({'width':width,'height':900})
-   for path in ['index.html','products/WT-T13.html','contact.html']:
+   for path in ['index.html','products/RP-F02.html','contact.html']:
     assert page.goto(base+path).status==200
     check_header(page)
     page.locator('header [data-language=zh]').click()
@@ -100,10 +100,10 @@ if '--browser' in sys.argv:
    assert page.locator('.card:visible').count()==13
    page.locator('header [data-language=en]').click()
    assert 'q=' in page.url and page.locator('.card:visible').count()==0 # Chinese search is preserved, English text has no Chinese match.
-   page.goto(base+'zh/get-quote.html?model=WT-T13')
-   assert page.locator('[name=model]').input_value()=='WT-T13'
+   page.goto(base+'zh/get-quote.html?model=RP-F02')
+   assert page.locator('[name=model]').input_value()=='RP-F02'
    page.locator('header [data-language=en]').click()
-   assert page.locator('[name=model]').input_value()=='WT-T13'
+   assert page.locator('[name=model]').input_value()=='RP-F02'
   page.goto(base+'zh/index.html');page.screenshot(path='work/zh-home.png',full_page=True)
   browser.close()
  assert not errors,errors

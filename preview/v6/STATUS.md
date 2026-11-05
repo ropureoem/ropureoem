@@ -23,7 +23,7 @@ The old sitemap.xml was a manually enumerated checked-in file with 74 URLs and n
 
 ## Image and specification protection
 
-Baseline c8d5ab654ec030f2eb08113ec90245818d1cc4d4: 45 restored photographs, 17 pending. No source/output image bytes or image-audit documents changed. All English image nodes, placeholders, catalogue cards, SKU values and specification tables remain unchanged; Chinese pages resolve to the same image files and copy every specification value/unit without numeric conversion. The four previously protected outputs remain identical. WT-T13 uses the approved silver-housing source. CNAME, robots and Pages workflow remain unchanged.
+Baseline c8d5ab654ec030f2eb08113ec90245818d1cc4d4: 45 restored photographs, 17 pending. No source/output image bytes or image-audit documents changed. All English image nodes, placeholders, catalogue cards, SKU values and specification tables remain unchanged; Chinese pages resolve to the same image files and copy every specification value/unit without numeric conversion. The four previously protected outputs remain identical. RP-F02 uses the approved silver-housing source. CNAME, robots and Pages workflow remain unchanged.
 
 The image audit retains original v5 page hashes as historical provenance. Verification checks those hashes against the immutable commit and separately proves that public v5 HTML/ZIP changes consist only of contact cleanup and language links; all source images and references are preserved.
 
@@ -71,21 +71,42 @@ Live-domain checks remain assigned to the user as previously requested; Pages de
 
 ## Mainline-only homepage features (2026-11-06)
 
-The homepage retains WT-CT21 and replaces WT-T27 / WT-SH14 / WT-T25 with three existing, photo-approved mainline products. EN/ZH homepages show the same four models in this order:
+The homepage retains RP-C11 and replaces RP-F11 / RP-S06 / RP-F10 with three existing, photo-approved mainline products. EN/ZH homepages show the same four models in this order:
 
-1. WT-CT21 — countertop RO with freshly ground coffee; the original featured card remains unchanged.
-2. WT-UR04 — high-capacity under-sink household RO; catalogue capacity 1000 / 1200 / 1600 GPD.
-3. WT-CT19 — RO purifier with ice, hot and cold water; catalogue capacity 50 / 75 / 100 GPD.
-4. WT-CT09 — countertop hydrogen-water RO dispenser; catalogue membrane/production 200 GPD / 30 L/h, SPE electrolysis listed in the existing specification table.
+1. RP-C11 — countertop RO with freshly ground coffee; the original featured card remains unchanged.
+2. RP-U03 — high-capacity under-sink household RO; catalogue capacity 1000 / 1200 / 1600 GPD.
+3. RP-C09 — RO purifier with ice, hot and cold water; catalogue capacity 50 / 75 / 100 GPD.
+4. RP-C04 — countertop hydrogen-water RO dispenser; catalogue membrane/production 200 GPD / 30 L/h, SPE electrolysis listed in the existing specification table.
 
-The three replacement cards are copied from products.html; their added specification excerpts are copied from the first row of the corresponding existing product specification tables, with matching Chinese translations. All product photographs are existing approved assets. No model is invented and no product file is edited. All faucet/shower SKUs are absent from homepage features, and WT-T27 / WT-T25 / WT-SH14 are absent from both homepage source files. The full catalogue and category/product pages remain byte-identical to image commit `2f9c2ca4c85f04d3923b8cb3457ff66156abed91`, including accessory SEO. Category navigation remains available.
+The three replacement cards are copied from products.html; their added specification excerpts are copied from the first row of the corresponding existing product specification tables, with matching Chinese translations. All product photographs are existing approved assets. No model is invented and no product file is edited. All faucet/shower SKUs are absent from homepage features, and RP-F11 / RP-F10 / RP-S06 are absent from both homepage source files. The full catalogue and category/product pages remain byte-identical to image commit `2f9c2ca4c85f04d3923b8cb3457ff66156abed91`, including accessory SEO. Category navigation remains available.
 
 Validation:
 
-- `work/venv/bin/python scripts/verify_homepage_featured.py --browser`: PASS. EN/ZH production sources and portable preview at 320/390/768/1440px; four models, 2-column mobile and 4-column desktop layout, four decoded images, every product link and header language switch, no overflow/JS/resource failures. CT21 card, full homepage head/header/footer/hero/AI gallery and all catalogue/category/product files match the previous commit exactly. Mobile screenshots are saved under ignored work/.
+- `work/venv/bin/python scripts/verify_homepage_featured.py --browser`: PASS. EN/ZH production sources and portable preview at 320/390/768/1440px; four models, 2-column mobile and 4-column desktop layout, four decoded images, every product link and header language switch, no overflow/JS/resource failures. RP-C11 card, full homepage head/header/footer/hero/AI gallery and all catalogue/category/product files match the previous commit exactly. Mobile screenshots are saved under ignored work/.
 - `work/venv/bin/python scripts/verify_v6.py --browser`: PASS. Original product files/images/specifications, English SEO and responsive catalogue/quote/navigation checks remain valid; sitemap remains 75 English URLs, 0 ZH.
 - `work/venv/bin/python scripts/verify_bilingual.py --browser`: PASS. Matching EN/ZH features, paired links, unchanged numerical specifications and image reuse; compact search/EN-ZH controls across 10 viewport widths, 75/75 ZH noindex and 0/75 EN noindex.
 - `work/venv/bin/python scripts/package_v6.py`: PASS. Rebuilt bilingual preview/ZIP with all 150 pages, gallery assets, mainline features, correct robots metadata and English-only sitemap.
 - `git diff --check`: PASS. Product/catalogue/category source bytes, images, CNAME, robots.txt, Pages workflow and sitemap are unchanged by this selection update.
 
 The preceding AI-gallery commit `2f9c2ca4c85f04d3923b8cb3457ff66156abed91` was pushed to main and GitHub Pages deployment succeeded: https://github.com/tileserachied/ropureoem/actions/runs/42065722955 . The user retains live-domain checks; the video remains pending their upload/path.
+
+
+## Final public model numbering (2026-11-06)
+
+All 62 models now use category letters and two-digit ordinals: RP-C01–C14, RP-U01–U18, RP-F01–F13, RP-S01–S14 and RP-W01–W03. The final user-provided numbering is the sole active scheme. No correspondence table/CSV is published or committed; private delivery is in the conversation only.
+
+The migration updates English/Chinese product filenames and URLs, titles/H1s/SKUs, image filenames/alt text, JSON-LD, catalogue cards, homepage features, search inputs/results, quote option values/prefill, translation data, generated metadata, root/preview sitemaps, public documents/scripts, historical v5 preview and both downloadable ZIPs. Old product files are removed rather than redirected. Unlisted housing-variant identifiers are removed from caveats; configuration-by-order wording is preserved without inventing additional models. Existing image bytes and numerical specification values remain unchanged.
+
+Homepage features remain four mainline products: RP-C11, RP-U03, RP-C09, RP-C04; no Faucet/Shower features. All 75 English SEO titles/H1s/descriptions/keywords/canonicals/hreflang compare against immutable Git evidence after identifier-only normalisation. Chinese pages retain noindex/nofollow and header/footer switching. The compact search-row EN/ZH layout is unchanged. CNAME, DNS, robots.txt and Pages workflow are unchanged. The pending P90 plan and assets/video/p90-1-product.mp4 path, plus the #videos area, are untouched.
+
+Validation:
+
+- `python scripts/verify_model_namespace.py --browser`: PASS. Exactly 62 identifiers across the five final ranges; 462 parameter rows unchanged; no obsolete identifiers or filenames in public UTF-8 files or extracted archive entries; no CSV published; 62 catalogue/search records and quote options per language; sitemap 75 English URLs, 0 Chinese, with all 62 product URLs using current identifiers. Five-category local product samples return 200; corresponding former routes return 404 without retired identifiers, and all former product files are absent.
+- `python scripts/verify_v6.py --browser`: PASS. Historical image provenance/SHA-256, specifications, JSON-LD, original SEO keywords, all local links/fragments, responsive catalogue/search/quote/navigation, no JS/resource failures. Immutable revision checks normalise identifiers transiently without writing correspondence data.
+- `python scripts/verify_bilingual.py --browser`: PASS. 75 EN + 75 ZH; robots 0/75 EN and 75/75 ZH; paired header/footer switches and canonical/hreflang; Chinese labels, identical numerical values and image sources; compact controls at 10 widths from 320 to 1440px.
+- `python scripts/verify_homepage_featured.py --browser`: PASS. Four final mainline models, all product/quote destinations; 2-column mobile and 4-column desktop, EN/ZH source and portable preview, no overflow/JS/resource failures.
+- `python scripts/verify_homepage_factory.py`: PASS. EN/ZH gallery and portable preview at 1280/1440px, three full-frame decoded images, correct language switches.
+- `python scripts/package_v6.py`: PASS. Clean portable rebuild; 150 bilingual HTML files and 62 models per language; correct sitemap and robots metadata; archive CRC and every preview byte match. Already compressed media are stored without redundant deflation.
+- Public text scans exclude immutable .git history and ignored work scratch; downloadable archives are also inspected after extraction. Namespace/content/path residual counts are zero. `git diff --check`: PASS.
+
+Live-domain requests are still blocked by the environment proxy with HTTP 403; local HTTP results do not establish live responses. Pages deployment status is checked separately after pushing main. Rollback is a revert of this namespace commit; the pre-change Git evidence remains immutable.

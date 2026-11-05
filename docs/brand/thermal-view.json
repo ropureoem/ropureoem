@@ -1,6 +1,6 @@
 {
-  "WT-CT03": {
-    "sku": "WT-CT03",
+  "RP-C01": {
+    "sku": "RP-C01",
     "description": "Instant-heating RO with removable jug",
     "category": "Countertop Systems",
     "specs": [
@@ -41,10 +41,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT03.jpg"
+    "source": "assets/img/RP-C01.jpg"
   },
-  "WT-CT04": {
-    "sku": "WT-CT04",
+  "RP-C02": {
+    "sku": "RP-C02",
     "description": "RO dispenser with electronic cooling",
     "category": "Countertop Systems",
     "specs": [
@@ -85,10 +85,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT04.jpg"
+    "source": "assets/img/RP-C02.jpg"
   },
-  "WT-CT06": {
-    "sku": "WT-CT06",
+  "RP-C03": {
+    "sku": "RP-C03",
     "description": "Installation-free instant-hot purifier",
     "category": "Countertop Systems",
     "specs": [
@@ -129,10 +129,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT06.jpg"
+    "source": "assets/img/RP-C03.jpg"
   },
-  "WT-CT17": {
-    "sku": "WT-CT17",
+  "RP-C07": {
+    "sku": "RP-C07",
     "description": "RO purifier with heating jug",
     "category": "Countertop Systems",
     "specs": [
@@ -169,10 +169,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT17.jpg"
+    "source": "assets/img/RP-C07.jpg"
   },
-  "WT-CT18": {
-    "sku": "WT-CT18",
+  "RP-C08": {
+    "sku": "RP-C08",
     "description": "All-in-one cartridge countertop purifier",
     "category": "Countertop Systems",
     "specs": [
@@ -201,10 +201,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT18.jpg"
+    "source": "assets/img/RP-C08.jpg"
   },
-  "WT-CT19": {
-    "sku": "WT-CT19",
+  "RP-C09": {
+    "sku": "RP-C09",
     "description": "RO purifier with ice, hot and cold water",
     "category": "Countertop Systems",
     "specs": [
@@ -245,10 +245,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT19.jpg"
+    "source": "assets/img/RP-C09.jpg"
   },
-  "WT-CT20": {
-    "sku": "WT-CT20",
+  "RP-C10": {
+    "sku": "RP-C10",
     "description": "Countertop RO with compressor cooling",
     "category": "Countertop Systems",
     "specs": [
@@ -285,10 +285,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT20.jpg"
+    "source": "assets/img/RP-C10.jpg"
   },
-  "WT-CT23": {
-    "sku": "WT-CT23",
+  "RP-C13": {
+    "sku": "RP-C13",
     "description": "Instant-heating RO dispenser",
     "category": "Countertop Systems",
     "specs": [
@@ -321,10 +321,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-CT23.jpg"
+    "source": "assets/img/RP-C13.jpg"
   },
-  "WT-UR02": {
-    "sku": "WT-UR02",
+  "RP-U02": {
+    "sku": "RP-U02",
     "description": "RO with instant-hot faucet and chilled",
     "category": "Under-Sink RO Systems",
     "specs": [
@@ -365,10 +365,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-UR02.jpg"
+    "source": "assets/img/RP-U02.jpg"
   },
-  "WT-UR06": {
-    "sku": "WT-UR06",
+  "RP-U05": {
+    "sku": "RP-U05",
     "description": "Compact two-cartridge RO platform",
     "category": "Under-Sink RO Systems",
     "specs": [
@@ -401,10 +401,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-UR06.jpg"
+    "source": "assets/img/RP-U05.jpg"
   },
-  "WT-UR12": {
-    "sku": "WT-UR12",
+  "RP-U06": {
+    "sku": "RP-U06",
     "description": "Dual-drive extended-output RO system",
     "category": "Under-Sink RO Systems",
     "specs": [
@@ -449,10 +449,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-UR12.jpg"
+    "source": "assets/img/RP-U06.jpg"
   },
-  "WT-UR14": {
-    "sku": "WT-UR14",
+  "RP-U08": {
+    "sku": "RP-U08",
     "description": "Under-sink RO with storage heating",
     "category": "Under-Sink RO Systems",
     "specs": [
@@ -489,10 +489,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-UR14.jpg"
+    "source": "assets/img/RP-U08.jpg"
   },
-  "WT-UR25": {
-    "sku": "WT-UR25",
+  "RP-U15": {
+    "sku": "RP-U15",
     "description": "Under-sink cooling companion",
     "category": "Under-Sink RO Systems",
     "specs": [
@@ -525,10 +525,10 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-UR25.jpg"
+    "source": "assets/img/RP-U15.jpg"
   },
-  "WT-UR26": {
-    "sku": "WT-UR26",
+  "RP-U16": {
+    "sku": "RP-U16",
     "description": "Stainless-steel instant-heating faucet",
     "category": "Under-Sink RO Systems",
     "specs": [
@@ -557,6 +557,6 @@
         "Confirmed per order"
       ]
     ],
-    "source": "assets/img/WT-UR26.jpg"
+    "source": "assets/img/RP-U16.jpg"
   }
 }

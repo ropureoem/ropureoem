@@ -7,7 +7,10 @@ import subprocess,sys
 import xml.etree.ElementTree as ET
 subprocess.run([sys.executable, 'scripts/build_bilingual.py'], check=True)
 subprocess.run([sys.executable, 'scripts/generate_sitemap.py'], check=True)
-root=Path('.');dest=root/'preview/v6';dest.mkdir(parents=True,exist_ok=True)
+root=Path('.');dest=root/'preview/v6'
+# A clean rebuild prevents deleted product URLs/assets surviving regeneration.
+if dest.exists():shutil.rmtree(dest)
+dest.mkdir(parents=True)
 files=[*root.glob('*.html'),*root.glob('*.txt'),*root.glob('*.css'),*root.glob('*.js'),root/'CNAME',root/'sitemap.xml',root/'README.md',root/'STATUS.md']
 for p in files:shutil.copy2(p,dest/p.name)
 for name in ['assets','public','styles','products','docs','zh','images']:
@@ -25,7 +28,10 @@ for page in dest.rglob('*.html'):
 zip_path=root/'releases/ropureoem-v6-preview.zip'
 with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(dest.rglob('*')):
-  if p.is_file():z.write(p,p.relative_to(dest))
+  if p.is_file():
+   # Media are already compressed; avoid redundant deflation.
+   method=zipfile.ZIP_STORED if p.suffix.lower() in {'.jpg','.jpeg','.png','.webp','.mp4'} else zipfile.ZIP_DEFLATED
+   z.write(p,p.relative_to(dest),compress_type=method)
 with zipfile.ZipFile(zip_path) as z:
  assert z.testzip() is None
  assert len([p for p in z.namelist() if p.endswith('.html')])==150
@@ -38,7 +44,7 @@ with zipfile.ZipFile(zip_path) as z:
   if name.startswith('zh/'):
    assert len(robots)==1 and robots[0]['content']=='noindex, nofollow',name
   else:assert not robots,name
- assert len([p for p in z.namelist() if p.startswith('products/WT-') and p.endswith('.html')])==62
+ assert len([p for p in z.namelist() if p.startswith('products/RP-') and p.endswith('.html')])==62
  for p in dest.rglob('*'):
   if p.is_file():assert z.read(str(p.relative_to(dest)))==p.read_bytes()
 print('PASS: portable preview and ZIP integrity; 150 pages (75 EN + 75 ZH), 62 models per language, English-only sitemap (75 URLs), ZH noindex, all files match.')

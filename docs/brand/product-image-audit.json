@@ -6,18 +6,18 @@
     "pending": 17,
     "processing_failures": 0,
     "protected_outputs": [
-      "WT-CT21",
-      "WT-SH14",
-      "WT-T25",
-      "WT-T27"
+      "RP-C11",
+      "RP-S06",
+      "RP-F10",
+      "RP-F11"
     ],
     "source_verification": "ba76b98、releases/ropureoem-v5-preview.zip、preview/v5 的实际产品主图引用及 SHA-256 全部一致",
-    "duplicate_hash_conclusion": "CT15/CT16/CT26 和 WS01/WS02/WS03 在 v5 已各自引用同哈希图片；不是 v6 映射错误。保留历史映射，不声称已独立证明硬件外观。"
+    "duplicate_hash_conclusion": "RP-C05/RP-C06/RP-C14 和 RP-W01/RP-W02/RP-W03 在 v5 已各自引用同哈希图片；不是 v6 映射错误。保留历史映射，不声称已独立证明硬件外观。"
   },
   "images": [
     {
-      "sku": "WT-CT03",
-      "source": "assets/img/WT-CT03.jpg",
+      "sku": "RP-C01",
+      "source": "assets/img/RP-C01.jpg",
       "source_sha256": "06e3fc574c653ad753bd1d43c80cd7b7b56c5226807eefcd243bed42632c4599",
       "source_dimensions": [
         649,
@@ -31,26 +31,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT03.html",
+          "page": "products/RP-C01.html",
           "page_sha256": "949e60f3d0cdee45989ec2ce8835d703c5e329f47a99c9aaafc1e18e102c37ac",
-          "reference": "../assets/img/WT-CT03.jpg",
-          "path": "assets/img/WT-CT03.jpg",
+          "reference": "../assets/img/RP-C01.jpg",
+          "path": "assets/img/RP-C01.jpg",
           "sha256": "06e3fc574c653ad753bd1d43c80cd7b7b56c5226807eefcd243bed42632c4599"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT03.html",
+          "page": "products/RP-C01.html",
           "page_sha256": "949e60f3d0cdee45989ec2ce8835d703c5e329f47a99c9aaafc1e18e102c37ac",
-          "reference": "../assets/img/WT-CT03.jpg",
-          "path": "assets/img/WT-CT03.jpg",
+          "reference": "../assets/img/RP-C01.jpg",
+          "path": "assets/img/RP-C01.jpg",
           "sha256": "06e3fc574c653ad753bd1d43c80cd7b7b56c5226807eefcd243bed42632c4599"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT03.html",
+          "page": "products/RP-C01.html",
           "page_sha256": "949e60f3d0cdee45989ec2ce8835d703c5e329f47a99c9aaafc1e18e102c37ac",
-          "reference": "../assets/img/WT-CT03.jpg",
-          "path": "assets/img/WT-CT03.jpg",
+          "reference": "../assets/img/RP-C01.jpg",
+          "path": "assets/img/RP-C01.jpg",
           "sha256": "06e3fc574c653ad753bd1d43c80cd7b7b56c5226807eefcd243bed42632c4599"
         }
       ],
@@ -62,8 +62,8 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT04",
-      "source": "assets/img/WT-CT04.jpg",
+      "sku": "RP-C02",
+      "source": "assets/img/RP-C02.jpg",
       "source_sha256": "b1e9c5b3429cb67728b9d995bfb05433a7d290f1069afec6a4b9874ce56f7600",
       "source_dimensions": [
         1042,
@@ -77,26 +77,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT04.html",
+          "page": "products/RP-C02.html",
           "page_sha256": "5f455a7759b98a60b0b071f111f13a3ded8f119a338d32bc42fe848c8222dbaf",
-          "reference": "../assets/img/WT-CT04.jpg",
-          "path": "assets/img/WT-CT04.jpg",
+          "reference": "../assets/img/RP-C02.jpg",
+          "path": "assets/img/RP-C02.jpg",
           "sha256": "b1e9c5b3429cb67728b9d995bfb05433a7d290f1069afec6a4b9874ce56f7600"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT04.html",
+          "page": "products/RP-C02.html",
           "page_sha256": "5f455a7759b98a60b0b071f111f13a3ded8f119a338d32bc42fe848c8222dbaf",
-          "reference": "../assets/img/WT-CT04.jpg",
-          "path": "assets/img/WT-CT04.jpg",
+          "reference": "../assets/img/RP-C02.jpg",
+          "path": "assets/img/RP-C02.jpg",
           "sha256": "b1e9c5b3429cb67728b9d995bfb05433a7d290f1069afec6a4b9874ce56f7600"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT04.html",
+          "page": "products/RP-C02.html",
           "page_sha256": "5f455a7759b98a60b0b071f111f13a3ded8f119a338d32bc42fe848c8222dbaf",
-          "reference": "../assets/img/WT-CT04.jpg",
-          "path": "assets/img/WT-CT04.jpg",
+          "reference": "../assets/img/RP-C02.jpg",
+          "path": "assets/img/RP-C02.jpg",
           "sha256": "b1e9c5b3429cb67728b9d995bfb05433a7d290f1069afec6a4b9874ce56f7600"
         }
       ],
@@ -108,15 +108,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT06",
-      "source": "assets/img/WT-CT06.jpg",
+      "sku": "RP-C03",
+      "source": "assets/img/RP-C03.jpg",
       "source_sha256": "03bfd9385c0a24e310dcf24274cbfba54b2df695dec756d89f15708c8f951312",
       "source_dimensions": [
         933,
         1650
       ],
       "status": "pass",
-      "output": "assets/products/WT-CT06.png",
+      "output": "assets/products/RP-C03.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -126,26 +126,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT06.html",
+          "page": "products/RP-C03.html",
           "page_sha256": "2a1297f0809941b83b7b8b0f8dcace7c9b2375c04122f67ebc16fcbdb4e2b593",
-          "reference": "../assets/img/WT-CT06.jpg",
-          "path": "assets/img/WT-CT06.jpg",
+          "reference": "../assets/img/RP-C03.jpg",
+          "path": "assets/img/RP-C03.jpg",
           "sha256": "03bfd9385c0a24e310dcf24274cbfba54b2df695dec756d89f15708c8f951312"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT06.html",
+          "page": "products/RP-C03.html",
           "page_sha256": "2a1297f0809941b83b7b8b0f8dcace7c9b2375c04122f67ebc16fcbdb4e2b593",
-          "reference": "../assets/img/WT-CT06.jpg",
-          "path": "assets/img/WT-CT06.jpg",
+          "reference": "../assets/img/RP-C03.jpg",
+          "path": "assets/img/RP-C03.jpg",
           "sha256": "03bfd9385c0a24e310dcf24274cbfba54b2df695dec756d89f15708c8f951312"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT06.html",
+          "page": "products/RP-C03.html",
           "page_sha256": "2a1297f0809941b83b7b8b0f8dcace7c9b2375c04122f67ebc16fcbdb4e2b593",
-          "reference": "../assets/img/WT-CT06.jpg",
-          "path": "assets/img/WT-CT06.jpg",
+          "reference": "../assets/img/RP-C03.jpg",
+          "path": "assets/img/RP-C03.jpg",
           "sha256": "03bfd9385c0a24e310dcf24274cbfba54b2df695dec756d89f15708c8f951312"
         }
       ],
@@ -160,15 +160,15 @@
       ]
     },
     {
-      "sku": "WT-CT09",
-      "source": "assets/img/WT-CT09.jpg",
+      "sku": "RP-C04",
+      "source": "assets/img/RP-C04.jpg",
       "source_sha256": "95b23a79bb8c87b74391a601333a643934fe4ac22ee2b78279347e8ccd0e7dc6",
       "source_dimensions": [
         1200,
         1291
       ],
       "status": "pass",
-      "output": "assets/products/WT-CT09.png",
+      "output": "assets/products/RP-C04.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -178,26 +178,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT09.html",
+          "page": "products/RP-C04.html",
           "page_sha256": "2abeb25562b831e29c102b2d94e85d6e7137bf8b4d3d08369b5ddd12c9263102",
-          "reference": "../assets/img/WT-CT09.jpg",
-          "path": "assets/img/WT-CT09.jpg",
+          "reference": "../assets/img/RP-C04.jpg",
+          "path": "assets/img/RP-C04.jpg",
           "sha256": "95b23a79bb8c87b74391a601333a643934fe4ac22ee2b78279347e8ccd0e7dc6"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT09.html",
+          "page": "products/RP-C04.html",
           "page_sha256": "2abeb25562b831e29c102b2d94e85d6e7137bf8b4d3d08369b5ddd12c9263102",
-          "reference": "../assets/img/WT-CT09.jpg",
-          "path": "assets/img/WT-CT09.jpg",
+          "reference": "../assets/img/RP-C04.jpg",
+          "path": "assets/img/RP-C04.jpg",
           "sha256": "95b23a79bb8c87b74391a601333a643934fe4ac22ee2b78279347e8ccd0e7dc6"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT09.html",
+          "page": "products/RP-C04.html",
           "page_sha256": "2abeb25562b831e29c102b2d94e85d6e7137bf8b4d3d08369b5ddd12c9263102",
-          "reference": "../assets/img/WT-CT09.jpg",
-          "path": "assets/img/WT-CT09.jpg",
+          "reference": "../assets/img/RP-C04.jpg",
+          "path": "assets/img/RP-C04.jpg",
           "sha256": "95b23a79bb8c87b74391a601333a643934fe4ac22ee2b78279347e8ccd0e7dc6"
         }
       ],
@@ -212,8 +212,8 @@
       ]
     },
     {
-      "sku": "WT-CT15",
-      "source": "assets/img/WT-CT15.jpg",
+      "sku": "RP-C05",
+      "source": "assets/img/RP-C05.jpg",
       "source_sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170",
       "source_dimensions": [
         876,
@@ -227,26 +227,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT15.html",
+          "page": "products/RP-C05.html",
           "page_sha256": "3de2081595bf7ada8fd8ee678c9eb8a92d35e024425e5e2c64ef2683ec7aab93",
-          "reference": "../assets/img/WT-CT15.jpg",
-          "path": "assets/img/WT-CT15.jpg",
+          "reference": "../assets/img/RP-C05.jpg",
+          "path": "assets/img/RP-C05.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT15.html",
+          "page": "products/RP-C05.html",
           "page_sha256": "3de2081595bf7ada8fd8ee678c9eb8a92d35e024425e5e2c64ef2683ec7aab93",
-          "reference": "../assets/img/WT-CT15.jpg",
-          "path": "assets/img/WT-CT15.jpg",
+          "reference": "../assets/img/RP-C05.jpg",
+          "path": "assets/img/RP-C05.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT15.html",
+          "page": "products/RP-C05.html",
           "page_sha256": "3de2081595bf7ada8fd8ee678c9eb8a92d35e024425e5e2c64ef2683ec7aab93",
-          "reference": "../assets/img/WT-CT15.jpg",
-          "path": "assets/img/WT-CT15.jpg",
+          "reference": "../assets/img/RP-C05.jpg",
+          "path": "assets/img/RP-C05.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         }
       ],
@@ -258,8 +258,8 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT16",
-      "source": "assets/img/WT-CT16.jpg",
+      "sku": "RP-C06",
+      "source": "assets/img/RP-C06.jpg",
       "source_sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170",
       "source_dimensions": [
         876,
@@ -273,26 +273,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT16.html",
+          "page": "products/RP-C06.html",
           "page_sha256": "cf1afdf36712058d4cfffae23cf5761edf0e36b71419e692bba353733a31711c",
-          "reference": "../assets/img/WT-CT16.jpg",
-          "path": "assets/img/WT-CT16.jpg",
+          "reference": "../assets/img/RP-C06.jpg",
+          "path": "assets/img/RP-C06.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT16.html",
+          "page": "products/RP-C06.html",
           "page_sha256": "cf1afdf36712058d4cfffae23cf5761edf0e36b71419e692bba353733a31711c",
-          "reference": "../assets/img/WT-CT16.jpg",
-          "path": "assets/img/WT-CT16.jpg",
+          "reference": "../assets/img/RP-C06.jpg",
+          "path": "assets/img/RP-C06.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT16.html",
+          "page": "products/RP-C06.html",
           "page_sha256": "cf1afdf36712058d4cfffae23cf5761edf0e36b71419e692bba353733a31711c",
-          "reference": "../assets/img/WT-CT16.jpg",
-          "path": "assets/img/WT-CT16.jpg",
+          "reference": "../assets/img/RP-C06.jpg",
+          "path": "assets/img/RP-C06.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         }
       ],
@@ -304,15 +304,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT17",
-      "source": "assets/img/WT-CT17.jpg",
+      "sku": "RP-C07",
+      "source": "assets/img/RP-C07.jpg",
       "source_sha256": "d8dd6f0f973a78200f16dee42de6e861d5a13fcd2368e17d28508d4a12d140de",
       "source_dimensions": [
         1200,
         674
       ],
       "status": "pass",
-      "output": "assets/products/WT-CT17.png",
+      "output": "assets/products/RP-C07.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -322,26 +322,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT17.html",
+          "page": "products/RP-C07.html",
           "page_sha256": "814d688ed5bb7dd1a5079cbdce61167272c7171f8c8af7644885fc69738f90e8",
-          "reference": "../assets/img/WT-CT17.jpg",
-          "path": "assets/img/WT-CT17.jpg",
+          "reference": "../assets/img/RP-C07.jpg",
+          "path": "assets/img/RP-C07.jpg",
           "sha256": "d8dd6f0f973a78200f16dee42de6e861d5a13fcd2368e17d28508d4a12d140de"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT17.html",
+          "page": "products/RP-C07.html",
           "page_sha256": "814d688ed5bb7dd1a5079cbdce61167272c7171f8c8af7644885fc69738f90e8",
-          "reference": "../assets/img/WT-CT17.jpg",
-          "path": "assets/img/WT-CT17.jpg",
+          "reference": "../assets/img/RP-C07.jpg",
+          "path": "assets/img/RP-C07.jpg",
           "sha256": "d8dd6f0f973a78200f16dee42de6e861d5a13fcd2368e17d28508d4a12d140de"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT17.html",
+          "page": "products/RP-C07.html",
           "page_sha256": "814d688ed5bb7dd1a5079cbdce61167272c7171f8c8af7644885fc69738f90e8",
-          "reference": "../assets/img/WT-CT17.jpg",
-          "path": "assets/img/WT-CT17.jpg",
+          "reference": "../assets/img/RP-C07.jpg",
+          "path": "assets/img/RP-C07.jpg",
           "sha256": "d8dd6f0f973a78200f16dee42de6e861d5a13fcd2368e17d28508d4a12d140de"
         }
       ],
@@ -356,8 +356,8 @@
       ]
     },
     {
-      "sku": "WT-CT18",
-      "source": "assets/img/WT-CT18.jpg",
+      "sku": "RP-C08",
+      "source": "assets/img/RP-C08.jpg",
       "source_sha256": "9329f9fe343de06ec06eb42e38a1c056a1a67afea8c5b9af0e1acaabee795b9d",
       "source_dimensions": [
         417,
@@ -371,26 +371,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT18.html",
+          "page": "products/RP-C08.html",
           "page_sha256": "ed8423ddbe41324137083718c40f046319e662d10a7778d5becfc11e39eafac8",
-          "reference": "../assets/img/WT-CT18.jpg",
-          "path": "assets/img/WT-CT18.jpg",
+          "reference": "../assets/img/RP-C08.jpg",
+          "path": "assets/img/RP-C08.jpg",
           "sha256": "9329f9fe343de06ec06eb42e38a1c056a1a67afea8c5b9af0e1acaabee795b9d"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT18.html",
+          "page": "products/RP-C08.html",
           "page_sha256": "ed8423ddbe41324137083718c40f046319e662d10a7778d5becfc11e39eafac8",
-          "reference": "../assets/img/WT-CT18.jpg",
-          "path": "assets/img/WT-CT18.jpg",
+          "reference": "../assets/img/RP-C08.jpg",
+          "path": "assets/img/RP-C08.jpg",
           "sha256": "9329f9fe343de06ec06eb42e38a1c056a1a67afea8c5b9af0e1acaabee795b9d"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT18.html",
+          "page": "products/RP-C08.html",
           "page_sha256": "ed8423ddbe41324137083718c40f046319e662d10a7778d5becfc11e39eafac8",
-          "reference": "../assets/img/WT-CT18.jpg",
-          "path": "assets/img/WT-CT18.jpg",
+          "reference": "../assets/img/RP-C08.jpg",
+          "path": "assets/img/RP-C08.jpg",
           "sha256": "9329f9fe343de06ec06eb42e38a1c056a1a67afea8c5b9af0e1acaabee795b9d"
         }
       ],
@@ -402,15 +402,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT19",
-      "source": "assets/img/WT-CT19.jpg",
+      "sku": "RP-C09",
+      "source": "assets/img/RP-C09.jpg",
       "source_sha256": "7501f594c00f2cfa59349d96f199b4b6476153d117f8d6e7aae2bcba2728fbbb",
       "source_dimensions": [
         1200,
         1111
       ],
       "status": "pass",
-      "output": "assets/products/WT-CT19.png",
+      "output": "assets/products/RP-C09.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -420,26 +420,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT19.html",
+          "page": "products/RP-C09.html",
           "page_sha256": "eab3287c32e523582b2f2da5c2e63bb4a3e97cde6aa1995ccb586a6b7492bca4",
-          "reference": "../assets/img/WT-CT19.jpg",
-          "path": "assets/img/WT-CT19.jpg",
+          "reference": "../assets/img/RP-C09.jpg",
+          "path": "assets/img/RP-C09.jpg",
           "sha256": "7501f594c00f2cfa59349d96f199b4b6476153d117f8d6e7aae2bcba2728fbbb"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT19.html",
+          "page": "products/RP-C09.html",
           "page_sha256": "eab3287c32e523582b2f2da5c2e63bb4a3e97cde6aa1995ccb586a6b7492bca4",
-          "reference": "../assets/img/WT-CT19.jpg",
-          "path": "assets/img/WT-CT19.jpg",
+          "reference": "../assets/img/RP-C09.jpg",
+          "path": "assets/img/RP-C09.jpg",
           "sha256": "7501f594c00f2cfa59349d96f199b4b6476153d117f8d6e7aae2bcba2728fbbb"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT19.html",
+          "page": "products/RP-C09.html",
           "page_sha256": "eab3287c32e523582b2f2da5c2e63bb4a3e97cde6aa1995ccb586a6b7492bca4",
-          "reference": "../assets/img/WT-CT19.jpg",
-          "path": "assets/img/WT-CT19.jpg",
+          "reference": "../assets/img/RP-C09.jpg",
+          "path": "assets/img/RP-C09.jpg",
           "sha256": "7501f594c00f2cfa59349d96f199b4b6476153d117f8d6e7aae2bcba2728fbbb"
         }
       ],
@@ -454,8 +454,8 @@
       ]
     },
     {
-      "sku": "WT-CT20",
-      "source": "assets/img/WT-CT20.jpg",
+      "sku": "RP-C10",
+      "source": "assets/img/RP-C10.jpg",
       "source_sha256": "ad7b184b9c4a7952d6e3089330e33520148a54d66ab61360586aa967fc4fcb8b",
       "source_dimensions": [
         504,
@@ -469,26 +469,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT20.html",
+          "page": "products/RP-C10.html",
           "page_sha256": "80584b2b577e99b3257879fc6f39d6989846082acd762f41ec1b459a450fe093",
-          "reference": "../assets/img/WT-CT20.jpg",
-          "path": "assets/img/WT-CT20.jpg",
+          "reference": "../assets/img/RP-C10.jpg",
+          "path": "assets/img/RP-C10.jpg",
           "sha256": "ad7b184b9c4a7952d6e3089330e33520148a54d66ab61360586aa967fc4fcb8b"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT20.html",
+          "page": "products/RP-C10.html",
           "page_sha256": "80584b2b577e99b3257879fc6f39d6989846082acd762f41ec1b459a450fe093",
-          "reference": "../assets/img/WT-CT20.jpg",
-          "path": "assets/img/WT-CT20.jpg",
+          "reference": "../assets/img/RP-C10.jpg",
+          "path": "assets/img/RP-C10.jpg",
           "sha256": "ad7b184b9c4a7952d6e3089330e33520148a54d66ab61360586aa967fc4fcb8b"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT20.html",
+          "page": "products/RP-C10.html",
           "page_sha256": "80584b2b577e99b3257879fc6f39d6989846082acd762f41ec1b459a450fe093",
-          "reference": "../assets/img/WT-CT20.jpg",
-          "path": "assets/img/WT-CT20.jpg",
+          "reference": "../assets/img/RP-C10.jpg",
+          "path": "assets/img/RP-C10.jpg",
           "sha256": "ad7b184b9c4a7952d6e3089330e33520148a54d66ab61360586aa967fc4fcb8b"
         }
       ],
@@ -500,15 +500,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT21",
-      "source": "assets/img/WT-CT21.jpg",
+      "sku": "RP-C11",
+      "source": "assets/img/RP-C11.jpg",
       "source_sha256": "e8ad6eab9daf0c9718c6ef1c0ef8620c429aa45222e04b81193294acc02297ce",
       "source_dimensions": [
         1200,
         995
       ],
       "status": "pass",
-      "output": "assets/products/WT-CT21.png",
+      "output": "assets/products/RP-C11.png",
       "operations": [
         "Normalize near-white background pixels only",
         "Trim external whitespace",
@@ -524,26 +524,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT21.html",
+          "page": "products/RP-C11.html",
           "page_sha256": "5b4948d853a6390a0e00cfb86ef1a55cad5b0b5a5521a690ea1791e206aa388e",
-          "reference": "../assets/img/WT-CT21.jpg",
-          "path": "assets/img/WT-CT21.jpg",
+          "reference": "../assets/img/RP-C11.jpg",
+          "path": "assets/img/RP-C11.jpg",
           "sha256": "e8ad6eab9daf0c9718c6ef1c0ef8620c429aa45222e04b81193294acc02297ce"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT21.html",
+          "page": "products/RP-C11.html",
           "page_sha256": "5b4948d853a6390a0e00cfb86ef1a55cad5b0b5a5521a690ea1791e206aa388e",
-          "reference": "../assets/img/WT-CT21.jpg",
-          "path": "assets/img/WT-CT21.jpg",
+          "reference": "../assets/img/RP-C11.jpg",
+          "path": "assets/img/RP-C11.jpg",
           "sha256": "e8ad6eab9daf0c9718c6ef1c0ef8620c429aa45222e04b81193294acc02297ce"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT21.html",
+          "page": "products/RP-C11.html",
           "page_sha256": "5b4948d853a6390a0e00cfb86ef1a55cad5b0b5a5521a690ea1791e206aa388e",
-          "reference": "../assets/img/WT-CT21.jpg",
-          "path": "assets/img/WT-CT21.jpg",
+          "reference": "../assets/img/RP-C11.jpg",
+          "path": "assets/img/RP-C11.jpg",
           "sha256": "e8ad6eab9daf0c9718c6ef1c0ef8620c429aa45222e04b81193294acc02297ce"
         }
       ],
@@ -554,8 +554,8 @@
       "preserved_existing_output": true
     },
     {
-      "sku": "WT-CT22",
-      "source": "assets/img/WT-CT22.jpg",
+      "sku": "RP-C12",
+      "source": "assets/img/RP-C12.jpg",
       "source_sha256": "b0d1440c493da96175b435d20a997e6747f5a0879ef2485de8bfce4a810d1032",
       "source_dimensions": [
         1200,
@@ -569,26 +569,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT22.html",
+          "page": "products/RP-C12.html",
           "page_sha256": "40025cbef557716834f9c5f57f732da68f0b2bc62e7ae1b139d9da80387c795a",
-          "reference": "../assets/img/WT-CT22.jpg",
-          "path": "assets/img/WT-CT22.jpg",
+          "reference": "../assets/img/RP-C12.jpg",
+          "path": "assets/img/RP-C12.jpg",
           "sha256": "b0d1440c493da96175b435d20a997e6747f5a0879ef2485de8bfce4a810d1032"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT22.html",
+          "page": "products/RP-C12.html",
           "page_sha256": "40025cbef557716834f9c5f57f732da68f0b2bc62e7ae1b139d9da80387c795a",
-          "reference": "../assets/img/WT-CT22.jpg",
-          "path": "assets/img/WT-CT22.jpg",
+          "reference": "../assets/img/RP-C12.jpg",
+          "path": "assets/img/RP-C12.jpg",
           "sha256": "b0d1440c493da96175b435d20a997e6747f5a0879ef2485de8bfce4a810d1032"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT22.html",
+          "page": "products/RP-C12.html",
           "page_sha256": "40025cbef557716834f9c5f57f732da68f0b2bc62e7ae1b139d9da80387c795a",
-          "reference": "../assets/img/WT-CT22.jpg",
-          "path": "assets/img/WT-CT22.jpg",
+          "reference": "../assets/img/RP-C12.jpg",
+          "path": "assets/img/RP-C12.jpg",
           "sha256": "b0d1440c493da96175b435d20a997e6747f5a0879ef2485de8bfce4a810d1032"
         }
       ],
@@ -600,8 +600,8 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT23",
-      "source": "assets/img/WT-CT23.jpg",
+      "sku": "RP-C13",
+      "source": "assets/img/RP-C13.jpg",
       "source_sha256": "a2a4a5a7b22e40a77f5c3041c5b9c807da296d510b2633e19c6bd5f7c1b3614f",
       "source_dimensions": [
         1200,
@@ -615,26 +615,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT23.html",
+          "page": "products/RP-C13.html",
           "page_sha256": "96e147ea64bbb8dc346490bde86dd602e2d420a09127d2fccf9a291ed2cb12b1",
-          "reference": "../assets/img/WT-CT23.jpg",
-          "path": "assets/img/WT-CT23.jpg",
+          "reference": "../assets/img/RP-C13.jpg",
+          "path": "assets/img/RP-C13.jpg",
           "sha256": "a2a4a5a7b22e40a77f5c3041c5b9c807da296d510b2633e19c6bd5f7c1b3614f"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT23.html",
+          "page": "products/RP-C13.html",
           "page_sha256": "96e147ea64bbb8dc346490bde86dd602e2d420a09127d2fccf9a291ed2cb12b1",
-          "reference": "../assets/img/WT-CT23.jpg",
-          "path": "assets/img/WT-CT23.jpg",
+          "reference": "../assets/img/RP-C13.jpg",
+          "path": "assets/img/RP-C13.jpg",
           "sha256": "a2a4a5a7b22e40a77f5c3041c5b9c807da296d510b2633e19c6bd5f7c1b3614f"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT23.html",
+          "page": "products/RP-C13.html",
           "page_sha256": "96e147ea64bbb8dc346490bde86dd602e2d420a09127d2fccf9a291ed2cb12b1",
-          "reference": "../assets/img/WT-CT23.jpg",
-          "path": "assets/img/WT-CT23.jpg",
+          "reference": "../assets/img/RP-C13.jpg",
+          "path": "assets/img/RP-C13.jpg",
           "sha256": "a2a4a5a7b22e40a77f5c3041c5b9c807da296d510b2633e19c6bd5f7c1b3614f"
         }
       ],
@@ -646,8 +646,8 @@
       "dimensions": null
     },
     {
-      "sku": "WT-CT26",
-      "source": "assets/img/WT-CT26.jpg",
+      "sku": "RP-C14",
+      "source": "assets/img/RP-C14.jpg",
       "source_sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170",
       "source_dimensions": [
         876,
@@ -661,26 +661,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-CT26.html",
+          "page": "products/RP-C14.html",
           "page_sha256": "99baf393f44a585d3705dbb51682cdaed583c3d81a94b929797cfbb5f0bc8776",
-          "reference": "../assets/img/WT-CT26.jpg",
-          "path": "assets/img/WT-CT26.jpg",
+          "reference": "../assets/img/RP-C14.jpg",
+          "path": "assets/img/RP-C14.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         },
         {
           "kind": "zip",
-          "page": "products/WT-CT26.html",
+          "page": "products/RP-C14.html",
           "page_sha256": "99baf393f44a585d3705dbb51682cdaed583c3d81a94b929797cfbb5f0bc8776",
-          "reference": "../assets/img/WT-CT26.jpg",
-          "path": "assets/img/WT-CT26.jpg",
+          "reference": "../assets/img/RP-C14.jpg",
+          "path": "assets/img/RP-C14.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         },
         {
           "kind": "preview",
-          "page": "products/WT-CT26.html",
+          "page": "products/RP-C14.html",
           "page_sha256": "99baf393f44a585d3705dbb51682cdaed583c3d81a94b929797cfbb5f0bc8776",
-          "reference": "../assets/img/WT-CT26.jpg",
-          "path": "assets/img/WT-CT26.jpg",
+          "reference": "../assets/img/RP-C14.jpg",
+          "path": "assets/img/RP-C14.jpg",
           "sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170"
         }
       ],
@@ -692,15 +692,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-SH02",
-      "source": "assets/img/WT-SH02.jpg",
+      "sku": "RP-S01",
+      "source": "assets/img/RP-S01.jpg",
       "source_sha256": "ea5d264a66d56a27e6d022f611599ef5da8fcf2af81762a5567af2aae1117d31",
       "source_dimensions": [
         441,
         669
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH02.png",
+      "output": "assets/products/RP-S01.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -710,26 +710,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH02.html",
+          "page": "products/RP-S01.html",
           "page_sha256": "77406bf0471d7d598adf523ccf26ab6eac225973aefe1439f218d3d7d56a8112",
-          "reference": "../assets/img/WT-SH02.jpg",
-          "path": "assets/img/WT-SH02.jpg",
+          "reference": "../assets/img/RP-S01.jpg",
+          "path": "assets/img/RP-S01.jpg",
           "sha256": "ea5d264a66d56a27e6d022f611599ef5da8fcf2af81762a5567af2aae1117d31"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH02.html",
+          "page": "products/RP-S01.html",
           "page_sha256": "77406bf0471d7d598adf523ccf26ab6eac225973aefe1439f218d3d7d56a8112",
-          "reference": "../assets/img/WT-SH02.jpg",
-          "path": "assets/img/WT-SH02.jpg",
+          "reference": "../assets/img/RP-S01.jpg",
+          "path": "assets/img/RP-S01.jpg",
           "sha256": "ea5d264a66d56a27e6d022f611599ef5da8fcf2af81762a5567af2aae1117d31"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH02.html",
+          "page": "products/RP-S01.html",
           "page_sha256": "77406bf0471d7d598adf523ccf26ab6eac225973aefe1439f218d3d7d56a8112",
-          "reference": "../assets/img/WT-SH02.jpg",
-          "path": "assets/img/WT-SH02.jpg",
+          "reference": "../assets/img/RP-S01.jpg",
+          "path": "assets/img/RP-S01.jpg",
           "sha256": "ea5d264a66d56a27e6d022f611599ef5da8fcf2af81762a5567af2aae1117d31"
         }
       ],
@@ -744,15 +744,15 @@
       ]
     },
     {
-      "sku": "WT-SH04",
-      "source": "assets/img/WT-SH04.jpg",
+      "sku": "RP-S02",
+      "source": "assets/img/RP-S02.jpg",
       "source_sha256": "c0f2a84899ed360b2e5f0cc85681e41d3056e8745d4276ba325bcabf4df5ea4b",
       "source_dimensions": [
         414,
         694
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH04.png",
+      "output": "assets/products/RP-S02.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -762,26 +762,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH04.html",
+          "page": "products/RP-S02.html",
           "page_sha256": "99571087f8356170311fea5d2c2c89145763a634f115e652692b6c9277873f08",
-          "reference": "../assets/img/WT-SH04.jpg",
-          "path": "assets/img/WT-SH04.jpg",
+          "reference": "../assets/img/RP-S02.jpg",
+          "path": "assets/img/RP-S02.jpg",
           "sha256": "c0f2a84899ed360b2e5f0cc85681e41d3056e8745d4276ba325bcabf4df5ea4b"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH04.html",
+          "page": "products/RP-S02.html",
           "page_sha256": "99571087f8356170311fea5d2c2c89145763a634f115e652692b6c9277873f08",
-          "reference": "../assets/img/WT-SH04.jpg",
-          "path": "assets/img/WT-SH04.jpg",
+          "reference": "../assets/img/RP-S02.jpg",
+          "path": "assets/img/RP-S02.jpg",
           "sha256": "c0f2a84899ed360b2e5f0cc85681e41d3056e8745d4276ba325bcabf4df5ea4b"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH04.html",
+          "page": "products/RP-S02.html",
           "page_sha256": "99571087f8356170311fea5d2c2c89145763a634f115e652692b6c9277873f08",
-          "reference": "../assets/img/WT-SH04.jpg",
-          "path": "assets/img/WT-SH04.jpg",
+          "reference": "../assets/img/RP-S02.jpg",
+          "path": "assets/img/RP-S02.jpg",
           "sha256": "c0f2a84899ed360b2e5f0cc85681e41d3056e8745d4276ba325bcabf4df5ea4b"
         }
       ],
@@ -796,15 +796,15 @@
       ]
     },
     {
-      "sku": "WT-SH11",
-      "source": "assets/img/WT-SH11.jpg",
+      "sku": "RP-S03",
+      "source": "assets/img/RP-S03.jpg",
       "source_sha256": "b49bb07d26827ea49955d7cb0409a582da377e43698b2e63485c1a6f6af776cd",
       "source_dimensions": [
         213,
         649
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH11.png",
+      "output": "assets/products/RP-S03.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -814,26 +814,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH11.html",
+          "page": "products/RP-S03.html",
           "page_sha256": "7c59e0d8a203707facbfb6b097471d2a27f729ea1b4f866297a8d59eb7d5ea67",
-          "reference": "../assets/img/WT-SH11.jpg",
-          "path": "assets/img/WT-SH11.jpg",
+          "reference": "../assets/img/RP-S03.jpg",
+          "path": "assets/img/RP-S03.jpg",
           "sha256": "b49bb07d26827ea49955d7cb0409a582da377e43698b2e63485c1a6f6af776cd"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH11.html",
+          "page": "products/RP-S03.html",
           "page_sha256": "7c59e0d8a203707facbfb6b097471d2a27f729ea1b4f866297a8d59eb7d5ea67",
-          "reference": "../assets/img/WT-SH11.jpg",
-          "path": "assets/img/WT-SH11.jpg",
+          "reference": "../assets/img/RP-S03.jpg",
+          "path": "assets/img/RP-S03.jpg",
           "sha256": "b49bb07d26827ea49955d7cb0409a582da377e43698b2e63485c1a6f6af776cd"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH11.html",
+          "page": "products/RP-S03.html",
           "page_sha256": "7c59e0d8a203707facbfb6b097471d2a27f729ea1b4f866297a8d59eb7d5ea67",
-          "reference": "../assets/img/WT-SH11.jpg",
-          "path": "assets/img/WT-SH11.jpg",
+          "reference": "../assets/img/RP-S03.jpg",
+          "path": "assets/img/RP-S03.jpg",
           "sha256": "b49bb07d26827ea49955d7cb0409a582da377e43698b2e63485c1a6f6af776cd"
         }
       ],
@@ -848,15 +848,15 @@
       ]
     },
     {
-      "sku": "WT-SH12",
-      "source": "assets/img/WT-SH12.jpg",
+      "sku": "RP-S04",
+      "source": "assets/img/RP-S04.jpg",
       "source_sha256": "aebc8a6bb1bffc94bd5711ddaab3688c8ea4b3d1d314f6ae6bfb74be8d8fb96c",
       "source_dimensions": [
         347,
         1041
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH12.png",
+      "output": "assets/products/RP-S04.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -866,26 +866,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH12.html",
+          "page": "products/RP-S04.html",
           "page_sha256": "69ab7a9a8126faf337bcf6dc87245dacc632f8e6814fd3afb0649f02d286c4bc",
-          "reference": "../assets/img/WT-SH12.jpg",
-          "path": "assets/img/WT-SH12.jpg",
+          "reference": "../assets/img/RP-S04.jpg",
+          "path": "assets/img/RP-S04.jpg",
           "sha256": "aebc8a6bb1bffc94bd5711ddaab3688c8ea4b3d1d314f6ae6bfb74be8d8fb96c"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH12.html",
+          "page": "products/RP-S04.html",
           "page_sha256": "69ab7a9a8126faf337bcf6dc87245dacc632f8e6814fd3afb0649f02d286c4bc",
-          "reference": "../assets/img/WT-SH12.jpg",
-          "path": "assets/img/WT-SH12.jpg",
+          "reference": "../assets/img/RP-S04.jpg",
+          "path": "assets/img/RP-S04.jpg",
           "sha256": "aebc8a6bb1bffc94bd5711ddaab3688c8ea4b3d1d314f6ae6bfb74be8d8fb96c"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH12.html",
+          "page": "products/RP-S04.html",
           "page_sha256": "69ab7a9a8126faf337bcf6dc87245dacc632f8e6814fd3afb0649f02d286c4bc",
-          "reference": "../assets/img/WT-SH12.jpg",
-          "path": "assets/img/WT-SH12.jpg",
+          "reference": "../assets/img/RP-S04.jpg",
+          "path": "assets/img/RP-S04.jpg",
           "sha256": "aebc8a6bb1bffc94bd5711ddaab3688c8ea4b3d1d314f6ae6bfb74be8d8fb96c"
         }
       ],
@@ -900,15 +900,15 @@
       ]
     },
     {
-      "sku": "WT-SH13",
-      "source": "assets/img/WT-SH13.jpg",
+      "sku": "RP-S05",
+      "source": "assets/img/RP-S05.jpg",
       "source_sha256": "3561e8943c7ff1c8a4dc27df2c00cdb4338472341f75c82c28ee24c2ea23af22",
       "source_dimensions": [
         251,
         672
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH13.png",
+      "output": "assets/products/RP-S05.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -918,26 +918,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH13.html",
+          "page": "products/RP-S05.html",
           "page_sha256": "168ece5510640c0c9d66b5aa14f2210b0802136c05fc5cb82a83d8692d6b5697",
-          "reference": "../assets/img/WT-SH13.jpg",
-          "path": "assets/img/WT-SH13.jpg",
+          "reference": "../assets/img/RP-S05.jpg",
+          "path": "assets/img/RP-S05.jpg",
           "sha256": "3561e8943c7ff1c8a4dc27df2c00cdb4338472341f75c82c28ee24c2ea23af22"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH13.html",
+          "page": "products/RP-S05.html",
           "page_sha256": "168ece5510640c0c9d66b5aa14f2210b0802136c05fc5cb82a83d8692d6b5697",
-          "reference": "../assets/img/WT-SH13.jpg",
-          "path": "assets/img/WT-SH13.jpg",
+          "reference": "../assets/img/RP-S05.jpg",
+          "path": "assets/img/RP-S05.jpg",
           "sha256": "3561e8943c7ff1c8a4dc27df2c00cdb4338472341f75c82c28ee24c2ea23af22"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH13.html",
+          "page": "products/RP-S05.html",
           "page_sha256": "168ece5510640c0c9d66b5aa14f2210b0802136c05fc5cb82a83d8692d6b5697",
-          "reference": "../assets/img/WT-SH13.jpg",
-          "path": "assets/img/WT-SH13.jpg",
+          "reference": "../assets/img/RP-S05.jpg",
+          "path": "assets/img/RP-S05.jpg",
           "sha256": "3561e8943c7ff1c8a4dc27df2c00cdb4338472341f75c82c28ee24c2ea23af22"
         }
       ],
@@ -952,15 +952,15 @@
       ]
     },
     {
-      "sku": "WT-SH14",
-      "source": "assets/img/WT-SH14.jpg",
+      "sku": "RP-S06",
+      "source": "assets/img/RP-S06.jpg",
       "source_sha256": "a619cdc48f9af19b138d6a3a7f307c812ecc3ff8371e01a80263c81be0eb30f4",
       "source_dimensions": [
         422,
         800
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH14.png",
+      "output": "assets/products/RP-S06.png",
       "operations": [
         "Normalize near-white background pixels only",
         "Trim external whitespace",
@@ -976,26 +976,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH14.html",
+          "page": "products/RP-S06.html",
           "page_sha256": "6e6aee298e37c3e061592ba005840e3637fb2771dafce8a7387a4538a202e77a",
-          "reference": "../assets/img/WT-SH14.jpg",
-          "path": "assets/img/WT-SH14.jpg",
+          "reference": "../assets/img/RP-S06.jpg",
+          "path": "assets/img/RP-S06.jpg",
           "sha256": "a619cdc48f9af19b138d6a3a7f307c812ecc3ff8371e01a80263c81be0eb30f4"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH14.html",
+          "page": "products/RP-S06.html",
           "page_sha256": "6e6aee298e37c3e061592ba005840e3637fb2771dafce8a7387a4538a202e77a",
-          "reference": "../assets/img/WT-SH14.jpg",
-          "path": "assets/img/WT-SH14.jpg",
+          "reference": "../assets/img/RP-S06.jpg",
+          "path": "assets/img/RP-S06.jpg",
           "sha256": "a619cdc48f9af19b138d6a3a7f307c812ecc3ff8371e01a80263c81be0eb30f4"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH14.html",
+          "page": "products/RP-S06.html",
           "page_sha256": "6e6aee298e37c3e061592ba005840e3637fb2771dafce8a7387a4538a202e77a",
-          "reference": "../assets/img/WT-SH14.jpg",
-          "path": "assets/img/WT-SH14.jpg",
+          "reference": "../assets/img/RP-S06.jpg",
+          "path": "assets/img/RP-S06.jpg",
           "sha256": "a619cdc48f9af19b138d6a3a7f307c812ecc3ff8371e01a80263c81be0eb30f4"
         }
       ],
@@ -1006,15 +1006,15 @@
       "preserved_existing_output": true
     },
     {
-      "sku": "WT-SH15",
-      "source": "assets/img/WT-SH15.jpg",
+      "sku": "RP-S07",
+      "source": "assets/img/RP-S07.jpg",
       "source_sha256": "bc5b2a7ea2ab0510a1531a364f4a5354c201f32984b78385a7d68a1647122523",
       "source_dimensions": [
         320,
         860
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH15.png",
+      "output": "assets/products/RP-S07.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1024,26 +1024,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH15.html",
+          "page": "products/RP-S07.html",
           "page_sha256": "62e294b14c47ef214aeb6e9d1787ee8a3e086bca7267fa404005bdd4ace75e0d",
-          "reference": "../assets/img/WT-SH15.jpg",
-          "path": "assets/img/WT-SH15.jpg",
+          "reference": "../assets/img/RP-S07.jpg",
+          "path": "assets/img/RP-S07.jpg",
           "sha256": "bc5b2a7ea2ab0510a1531a364f4a5354c201f32984b78385a7d68a1647122523"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH15.html",
+          "page": "products/RP-S07.html",
           "page_sha256": "62e294b14c47ef214aeb6e9d1787ee8a3e086bca7267fa404005bdd4ace75e0d",
-          "reference": "../assets/img/WT-SH15.jpg",
-          "path": "assets/img/WT-SH15.jpg",
+          "reference": "../assets/img/RP-S07.jpg",
+          "path": "assets/img/RP-S07.jpg",
           "sha256": "bc5b2a7ea2ab0510a1531a364f4a5354c201f32984b78385a7d68a1647122523"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH15.html",
+          "page": "products/RP-S07.html",
           "page_sha256": "62e294b14c47ef214aeb6e9d1787ee8a3e086bca7267fa404005bdd4ace75e0d",
-          "reference": "../assets/img/WT-SH15.jpg",
-          "path": "assets/img/WT-SH15.jpg",
+          "reference": "../assets/img/RP-S07.jpg",
+          "path": "assets/img/RP-S07.jpg",
           "sha256": "bc5b2a7ea2ab0510a1531a364f4a5354c201f32984b78385a7d68a1647122523"
         }
       ],
@@ -1058,15 +1058,15 @@
       ]
     },
     {
-      "sku": "WT-SH16",
-      "source": "assets/img/WT-SH16.jpg",
+      "sku": "RP-S08",
+      "source": "assets/img/RP-S08.jpg",
       "source_sha256": "606d3bef186578d20d78dc7d64cec12bf5aad6dc1336aa3ad2e84722c2ac7cf6",
       "source_dimensions": [
         215,
         584
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH16.png",
+      "output": "assets/products/RP-S08.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1076,26 +1076,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH16.html",
+          "page": "products/RP-S08.html",
           "page_sha256": "20585b88cf13d816c4ee190621513c0ff6ec53121f6888268af999ca05147968",
-          "reference": "../assets/img/WT-SH16.jpg",
-          "path": "assets/img/WT-SH16.jpg",
+          "reference": "../assets/img/RP-S08.jpg",
+          "path": "assets/img/RP-S08.jpg",
           "sha256": "606d3bef186578d20d78dc7d64cec12bf5aad6dc1336aa3ad2e84722c2ac7cf6"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH16.html",
+          "page": "products/RP-S08.html",
           "page_sha256": "20585b88cf13d816c4ee190621513c0ff6ec53121f6888268af999ca05147968",
-          "reference": "../assets/img/WT-SH16.jpg",
-          "path": "assets/img/WT-SH16.jpg",
+          "reference": "../assets/img/RP-S08.jpg",
+          "path": "assets/img/RP-S08.jpg",
           "sha256": "606d3bef186578d20d78dc7d64cec12bf5aad6dc1336aa3ad2e84722c2ac7cf6"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH16.html",
+          "page": "products/RP-S08.html",
           "page_sha256": "20585b88cf13d816c4ee190621513c0ff6ec53121f6888268af999ca05147968",
-          "reference": "../assets/img/WT-SH16.jpg",
-          "path": "assets/img/WT-SH16.jpg",
+          "reference": "../assets/img/RP-S08.jpg",
+          "path": "assets/img/RP-S08.jpg",
           "sha256": "606d3bef186578d20d78dc7d64cec12bf5aad6dc1336aa3ad2e84722c2ac7cf6"
         }
       ],
@@ -1110,15 +1110,15 @@
       ]
     },
     {
-      "sku": "WT-SH17",
-      "source": "assets/img/WT-SH17.jpg",
+      "sku": "RP-S09",
+      "source": "assets/img/RP-S09.jpg",
       "source_sha256": "0bbcaff7526afba7955850b4c17f642f03d626c13a03c47fa888bbde295296f2",
       "source_dimensions": [
         480,
         1080
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH17.png",
+      "output": "assets/products/RP-S09.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1128,26 +1128,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH17.html",
+          "page": "products/RP-S09.html",
           "page_sha256": "aaccd2ecc946139ee8536fe8ee5e43584c3b14284d004508a7925583ee82bf09",
-          "reference": "../assets/img/WT-SH17.jpg",
-          "path": "assets/img/WT-SH17.jpg",
+          "reference": "../assets/img/RP-S09.jpg",
+          "path": "assets/img/RP-S09.jpg",
           "sha256": "0bbcaff7526afba7955850b4c17f642f03d626c13a03c47fa888bbde295296f2"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH17.html",
+          "page": "products/RP-S09.html",
           "page_sha256": "aaccd2ecc946139ee8536fe8ee5e43584c3b14284d004508a7925583ee82bf09",
-          "reference": "../assets/img/WT-SH17.jpg",
-          "path": "assets/img/WT-SH17.jpg",
+          "reference": "../assets/img/RP-S09.jpg",
+          "path": "assets/img/RP-S09.jpg",
           "sha256": "0bbcaff7526afba7955850b4c17f642f03d626c13a03c47fa888bbde295296f2"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH17.html",
+          "page": "products/RP-S09.html",
           "page_sha256": "aaccd2ecc946139ee8536fe8ee5e43584c3b14284d004508a7925583ee82bf09",
-          "reference": "../assets/img/WT-SH17.jpg",
-          "path": "assets/img/WT-SH17.jpg",
+          "reference": "../assets/img/RP-S09.jpg",
+          "path": "assets/img/RP-S09.jpg",
           "sha256": "0bbcaff7526afba7955850b4c17f642f03d626c13a03c47fa888bbde295296f2"
         }
       ],
@@ -1162,15 +1162,15 @@
       ]
     },
     {
-      "sku": "WT-SH18",
-      "source": "assets/img/WT-SH18.jpg",
+      "sku": "RP-S10",
+      "source": "assets/img/RP-S10.jpg",
       "source_sha256": "ddb9cff948012b0d3143a216b76cfc486d7593aff81787106ba612f1ad9353c7",
       "source_dimensions": [
         1200,
         1579
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH18.png",
+      "output": "assets/products/RP-S10.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1180,26 +1180,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH18.html",
+          "page": "products/RP-S10.html",
           "page_sha256": "500858e4046ee36c127a51afe79d88ce6471cc1b5b9bce0c3541ed6d9f017def",
-          "reference": "../assets/img/WT-SH18.jpg",
-          "path": "assets/img/WT-SH18.jpg",
+          "reference": "../assets/img/RP-S10.jpg",
+          "path": "assets/img/RP-S10.jpg",
           "sha256": "ddb9cff948012b0d3143a216b76cfc486d7593aff81787106ba612f1ad9353c7"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH18.html",
+          "page": "products/RP-S10.html",
           "page_sha256": "500858e4046ee36c127a51afe79d88ce6471cc1b5b9bce0c3541ed6d9f017def",
-          "reference": "../assets/img/WT-SH18.jpg",
-          "path": "assets/img/WT-SH18.jpg",
+          "reference": "../assets/img/RP-S10.jpg",
+          "path": "assets/img/RP-S10.jpg",
           "sha256": "ddb9cff948012b0d3143a216b76cfc486d7593aff81787106ba612f1ad9353c7"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH18.html",
+          "page": "products/RP-S10.html",
           "page_sha256": "500858e4046ee36c127a51afe79d88ce6471cc1b5b9bce0c3541ed6d9f017def",
-          "reference": "../assets/img/WT-SH18.jpg",
-          "path": "assets/img/WT-SH18.jpg",
+          "reference": "../assets/img/RP-S10.jpg",
+          "path": "assets/img/RP-S10.jpg",
           "sha256": "ddb9cff948012b0d3143a216b76cfc486d7593aff81787106ba612f1ad9353c7"
         }
       ],
@@ -1214,15 +1214,15 @@
       ]
     },
     {
-      "sku": "WT-SH19",
-      "source": "assets/img/WT-SH19.jpg",
+      "sku": "RP-S11",
+      "source": "assets/img/RP-S11.jpg",
       "source_sha256": "d9f8f985bc936a686bf9d0898f822e8d61c63c30174d6abf3c4313131e3be37d",
       "source_dimensions": [
         221,
         484
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH19.png",
+      "output": "assets/products/RP-S11.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1232,26 +1232,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH19.html",
+          "page": "products/RP-S11.html",
           "page_sha256": "96fa72f5ac896666f5774d4d69440051bdc1fcd81b8f61308a7901c387a0bceb",
-          "reference": "../assets/img/WT-SH19.jpg",
-          "path": "assets/img/WT-SH19.jpg",
+          "reference": "../assets/img/RP-S11.jpg",
+          "path": "assets/img/RP-S11.jpg",
           "sha256": "d9f8f985bc936a686bf9d0898f822e8d61c63c30174d6abf3c4313131e3be37d"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH19.html",
+          "page": "products/RP-S11.html",
           "page_sha256": "96fa72f5ac896666f5774d4d69440051bdc1fcd81b8f61308a7901c387a0bceb",
-          "reference": "../assets/img/WT-SH19.jpg",
-          "path": "assets/img/WT-SH19.jpg",
+          "reference": "../assets/img/RP-S11.jpg",
+          "path": "assets/img/RP-S11.jpg",
           "sha256": "d9f8f985bc936a686bf9d0898f822e8d61c63c30174d6abf3c4313131e3be37d"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH19.html",
+          "page": "products/RP-S11.html",
           "page_sha256": "96fa72f5ac896666f5774d4d69440051bdc1fcd81b8f61308a7901c387a0bceb",
-          "reference": "../assets/img/WT-SH19.jpg",
-          "path": "assets/img/WT-SH19.jpg",
+          "reference": "../assets/img/RP-S11.jpg",
+          "path": "assets/img/RP-S11.jpg",
           "sha256": "d9f8f985bc936a686bf9d0898f822e8d61c63c30174d6abf3c4313131e3be37d"
         }
       ],
@@ -1266,15 +1266,15 @@
       ]
     },
     {
-      "sku": "WT-SH20",
-      "source": "assets/img/WT-SH20.jpg",
+      "sku": "RP-S12",
+      "source": "assets/img/RP-S12.jpg",
       "source_sha256": "7edd75cda41b24de3266ffabd60920c0579ac2c698793be8e3710f61f20e9f44",
       "source_dimensions": [
         293,
         502
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH20.png",
+      "output": "assets/products/RP-S12.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1284,26 +1284,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH20.html",
+          "page": "products/RP-S12.html",
           "page_sha256": "8bd81a1622e46066f1d9c9b29fbc02dc9cb8bb96d0f0933e0504961d028fbf03",
-          "reference": "../assets/img/WT-SH20.jpg",
-          "path": "assets/img/WT-SH20.jpg",
+          "reference": "../assets/img/RP-S12.jpg",
+          "path": "assets/img/RP-S12.jpg",
           "sha256": "7edd75cda41b24de3266ffabd60920c0579ac2c698793be8e3710f61f20e9f44"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH20.html",
+          "page": "products/RP-S12.html",
           "page_sha256": "8bd81a1622e46066f1d9c9b29fbc02dc9cb8bb96d0f0933e0504961d028fbf03",
-          "reference": "../assets/img/WT-SH20.jpg",
-          "path": "assets/img/WT-SH20.jpg",
+          "reference": "../assets/img/RP-S12.jpg",
+          "path": "assets/img/RP-S12.jpg",
           "sha256": "7edd75cda41b24de3266ffabd60920c0579ac2c698793be8e3710f61f20e9f44"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH20.html",
+          "page": "products/RP-S12.html",
           "page_sha256": "8bd81a1622e46066f1d9c9b29fbc02dc9cb8bb96d0f0933e0504961d028fbf03",
-          "reference": "../assets/img/WT-SH20.jpg",
-          "path": "assets/img/WT-SH20.jpg",
+          "reference": "../assets/img/RP-S12.jpg",
+          "path": "assets/img/RP-S12.jpg",
           "sha256": "7edd75cda41b24de3266ffabd60920c0579ac2c698793be8e3710f61f20e9f44"
         }
       ],
@@ -1318,15 +1318,15 @@
       ]
     },
     {
-      "sku": "WT-SH21",
-      "source": "assets/img/WT-SH21.jpg",
+      "sku": "RP-S13",
+      "source": "assets/img/RP-S13.jpg",
       "source_sha256": "c8a46740fea0eee4f222029f2878e6162007679cecfbf6ed01b134c43958b68f",
       "source_dimensions": [
         1200,
         953
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH21.png",
+      "output": "assets/products/RP-S13.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1336,26 +1336,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH21.html",
+          "page": "products/RP-S13.html",
           "page_sha256": "fd818710a07f1fac17909d45b1ef323346a8ebfd4a0c9ef4364566da6ea5dfed",
-          "reference": "../assets/img/WT-SH21.jpg",
-          "path": "assets/img/WT-SH21.jpg",
+          "reference": "../assets/img/RP-S13.jpg",
+          "path": "assets/img/RP-S13.jpg",
           "sha256": "c8a46740fea0eee4f222029f2878e6162007679cecfbf6ed01b134c43958b68f"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH21.html",
+          "page": "products/RP-S13.html",
           "page_sha256": "fd818710a07f1fac17909d45b1ef323346a8ebfd4a0c9ef4364566da6ea5dfed",
-          "reference": "../assets/img/WT-SH21.jpg",
-          "path": "assets/img/WT-SH21.jpg",
+          "reference": "../assets/img/RP-S13.jpg",
+          "path": "assets/img/RP-S13.jpg",
           "sha256": "c8a46740fea0eee4f222029f2878e6162007679cecfbf6ed01b134c43958b68f"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH21.html",
+          "page": "products/RP-S13.html",
           "page_sha256": "fd818710a07f1fac17909d45b1ef323346a8ebfd4a0c9ef4364566da6ea5dfed",
-          "reference": "../assets/img/WT-SH21.jpg",
-          "path": "assets/img/WT-SH21.jpg",
+          "reference": "../assets/img/RP-S13.jpg",
+          "path": "assets/img/RP-S13.jpg",
           "sha256": "c8a46740fea0eee4f222029f2878e6162007679cecfbf6ed01b134c43958b68f"
         }
       ],
@@ -1370,15 +1370,15 @@
       ]
     },
     {
-      "sku": "WT-SH22",
-      "source": "assets/img/WT-SH22.jpg",
+      "sku": "RP-S14",
+      "source": "assets/img/RP-S14.jpg",
       "source_sha256": "8c3bb67db31b5836b1f39ccc485c95e3d5a7e3949c7a58817ff0f07acd6b19cc",
       "source_dimensions": [
         549,
         1479
       ],
       "status": "pass",
-      "output": "assets/products/WT-SH22.png",
+      "output": "assets/products/RP-S14.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1388,26 +1388,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-SH22.html",
+          "page": "products/RP-S14.html",
           "page_sha256": "6dd1b89de6648d5b249facc42a628ac226d9bb50cf61292c9fc21d6c2ad45c7e",
-          "reference": "../assets/img/WT-SH22.jpg",
-          "path": "assets/img/WT-SH22.jpg",
+          "reference": "../assets/img/RP-S14.jpg",
+          "path": "assets/img/RP-S14.jpg",
           "sha256": "8c3bb67db31b5836b1f39ccc485c95e3d5a7e3949c7a58817ff0f07acd6b19cc"
         },
         {
           "kind": "zip",
-          "page": "products/WT-SH22.html",
+          "page": "products/RP-S14.html",
           "page_sha256": "6dd1b89de6648d5b249facc42a628ac226d9bb50cf61292c9fc21d6c2ad45c7e",
-          "reference": "../assets/img/WT-SH22.jpg",
-          "path": "assets/img/WT-SH22.jpg",
+          "reference": "../assets/img/RP-S14.jpg",
+          "path": "assets/img/RP-S14.jpg",
           "sha256": "8c3bb67db31b5836b1f39ccc485c95e3d5a7e3949c7a58817ff0f07acd6b19cc"
         },
         {
           "kind": "preview",
-          "page": "products/WT-SH22.html",
+          "page": "products/RP-S14.html",
           "page_sha256": "6dd1b89de6648d5b249facc42a628ac226d9bb50cf61292c9fc21d6c2ad45c7e",
-          "reference": "../assets/img/WT-SH22.jpg",
-          "path": "assets/img/WT-SH22.jpg",
+          "reference": "../assets/img/RP-S14.jpg",
+          "path": "assets/img/RP-S14.jpg",
           "sha256": "8c3bb67db31b5836b1f39ccc485c95e3d5a7e3949c7a58817ff0f07acd6b19cc"
         }
       ],
@@ -1422,15 +1422,15 @@
       ]
     },
     {
-      "sku": "WT-T01",
-      "source": "assets/img/WT-T01.jpg",
+      "sku": "RP-F01",
+      "source": "assets/img/RP-F01.jpg",
       "source_sha256": "083e43734df7d2b340d6054ed444e8fe67b2e81260c8d59648ae54210304b258",
       "source_dimensions": [
         1200,
         1301
       ],
       "status": "pass",
-      "output": "assets/products/WT-T01.png",
+      "output": "assets/products/RP-F01.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1440,26 +1440,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T01.html",
+          "page": "products/RP-F01.html",
           "page_sha256": "61b84c9daa6c362dad01f4bafd5e033a2c73ebe826cee53eaa5bcd73c106ff22",
-          "reference": "../assets/img/WT-T01.jpg",
-          "path": "assets/img/WT-T01.jpg",
+          "reference": "../assets/img/RP-F01.jpg",
+          "path": "assets/img/RP-F01.jpg",
           "sha256": "083e43734df7d2b340d6054ed444e8fe67b2e81260c8d59648ae54210304b258"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T01.html",
+          "page": "products/RP-F01.html",
           "page_sha256": "61b84c9daa6c362dad01f4bafd5e033a2c73ebe826cee53eaa5bcd73c106ff22",
-          "reference": "../assets/img/WT-T01.jpg",
-          "path": "assets/img/WT-T01.jpg",
+          "reference": "../assets/img/RP-F01.jpg",
+          "path": "assets/img/RP-F01.jpg",
           "sha256": "083e43734df7d2b340d6054ed444e8fe67b2e81260c8d59648ae54210304b258"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T01.html",
+          "page": "products/RP-F01.html",
           "page_sha256": "61b84c9daa6c362dad01f4bafd5e033a2c73ebe826cee53eaa5bcd73c106ff22",
-          "reference": "../assets/img/WT-T01.jpg",
-          "path": "assets/img/WT-T01.jpg",
+          "reference": "../assets/img/RP-F01.jpg",
+          "path": "assets/img/RP-F01.jpg",
           "sha256": "083e43734df7d2b340d6054ed444e8fe67b2e81260c8d59648ae54210304b258"
         }
       ],
@@ -1474,44 +1474,44 @@
       ]
     },
     {
-      "sku": "WT-T13",
-      "source": "assets/img/WT-T13-correct.png",
+      "sku": "RP-F02",
+      "source": "assets/img/RP-F02-correct.png",
       "source_sha256": "7e6cb642e94714d7645fbb7179107d170dfbe69eb54e82cb6c3e79af445c3535",
       "source_dimensions": [
         435,
         376
       ],
       "status": "pass",
-      "output": "assets/products/WT-T13.png",
+      "output": "assets/products/RP-F02.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
       ],
       "processing_failure": false,
-      "reason": "v5 三处产品页引用及源哈希一致；逐张目视未见中文、他品牌或水印。 使用指定银色外壳 WT-T13-correct.png；保留桌面以避免改动产品本体。",
+      "reason": "v5 三处产品页引用及源哈希一致；逐张目视未见中文、他品牌或水印。 使用指定银色外壳 RP-F02-correct.png；保留桌面以避免改动产品本体。",
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T13.html",
+          "page": "products/RP-F02.html",
           "page_sha256": "648c672ec1fa66e62e22886a6fcdced63f9b630b28b9a0f32df4672e3e320f56",
-          "reference": "../assets/img/WT-T13-correct.png",
-          "path": "assets/img/WT-T13-correct.png",
+          "reference": "../assets/img/RP-F02-correct.png",
+          "path": "assets/img/RP-F02-correct.png",
           "sha256": "7e6cb642e94714d7645fbb7179107d170dfbe69eb54e82cb6c3e79af445c3535"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T13.html",
+          "page": "products/RP-F02.html",
           "page_sha256": "648c672ec1fa66e62e22886a6fcdced63f9b630b28b9a0f32df4672e3e320f56",
-          "reference": "../assets/img/WT-T13-correct.png",
-          "path": "assets/img/WT-T13-correct.png",
+          "reference": "../assets/img/RP-F02-correct.png",
+          "path": "assets/img/RP-F02-correct.png",
           "sha256": "7e6cb642e94714d7645fbb7179107d170dfbe69eb54e82cb6c3e79af445c3535"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T13.html",
+          "page": "products/RP-F02.html",
           "page_sha256": "648c672ec1fa66e62e22886a6fcdced63f9b630b28b9a0f32df4672e3e320f56",
-          "reference": "../assets/img/WT-T13-correct.png",
-          "path": "assets/img/WT-T13-correct.png",
+          "reference": "../assets/img/RP-F02-correct.png",
+          "path": "assets/img/RP-F02-correct.png",
           "sha256": "7e6cb642e94714d7645fbb7179107d170dfbe69eb54e82cb6c3e79af445c3535"
         }
       ],
@@ -1526,15 +1526,15 @@
       ]
     },
     {
-      "sku": "WT-T14",
-      "source": "assets/img/WT-T14.jpg",
+      "sku": "RP-F03",
+      "source": "assets/img/RP-F03.jpg",
       "source_sha256": "4fcf9f3bf39e5f2cbfa7ff6aea364173e846d7912f06c369d67bfe6b3156f24b",
       "source_dimensions": [
         1200,
         1032
       ],
       "status": "pass",
-      "output": "assets/products/WT-T14.png",
+      "output": "assets/products/RP-F03.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1544,26 +1544,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T14.html",
+          "page": "products/RP-F03.html",
           "page_sha256": "88345e6961f5e387939f45e7b40f0428f20c7020905ba5129fbb2039e1723de3",
-          "reference": "../assets/img/WT-T14.jpg",
-          "path": "assets/img/WT-T14.jpg",
+          "reference": "../assets/img/RP-F03.jpg",
+          "path": "assets/img/RP-F03.jpg",
           "sha256": "4fcf9f3bf39e5f2cbfa7ff6aea364173e846d7912f06c369d67bfe6b3156f24b"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T14.html",
+          "page": "products/RP-F03.html",
           "page_sha256": "88345e6961f5e387939f45e7b40f0428f20c7020905ba5129fbb2039e1723de3",
-          "reference": "../assets/img/WT-T14.jpg",
-          "path": "assets/img/WT-T14.jpg",
+          "reference": "../assets/img/RP-F03.jpg",
+          "path": "assets/img/RP-F03.jpg",
           "sha256": "4fcf9f3bf39e5f2cbfa7ff6aea364173e846d7912f06c369d67bfe6b3156f24b"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T14.html",
+          "page": "products/RP-F03.html",
           "page_sha256": "88345e6961f5e387939f45e7b40f0428f20c7020905ba5129fbb2039e1723de3",
-          "reference": "../assets/img/WT-T14.jpg",
-          "path": "assets/img/WT-T14.jpg",
+          "reference": "../assets/img/RP-F03.jpg",
+          "path": "assets/img/RP-F03.jpg",
           "sha256": "4fcf9f3bf39e5f2cbfa7ff6aea364173e846d7912f06c369d67bfe6b3156f24b"
         }
       ],
@@ -1578,15 +1578,15 @@
       ]
     },
     {
-      "sku": "WT-T17",
-      "source": "assets/img/WT-T17.jpg",
+      "sku": "RP-F04",
+      "source": "assets/img/RP-F04.jpg",
       "source_sha256": "c73434e1adb82474ee27081d549866fa5b35a7bc9ca2dee6daff769cb9b9eb92",
       "source_dimensions": [
         540,
         489
       ],
       "status": "pass",
-      "output": "assets/products/WT-T17.png",
+      "output": "assets/products/RP-F04.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1596,26 +1596,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T17.html",
+          "page": "products/RP-F04.html",
           "page_sha256": "388ca226ee8f0f51efe65df0eccd776d8f99cf3a56fa4fd7381d63d72f8f6640",
-          "reference": "../assets/img/WT-T17.jpg",
-          "path": "assets/img/WT-T17.jpg",
+          "reference": "../assets/img/RP-F04.jpg",
+          "path": "assets/img/RP-F04.jpg",
           "sha256": "c73434e1adb82474ee27081d549866fa5b35a7bc9ca2dee6daff769cb9b9eb92"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T17.html",
+          "page": "products/RP-F04.html",
           "page_sha256": "388ca226ee8f0f51efe65df0eccd776d8f99cf3a56fa4fd7381d63d72f8f6640",
-          "reference": "../assets/img/WT-T17.jpg",
-          "path": "assets/img/WT-T17.jpg",
+          "reference": "../assets/img/RP-F04.jpg",
+          "path": "assets/img/RP-F04.jpg",
           "sha256": "c73434e1adb82474ee27081d549866fa5b35a7bc9ca2dee6daff769cb9b9eb92"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T17.html",
+          "page": "products/RP-F04.html",
           "page_sha256": "388ca226ee8f0f51efe65df0eccd776d8f99cf3a56fa4fd7381d63d72f8f6640",
-          "reference": "../assets/img/WT-T17.jpg",
-          "path": "assets/img/WT-T17.jpg",
+          "reference": "../assets/img/RP-F04.jpg",
+          "path": "assets/img/RP-F04.jpg",
           "sha256": "c73434e1adb82474ee27081d549866fa5b35a7bc9ca2dee6daff769cb9b9eb92"
         }
       ],
@@ -1630,15 +1630,15 @@
       ]
     },
     {
-      "sku": "WT-T19",
-      "source": "assets/img/WT-T19.jpg",
+      "sku": "RP-F05",
+      "source": "assets/img/RP-F05.jpg",
       "source_sha256": "01d177a3b670cd600bcf616953f1f9e48bcbf912a999ed042449a653b99f6966",
       "source_dimensions": [
         389,
         413
       ],
       "status": "pass",
-      "output": "assets/products/WT-T19.png",
+      "output": "assets/products/RP-F05.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1648,26 +1648,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T19.html",
+          "page": "products/RP-F05.html",
           "page_sha256": "50868988b846884e735e9fd91c474077e1d633794d62b70bde26db06210927b4",
-          "reference": "../assets/img/WT-T19.jpg",
-          "path": "assets/img/WT-T19.jpg",
+          "reference": "../assets/img/RP-F05.jpg",
+          "path": "assets/img/RP-F05.jpg",
           "sha256": "01d177a3b670cd600bcf616953f1f9e48bcbf912a999ed042449a653b99f6966"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T19.html",
+          "page": "products/RP-F05.html",
           "page_sha256": "50868988b846884e735e9fd91c474077e1d633794d62b70bde26db06210927b4",
-          "reference": "../assets/img/WT-T19.jpg",
-          "path": "assets/img/WT-T19.jpg",
+          "reference": "../assets/img/RP-F05.jpg",
+          "path": "assets/img/RP-F05.jpg",
           "sha256": "01d177a3b670cd600bcf616953f1f9e48bcbf912a999ed042449a653b99f6966"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T19.html",
+          "page": "products/RP-F05.html",
           "page_sha256": "50868988b846884e735e9fd91c474077e1d633794d62b70bde26db06210927b4",
-          "reference": "../assets/img/WT-T19.jpg",
-          "path": "assets/img/WT-T19.jpg",
+          "reference": "../assets/img/RP-F05.jpg",
+          "path": "assets/img/RP-F05.jpg",
           "sha256": "01d177a3b670cd600bcf616953f1f9e48bcbf912a999ed042449a653b99f6966"
         }
       ],
@@ -1682,15 +1682,15 @@
       ]
     },
     {
-      "sku": "WT-T20",
-      "source": "assets/img/WT-T20.jpg",
+      "sku": "RP-F06",
+      "source": "assets/img/RP-F06.jpg",
       "source_sha256": "5b8d00606f67c2c05cf86ef4cb52df1aaad2d8170f4752ea46d8492bc745bec7",
       "source_dimensions": [
         432,
         402
       ],
       "status": "pass",
-      "output": "assets/products/WT-T20.png",
+      "output": "assets/products/RP-F06.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1700,26 +1700,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T20.html",
+          "page": "products/RP-F06.html",
           "page_sha256": "c9bceaf8933aedc38b1c05bcca9a73d81c0ddacf1c7904750d93f8f09c205090",
-          "reference": "../assets/img/WT-T20.jpg",
-          "path": "assets/img/WT-T20.jpg",
+          "reference": "../assets/img/RP-F06.jpg",
+          "path": "assets/img/RP-F06.jpg",
           "sha256": "5b8d00606f67c2c05cf86ef4cb52df1aaad2d8170f4752ea46d8492bc745bec7"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T20.html",
+          "page": "products/RP-F06.html",
           "page_sha256": "c9bceaf8933aedc38b1c05bcca9a73d81c0ddacf1c7904750d93f8f09c205090",
-          "reference": "../assets/img/WT-T20.jpg",
-          "path": "assets/img/WT-T20.jpg",
+          "reference": "../assets/img/RP-F06.jpg",
+          "path": "assets/img/RP-F06.jpg",
           "sha256": "5b8d00606f67c2c05cf86ef4cb52df1aaad2d8170f4752ea46d8492bc745bec7"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T20.html",
+          "page": "products/RP-F06.html",
           "page_sha256": "c9bceaf8933aedc38b1c05bcca9a73d81c0ddacf1c7904750d93f8f09c205090",
-          "reference": "../assets/img/WT-T20.jpg",
-          "path": "assets/img/WT-T20.jpg",
+          "reference": "../assets/img/RP-F06.jpg",
+          "path": "assets/img/RP-F06.jpg",
           "sha256": "5b8d00606f67c2c05cf86ef4cb52df1aaad2d8170f4752ea46d8492bc745bec7"
         }
       ],
@@ -1734,15 +1734,15 @@
       ]
     },
     {
-      "sku": "WT-T21",
-      "source": "assets/img/WT-T21.jpg",
+      "sku": "RP-F07",
+      "source": "assets/img/RP-F07.jpg",
       "source_sha256": "358de9bea9618ec4bd77eab50d7e613ccacb085a81270618e4b1b2553200b89c",
       "source_dimensions": [
         450,
         470
       ],
       "status": "pass",
-      "output": "assets/products/WT-T21.png",
+      "output": "assets/products/RP-F07.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1752,26 +1752,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T21.html",
+          "page": "products/RP-F07.html",
           "page_sha256": "10bd48b621d8821171124140e93152b674cda4ecd9dbfd5d055f68c6fe74f540",
-          "reference": "../assets/img/WT-T21.jpg",
-          "path": "assets/img/WT-T21.jpg",
+          "reference": "../assets/img/RP-F07.jpg",
+          "path": "assets/img/RP-F07.jpg",
           "sha256": "358de9bea9618ec4bd77eab50d7e613ccacb085a81270618e4b1b2553200b89c"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T21.html",
+          "page": "products/RP-F07.html",
           "page_sha256": "10bd48b621d8821171124140e93152b674cda4ecd9dbfd5d055f68c6fe74f540",
-          "reference": "../assets/img/WT-T21.jpg",
-          "path": "assets/img/WT-T21.jpg",
+          "reference": "../assets/img/RP-F07.jpg",
+          "path": "assets/img/RP-F07.jpg",
           "sha256": "358de9bea9618ec4bd77eab50d7e613ccacb085a81270618e4b1b2553200b89c"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T21.html",
+          "page": "products/RP-F07.html",
           "page_sha256": "10bd48b621d8821171124140e93152b674cda4ecd9dbfd5d055f68c6fe74f540",
-          "reference": "../assets/img/WT-T21.jpg",
-          "path": "assets/img/WT-T21.jpg",
+          "reference": "../assets/img/RP-F07.jpg",
+          "path": "assets/img/RP-F07.jpg",
           "sha256": "358de9bea9618ec4bd77eab50d7e613ccacb085a81270618e4b1b2553200b89c"
         }
       ],
@@ -1786,15 +1786,15 @@
       ]
     },
     {
-      "sku": "WT-T22",
-      "source": "assets/img/WT-T22.jpg",
+      "sku": "RP-F08",
+      "source": "assets/img/RP-F08.jpg",
       "source_sha256": "b912423f28228629e0254a7e5ca448bc94b4db60d9aa2a4cee918134b52b3e5f",
       "source_dimensions": [
         325,
         308
       ],
       "status": "pass",
-      "output": "assets/products/WT-T22.png",
+      "output": "assets/products/RP-F08.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1804,26 +1804,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T22.html",
+          "page": "products/RP-F08.html",
           "page_sha256": "2f891524f3abc63fa139d389baec09022685d70369301f5128dc105a2fd2cdf1",
-          "reference": "../assets/img/WT-T22.jpg",
-          "path": "assets/img/WT-T22.jpg",
+          "reference": "../assets/img/RP-F08.jpg",
+          "path": "assets/img/RP-F08.jpg",
           "sha256": "b912423f28228629e0254a7e5ca448bc94b4db60d9aa2a4cee918134b52b3e5f"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T22.html",
+          "page": "products/RP-F08.html",
           "page_sha256": "2f891524f3abc63fa139d389baec09022685d70369301f5128dc105a2fd2cdf1",
-          "reference": "../assets/img/WT-T22.jpg",
-          "path": "assets/img/WT-T22.jpg",
+          "reference": "../assets/img/RP-F08.jpg",
+          "path": "assets/img/RP-F08.jpg",
           "sha256": "b912423f28228629e0254a7e5ca448bc94b4db60d9aa2a4cee918134b52b3e5f"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T22.html",
+          "page": "products/RP-F08.html",
           "page_sha256": "2f891524f3abc63fa139d389baec09022685d70369301f5128dc105a2fd2cdf1",
-          "reference": "../assets/img/WT-T22.jpg",
-          "path": "assets/img/WT-T22.jpg",
+          "reference": "../assets/img/RP-F08.jpg",
+          "path": "assets/img/RP-F08.jpg",
           "sha256": "b912423f28228629e0254a7e5ca448bc94b4db60d9aa2a4cee918134b52b3e5f"
         }
       ],
@@ -1838,15 +1838,15 @@
       ]
     },
     {
-      "sku": "WT-T24",
-      "source": "assets/img/WT-T24.jpg",
+      "sku": "RP-F09",
+      "source": "assets/img/RP-F09.jpg",
       "source_sha256": "40b73dbc1710768c494a23eb58cf54d5eaab9be257d8e48d40f7d8c224ae78c4",
       "source_dimensions": [
         421,
         223
       ],
       "status": "pass",
-      "output": "assets/products/WT-T24.png",
+      "output": "assets/products/RP-F09.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -1856,26 +1856,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T24.html",
+          "page": "products/RP-F09.html",
           "page_sha256": "39268bd63970cb28df74fe95b5f8cdcbc8aca1983d96f337cd47b8d9e6a39de5",
-          "reference": "../assets/img/WT-T24.jpg",
-          "path": "assets/img/WT-T24.jpg",
+          "reference": "../assets/img/RP-F09.jpg",
+          "path": "assets/img/RP-F09.jpg",
           "sha256": "40b73dbc1710768c494a23eb58cf54d5eaab9be257d8e48d40f7d8c224ae78c4"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T24.html",
+          "page": "products/RP-F09.html",
           "page_sha256": "39268bd63970cb28df74fe95b5f8cdcbc8aca1983d96f337cd47b8d9e6a39de5",
-          "reference": "../assets/img/WT-T24.jpg",
-          "path": "assets/img/WT-T24.jpg",
+          "reference": "../assets/img/RP-F09.jpg",
+          "path": "assets/img/RP-F09.jpg",
           "sha256": "40b73dbc1710768c494a23eb58cf54d5eaab9be257d8e48d40f7d8c224ae78c4"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T24.html",
+          "page": "products/RP-F09.html",
           "page_sha256": "39268bd63970cb28df74fe95b5f8cdcbc8aca1983d96f337cd47b8d9e6a39de5",
-          "reference": "../assets/img/WT-T24.jpg",
-          "path": "assets/img/WT-T24.jpg",
+          "reference": "../assets/img/RP-F09.jpg",
+          "path": "assets/img/RP-F09.jpg",
           "sha256": "40b73dbc1710768c494a23eb58cf54d5eaab9be257d8e48d40f7d8c224ae78c4"
         }
       ],
@@ -1890,15 +1890,15 @@
       ]
     },
     {
-      "sku": "WT-T25",
-      "source": "assets/img/WT-T25.jpg",
+      "sku": "RP-F10",
+      "source": "assets/img/RP-F10.jpg",
       "source_sha256": "318ab4dd575bf61200aa4499649041426220a405f5220e97ef3509d708070670",
       "source_dimensions": [
         1116,
         1179
       ],
       "status": "pass",
-      "output": "assets/products/WT-T25.png",
+      "output": "assets/products/RP-F10.png",
       "operations": [
         "Normalize near-white background pixels only",
         "Trim external whitespace",
@@ -1914,26 +1914,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T25.html",
+          "page": "products/RP-F10.html",
           "page_sha256": "7e56e8f930418818587ddd8219b6f95e45eb726e39140d3e3983efb19e50b86a",
-          "reference": "../assets/img/WT-T25.jpg",
-          "path": "assets/img/WT-T25.jpg",
+          "reference": "../assets/img/RP-F10.jpg",
+          "path": "assets/img/RP-F10.jpg",
           "sha256": "318ab4dd575bf61200aa4499649041426220a405f5220e97ef3509d708070670"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T25.html",
+          "page": "products/RP-F10.html",
           "page_sha256": "7e56e8f930418818587ddd8219b6f95e45eb726e39140d3e3983efb19e50b86a",
-          "reference": "../assets/img/WT-T25.jpg",
-          "path": "assets/img/WT-T25.jpg",
+          "reference": "../assets/img/RP-F10.jpg",
+          "path": "assets/img/RP-F10.jpg",
           "sha256": "318ab4dd575bf61200aa4499649041426220a405f5220e97ef3509d708070670"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T25.html",
+          "page": "products/RP-F10.html",
           "page_sha256": "7e56e8f930418818587ddd8219b6f95e45eb726e39140d3e3983efb19e50b86a",
-          "reference": "../assets/img/WT-T25.jpg",
-          "path": "assets/img/WT-T25.jpg",
+          "reference": "../assets/img/RP-F10.jpg",
+          "path": "assets/img/RP-F10.jpg",
           "sha256": "318ab4dd575bf61200aa4499649041426220a405f5220e97ef3509d708070670"
         }
       ],
@@ -1944,15 +1944,15 @@
       "preserved_existing_output": true
     },
     {
-      "sku": "WT-T27",
-      "source": "assets/img/WT-T27.jpg",
+      "sku": "RP-F11",
+      "source": "assets/img/RP-F11.jpg",
       "source_sha256": "4490a4b98126ab6c13a46c60cc70341839c013dc80b83dc7d45972e4dd6d9b5a",
       "source_dimensions": [
         1128,
         1130
       ],
       "status": "pass",
-      "output": "assets/products/WT-T27.png",
+      "output": "assets/products/RP-F11.png",
       "operations": [
         "Normalize near-white background pixels only",
         "Trim external whitespace",
@@ -1968,26 +1968,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T27.html",
+          "page": "products/RP-F11.html",
           "page_sha256": "e63633f08f324eac4d5ba6db311c8f4cec39f9c3ba7079ece24863ecd2170494",
-          "reference": "../assets/img/WT-T27.jpg",
-          "path": "assets/img/WT-T27.jpg",
+          "reference": "../assets/img/RP-F11.jpg",
+          "path": "assets/img/RP-F11.jpg",
           "sha256": "4490a4b98126ab6c13a46c60cc70341839c013dc80b83dc7d45972e4dd6d9b5a"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T27.html",
+          "page": "products/RP-F11.html",
           "page_sha256": "e63633f08f324eac4d5ba6db311c8f4cec39f9c3ba7079ece24863ecd2170494",
-          "reference": "../assets/img/WT-T27.jpg",
-          "path": "assets/img/WT-T27.jpg",
+          "reference": "../assets/img/RP-F11.jpg",
+          "path": "assets/img/RP-F11.jpg",
           "sha256": "4490a4b98126ab6c13a46c60cc70341839c013dc80b83dc7d45972e4dd6d9b5a"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T27.html",
+          "page": "products/RP-F11.html",
           "page_sha256": "e63633f08f324eac4d5ba6db311c8f4cec39f9c3ba7079ece24863ecd2170494",
-          "reference": "../assets/img/WT-T27.jpg",
-          "path": "assets/img/WT-T27.jpg",
+          "reference": "../assets/img/RP-F11.jpg",
+          "path": "assets/img/RP-F11.jpg",
           "sha256": "4490a4b98126ab6c13a46c60cc70341839c013dc80b83dc7d45972e4dd6d9b5a"
         }
       ],
@@ -1998,15 +1998,15 @@
       "preserved_existing_output": true
     },
     {
-      "sku": "WT-T29",
-      "source": "assets/img/WT-T29.jpg",
+      "sku": "RP-F12",
+      "source": "assets/img/RP-F12.jpg",
       "source_sha256": "34b3d30eef6d5464e821723d17d6b8687fe8bcc60a84e0afad0e839f38d35f89",
       "source_dimensions": [
         1200,
         829
       ],
       "status": "pass",
-      "output": "assets/products/WT-T29.png",
+      "output": "assets/products/RP-F12.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2016,26 +2016,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T29.html",
+          "page": "products/RP-F12.html",
           "page_sha256": "c3ff6ffcc1f1186648a1f881d19d507512b167ca43785ae1ac826ec155cd3dd7",
-          "reference": "../assets/img/WT-T29.jpg",
-          "path": "assets/img/WT-T29.jpg",
+          "reference": "../assets/img/RP-F12.jpg",
+          "path": "assets/img/RP-F12.jpg",
           "sha256": "34b3d30eef6d5464e821723d17d6b8687fe8bcc60a84e0afad0e839f38d35f89"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T29.html",
+          "page": "products/RP-F12.html",
           "page_sha256": "c3ff6ffcc1f1186648a1f881d19d507512b167ca43785ae1ac826ec155cd3dd7",
-          "reference": "../assets/img/WT-T29.jpg",
-          "path": "assets/img/WT-T29.jpg",
+          "reference": "../assets/img/RP-F12.jpg",
+          "path": "assets/img/RP-F12.jpg",
           "sha256": "34b3d30eef6d5464e821723d17d6b8687fe8bcc60a84e0afad0e839f38d35f89"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T29.html",
+          "page": "products/RP-F12.html",
           "page_sha256": "c3ff6ffcc1f1186648a1f881d19d507512b167ca43785ae1ac826ec155cd3dd7",
-          "reference": "../assets/img/WT-T29.jpg",
-          "path": "assets/img/WT-T29.jpg",
+          "reference": "../assets/img/RP-F12.jpg",
+          "path": "assets/img/RP-F12.jpg",
           "sha256": "34b3d30eef6d5464e821723d17d6b8687fe8bcc60a84e0afad0e839f38d35f89"
         }
       ],
@@ -2050,15 +2050,15 @@
       ]
     },
     {
-      "sku": "WT-T30",
-      "source": "assets/img/WT-T30.jpg",
+      "sku": "RP-F13",
+      "source": "assets/img/RP-F13.jpg",
       "source_sha256": "55d68728049e259901f228e07a957fc99080d6a797e84186319f77c20a835465",
       "source_dimensions": [
         975,
         708
       ],
       "status": "pass",
-      "output": "assets/products/WT-T30.png",
+      "output": "assets/products/RP-F13.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2068,26 +2068,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-T30.html",
+          "page": "products/RP-F13.html",
           "page_sha256": "0aac2283eb0cbf8f06d9ab12d981ed0cbc1d1b200a432135a7618c6cdb6184be",
-          "reference": "../assets/img/WT-T30.jpg",
-          "path": "assets/img/WT-T30.jpg",
+          "reference": "../assets/img/RP-F13.jpg",
+          "path": "assets/img/RP-F13.jpg",
           "sha256": "55d68728049e259901f228e07a957fc99080d6a797e84186319f77c20a835465"
         },
         {
           "kind": "zip",
-          "page": "products/WT-T30.html",
+          "page": "products/RP-F13.html",
           "page_sha256": "0aac2283eb0cbf8f06d9ab12d981ed0cbc1d1b200a432135a7618c6cdb6184be",
-          "reference": "../assets/img/WT-T30.jpg",
-          "path": "assets/img/WT-T30.jpg",
+          "reference": "../assets/img/RP-F13.jpg",
+          "path": "assets/img/RP-F13.jpg",
           "sha256": "55d68728049e259901f228e07a957fc99080d6a797e84186319f77c20a835465"
         },
         {
           "kind": "preview",
-          "page": "products/WT-T30.html",
+          "page": "products/RP-F13.html",
           "page_sha256": "0aac2283eb0cbf8f06d9ab12d981ed0cbc1d1b200a432135a7618c6cdb6184be",
-          "reference": "../assets/img/WT-T30.jpg",
-          "path": "assets/img/WT-T30.jpg",
+          "reference": "../assets/img/RP-F13.jpg",
+          "path": "assets/img/RP-F13.jpg",
           "sha256": "55d68728049e259901f228e07a957fc99080d6a797e84186319f77c20a835465"
         }
       ],
@@ -2102,8 +2102,8 @@
       ]
     },
     {
-      "sku": "WT-UR01",
-      "source": "assets/img/WT-UR01.jpg",
+      "sku": "RP-U01",
+      "source": "assets/img/RP-U01.jpg",
       "source_sha256": "98abc2f8d99991b222d7f8fb1141fbd5bdc43afdd400262e86526819af3d8b17",
       "source_dimensions": [
         476,
@@ -2117,26 +2117,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR01.html",
+          "page": "products/RP-U01.html",
           "page_sha256": "1502c8ef6064af163378c0b3f957a6dc8d1556674efdc65f53bad160aec157d8",
-          "reference": "../assets/img/WT-UR01.jpg",
-          "path": "assets/img/WT-UR01.jpg",
+          "reference": "../assets/img/RP-U01.jpg",
+          "path": "assets/img/RP-U01.jpg",
           "sha256": "98abc2f8d99991b222d7f8fb1141fbd5bdc43afdd400262e86526819af3d8b17"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR01.html",
+          "page": "products/RP-U01.html",
           "page_sha256": "1502c8ef6064af163378c0b3f957a6dc8d1556674efdc65f53bad160aec157d8",
-          "reference": "../assets/img/WT-UR01.jpg",
-          "path": "assets/img/WT-UR01.jpg",
+          "reference": "../assets/img/RP-U01.jpg",
+          "path": "assets/img/RP-U01.jpg",
           "sha256": "98abc2f8d99991b222d7f8fb1141fbd5bdc43afdd400262e86526819af3d8b17"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR01.html",
+          "page": "products/RP-U01.html",
           "page_sha256": "1502c8ef6064af163378c0b3f957a6dc8d1556674efdc65f53bad160aec157d8",
-          "reference": "../assets/img/WT-UR01.jpg",
-          "path": "assets/img/WT-UR01.jpg",
+          "reference": "../assets/img/RP-U01.jpg",
+          "path": "assets/img/RP-U01.jpg",
           "sha256": "98abc2f8d99991b222d7f8fb1141fbd5bdc43afdd400262e86526819af3d8b17"
         }
       ],
@@ -2148,15 +2148,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR02",
-      "source": "assets/img/WT-UR02.jpg",
+      "sku": "RP-U02",
+      "source": "assets/img/RP-U02.jpg",
       "source_sha256": "d108912dd71642dff65cb44a28e229eb70f236893e054f4f5a24f8a8d48b14d4",
       "source_dimensions": [
         1200,
         1816
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR02.png",
+      "output": "assets/products/RP-U02.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2166,26 +2166,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR02.html",
+          "page": "products/RP-U02.html",
           "page_sha256": "d4a1a6a24ecb544b46539689292266b11e801514d482687217d906c9957202aa",
-          "reference": "../assets/img/WT-UR02.jpg",
-          "path": "assets/img/WT-UR02.jpg",
+          "reference": "../assets/img/RP-U02.jpg",
+          "path": "assets/img/RP-U02.jpg",
           "sha256": "d108912dd71642dff65cb44a28e229eb70f236893e054f4f5a24f8a8d48b14d4"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR02.html",
+          "page": "products/RP-U02.html",
           "page_sha256": "d4a1a6a24ecb544b46539689292266b11e801514d482687217d906c9957202aa",
-          "reference": "../assets/img/WT-UR02.jpg",
-          "path": "assets/img/WT-UR02.jpg",
+          "reference": "../assets/img/RP-U02.jpg",
+          "path": "assets/img/RP-U02.jpg",
           "sha256": "d108912dd71642dff65cb44a28e229eb70f236893e054f4f5a24f8a8d48b14d4"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR02.html",
+          "page": "products/RP-U02.html",
           "page_sha256": "d4a1a6a24ecb544b46539689292266b11e801514d482687217d906c9957202aa",
-          "reference": "../assets/img/WT-UR02.jpg",
-          "path": "assets/img/WT-UR02.jpg",
+          "reference": "../assets/img/RP-U02.jpg",
+          "path": "assets/img/RP-U02.jpg",
           "sha256": "d108912dd71642dff65cb44a28e229eb70f236893e054f4f5a24f8a8d48b14d4"
         }
       ],
@@ -2200,15 +2200,15 @@
       ]
     },
     {
-      "sku": "WT-UR04",
-      "source": "assets/img/WT-UR04.jpg",
+      "sku": "RP-U03",
+      "source": "assets/img/RP-U03.jpg",
       "source_sha256": "6be73025926296741162d892cdedca2713af447d6498e75121bd25673fd1a511",
       "source_dimensions": [
         598,
         1538
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR04.png",
+      "output": "assets/products/RP-U03.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2218,26 +2218,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR04.html",
+          "page": "products/RP-U03.html",
           "page_sha256": "d7b5267dc319b7b90911ec69b626c1642abdc6eddd21c853afe3ce9e5585d54a",
-          "reference": "../assets/img/WT-UR04.jpg",
-          "path": "assets/img/WT-UR04.jpg",
+          "reference": "../assets/img/RP-U03.jpg",
+          "path": "assets/img/RP-U03.jpg",
           "sha256": "6be73025926296741162d892cdedca2713af447d6498e75121bd25673fd1a511"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR04.html",
+          "page": "products/RP-U03.html",
           "page_sha256": "d7b5267dc319b7b90911ec69b626c1642abdc6eddd21c853afe3ce9e5585d54a",
-          "reference": "../assets/img/WT-UR04.jpg",
-          "path": "assets/img/WT-UR04.jpg",
+          "reference": "../assets/img/RP-U03.jpg",
+          "path": "assets/img/RP-U03.jpg",
           "sha256": "6be73025926296741162d892cdedca2713af447d6498e75121bd25673fd1a511"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR04.html",
+          "page": "products/RP-U03.html",
           "page_sha256": "d7b5267dc319b7b90911ec69b626c1642abdc6eddd21c853afe3ce9e5585d54a",
-          "reference": "../assets/img/WT-UR04.jpg",
-          "path": "assets/img/WT-UR04.jpg",
+          "reference": "../assets/img/RP-U03.jpg",
+          "path": "assets/img/RP-U03.jpg",
           "sha256": "6be73025926296741162d892cdedca2713af447d6498e75121bd25673fd1a511"
         }
       ],
@@ -2252,15 +2252,15 @@
       ]
     },
     {
-      "sku": "WT-UR05",
-      "source": "assets/img/WT-UR05.jpg",
+      "sku": "RP-U04",
+      "source": "assets/img/RP-U04.jpg",
       "source_sha256": "74721e347dd7badfeee1efbef074aaa89209407f09e02539486cc26a5d32b2f1",
       "source_dimensions": [
         1200,
         1200
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR05.png",
+      "output": "assets/products/RP-U04.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2270,26 +2270,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR05.html",
+          "page": "products/RP-U04.html",
           "page_sha256": "2110900dbe43190b8a2d467b75ff4f684f10481dcf161eb91e1e3fb018fc112e",
-          "reference": "../assets/img/WT-UR05.jpg",
-          "path": "assets/img/WT-UR05.jpg",
+          "reference": "../assets/img/RP-U04.jpg",
+          "path": "assets/img/RP-U04.jpg",
           "sha256": "74721e347dd7badfeee1efbef074aaa89209407f09e02539486cc26a5d32b2f1"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR05.html",
+          "page": "products/RP-U04.html",
           "page_sha256": "2110900dbe43190b8a2d467b75ff4f684f10481dcf161eb91e1e3fb018fc112e",
-          "reference": "../assets/img/WT-UR05.jpg",
-          "path": "assets/img/WT-UR05.jpg",
+          "reference": "../assets/img/RP-U04.jpg",
+          "path": "assets/img/RP-U04.jpg",
           "sha256": "74721e347dd7badfeee1efbef074aaa89209407f09e02539486cc26a5d32b2f1"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR05.html",
+          "page": "products/RP-U04.html",
           "page_sha256": "2110900dbe43190b8a2d467b75ff4f684f10481dcf161eb91e1e3fb018fc112e",
-          "reference": "../assets/img/WT-UR05.jpg",
-          "path": "assets/img/WT-UR05.jpg",
+          "reference": "../assets/img/RP-U04.jpg",
+          "path": "assets/img/RP-U04.jpg",
           "sha256": "74721e347dd7badfeee1efbef074aaa89209407f09e02539486cc26a5d32b2f1"
         }
       ],
@@ -2304,15 +2304,15 @@
       ]
     },
     {
-      "sku": "WT-UR06",
-      "source": "assets/img/WT-UR06.jpg",
+      "sku": "RP-U05",
+      "source": "assets/img/RP-U05.jpg",
       "source_sha256": "737da455580e9907e6e5b4001918e42d2f22cb73d2200d32bc9f5c722ee414f4",
       "source_dimensions": [
         1067,
         1470
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR06.png",
+      "output": "assets/products/RP-U05.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2322,26 +2322,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR06.html",
+          "page": "products/RP-U05.html",
           "page_sha256": "c2c05b32983033bc16a024cc1516ce9510c04027400681be3be19d6571df0540",
-          "reference": "../assets/img/WT-UR06.jpg",
-          "path": "assets/img/WT-UR06.jpg",
+          "reference": "../assets/img/RP-U05.jpg",
+          "path": "assets/img/RP-U05.jpg",
           "sha256": "737da455580e9907e6e5b4001918e42d2f22cb73d2200d32bc9f5c722ee414f4"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR06.html",
+          "page": "products/RP-U05.html",
           "page_sha256": "c2c05b32983033bc16a024cc1516ce9510c04027400681be3be19d6571df0540",
-          "reference": "../assets/img/WT-UR06.jpg",
-          "path": "assets/img/WT-UR06.jpg",
+          "reference": "../assets/img/RP-U05.jpg",
+          "path": "assets/img/RP-U05.jpg",
           "sha256": "737da455580e9907e6e5b4001918e42d2f22cb73d2200d32bc9f5c722ee414f4"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR06.html",
+          "page": "products/RP-U05.html",
           "page_sha256": "c2c05b32983033bc16a024cc1516ce9510c04027400681be3be19d6571df0540",
-          "reference": "../assets/img/WT-UR06.jpg",
-          "path": "assets/img/WT-UR06.jpg",
+          "reference": "../assets/img/RP-U05.jpg",
+          "path": "assets/img/RP-U05.jpg",
           "sha256": "737da455580e9907e6e5b4001918e42d2f22cb73d2200d32bc9f5c722ee414f4"
         }
       ],
@@ -2356,8 +2356,8 @@
       ]
     },
     {
-      "sku": "WT-UR12",
-      "source": "assets/img/WT-UR12.jpg",
+      "sku": "RP-U06",
+      "source": "assets/img/RP-U06.jpg",
       "source_sha256": "c56c59f18bee577486e29ab0f40faf25b4adaac9c1600988f94d227a9e1d0207",
       "source_dimensions": [
         1200,
@@ -2371,26 +2371,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR12.html",
+          "page": "products/RP-U06.html",
           "page_sha256": "ec94a477ef044d431ff9501b59e290982423afab1cf78a3b2928119a691b6b05",
-          "reference": "../assets/img/WT-UR12.jpg",
-          "path": "assets/img/WT-UR12.jpg",
+          "reference": "../assets/img/RP-U06.jpg",
+          "path": "assets/img/RP-U06.jpg",
           "sha256": "c56c59f18bee577486e29ab0f40faf25b4adaac9c1600988f94d227a9e1d0207"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR12.html",
+          "page": "products/RP-U06.html",
           "page_sha256": "ec94a477ef044d431ff9501b59e290982423afab1cf78a3b2928119a691b6b05",
-          "reference": "../assets/img/WT-UR12.jpg",
-          "path": "assets/img/WT-UR12.jpg",
+          "reference": "../assets/img/RP-U06.jpg",
+          "path": "assets/img/RP-U06.jpg",
           "sha256": "c56c59f18bee577486e29ab0f40faf25b4adaac9c1600988f94d227a9e1d0207"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR12.html",
+          "page": "products/RP-U06.html",
           "page_sha256": "ec94a477ef044d431ff9501b59e290982423afab1cf78a3b2928119a691b6b05",
-          "reference": "../assets/img/WT-UR12.jpg",
-          "path": "assets/img/WT-UR12.jpg",
+          "reference": "../assets/img/RP-U06.jpg",
+          "path": "assets/img/RP-U06.jpg",
           "sha256": "c56c59f18bee577486e29ab0f40faf25b4adaac9c1600988f94d227a9e1d0207"
         }
       ],
@@ -2402,15 +2402,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR13",
-      "source": "assets/img/WT-UR13.jpg",
+      "sku": "RP-U07",
+      "source": "assets/img/RP-U07.jpg",
       "source_sha256": "fe6604f40e2d52e4cebfb2e52f9f9afb815ae5edd1032ddd1097b924e297fc5b",
       "source_dimensions": [
         1200,
         628
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR13.png",
+      "output": "assets/products/RP-U07.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2420,26 +2420,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR13.html",
+          "page": "products/RP-U07.html",
           "page_sha256": "689a2b54c9425a90db1df495cb03d25faa3a809b73e3d503c582965a7d943b22",
-          "reference": "../assets/img/WT-UR13.jpg",
-          "path": "assets/img/WT-UR13.jpg",
+          "reference": "../assets/img/RP-U07.jpg",
+          "path": "assets/img/RP-U07.jpg",
           "sha256": "fe6604f40e2d52e4cebfb2e52f9f9afb815ae5edd1032ddd1097b924e297fc5b"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR13.html",
+          "page": "products/RP-U07.html",
           "page_sha256": "689a2b54c9425a90db1df495cb03d25faa3a809b73e3d503c582965a7d943b22",
-          "reference": "../assets/img/WT-UR13.jpg",
-          "path": "assets/img/WT-UR13.jpg",
+          "reference": "../assets/img/RP-U07.jpg",
+          "path": "assets/img/RP-U07.jpg",
           "sha256": "fe6604f40e2d52e4cebfb2e52f9f9afb815ae5edd1032ddd1097b924e297fc5b"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR13.html",
+          "page": "products/RP-U07.html",
           "page_sha256": "689a2b54c9425a90db1df495cb03d25faa3a809b73e3d503c582965a7d943b22",
-          "reference": "../assets/img/WT-UR13.jpg",
-          "path": "assets/img/WT-UR13.jpg",
+          "reference": "../assets/img/RP-U07.jpg",
+          "path": "assets/img/RP-U07.jpg",
           "sha256": "fe6604f40e2d52e4cebfb2e52f9f9afb815ae5edd1032ddd1097b924e297fc5b"
         }
       ],
@@ -2454,8 +2454,8 @@
       ]
     },
     {
-      "sku": "WT-UR14",
-      "source": "assets/img/WT-UR14.jpg",
+      "sku": "RP-U08",
+      "source": "assets/img/RP-U08.jpg",
       "source_sha256": "dc81b63fc219ee50baff3d588c4f54c1284cdead610c94eb55c3fdafc2c0af78",
       "source_dimensions": [
         1106,
@@ -2469,26 +2469,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR14.html",
+          "page": "products/RP-U08.html",
           "page_sha256": "e86e2cadaf67e2ff7784798311eb3819919f1d868c56e2f254c54d6050058adc",
-          "reference": "../assets/img/WT-UR14.jpg",
-          "path": "assets/img/WT-UR14.jpg",
+          "reference": "../assets/img/RP-U08.jpg",
+          "path": "assets/img/RP-U08.jpg",
           "sha256": "dc81b63fc219ee50baff3d588c4f54c1284cdead610c94eb55c3fdafc2c0af78"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR14.html",
+          "page": "products/RP-U08.html",
           "page_sha256": "e86e2cadaf67e2ff7784798311eb3819919f1d868c56e2f254c54d6050058adc",
-          "reference": "../assets/img/WT-UR14.jpg",
-          "path": "assets/img/WT-UR14.jpg",
+          "reference": "../assets/img/RP-U08.jpg",
+          "path": "assets/img/RP-U08.jpg",
           "sha256": "dc81b63fc219ee50baff3d588c4f54c1284cdead610c94eb55c3fdafc2c0af78"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR14.html",
+          "page": "products/RP-U08.html",
           "page_sha256": "e86e2cadaf67e2ff7784798311eb3819919f1d868c56e2f254c54d6050058adc",
-          "reference": "../assets/img/WT-UR14.jpg",
-          "path": "assets/img/WT-UR14.jpg",
+          "reference": "../assets/img/RP-U08.jpg",
+          "path": "assets/img/RP-U08.jpg",
           "sha256": "dc81b63fc219ee50baff3d588c4f54c1284cdead610c94eb55c3fdafc2c0af78"
         }
       ],
@@ -2500,15 +2500,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR15",
-      "source": "assets/img/WT-UR15.jpg",
+      "sku": "RP-U09",
+      "source": "assets/img/RP-U09.jpg",
       "source_sha256": "02f3e00bb6a8a3e9ed93429444f773d8827e1a46a10120b0c395efea2747b853",
       "source_dimensions": [
         1200,
         632
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR15.png",
+      "output": "assets/products/RP-U09.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2518,26 +2518,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR15.html",
+          "page": "products/RP-U09.html",
           "page_sha256": "bd771fe206cc5a1d7ca2eeb73a7911b416fee414c72d73a4db3310ec7a05bd2a",
-          "reference": "../assets/img/WT-UR15.jpg",
-          "path": "assets/img/WT-UR15.jpg",
+          "reference": "../assets/img/RP-U09.jpg",
+          "path": "assets/img/RP-U09.jpg",
           "sha256": "02f3e00bb6a8a3e9ed93429444f773d8827e1a46a10120b0c395efea2747b853"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR15.html",
+          "page": "products/RP-U09.html",
           "page_sha256": "bd771fe206cc5a1d7ca2eeb73a7911b416fee414c72d73a4db3310ec7a05bd2a",
-          "reference": "../assets/img/WT-UR15.jpg",
-          "path": "assets/img/WT-UR15.jpg",
+          "reference": "../assets/img/RP-U09.jpg",
+          "path": "assets/img/RP-U09.jpg",
           "sha256": "02f3e00bb6a8a3e9ed93429444f773d8827e1a46a10120b0c395efea2747b853"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR15.html",
+          "page": "products/RP-U09.html",
           "page_sha256": "bd771fe206cc5a1d7ca2eeb73a7911b416fee414c72d73a4db3310ec7a05bd2a",
-          "reference": "../assets/img/WT-UR15.jpg",
-          "path": "assets/img/WT-UR15.jpg",
+          "reference": "../assets/img/RP-U09.jpg",
+          "path": "assets/img/RP-U09.jpg",
           "sha256": "02f3e00bb6a8a3e9ed93429444f773d8827e1a46a10120b0c395efea2747b853"
         }
       ],
@@ -2552,15 +2552,15 @@
       ]
     },
     {
-      "sku": "WT-UR16",
-      "source": "assets/img/WT-UR16.jpg",
+      "sku": "RP-U10",
+      "source": "assets/img/RP-U10.jpg",
       "source_sha256": "ec9f03b7d821073b73760b04ed2c208a8aaea8d681fd94dfc78fd369ea896183",
       "source_dimensions": [
         1200,
         1291
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR16.png",
+      "output": "assets/products/RP-U10.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2570,26 +2570,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR16.html",
+          "page": "products/RP-U10.html",
           "page_sha256": "00babf8cdd620480bc839d52ab797d4117ada92728cab9fddde88018ca33faff",
-          "reference": "../assets/img/WT-UR16.jpg",
-          "path": "assets/img/WT-UR16.jpg",
+          "reference": "../assets/img/RP-U10.jpg",
+          "path": "assets/img/RP-U10.jpg",
           "sha256": "ec9f03b7d821073b73760b04ed2c208a8aaea8d681fd94dfc78fd369ea896183"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR16.html",
+          "page": "products/RP-U10.html",
           "page_sha256": "00babf8cdd620480bc839d52ab797d4117ada92728cab9fddde88018ca33faff",
-          "reference": "../assets/img/WT-UR16.jpg",
-          "path": "assets/img/WT-UR16.jpg",
+          "reference": "../assets/img/RP-U10.jpg",
+          "path": "assets/img/RP-U10.jpg",
           "sha256": "ec9f03b7d821073b73760b04ed2c208a8aaea8d681fd94dfc78fd369ea896183"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR16.html",
+          "page": "products/RP-U10.html",
           "page_sha256": "00babf8cdd620480bc839d52ab797d4117ada92728cab9fddde88018ca33faff",
-          "reference": "../assets/img/WT-UR16.jpg",
-          "path": "assets/img/WT-UR16.jpg",
+          "reference": "../assets/img/RP-U10.jpg",
+          "path": "assets/img/RP-U10.jpg",
           "sha256": "ec9f03b7d821073b73760b04ed2c208a8aaea8d681fd94dfc78fd369ea896183"
         }
       ],
@@ -2604,15 +2604,15 @@
       ]
     },
     {
-      "sku": "WT-UR17",
-      "source": "assets/img/WT-UR17.jpg",
+      "sku": "RP-U11",
+      "source": "assets/img/RP-U11.jpg",
       "source_sha256": "4b6582872404870235ebcbad957af0d8591c10a24ea67a9d4f47c6c5fdeedfda",
       "source_dimensions": [
         1200,
         849
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR17.png",
+      "output": "assets/products/RP-U11.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2622,26 +2622,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR17.html",
+          "page": "products/RP-U11.html",
           "page_sha256": "c4b458dc28df42ead0a6150a0eb1ee182241a7f6299f149f1bc5095321ec9e54",
-          "reference": "../assets/img/WT-UR17.jpg",
-          "path": "assets/img/WT-UR17.jpg",
+          "reference": "../assets/img/RP-U11.jpg",
+          "path": "assets/img/RP-U11.jpg",
           "sha256": "4b6582872404870235ebcbad957af0d8591c10a24ea67a9d4f47c6c5fdeedfda"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR17.html",
+          "page": "products/RP-U11.html",
           "page_sha256": "c4b458dc28df42ead0a6150a0eb1ee182241a7f6299f149f1bc5095321ec9e54",
-          "reference": "../assets/img/WT-UR17.jpg",
-          "path": "assets/img/WT-UR17.jpg",
+          "reference": "../assets/img/RP-U11.jpg",
+          "path": "assets/img/RP-U11.jpg",
           "sha256": "4b6582872404870235ebcbad957af0d8591c10a24ea67a9d4f47c6c5fdeedfda"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR17.html",
+          "page": "products/RP-U11.html",
           "page_sha256": "c4b458dc28df42ead0a6150a0eb1ee182241a7f6299f149f1bc5095321ec9e54",
-          "reference": "../assets/img/WT-UR17.jpg",
-          "path": "assets/img/WT-UR17.jpg",
+          "reference": "../assets/img/RP-U11.jpg",
+          "path": "assets/img/RP-U11.jpg",
           "sha256": "4b6582872404870235ebcbad957af0d8591c10a24ea67a9d4f47c6c5fdeedfda"
         }
       ],
@@ -2656,8 +2656,8 @@
       ]
     },
     {
-      "sku": "WT-UR19",
-      "source": "assets/img/WT-UR19.jpg",
+      "sku": "RP-U12",
+      "source": "assets/img/RP-U12.jpg",
       "source_sha256": "eb17ec789074ed3075af4c655aab299c3be005dffbc0e80689e1fc3dbc3043be",
       "source_dimensions": [
         1200,
@@ -2671,26 +2671,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR19.html",
+          "page": "products/RP-U12.html",
           "page_sha256": "db81a3744c3480a0921b70b62a0578e7446b78676f75611ed14efbafa7015725",
-          "reference": "../assets/img/WT-UR19.jpg",
-          "path": "assets/img/WT-UR19.jpg",
+          "reference": "../assets/img/RP-U12.jpg",
+          "path": "assets/img/RP-U12.jpg",
           "sha256": "eb17ec789074ed3075af4c655aab299c3be005dffbc0e80689e1fc3dbc3043be"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR19.html",
+          "page": "products/RP-U12.html",
           "page_sha256": "db81a3744c3480a0921b70b62a0578e7446b78676f75611ed14efbafa7015725",
-          "reference": "../assets/img/WT-UR19.jpg",
-          "path": "assets/img/WT-UR19.jpg",
+          "reference": "../assets/img/RP-U12.jpg",
+          "path": "assets/img/RP-U12.jpg",
           "sha256": "eb17ec789074ed3075af4c655aab299c3be005dffbc0e80689e1fc3dbc3043be"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR19.html",
+          "page": "products/RP-U12.html",
           "page_sha256": "db81a3744c3480a0921b70b62a0578e7446b78676f75611ed14efbafa7015725",
-          "reference": "../assets/img/WT-UR19.jpg",
-          "path": "assets/img/WT-UR19.jpg",
+          "reference": "../assets/img/RP-U12.jpg",
+          "path": "assets/img/RP-U12.jpg",
           "sha256": "eb17ec789074ed3075af4c655aab299c3be005dffbc0e80689e1fc3dbc3043be"
         }
       ],
@@ -2702,15 +2702,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR23",
-      "source": "assets/img/WT-UR23.jpg",
+      "sku": "RP-U13",
+      "source": "assets/img/RP-U13.jpg",
       "source_sha256": "b5d5dd1bb10d2d40b46837447e33edbcfc61de91fb84572576ad38f2f9f9abdb",
       "source_dimensions": [
         750,
         486
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR23.png",
+      "output": "assets/products/RP-U13.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2720,26 +2720,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR23.html",
+          "page": "products/RP-U13.html",
           "page_sha256": "e7de73b0cdc8df6d8ea865ebceb11b3e844225f95e5d9bcfc9c9c703a72da0a7",
-          "reference": "../assets/img/WT-UR23.jpg",
-          "path": "assets/img/WT-UR23.jpg",
+          "reference": "../assets/img/RP-U13.jpg",
+          "path": "assets/img/RP-U13.jpg",
           "sha256": "b5d5dd1bb10d2d40b46837447e33edbcfc61de91fb84572576ad38f2f9f9abdb"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR23.html",
+          "page": "products/RP-U13.html",
           "page_sha256": "e7de73b0cdc8df6d8ea865ebceb11b3e844225f95e5d9bcfc9c9c703a72da0a7",
-          "reference": "../assets/img/WT-UR23.jpg",
-          "path": "assets/img/WT-UR23.jpg",
+          "reference": "../assets/img/RP-U13.jpg",
+          "path": "assets/img/RP-U13.jpg",
           "sha256": "b5d5dd1bb10d2d40b46837447e33edbcfc61de91fb84572576ad38f2f9f9abdb"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR23.html",
+          "page": "products/RP-U13.html",
           "page_sha256": "e7de73b0cdc8df6d8ea865ebceb11b3e844225f95e5d9bcfc9c9c703a72da0a7",
-          "reference": "../assets/img/WT-UR23.jpg",
-          "path": "assets/img/WT-UR23.jpg",
+          "reference": "../assets/img/RP-U13.jpg",
+          "path": "assets/img/RP-U13.jpg",
           "sha256": "b5d5dd1bb10d2d40b46837447e33edbcfc61de91fb84572576ad38f2f9f9abdb"
         }
       ],
@@ -2754,8 +2754,8 @@
       ]
     },
     {
-      "sku": "WT-UR24",
-      "source": "assets/img/WT-UR24.jpg",
+      "sku": "RP-U14",
+      "source": "assets/img/RP-U14.jpg",
       "source_sha256": "f576911b69ac00a70224bd36fb56d2431b9c8688272110c2accfe65943b10b58",
       "source_dimensions": [
         865,
@@ -2769,26 +2769,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR24.html",
+          "page": "products/RP-U14.html",
           "page_sha256": "7cd505e8426e83026bae02130ef75391ddc5237029e016233c5ce7c69cad1423",
-          "reference": "../assets/img/WT-UR24.jpg",
-          "path": "assets/img/WT-UR24.jpg",
+          "reference": "../assets/img/RP-U14.jpg",
+          "path": "assets/img/RP-U14.jpg",
           "sha256": "f576911b69ac00a70224bd36fb56d2431b9c8688272110c2accfe65943b10b58"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR24.html",
+          "page": "products/RP-U14.html",
           "page_sha256": "7cd505e8426e83026bae02130ef75391ddc5237029e016233c5ce7c69cad1423",
-          "reference": "../assets/img/WT-UR24.jpg",
-          "path": "assets/img/WT-UR24.jpg",
+          "reference": "../assets/img/RP-U14.jpg",
+          "path": "assets/img/RP-U14.jpg",
           "sha256": "f576911b69ac00a70224bd36fb56d2431b9c8688272110c2accfe65943b10b58"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR24.html",
+          "page": "products/RP-U14.html",
           "page_sha256": "7cd505e8426e83026bae02130ef75391ddc5237029e016233c5ce7c69cad1423",
-          "reference": "../assets/img/WT-UR24.jpg",
-          "path": "assets/img/WT-UR24.jpg",
+          "reference": "../assets/img/RP-U14.jpg",
+          "path": "assets/img/RP-U14.jpg",
           "sha256": "f576911b69ac00a70224bd36fb56d2431b9c8688272110c2accfe65943b10b58"
         }
       ],
@@ -2800,8 +2800,8 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR25",
-      "source": "assets/img/WT-UR25.jpg",
+      "sku": "RP-U15",
+      "source": "assets/img/RP-U15.jpg",
       "source_sha256": "bb3ede661babdee4cb5a632fa6d4b0b40ceb8af348758263af2e2c550dda43dd",
       "source_dimensions": [
         290,
@@ -2815,26 +2815,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR25.html",
+          "page": "products/RP-U15.html",
           "page_sha256": "7c56131d9c73e245b49f7dc2be10d826eebf942b8dd44825f248329c514f8f0c",
-          "reference": "../assets/img/WT-UR25.jpg",
-          "path": "assets/img/WT-UR25.jpg",
+          "reference": "../assets/img/RP-U15.jpg",
+          "path": "assets/img/RP-U15.jpg",
           "sha256": "bb3ede661babdee4cb5a632fa6d4b0b40ceb8af348758263af2e2c550dda43dd"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR25.html",
+          "page": "products/RP-U15.html",
           "page_sha256": "7c56131d9c73e245b49f7dc2be10d826eebf942b8dd44825f248329c514f8f0c",
-          "reference": "../assets/img/WT-UR25.jpg",
-          "path": "assets/img/WT-UR25.jpg",
+          "reference": "../assets/img/RP-U15.jpg",
+          "path": "assets/img/RP-U15.jpg",
           "sha256": "bb3ede661babdee4cb5a632fa6d4b0b40ceb8af348758263af2e2c550dda43dd"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR25.html",
+          "page": "products/RP-U15.html",
           "page_sha256": "7c56131d9c73e245b49f7dc2be10d826eebf942b8dd44825f248329c514f8f0c",
-          "reference": "../assets/img/WT-UR25.jpg",
-          "path": "assets/img/WT-UR25.jpg",
+          "reference": "../assets/img/RP-U15.jpg",
+          "path": "assets/img/RP-U15.jpg",
           "sha256": "bb3ede661babdee4cb5a632fa6d4b0b40ceb8af348758263af2e2c550dda43dd"
         }
       ],
@@ -2846,8 +2846,8 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR26",
-      "source": "assets/img/WT-UR26.jpg",
+      "sku": "RP-U16",
+      "source": "assets/img/RP-U16.jpg",
       "source_sha256": "d2561551f648bf09924a28209eea9d94c8667800d2df3a2c6109e28aeea8a401",
       "source_dimensions": [
         326,
@@ -2861,26 +2861,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR26.html",
+          "page": "products/RP-U16.html",
           "page_sha256": "4c6b2f0806aaadd2fc74b8ff03ca49d5fbb47794c0a155b9df6b7267f9af6588",
-          "reference": "../assets/img/WT-UR26.jpg",
-          "path": "assets/img/WT-UR26.jpg",
+          "reference": "../assets/img/RP-U16.jpg",
+          "path": "assets/img/RP-U16.jpg",
           "sha256": "d2561551f648bf09924a28209eea9d94c8667800d2df3a2c6109e28aeea8a401"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR26.html",
+          "page": "products/RP-U16.html",
           "page_sha256": "4c6b2f0806aaadd2fc74b8ff03ca49d5fbb47794c0a155b9df6b7267f9af6588",
-          "reference": "../assets/img/WT-UR26.jpg",
-          "path": "assets/img/WT-UR26.jpg",
+          "reference": "../assets/img/RP-U16.jpg",
+          "path": "assets/img/RP-U16.jpg",
           "sha256": "d2561551f648bf09924a28209eea9d94c8667800d2df3a2c6109e28aeea8a401"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR26.html",
+          "page": "products/RP-U16.html",
           "page_sha256": "4c6b2f0806aaadd2fc74b8ff03ca49d5fbb47794c0a155b9df6b7267f9af6588",
-          "reference": "../assets/img/WT-UR26.jpg",
-          "path": "assets/img/WT-UR26.jpg",
+          "reference": "../assets/img/RP-U16.jpg",
+          "path": "assets/img/RP-U16.jpg",
           "sha256": "d2561551f648bf09924a28209eea9d94c8667800d2df3a2c6109e28aeea8a401"
         }
       ],
@@ -2892,15 +2892,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-UR27",
-      "source": "assets/img/WT-UR27.jpg",
+      "sku": "RP-U17",
+      "source": "assets/img/RP-U17.jpg",
       "source_sha256": "66121e35c5d35700477941c0d4baaea6fd10f97bd74adadf941bec3be0e99bc2",
       "source_dimensions": [
         606,
         557
       ],
       "status": "pass",
-      "output": "assets/products/WT-UR27.png",
+      "output": "assets/products/RP-U17.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -2910,26 +2910,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR27.html",
+          "page": "products/RP-U17.html",
           "page_sha256": "f9ba063c37c41a7ccdcd744a986b5357a279ad3adab1542a9e0747d74a865d00",
-          "reference": "../assets/img/WT-UR27.jpg",
-          "path": "assets/img/WT-UR27.jpg",
+          "reference": "../assets/img/RP-U17.jpg",
+          "path": "assets/img/RP-U17.jpg",
           "sha256": "66121e35c5d35700477941c0d4baaea6fd10f97bd74adadf941bec3be0e99bc2"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR27.html",
+          "page": "products/RP-U17.html",
           "page_sha256": "f9ba063c37c41a7ccdcd744a986b5357a279ad3adab1542a9e0747d74a865d00",
-          "reference": "../assets/img/WT-UR27.jpg",
-          "path": "assets/img/WT-UR27.jpg",
+          "reference": "../assets/img/RP-U17.jpg",
+          "path": "assets/img/RP-U17.jpg",
           "sha256": "66121e35c5d35700477941c0d4baaea6fd10f97bd74adadf941bec3be0e99bc2"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR27.html",
+          "page": "products/RP-U17.html",
           "page_sha256": "f9ba063c37c41a7ccdcd744a986b5357a279ad3adab1542a9e0747d74a865d00",
-          "reference": "../assets/img/WT-UR27.jpg",
-          "path": "assets/img/WT-UR27.jpg",
+          "reference": "../assets/img/RP-U17.jpg",
+          "path": "assets/img/RP-U17.jpg",
           "sha256": "66121e35c5d35700477941c0d4baaea6fd10f97bd74adadf941bec3be0e99bc2"
         }
       ],
@@ -2944,8 +2944,8 @@
       ]
     },
     {
-      "sku": "WT-UR28",
-      "source": "assets/img/WT-UR28.jpg",
+      "sku": "RP-U18",
+      "source": "assets/img/RP-U18.jpg",
       "source_sha256": "636c8ee265779f391d13f4d81fbc57cfe35f3ef46c33635cea02365f7d4cda27",
       "source_dimensions": [
         798,
@@ -2959,26 +2959,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-UR28.html",
+          "page": "products/RP-U18.html",
           "page_sha256": "aea0d6be553c9ad651d7d2a750ef9cfe518b72b2adee7d40d4560e836d5f275e",
-          "reference": "../assets/img/WT-UR28.jpg",
-          "path": "assets/img/WT-UR28.jpg",
+          "reference": "../assets/img/RP-U18.jpg",
+          "path": "assets/img/RP-U18.jpg",
           "sha256": "636c8ee265779f391d13f4d81fbc57cfe35f3ef46c33635cea02365f7d4cda27"
         },
         {
           "kind": "zip",
-          "page": "products/WT-UR28.html",
+          "page": "products/RP-U18.html",
           "page_sha256": "aea0d6be553c9ad651d7d2a750ef9cfe518b72b2adee7d40d4560e836d5f275e",
-          "reference": "../assets/img/WT-UR28.jpg",
-          "path": "assets/img/WT-UR28.jpg",
+          "reference": "../assets/img/RP-U18.jpg",
+          "path": "assets/img/RP-U18.jpg",
           "sha256": "636c8ee265779f391d13f4d81fbc57cfe35f3ef46c33635cea02365f7d4cda27"
         },
         {
           "kind": "preview",
-          "page": "products/WT-UR28.html",
+          "page": "products/RP-U18.html",
           "page_sha256": "aea0d6be553c9ad651d7d2a750ef9cfe518b72b2adee7d40d4560e836d5f275e",
-          "reference": "../assets/img/WT-UR28.jpg",
-          "path": "assets/img/WT-UR28.jpg",
+          "reference": "../assets/img/RP-U18.jpg",
+          "path": "assets/img/RP-U18.jpg",
           "sha256": "636c8ee265779f391d13f4d81fbc57cfe35f3ef46c33635cea02365f7d4cda27"
         }
       ],
@@ -2990,15 +2990,15 @@
       "dimensions": null
     },
     {
-      "sku": "WT-WS01",
-      "source": "assets/img/WT-WS01.jpg",
+      "sku": "RP-W01",
+      "source": "assets/img/RP-W01.jpg",
       "source_sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c",
       "source_dimensions": [
         893,
         1715
       ],
       "status": "pass",
-      "output": "assets/products/WT-WS01.png",
+      "output": "assets/products/RP-W01.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -3008,26 +3008,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-WS01.html",
+          "page": "products/RP-W01.html",
           "page_sha256": "3fd46b68248343e562387578cc7c832d1ea1d9b89888b15f79581e88c1324210",
-          "reference": "../assets/img/WT-WS01.jpg",
-          "path": "assets/img/WT-WS01.jpg",
+          "reference": "../assets/img/RP-W01.jpg",
+          "path": "assets/img/RP-W01.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         },
         {
           "kind": "zip",
-          "page": "products/WT-WS01.html",
+          "page": "products/RP-W01.html",
           "page_sha256": "3fd46b68248343e562387578cc7c832d1ea1d9b89888b15f79581e88c1324210",
-          "reference": "../assets/img/WT-WS01.jpg",
-          "path": "assets/img/WT-WS01.jpg",
+          "reference": "../assets/img/RP-W01.jpg",
+          "path": "assets/img/RP-W01.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         },
         {
           "kind": "preview",
-          "page": "products/WT-WS01.html",
+          "page": "products/RP-W01.html",
           "page_sha256": "3fd46b68248343e562387578cc7c832d1ea1d9b89888b15f79581e88c1324210",
-          "reference": "../assets/img/WT-WS01.jpg",
-          "path": "assets/img/WT-WS01.jpg",
+          "reference": "../assets/img/RP-W01.jpg",
+          "path": "assets/img/RP-W01.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         }
       ],
@@ -3042,15 +3042,15 @@
       ]
     },
     {
-      "sku": "WT-WS02",
-      "source": "assets/img/WT-WS02.jpg",
+      "sku": "RP-W02",
+      "source": "assets/img/RP-W02.jpg",
       "source_sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c",
       "source_dimensions": [
         893,
         1715
       ],
       "status": "pass",
-      "output": "assets/products/WT-WS02.png",
+      "output": "assets/products/RP-W02.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -3060,26 +3060,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-WS02.html",
+          "page": "products/RP-W02.html",
           "page_sha256": "1fd9c223e9fa195085b0d650b0e7182672fa16f3da392692c58e8b6a81b812ce",
-          "reference": "../assets/img/WT-WS02.jpg",
-          "path": "assets/img/WT-WS02.jpg",
+          "reference": "../assets/img/RP-W02.jpg",
+          "path": "assets/img/RP-W02.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         },
         {
           "kind": "zip",
-          "page": "products/WT-WS02.html",
+          "page": "products/RP-W02.html",
           "page_sha256": "1fd9c223e9fa195085b0d650b0e7182672fa16f3da392692c58e8b6a81b812ce",
-          "reference": "../assets/img/WT-WS02.jpg",
-          "path": "assets/img/WT-WS02.jpg",
+          "reference": "../assets/img/RP-W02.jpg",
+          "path": "assets/img/RP-W02.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         },
         {
           "kind": "preview",
-          "page": "products/WT-WS02.html",
+          "page": "products/RP-W02.html",
           "page_sha256": "1fd9c223e9fa195085b0d650b0e7182672fa16f3da392692c58e8b6a81b812ce",
-          "reference": "../assets/img/WT-WS02.jpg",
-          "path": "assets/img/WT-WS02.jpg",
+          "reference": "../assets/img/RP-W02.jpg",
+          "path": "assets/img/RP-W02.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         }
       ],
@@ -3094,15 +3094,15 @@
       ]
     },
     {
-      "sku": "WT-WS03",
-      "source": "assets/img/WT-WS03.jpg",
+      "sku": "RP-W03",
+      "source": "assets/img/RP-W03.jpg",
       "source_sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c",
       "source_dimensions": [
         893,
         1715
       ],
       "status": "pass",
-      "output": "assets/products/WT-WS03.png",
+      "output": "assets/products/RP-W03.png",
       "operations": [
         "保留完整原图及其原有背景，不裁切、不拉伸、不重绘、不替换产品",
         "仅在超出 1120×820 时等比缩小；居中于 1200×900 白色 4:3 画布"
@@ -3112,26 +3112,26 @@
       "v5_evidence": [
         {
           "kind": "commit",
-          "page": "products/WT-WS03.html",
+          "page": "products/RP-W03.html",
           "page_sha256": "6119fe07e0ca3d68eab384c59fd51e26c56a3ff64bf75f350aeafa8e46371bbf",
-          "reference": "../assets/img/WT-WS03.jpg",
-          "path": "assets/img/WT-WS03.jpg",
+          "reference": "../assets/img/RP-W03.jpg",
+          "path": "assets/img/RP-W03.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         },
         {
           "kind": "zip",
-          "page": "products/WT-WS03.html",
+          "page": "products/RP-W03.html",
           "page_sha256": "6119fe07e0ca3d68eab384c59fd51e26c56a3ff64bf75f350aeafa8e46371bbf",
-          "reference": "../assets/img/WT-WS03.jpg",
-          "path": "assets/img/WT-WS03.jpg",
+          "reference": "../assets/img/RP-W03.jpg",
+          "path": "assets/img/RP-W03.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         },
         {
           "kind": "preview",
-          "page": "products/WT-WS03.html",
+          "page": "products/RP-W03.html",
           "page_sha256": "6119fe07e0ca3d68eab384c59fd51e26c56a3ff64bf75f350aeafa8e46371bbf",
-          "reference": "../assets/img/WT-WS03.jpg",
-          "path": "assets/img/WT-WS03.jpg",
+          "reference": "../assets/img/RP-W03.jpg",
+          "path": "assets/img/RP-W03.jpg",
           "sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c"
         }
       ],

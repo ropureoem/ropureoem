@@ -27,7 +27,7 @@ def translate(text):
     match = re.fullmatch(r'Split-tank water softener, ([\d,]+) grain\. Photo shows the split-tank softener series; size varies by model\.', text)
     if match:
         return f'分罐式软水机，{match[1]} grain。图片展示分罐式软水机系列；尺寸因型号而异。'
-    match = re.fullmatch(r'Represents the (WT-\w+) variant; (.+) options are confirmed per order\.', text)
+    match = re.fullmatch(r'Represents the (RP-\w+) variant; (.+) options are confirmed per order\.', text)
     if match:
         labels={'cartridge and finish':'滤芯与表面处理','display and finish':'显示与表面处理','mounting and finish':'安装与表面处理'}
         return f'代表 {match[1]} 变体；{labels[match[2]]}选项按订单确认。'
@@ -90,6 +90,8 @@ def refresh_legacy_switches():
 
 def generate():
     pages=sorted([*ROOT.glob('*.html'),*ROOT.glob('products/*.html')])
+    models=[p for p in pages if p.parent==ROOT/'products' and re.match(r'[A-Z]{2}-',p.stem)]
+    assert len(models)==62 and all(re.fullmatch(r'RP-[CUFSW][0-9]{2}',p.stem) for p in models), 'Unexpected product namespace'
     missing=set()
     for source in pages:
         path=source.relative_to(ROOT)
@@ -111,10 +113,10 @@ def generate():
                 node.replace_with(str(node).replace('Confirmed per order','按订单确认（Confirmed per order）'))
                 continue
             translated=translate(str(node).strip())
-            if translated==str(node).strip() and re.search(r'[A-Za-z]{3}',translated) and not re.fullmatch(r'(?:ROPureOEM|WhatsApp.*|info@ropureoem.com|SKU:.*|WT-.*|OEM / ODM|EN|ZH)',translated):
+            if translated==str(node).strip() and re.search(r'[A-Za-z]{3}',translated) and not re.fullmatch(r'(?:ROPureOEM|WhatsApp.*|info@ropureoem.com|SKU:.*|RP-.*|OEM / ODM|EN|ZH)',translated):
                 missing.add(translated)
             node.replace_with(translated)
-        if path.name.startswith('WT-'):
+        if path.name.startswith('RP-'):
             zh.h1.string='产品型号：'+en.h1.get_text()
         target=Path('zh')/path
         for node in zh.select('[href],[src],[action]'):

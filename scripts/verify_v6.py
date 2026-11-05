@@ -3,11 +3,12 @@ from pathlib import Path
 from bs4 import BeautifulSoup as BS
 import json,re,subprocess,hashlib,sys
 from urllib.parse import urlsplit,unquote
+from revision_support import historical_bytes,current_name,current_bytes
 root=Path('.');pages=list(root.glob('*.html'))+list(root.glob('products/*.html'))
 assert len(pages)==75
-models=list(root.glob('products/WT-*.html'));assert len(models)==62
+models=list(root.glob('products/RP-*.html'));assert len(models)==62
 baseline='ba76b9874196fe91b049f770090d516ad2adf5da'
-def before(p):return subprocess.check_output(['git','show',baseline+':'+str(p)])
+def before(p):return historical_bytes(baseline,p)
 for p in list(Path('public/brand').glob('*'))+[Path('robots.txt'),Path('CNAME'),Path('.github/workflows/static.yml')]:assert p.read_bytes()==before(p),str(p)
 # Public v5 copy permits contact cleanup and links to maintained language pairs.
 def clean_contact(data):
@@ -18,13 +19,15 @@ def without_legacy_switches(data):
  if b'legacy-language-switch' not in data:return data
  return re.sub(rb'<nav class="legacy-language-switch"[^>]*>.*?</nav>',b'',data)
 for path in subprocess.check_output(['git','ls-tree','-r','--name-only',baseline,'preview/v5']).decode().splitlines():
+ path=current_name(path)
  original=before(path)
  assert without_legacy_switches(Path(path).read_bytes())==(clean_contact(original) if Path(path).suffix in ['.html','.txt','.md'] else original),path
 import io,zipfile
 with zipfile.ZipFile(io.BytesIO(before('releases/ropureoem-v5-preview.zip'))) as oldzip, zipfile.ZipFile('releases/ropureoem-v5-preview.zip') as current:
- assert oldzip.namelist()==current.namelist()
+ assert [current_name(n) for n in oldzip.namelist()]==current.namelist()
  for name in oldzip.namelist():
-  original=oldzip.read(name)
+  original=current_bytes(oldzip.read(name),name)
+  name=current_name(name)
   assert without_legacy_switches(current.read(name))==(clean_contact(original) if Path(name).suffix in ['.html','.txt','.md'] else original),name
 approved={e['output'] for e in json.loads(Path('docs/brand/product-image-audit.json').read_text())['images'] if e['status']=='pass'}
 factory_audit=json.loads(Path('docs/brand/homepage-factory-image-audit.json').read_text())
@@ -38,7 +41,7 @@ home=BS(Path('index.html').read_text(),'html.parser')
 assert {img['src'] for img in home.select('#factory-gallery img')}==factory_images
 assert home.select_one('.factory-disclosure').get_text()=='AI-generated illustrations of assembly and logistics.'
 assert home.select_one('.studio-hero').find_next_sibling('section')['id']=='factory-gallery'
-assert [n['data-sku'] for n in home.select('.featured .card')]==['WT-CT21','WT-UR04','WT-CT19','WT-CT09']
+assert [n['data-sku'] for n in home.select('.featured .card')]==['RP-C11','RP-U03','RP-C09','RP-C04']
 
 for p in pages:
  s=BS(p.read_text(),'html.parser');assert len(s.select('h1'))==1,str(p)
@@ -89,7 +92,7 @@ with zipfile.ZipFile('releases/ropureoem-v5-preview.zip') as v5zip:
     html=before(Path(page));data=before(Path(v['path']))
    elif v['kind']=='zip':html=v5zip.read(page);data=v5zip.read(v['path'])
    else:html=Path('preview/v5',page).read_bytes();data=Path('preview/v5',v['path']).read_bytes()
-   assert hashlib.sha256(before(Path(page))).hexdigest()==v['page_sha256']
+   assert hashlib.sha256(historical_bytes(baseline,page,raw=True)).hexdigest()==v['page_sha256']
    assert without_legacy_switches(html) in [before(Path(page)),clean_contact(before(Path(page)))]
    ref=BS(html,'html.parser').select_one('.product-img img')['src']
    assert ref==v['reference'] and posixpath.normpath(posixpath.join('products',ref))==e['source']
@@ -101,13 +104,13 @@ with zipfile.ZipFile('releases/ropureoem-v5-preview.zip') as v5zip:
    assert list(Image.open(e['output']).size)==e['dimensions']
    assert s.select_one('.product-img img')['src']=='../'+e['output']
   else:assert s.select_one('.product-img .image-pending span').text==sku and e['reason']
-  if sku in ['WT-CT21','WT-SH14','WT-T25','WT-T27']:
-   assert Path(e['output']).read_bytes()==subprocess.check_output(['git','show',v6_baseline+':'+e['output']])
+  if sku in ['RP-C11','RP-S06','RP-F10','RP-F11']:
+   assert Path(e['output']).read_bytes()==historical_bytes(v6_baseline,e['output'])
 # SEO/contact changes must leave images, placeholders, model specs and layout intact.
 image_baseline='c8d5ab654ec030f2eb08113ec90245818d1cc4d4'
 for p in pages:
  s=BS(p.read_text(),'html.parser')
- old=BS(subprocess.check_output(['git','show',image_baseline+':'+str(p)]),'html.parser')
+ old=BS(historical_bytes(image_baseline,p),'html.parser')
  for selector in ['img','.image-pending','.specs','.card','.product-img']:
   # Homepage additions and curated mainline cards have dedicated checks; other imagery/cards stay identical.
   def retained(doc):
@@ -122,12 +125,13 @@ for p in pages:
  for ld in s.select('script[type="application/ld+json"]'):json.loads(ld.string)
 # Every source/product image and image audit remains identical to latest main.
 for path in subprocess.check_output(['git','ls-tree','-r','--name-only',image_baseline,'assets','public','docs/brand/product-image-audit.json','docs/brand/product-image-audit.md']).decode().splitlines():
- assert Path(path).read_bytes()==subprocess.check_output(['git','show',image_baseline+':'+path]),path
+ path=current_name(path)
+ assert Path(path).read_bytes()==historical_bytes(image_baseline,path),path
 # English SEO must remain identical to main before the review-only Chinese policy.
 seo_baseline='2571a9905dd34c9389ce238d52c2f3269cf4ef01'
 for p in pages:
  current=BS(p.read_text(),'html.parser')
- previous=BS(subprocess.check_output(['git','show',seo_baseline+':'+str(p)]),'html.parser')
+ previous=BS(historical_bytes(seo_baseline,p),'html.parser')
  for selector in ['title','h1','meta[name=description]','meta[name=keywords]','link[hreflang]','link[rel=canonical]']:
   assert [str(n) for n in current.select(selector)]==[str(n) for n in previous.select(selector)],(p,selector)
  assert not current.select('meta[name=robots]'),p
@@ -171,23 +175,23 @@ if '--browser' in sys.argv:
     columns=page.locator('.factory-gallery').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')
     assert columns==(1 if page.viewport_size['width']<700 else 3),columns
   go('index.html');assert not page.locator('.video-section').is_visible();page.screenshot(path='work/home-desktop.png',full_page=True)
-  go('products/WT-T13.html');assert page.locator('.product-img img').get_attribute('src')=='../assets/products/WT-T13.png';assert page.locator('.specs tr').count()==8
-  go('products/WT-CT21.html');page.screenshot(path='work/product-desktop.png',full_page=True)
+  go('products/RP-F02.html');assert page.locator('.product-img img').get_attribute('src')=='../assets/products/RP-F02.png';assert page.locator('.specs tr').count()==8
+  go('products/RP-C11.html');page.screenshot(path='work/product-desktop.png',full_page=True)
   for key,count in [('under-sink',17),('countertop',14),('softener',4),('shower',14),('faucet',13),('hot-cold-ice',14)]:
    go('products.html?range='+key);assert page.locator('.card:visible').count()==count,(key,page.locator('#result-count').inner_text())
-  go('products.html?q=WT-T13');assert page.locator('.card:visible').count()==1
+  go('products.html?q=RP-F02');assert page.locator('.card:visible').count()==1
   go('products.html?q=Water+Softening');assert page.locator('.card:visible').count()==4
   go('products.html?q=zznomatch');assert page.locator('#empty-state').is_visible();assert page.locator('.card:visible').count()==0
   page.locator('.clear-filters').click();assert page.locator('.card:visible').count()==62
-  page.locator('#q').fill('WT-CT21');assert page.locator('.card:visible').count()==1
-  go('get-quote.html?model=WT-T13');assert page.locator('select[name=model]').input_value()=='WT-T13'
+  page.locator('#q').fill('RP-C11');assert page.locator('.card:visible').count()==1
+  go('get-quote.html?model=RP-F02');assert page.locator('select[name=model]').input_value()=='RP-F02'
   # CDP observes the mailto navigation without sending email.
   from urllib.parse import parse_qs
   session=page.context.new_cdp_session(page);session.send('Page.enable');events=[]
   session.on('Page.frameRequestedNavigation',lambda e:events.append(e))
   page.locator('[name=name]').fill('Preview Tester');page.locator('[name=email]').fill('buyer@example.com');page.locator('[name=market]').fill('EU');page.locator('[name=message]').fill('Silver housing sample');page.locator('#quote-form button').click();page.wait_for_timeout(100)
   urls=[e['url'] for e in events if e['url'].startswith('mailto:')];assert urls
-  u=urlsplit(urls[0]);mail=parse_qs(u.query);assert u.path=='info@ropureoem.com';assert 'WT-T13' in mail['subject'][0] and 'EU' in mail['subject'][0];assert 'Silver housing sample' in mail['body'][0]
+  u=urlsplit(urls[0]);mail=parse_qs(u.query);assert u.path=='info@ropureoem.com';assert 'RP-F02' in mail['subject'][0] and 'EU' in mail['subject'][0];assert 'Silver housing sample' in mail['body'][0]
   for width in [320,390,768,1024]:
    page.set_viewport_size({'width':width,'height':844});go('index.html')
    if width<700:
@@ -200,9 +204,9 @@ if '--browser' in sys.argv:
     page.locator('.bottom-nav a',has_text='Contact').click();assert page.url.endswith('contact.html')
     go('index.html');page.locator('.nav-menu>summary').click();assert page.locator('.nav-menu nav').is_visible();page.keyboard.press('Escape');assert not page.locator('.nav-menu nav').is_visible()
     if width==390:page.screenshot(path='work/home-mobile.png',full_page=True)
-   go('products/WT-T13.html');go('products/WT-CT21.html');go('products.html')
+   go('products/RP-F02.html');go('products/RP-C11.html');go('products.html')
   # Shared header GET search from nested page.
-  go('products/WT-T13.html');page.locator('#site-search').fill('WT-CT21');page.locator('.header-search button').click();assert page.locator('.card:visible').count()==1
+  go('products/RP-F02.html');page.locator('#site-search').fill('RP-C11');page.locator('.header-search button').click();assert page.locator('.card:visible').count()==1
   b.close()
  assert not failures,failures
  assert not requests,requests
