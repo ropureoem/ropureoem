@@ -4,6 +4,7 @@ import shutil,zipfile
 from bs4 import BeautifulSoup
 from urllib.parse import urlsplit,unquote
 import subprocess,sys
+import xml.etree.ElementTree as ET
 subprocess.run([sys.executable, 'scripts/build_bilingual.py'], check=True)
 subprocess.run([sys.executable, 'scripts/generate_sitemap.py'], check=True)
 root=Path('.');dest=root/'preview/v6';dest.mkdir(parents=True,exist_ok=True)
@@ -28,7 +29,16 @@ with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
 with zipfile.ZipFile(zip_path) as z:
  assert z.testzip() is None
  assert len([p for p in z.namelist() if p.endswith('.html')])==150
+ assert len([p for p in z.namelist() if p.startswith('zh/') and p.endswith('.html')])==75
+ urls=[n.text for n in ET.fromstring(z.read('sitemap.xml')).findall('{*}url/{*}loc')]
+ assert len(urls)==len(set(urls))==75 and not any('/zh/' in url for url in urls)
+ for name in z.namelist():
+  if not name.endswith('.html'):continue
+  robots=BeautifulSoup(z.read(name),'html.parser').select('head meta[name=robots]')
+  if name.startswith('zh/'):
+   assert len(robots)==1 and robots[0]['content']=='noindex, nofollow',name
+  else:assert not robots,name
  assert len([p for p in z.namelist() if p.startswith('products/WT-') and p.endswith('.html')])==62
  for p in dest.rglob('*'):
   if p.is_file():assert z.read(str(p.relative_to(dest)))==p.read_bytes()
-print('PASS: portable preview and ZIP integrity; 150 pages (75 EN + 75 ZH), 62 models per language, all files match.')
+print('PASS: portable preview and ZIP integrity; 150 pages (75 EN + 75 ZH), 62 models per language, English-only sitemap (75 URLs), ZH noindex, all files match.')

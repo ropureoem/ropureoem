@@ -16,6 +16,10 @@ for p in english:
  z=Path('zh')/p
  en=BS(p.read_text(),'html.parser');zh=BS(z.read_text(),'html.parser')
  assert en.html['lang']=='en' and zh.html['lang']=='zh'
+ assert not en.select('meta[name=robots]'),p
+ robots=zh.select('head meta[name=robots]')
+ assert len(robots)==1 and robots[0]['content']=='noindex, nofollow',z
+ assert en.select_one('.header-tools > .language-switch') and zh.select_one('.header-tools > .language-switch')
  assert re.search('[\u4e00-\u9fff]',zh.h1.get_text()),z
  assert re.search('[\u4e00-\u9fff]',zh.title.get_text()),z
  assert len(zh.select('h1'))==1
@@ -50,8 +54,8 @@ for p in english:
   assert re.search('[\u4e00-\u9fff]',zh.select_one('.lede').get_text())
   assert re.findall('WT-[A-Z0-9]+',en.h1.get_text())==re.findall('WT-[A-Z0-9]+',zh.h1.get_text())
 urls=[n.text for n in ET.parse('sitemap.xml').findall('{*}url/{*}loc')]
-assert len(urls)==len(set(urls))==150 and set(urls)=={url(p) for p in english+chinese}
-print('PASS: 75 EN + 75 ZH = 150 URLs; all reciprocal header/footer switches/hreflang/canonicals; Chinese titles/headings/spec labels; identical specification values, models, units and image sources; all links/fragments.')
+assert len(urls)==len(set(urls))==75 and set(urls)=={url(p) for p in english}
+print('PASS: 75 EN sitemap URLs, 0 ZH; noindex 75/75 ZH, 0/75 EN; all reciprocal header/footer switches/hreflang/canonicals; Chinese titles/headings/spec labels; identical specification values, models, units and image sources; all links/fragments.')
 
 if '--browser' in sys.argv:
  from playwright.sync_api import sync_playwright
@@ -62,13 +66,27 @@ if '--browser' in sys.argv:
   page=browser.new_page(viewport={'width':1440,'height':1000})
   page.on('pageerror',lambda e:errors.append(str(e)))
   page.on('response',lambda r:errors.append(str(r.status)+' '+r.url) if r.status>=400 else None)
-  for width in [320,390,768,1024,1440]:
+  def check_header(page):
+   boxes=[page.locator(selector).bounding_box() for selector in ['.header-search','.header-tools > .language-switch']]
+   search,switch=boxes
+   assert abs(search['y']+search['height']/2-switch['y']-switch['height']/2)<2,boxes
+   assert switch['x']>=search['x']+search['width'],boxes
+   assert search['width']<=191,boxes
+   assert page.locator('.header-tools > .language-switch a').evaluate_all('(links)=>links.every(a=>getComputedStyle(a).backgroundColor==="rgba(0, 0, 0, 0)" && a.getBoundingClientRect().height<=32)')
+   if page.viewport_size['width']<700:
+    logo=page.locator('.header-in > .logo').bounding_box()
+    quote=page.locator('.header-in > .quote').bounding_box()
+    assert abs(logo['y']+logo['height']/2-quote['y']-quote['height']/2)<2
+    assert search['y']>=quote['y']+quote['height']
+  for width in [320,390,699,700,768,1024,1100,1199,1200,1440]:
    page.set_viewport_size({'width':width,'height':900})
    for path in ['index.html','products/WT-T13.html','contact.html']:
     assert page.goto(base+path).status==200
+    check_header(page)
     page.locator('header [data-language=zh]').click()
     assert page.url==base+'zh/'+path
     assert page.locator('html').get_attribute('lang')=='zh'
+    check_header(page)
     assert re.search('[\u4e00-\u9fff]',page.locator('h1').inner_text())
     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(width,path)
     page.locator('footer [data-language=en]').click()
@@ -89,4 +107,4 @@ if '--browser' in sys.argv:
   page.goto(base+'zh/index.html');page.screenshot(path='work/zh-home.png',full_page=True)
   browser.close()
  assert not errors,errors
- print('PASS: Chromium EN↔ZH same-page navigation (home/product/contact), 320/390/768/1024/1440px; Chinese content; Chinese range/search/count; language-switch query and quote-model preservation; no JS/resource errors.')
+ print('PASS: Chromium EN↔ZH same-page navigation (home/product/contact), 320–1440px; compact search + inline EN/ZH on the same row; Chinese content; Chinese range/search/count; language-switch query and quote-model preservation; no JS/resource errors.')

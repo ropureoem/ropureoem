@@ -52,14 +52,23 @@ def add_languages(doc, page, chinese=False):
         url=BASE+('' if path=='index.html' else 'zh/' if path=='zh/index.html' else path)
         doc.head.append(doc.new_tag('link',rel='alternate',hreflang=lang,href=url))
     for parent in [doc.header,doc.footer]:
-        nav=doc.new_tag('nav',attrs={'class':'wrap language-switch','aria-label':'语言切换' if chinese else 'Language selection'})
+        nav=doc.new_tag('nav',attrs={'class':'language-switch','aria-label':'语言切换' if chinese else 'Language selection'})
         for lang,path in [('en',en),('zh',zh)]:
             a=doc.new_tag('a',href=relative(path,page),hreflang=lang,lang=lang,attrs={'data-language':lang})
             a.string=lang.upper()
             if (lang=='zh')==chinese:
                 a['aria-current']='true'
             nav.append(a)
-        parent.append(nav)
+        if parent is doc.header:
+            tools = doc.select_one('.header-tools')
+            if tools is None:
+                tools = doc.new_tag('div', attrs={'class':'header-tools'})
+                search = doc.select_one('.header-search')
+                search.wrap(tools)
+            tools.append(nav)
+        else:
+            nav['class'] = ['wrap', 'language-switch']
+            parent.append(nav)
 
 def refresh_legacy_switches():
     # Historical previews use the maintained production language pair; assets stay local.
@@ -89,6 +98,11 @@ def generate():
         source.write_text(str(en))
         zh=BeautifulSoup(str(en),'html.parser')
         zh.html['lang']='zh'
+        # Chinese pages are for human review, excluded from search indexing.
+        for node in zh.select('meta[name=robots]'):
+            node.decompose()
+        robots = zh.new_tag('meta', attrs={'name':'robots','content':'noindex, nofollow'})
+        zh.head.insert(1, robots)
         for node in zh.find_all(string=True):
             if isinstance(node,Doctype) or node.parent.name in ['script','style'] or not node.strip():
                 continue

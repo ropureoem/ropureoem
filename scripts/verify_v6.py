@@ -104,11 +104,19 @@ for p in pages:
 # Every source/product image and image audit remains identical to latest main.
 for path in subprocess.check_output(['git','ls-tree','-r','--name-only',image_baseline,'assets','public','docs/brand/product-image-audit.json','docs/brand/product-image-audit.md']).decode().splitlines():
  assert Path(path).read_bytes()==subprocess.check_output(['git','show',image_baseline+':'+path]),path
+# English SEO must remain identical to main before the review-only Chinese policy.
+seo_baseline='2571a9905dd34c9389ce238d52c2f3269cf4ef01'
+for p in pages:
+ current=BS(p.read_text(),'html.parser')
+ previous=BS(subprocess.check_output(['git','show',seo_baseline+':'+str(p)]),'html.parser')
+ for selector in ['title','h1','meta[name=description]','meta[name=keywords]','link[hreflang]','link[rel=canonical]']:
+  assert [str(n) for n in current.select(selector)]==[str(n) for n in previous.select(selector)],(p,selector)
+ assert not current.select('meta[name=robots]'),p
+print('PASS: all 75 English titles/H1/descriptions/keywords/hreflang/canonical unchanged.')
 import xml.etree.ElementTree as ET
 urls=[n.text for n in ET.parse('sitemap.xml').findall('{*}url/{*}loc')]
 expected={'https://ropureoem.com/'+('' if p.name=='index.html' else str(p)) for p in pages}
-expected|={'https://ropureoem.com/'+('zh/' if p.name=='index.html' else 'zh/'+str(p)) for p in pages}
-assert len(urls)==150 and len(set(urls))==150 and set(urls)==expected
+assert len(urls)==75 and len(set(urls))==75 and set(urls)==expected
 keywords={
  'index.html':['oem water purifier manufacturer','oem water filter manufacturer'],
  'oem-odm.html':['oem water filter manufacturer','ultra high purity purifier','water purifier parts','water purification parts','water filter components','industrial reverse osmosis hot water'],
@@ -123,7 +131,7 @@ with zipfile.ZipFile('releases/ropureoem-v6-preview.zip') as z:
  assert z.testzip() is None
  assert sum(n.endswith('.html') for n in z.namelist())==150
  for n in z.namelist():assert z.read(n)==Path('preview/v6',n).read_bytes()
-print('PASS: v5 three-source provenance; 45 photo/17 justified pending; SHA-256/dimensions; protected four outputs; unchanged v6 images/specs; SEO/contact cleanup; 150 sitemap URLs (75 EN + 75 ZH); ZIP bytes/integrity.')
+print('PASS: v5 three-source provenance; 45 photo/17 justified pending; SHA-256/dimensions; protected four outputs; unchanged v6 images/specs; SEO/contact cleanup; 75 English sitemap URLs (0 ZH); ZIP bytes/integrity.')
 
 if '--browser' in sys.argv:
  from playwright.sync_api import sync_playwright
