@@ -38,6 +38,7 @@ home=BS(Path('index.html').read_text(),'html.parser')
 assert {img['src'] for img in home.select('#factory-gallery img')}==factory_images
 assert home.select_one('.factory-disclosure').get_text()=='AI-generated illustrations of assembly and logistics.'
 assert home.select_one('.studio-hero').find_next_sibling('section')['id']=='factory-gallery'
+assert [n['data-sku'] for n in home.select('.featured .card')]==['WT-CT21','WT-UR04','WT-CT19','WT-CT09']
 
 for p in pages:
  s=BS(p.read_text(),'html.parser');assert len(s.select('h1'))==1,str(p)
@@ -108,9 +109,13 @@ for p in pages:
  s=BS(p.read_text(),'html.parser')
  old=BS(subprocess.check_output(['git','show',image_baseline+':'+str(p)]),'html.parser')
  for selector in ['img','.image-pending','.specs','.card','.product-img']:
-  # Only the three audited homepage illustrations may be added; existing imagery stays identical.
-  nodes=[n for n in s.select(selector) if not (selector=='img' and n.find_parent(id='factory-gallery'))]
-  assert [str(n) for n in nodes]==[str(n) for n in old.select(selector)],(p,selector)
+  # Homepage additions and curated mainline cards have dedicated checks; other imagery/cards stay identical.
+  def retained(doc):
+   return [str(n) for n in doc.select(selector) if not (
+    str(p)=='index.html' and (
+     (selector=='img' and n.find_parent(id='factory-gallery')) or
+     (selector in ['img','.card'] and n.find_parent(class_='featured'))))]
+  assert retained(s)==retained(old),(p,selector)
  assert 'Cheehwa Yan' not in p.read_text()
  assert not s.select('.languages,[aria-label="Languages"]')
  assert not [n for n in s.select('header button,footer button,header a,footer a') if n.get_text(strip=True) in ['RU','KK']]

@@ -67,3 +67,25 @@ Validation:
 - `git diff --check`: PASS. No CNAME, robots.txt, Pages workflow, old-site assets, product images, product image audits or sitemap changes in this image update.
 
 Live-domain checks remain assigned to the user as previously requested; Pages deployment is checked separately after pushing this image commit to main.
+
+
+## Mainline-only homepage features (2026-11-06)
+
+The homepage retains WT-CT21 and replaces WT-T27 / WT-SH14 / WT-T25 with three existing, photo-approved mainline products. EN/ZH homepages show the same four models in this order:
+
+1. WT-CT21 — countertop RO with freshly ground coffee; the original featured card remains unchanged.
+2. WT-UR04 — high-capacity under-sink household RO; catalogue capacity 1000 / 1200 / 1600 GPD.
+3. WT-CT19 — RO purifier with ice, hot and cold water; catalogue capacity 50 / 75 / 100 GPD.
+4. WT-CT09 — countertop hydrogen-water RO dispenser; catalogue membrane/production 200 GPD / 30 L/h, SPE electrolysis listed in the existing specification table.
+
+The three replacement cards are copied from products.html; their added specification excerpts are copied from the first row of the corresponding existing product specification tables, with matching Chinese translations. All product photographs are existing approved assets. No model is invented and no product file is edited. All faucet/shower SKUs are absent from homepage features, and WT-T27 / WT-T25 / WT-SH14 are absent from both homepage source files. The full catalogue and category/product pages remain byte-identical to image commit `2f9c2ca4c85f04d3923b8cb3457ff66156abed91`, including accessory SEO. Category navigation remains available.
+
+Validation:
+
+- `work/venv/bin/python scripts/verify_homepage_featured.py --browser`: PASS. EN/ZH production sources and portable preview at 320/390/768/1440px; four models, 2-column mobile and 4-column desktop layout, four decoded images, every product link and header language switch, no overflow/JS/resource failures. CT21 card, full homepage head/header/footer/hero/AI gallery and all catalogue/category/product files match the previous commit exactly. Mobile screenshots are saved under ignored work/.
+- `work/venv/bin/python scripts/verify_v6.py --browser`: PASS. Original product files/images/specifications, English SEO and responsive catalogue/quote/navigation checks remain valid; sitemap remains 75 English URLs, 0 ZH.
+- `work/venv/bin/python scripts/verify_bilingual.py --browser`: PASS. Matching EN/ZH features, paired links, unchanged numerical specifications and image reuse; compact search/EN-ZH controls across 10 viewport widths, 75/75 ZH noindex and 0/75 EN noindex.
+- `work/venv/bin/python scripts/package_v6.py`: PASS. Rebuilt bilingual preview/ZIP with all 150 pages, gallery assets, mainline features, correct robots metadata and English-only sitemap.
+- `git diff --check`: PASS. Product/catalogue/category source bytes, images, CNAME, robots.txt, Pages workflow and sitemap are unchanged by this selection update.
+
+The preceding AI-gallery commit `2f9c2ca4c85f04d3923b8cb3457ff66156abed91` was pushed to main and GitHub Pages deployment succeeded: https://github.com/tileserachied/ropureoem/actions/runs/42065722955 . The user retains live-domain checks; the video remains pending their upload/path.
