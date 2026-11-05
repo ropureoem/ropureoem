@@ -183,7 +183,7 @@ if '--browser' in sys.argv:
     assert page.locator('#factory-gallery img').evaluate_all('(imgs)=>imgs.every(i=>i.naturalWidth===1536 && i.naturalHeight===1024 && getComputedStyle(i).objectFit==="contain")')
     columns=page.locator('.factory-gallery').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')
     assert columns==2,columns
-  go('index.html');assert not page.locator('.video-section').is_visible();page.screenshot(path='work/home-desktop.png',full_page=True)
+  go('index.html');assert page.locator('.video-section').is_visible();page.screenshot(path='work/home-desktop.png',full_page=True)
   go('products/RP-F02.html');assert page.locator('.product-img img').get_attribute('src')=='../assets/products/RP-F02.png';assert page.locator('.specs tr').count()==8
   go('products/RP-C11.html');page.screenshot(path='work/product-desktop.png',full_page=True)
   for key,count in [('under-sink',17),('countertop',14),('softener',4),('shower',14),('faucet',13),('hot-cold-ice',14)]:
@@ -206,7 +206,7 @@ if '--browser' in sys.argv:
    if width<700:
     assert page.locator('.bottom-nav').is_visible();assert not page.locator('.category-grid').is_visible()
     assert page.locator('.featured').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')==2
-    assert not page.locator('.video-section').is_visible();assert page.locator('video,iframe').count()==0
+    assert not page.locator('.video-section').is_visible();assert page.locator('#videos video[controls][preload=metadata]').count()==1;assert page.locator('iframe,video[autoplay]').count()==0
     page.locator('.bottom-nav a',has_text='Products').click();assert page.url.endswith('products.html')
     page.locator('.bottom-nav a',has_text='Get Quote').click();assert page.url.endswith('get-quote.html')
     page.locator('.bottom-nav a',has_text='Videos').click();assert page.url.endswith('index.html#videos');assert page.locator('#videos').is_visible()

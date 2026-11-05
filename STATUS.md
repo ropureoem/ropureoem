@@ -151,3 +151,22 @@ Latest validation supersedes the older three-photo/single-column gallery expecta
 - `git diff --check`: PASS. CNAME, robots.txt, Pages workflow, product image bytes and numerical specification values are unchanged.
 
 Local evidence is under ignored work/: factory-mobile-en.png / factory-mobile-zh.png, full-page home-simple-mobile-en.png / home-simple-mobile-zh.png, and the mobile controls/contact screenshots above. Full-page reading screenshots temporarily omit fixed overlays during capture only; actual viewport screenshots retain them. Both the live domain and requested external style reference are blocked by the environment proxy (HTTPS CONNECT 403); no source content or assets from the reference were fetched/copied, and no live screenshot is claimed. Pages status is verified separately after pushing main.
+
+
+## Supplied P90-1 product video integration (2026-11-06)
+
+Source: the video already committed to main in fc805a5, assets/video/p90-1-product.mp4. No download URL was used and no alternative/historical footage was substituted. The file is unchanged: 18,365,143 bytes; SHA-256 8a8c877ecd8a466333f54eeea543d38ef5d97b19012ae2b4a8b33f4e3af298f4; duration 87.605 seconds; 720×1280; H.264 video and AAC audio. FFmpeg fully decoded the source without errors; no encoding, cutting, remuxing or other media transformation was applied.
+
+The EN/ZH homepage #videos region now contains one native video element with controls, preload=metadata and playsinline. Its English source points to the stable assets/video/p90-1-product.mp4 path; generated Chinese relative references resolve to the same file. The old poster/footage-pending text is absent from both active regions. The player uses the original 9:16 aspect ratio and object-fit:contain. No autoplay or loop is enabled. Desktop displays the player in the existing video area; phones preserve the simplified initial homepage and reveal the player via the existing bottom Videos link. The existing quote enquiry link remains alongside the video. Other product parameters, RP identifiers, mainline features, image assets, SEO metadata, language/header/contact controls, sitemap and robots rules are unchanged.
+
+The completed .github/workflows/fetch-p90-video.yml has been deleted, including its obsolete temporary URL. The original Pages workflow/CNAME/robots.txt remain unchanged.
+
+Validation:
+
+- `python scripts/verify_product_video.py`: PASS. Source, preview asset and the single ZIP video entry match the original size/hash; EN/ZH markup has native controls/metadata/inline, no autoplay/loop and no obsolete poster. Chromium 390/1440px on production source and portable preview confirms initial pause, mobile Videos activation, original dimensions, complete frame, actual native play/pause clicks, successful seeking and no media/JS/resource errors.
+- Video QA uses a local byte-range-aware HTTP server (`python scripts/serve_preview.py`), so native seeking is exercised with standard partial-content responses rather than the range limitations of Python's basic server.
+- `python scripts/verify_v6.py --browser`: PASS. Existing SEO, image provenance/hashes, specification rows, local links, catalogue/search/quote/navigation and updated real-video expectations.
+- `python scripts/verify_bilingual.py --browser`: PASS. Paired EN/ZH URLs/controls, parameters/assets, responsive header, query/model preservation, 75 ZH noindex / 0 EN noindex and 75 English sitemap URLs.
+- `python scripts/verify_model_namespace.py`: PASS, final 62-model namespace, 462 unchanged parameter rows, zero retired identifiers and no private correspondence files published.
+- `python scripts/package_v6.py`: PASS. Rebuilt releases/ropureoem-v6-preview.zip includes the unchanged original video and latest 150 bilingual pages; CRC, correct robots/sitemap and all preview bytes match.
+- `git diff --check`: PASS. Local video-player screenshots are under ignored work/p90-player-en.png and work/p90-player-zh.png. No live-domain playback claim is made; Pages status is checked separately after pushing main.
