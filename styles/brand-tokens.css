@@ -1,0 +1,27 @@
+/* ROPureOEM approved palette. Original logo files must not be recolored. */
+:root {
+  --brand-petrol: #00343D;
+  --brand-ice-cyan: #8CE2E4;
+  --brand-coral: #FF786C;
+  --brand-white: #FFFFFF;
+  --brand-light-teal: #168C96;
+  --brand-light-wave: #153B43;
+  --brand-light-wordmark: #15313E;
+  --brand-dark-wave: #F5F5EF;
+  --color-background: var(--brand-white);
+  --color-text: var(--brand-petrol);
+  --color-surface-primary: var(--brand-petrol);
+  --color-on-primary: var(--brand-white);
+  --color-highlight: var(--brand-ice-cyan);
+  --color-accent: var(--brand-coral);
+  --color-action-background: var(--brand-ice-cyan);
+  --color-action-text: var(--brand-petrol);
+  --color-link: var(--brand-petrol);
+  --color-focus: var(--brand-petrol);
+}
+[data-theme="dark"] {
+  --color-background: var(--brand-petrol);
+  --color-text: var(--brand-white);
+  --color-link: var(--brand-ice-cyan);
+  --color-focus: var(--brand-ice-cyan);
+}
