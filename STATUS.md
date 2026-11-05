@@ -27,4 +27,4 @@ Quotation uses mailto:info@ropureoem.com. Floating help uses https://wa.me/86189
 
 WT-T13 original is the correct silver standard housing from catalogue page 12 (original PNG preserved); its tabletop background fails display acceptance. It displays an explicit SKU placeholder pending a clean source or verified conservative isolation; no gold/blue-light replacement is used.
 
-No verified ROPureOEM factory footage was found; mobile shows a portrait poster with an explicit pending statement, no video playback. Certificate availability, order quantities and commercial terms require model-specific enquiry. Hosted deployment success is separate from local build verification and will be reported from GitHub Actions if available.
+No verified ROPureOEM factory footage was found; mobile shows a portrait poster with an explicit pending statement, no video playback. Certificate availability, order quantities and commercial terms require model-specific enquiry. GitHub main push succeeded. GitHub Actions status query returned Forbidden from the connected GitHub API; hosted deployment completion could not be verified. Local build and portable preview verification passed.
