@@ -18,7 +18,7 @@ for page in dest.rglob('*.html'):
    target=(page.parent/unquote(u.path)).resolve() if u.path else page.resolve()
    assert target.is_relative_to(dest.resolve()) and target.exists(),(page,node)
    if u.fragment and target.suffix=='.html':assert BeautifulSoup(target.read_text(),'html.parser').find(id=unquote(u.fragment))
-zip_path=root/'releases/ropureoem-v6-preview.zip' 
+zip_path=root/'releases/ropureoem-v6-preview.zip'
 with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
  for p in sorted(dest.rglob('*')):
   if p.is_file():z.write(p,p.relative_to(dest))
