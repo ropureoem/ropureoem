@@ -122,7 +122,7 @@ At < 900px use an accessible Menu toggle and a stacked navigation panel. Navigat
 
 ### Footer
 
-Petrol surface, white headings/body, cyan links. Use the standard container. Top inquiry row: existing-model/market prompt and primary quote CTA. Below: four columns for brand summary, ranges, OEM / ODM links and contact; two columns tablet and one mobile; 32px gaps. Include the final logo, Cheehwa Yan, info@ropureoem.com, existing WhatsApp link, contact page and all existing informational links. Separate copyright/back-to-top row with a muted divider. Reserve enough bottom space for the fixed inquiry control.
+Petrol surface, white headings/body, cyan links. Use the standard container. Top inquiry row: existing-model/market prompt and primary quote CTA. Below: four columns for brand summary, ranges, OEM / ODM links and contact; two columns tablet and one mobile; 32px gaps. Include the final logo, info@ropureoem.com, existing WhatsApp link, contact page and all existing informational links. Separate copyright/back-to-top row with a muted divider. Reserve enough bottom space for the fixed inquiry control.
 
 ### Help
 

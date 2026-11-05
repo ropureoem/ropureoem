@@ -3,6 +3,8 @@ from pathlib import Path
 import shutil,zipfile
 from bs4 import BeautifulSoup
 from urllib.parse import urlsplit,unquote
+import subprocess,sys
+subprocess.run([sys.executable, 'scripts/generate_sitemap.py'], check=True)
 root=Path('.');dest=root/'preview/v6';dest.mkdir(parents=True,exist_ok=True)
 files=[*root.glob('*.html'),*root.glob('*.txt'),*root.glob('*.css'),*root.glob('*.js'),root/'CNAME',root/'sitemap.xml',root/'README.md',root/'STATUS.md']
 for p in files:shutil.copy2(p,dest/p.name)

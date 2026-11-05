@@ -8,8 +8,21 @@ assert len(pages)==75
 models=list(root.glob('products/WT-*.html'));assert len(models)==62
 baseline='ba76b9874196fe91b049f770090d516ad2adf5da'
 def before(p):return subprocess.check_output(['git','show',baseline+':'+str(p)])
-for p in list(Path('public/brand').glob('*'))+[Path('sitemap.xml'),Path('robots.txt'),Path('CNAME'),Path('.github/workflows/static.yml')]:assert p.read_bytes()==before(p),str(p)
-for path in subprocess.check_output(['git','ls-tree','-r','--name-only',baseline,'preview/v5','releases/ropureoem-v5-preview.zip']).decode().splitlines():assert Path(path).read_bytes()==before(path),path
+for p in list(Path('public/brand').glob('*'))+[Path('robots.txt'),Path('CNAME'),Path('.github/workflows/static.yml')]:assert p.read_bytes()==before(p),str(p)
+# Public v5 copy may change only for contact cleanup; preserve all source images.
+def clean_contact(data):
+ text=data.decode()
+ text=re.sub(r'Cheehwa Yan<br\s*/?>','',text)
+ return text.replace('Cheehwa Yan, ','').replace('Cheehwa Yan','ROPureOEM').replace(' (placeholder — to be confirmed)','').encode()
+for path in subprocess.check_output(['git','ls-tree','-r','--name-only',baseline,'preview/v5']).decode().splitlines():
+ original=before(path)
+ assert Path(path).read_bytes()==(clean_contact(original) if Path(path).suffix in ['.html','.txt','.md'] else original),path
+import io,zipfile
+with zipfile.ZipFile(io.BytesIO(before('releases/ropureoem-v5-preview.zip'))) as oldzip, zipfile.ZipFile('releases/ropureoem-v5-preview.zip') as current:
+ assert oldzip.namelist()==current.namelist()
+ for name in oldzip.namelist():
+  original=oldzip.read(name)
+  assert current.read(name)==(clean_contact(original) if Path(name).suffix in ['.html','.txt','.md'] else original),name
 approved={e['output'] for e in json.loads(Path('docs/brand/product-image-audit.json').read_text())['images'] if e['status']=='pass'}
 for p in pages:
  s=BS(p.read_text(),'html.parser');assert len(s.select('h1'))==1,str(p)
@@ -33,18 +46,19 @@ for p in pages:
  text=s.get_text(' ',strip=True)+' '+str(s.select('script'))
  assert not re.search(r'water\s*tech|watertechoem|\b(?:NSF|PFAS|BPA|ACS|WRAS|SGS|TUV|TÜV|EAC|RAVEN|WeChat)\b|tawk\.to|\bMOQ\s*[:：]?\s*\d|[$€£]\s*\d',text,re.I),str(p)
  if p in models:
-  old=BS(before(p),'html.parser')
+  old=BS(clean_contact(before(p)),'html.parser')
   assert [r.get_text(' ',strip=True) for r in s.select('.specs tr')]==[r.get_text(' ',strip=True) for r in old.select('.specs tr')],str(p)
   assert s.select_one('.lede').get_text()==old.select_one('.lede').get_text()
- elif str(p) not in ['index.html','products.html']:
-  old=BS(before(p),'html.parser')
+ elif str(p) not in ['index.html','products.html','contact.html']:
+  old=BS(clean_contact(before(p)),'html.parser')
   # Existing non-home main paragraphs, headings and model descriptions remain.
   for n in old.main.select('p,h1,h2,h3,li,td,th'):
    t=n.get_text(' ',strip=True)
-   if t and not n.find_parent('article'):
+   if str(p)=='about.html':t=t.replace('water purifier OEM / ODM supplier','water purifier OEM / ODM manufacturer')
+   if t and not n.find_parent('article') and not (str(p)=='products/countertop.html' and n.name=='h1'):
     assert t in s.main.get_text(' ',strip=True),(str(p),t)
 assert len(BS(Path('products.html').read_text(),'html.parser').select('.card'))==62
-print('PASS: 75 pages; 62 models; all spec rows retained; all local links/fragments; JSON-LD; images; prohibited terms; protected brand/Pages/v5 bytes.')
+print('PASS: 75 pages; 62 models; all spec rows retained; all local links/fragments; JSON-LD; images; prohibited terms; protected brand/Pages/v5 image bytes.')
 # Per-model provenance, output hashes, pending allowlist and immutable v6 content.
 from PIL import Image
 import zipfile,posixpath
@@ -59,7 +73,8 @@ with zipfile.ZipFile('releases/ropureoem-v5-preview.zip') as v5zip:
     html=before(Path(page));data=before(Path(v['path']))
    elif v['kind']=='zip':html=v5zip.read(page);data=v5zip.read(v['path'])
    else:html=Path('preview/v5',page).read_bytes();data=Path('preview/v5',v['path']).read_bytes()
-   assert hashlib.sha256(html).hexdigest()==v['page_sha256']
+   assert hashlib.sha256(before(Path(page))).hexdigest()==v['page_sha256']
+   assert html==before(Path(page)) or html==clean_contact(before(Path(page)))
    ref=BS(html,'html.parser').select_one('.product-img img')['src']
    assert ref==v['reference'] and posixpath.normpath(posixpath.join('products',ref))==e['source']
    assert hashlib.sha256(data).hexdigest()==e['source_sha256']==v['sha256']
@@ -72,28 +87,39 @@ with zipfile.ZipFile('releases/ropureoem-v5-preview.zip') as v5zip:
   else:assert s.select_one('.product-img .image-pending span').text==sku and e['reason']
   if sku in ['WT-CT21','WT-SH14','WT-T25','WT-T27']:
    assert Path(e['output']).read_bytes()==subprocess.check_output(['git','show',v6_baseline+':'+e['output']])
- for p in pages:
-  s=BS(p.read_text(),'html.parser');old=BS(subprocess.check_output(['git','show',v6_baseline+':'+str(p)]),'html.parser')
-  assert str(s.title)==str(old.title)
-  assert [str(n) for n in s.select('meta')]==[str(n) for n in old.select('meta')]
-  for n in s.select('.image-pending'):
-   sku=n.select_one('span').text;assert by_sku[sku]['status']=='pending',(p,sku)
-  assert [str(n) for n in s.select('.specs,.lede')]==[str(n) for n in old.select('.specs,.lede')]
-  assert [n['href'] for n in s.select('a[href]')]==[n['href'] for n in old.select('a[href]')]
-  # Everything besides image containers and Product JSON-LD must remain byte-equivalent in DOM.
-  for doc in [s,old]:
-   for n in doc.select('.image-pending'):n.decompose()
-   for n in doc.select('img'):
-    if 'assets/products/' in n.get('src',''):n.decompose()
-   for n in doc.select('script[type="application/ld+json"]'):
-    d=json.loads(n.string)
-    if d.get('@type')=='Product':d.pop('image',None);n.string=json.dumps(d,sort_keys=True)
-  assert str(s)==str(old),str(p)
+# SEO/contact changes must leave images, placeholders, model specs and layout intact.
+image_baseline='c8d5ab654ec030f2eb08113ec90245818d1cc4d4'
+for p in pages:
+ s=BS(p.read_text(),'html.parser')
+ old=BS(subprocess.check_output(['git','show',image_baseline+':'+str(p)]),'html.parser')
+ for selector in ['img','.image-pending','.specs','.card','.product-img']:
+  assert [str(n) for n in s.select(selector)]==[str(n) for n in old.select(selector)],(p,selector)
+ assert 'Cheehwa Yan' not in p.read_text()
+ assert not s.select('.languages,[aria-label="Languages"]')
+ assert not [n for n in s.select('header button,footer button,header a,footer a') if n.get_text(strip=True) in ['EN','ZH','RU','KK']]
+ for ld in s.select('script[type="application/ld+json"]'):json.loads(ld.string)
+# Every source/product image and image audit remains identical to latest main.
+for path in subprocess.check_output(['git','ls-tree','-r','--name-only',image_baseline,'assets','public','docs/brand/product-image-audit.json','docs/brand/product-image-audit.md']).decode().splitlines():
+ assert Path(path).read_bytes()==subprocess.check_output(['git','show',image_baseline+':'+path]),path
+import xml.etree.ElementTree as ET
+urls=[n.text for n in ET.parse('sitemap.xml').findall('{*}url/{*}loc')]
+expected={'https://ropureoem.com/'+('' if p.name=='index.html' else str(p)) for p in pages}
+assert len(urls)==75 and len(set(urls))==75 and set(urls)==expected
+keywords={
+ 'index.html':['oem water purifier manufacturer','oem water filter manufacturer'],
+ 'oem-odm.html':['oem water filter manufacturer','ultra high purity purifier','water purifier parts','water purification parts','water filter components','industrial reverse osmosis hot water'],
+ 'products/countertop.html':['hot and cold water purifier'],
+ 'products.html':['portable water purifier market'],
+}
+for path,phrases in keywords.items():
+ html=Path(path).read_text().lower()
+ for phrase in phrases:assert phrase in html,(path,phrase)
+assert 'oem water purifier manufacturer' in BS(Path('index.html').read_text(),'html.parser').h1.get_text().lower()
 with zipfile.ZipFile('releases/ropureoem-v6-preview.zip') as z:
  assert z.testzip() is None
  assert sum(n.endswith('.html') for n in z.namelist())==75
  for n in z.namelist():assert z.read(n)==Path('preview/v6',n).read_bytes()
-print('PASS: v5 three-source provenance; 45 photo/17 justified pending; SHA-256/dimensions; protected four outputs; unchanged v6 layout/specs/SEO/contact; ZIP bytes/integrity.')
+print('PASS: v5 three-source provenance; 45 photo/17 justified pending; SHA-256/dimensions; protected four outputs; unchanged v6 images/specs; SEO/contact cleanup; 75 sitemap URLs; ZIP bytes/integrity.')
 
 if '--browser' in sys.argv:
  from playwright.sync_api import sync_playwright
