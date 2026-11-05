@@ -23,8 +23,10 @@ Quotation uses mailto:info@ropureoem.com. Floating help uses https://wa.me/86189
 
 ## Unverified/source limitations
 
-4 individually reviewed and normalized white-background images pass: WT-CT21, WT-SH14, WT-T25, WT-T27. 58 sources are pending or unsuitable; 0 processing failures. No failed/unedited image is labelled retouched. Detailed provenance, hashes, dimensions, operations and status are in the JSON audit and readable report. All source originals remain unchanged.
+本次图片恢复：62 个型号中 45 个显示真实产品照片，17 个按逐型号审查保留 pending。已核实 ba76b98、v5 ZIP 和 preview/v5 的实际产品页引用及源图片 SHA-256 三者一致。CT15/CT16/CT26 与 WS01/WS02/WS03 两组重复哈希在 v5 已存在，未进行跨型号替换。原先通过的 WT-CT21、WT-SH14、WT-T25、WT-T27 输出保持原样。
 
-WT-T13 original is the correct silver standard housing from catalogue page 12 (original PNG preserved); its tabletop background fails display acceptance. It displays an explicit SKU placeholder pending a clean source or verified conservative isolation; no gold/blue-light replacement is used.
+WT-T13 已恢复指定 assets/img/WT-T13-correct.png 银色外壳实拍图，保留完整桌面背景以避免改动产品本体，居中置于白色 4:3 画布。其余新增输出仅等比缩小及白色画布居中，无裁切、拉伸、重绘或生成图片。17 个 pending 的中文/字标原因、三处来源证据、输入输出哈希、尺寸及处理步骤详见 docs/brand/product-image-audit.json 和 .md。
+
+本次执行 scripts/package_v6.py 与 scripts/verify_v6.py，检查 75 页、62 型号、相对资源/锚点、JSON-LD、v5 来源、输出哈希、4 张保护图片、v6 布局/规格/SEO/联系链接保持以及 ZIP 完整性与文件一致性。本次实际请求 https://ropureoem.com/ 时，环境代理返回 HTTP 403（CONNECT tunnel failed），未取得站点响应，无法确认线上部署；不能据本地通过认定线上已生效。
 
 No verified ROPureOEM factory footage was found; mobile shows a portrait poster with an explicit pending statement, no video playback. Certificate availability, order quantities and commercial terms require model-specific enquiry. GitHub main push succeeded. GitHub Actions status query returned Forbidden from the connected GitHub API; hosted deployment completion could not be verified. Local build and portable preview verification passed.
