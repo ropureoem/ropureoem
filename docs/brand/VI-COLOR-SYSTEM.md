@@ -29,6 +29,8 @@ Use styles/brand-tokens.css as the shared source for CSS roles and docs/brand/co
 
 Contact address: info@ropureoem.com, including visible text and mailto links.
 
+Website supporting colors: muted ink #49636A; divider #D4E5E7; cyan surfaces #E9F8F8 and #F1F8F9; coral notice surface #FFF0EE and border #FFD0CA; hover petrol #00515E; footer secondary text #B8D4D8. These are UI tints, not alternate logo colors. The primary action is ice cyan with petrol lettering.
+
 ## Contrast (WCAG relative luminance)
 
 | Pair | Contrast |

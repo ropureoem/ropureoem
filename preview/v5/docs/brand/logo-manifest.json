@@ -1,0 +1,50 @@
+[
+  {
+    "path": "public/brand/ROPureOEM_Final_icon_dark.png",
+    "sha256": "bf986ab565381eb276eddfc32ac846acb7944e9a8765535e4ae227c0073fc14d",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_icon_dark.svg",
+    "sha256": "8a8add096430adfa2f6bc22c99d6e7860f8fd371cb885f69d9799a6343a109d1",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_icon_light.png",
+    "sha256": "d3d0cf6f61bae8e104174aac34a51ce39e5f7e80fbdb349f882a18ba522ce769",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_icon_light.svg",
+    "sha256": "c80d16b210e248f925aa0bc4f9f1af40595dfed94c985f1fa42fbd2b175b6350",
+    "width": 1024,
+    "height": 1024
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_logo_dark.png",
+    "sha256": "7d7d2502b3d69bab6306e9b5e3151da148185b62084b8c87af18922bc387f9b8",
+    "width": 1600,
+    "height": 480
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_logo_dark.svg",
+    "sha256": "8d0779f3e20c640a990b022fcaf52c8c236bcc13c25a6f03ad813d4e35f2bd11",
+    "width": 1600,
+    "height": 480
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_logo_light.png",
+    "sha256": "431920b29db8816a259b870faadcdf3ab7d7ef0ddd480359b1b00f0cad668f85",
+    "width": 1600,
+    "height": 480
+  },
+  {
+    "path": "public/brand/ROPureOEM_Final_logo_light.svg",
+    "sha256": "214c442adc570d5a8f74e110504826021ab3a6403d52d7ca4cf7b6ee03c35536",
+    "width": 1600,
+    "height": 480
+  }
+]

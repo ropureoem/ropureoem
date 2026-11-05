@@ -1,15 +1,9 @@
-# v5 delivery status
+# v5 verification and remaining image correction
 
-Completed:
-- All eight approved final logo files committed to GitHub main, unchanged.
-- VI color system, usage rules, accessible UI color roles and CSS/JSON tokens.
-- Portable responsive brand preview using the original logos and correct info@ropureoem.com contact address.
-- Original file hashes, PNG dimensions and SVG dimensions verified.
+Completed: full 75-page/62-product website migration; approved final logo and icon integration on every page; petrol/cyan/coral UI; all 164 old email occurrences replaced with info@ropureoem.com across HTML and JavaScript.
 
-Blocked, not completed:
-- Existing website UI update and migration. GitHub was empty before this delivery; no website HTML/JS/framework source was found in /workspace/ropureoem, /workspace/shared, /workspace/library-files, /workspace/scratch or the uploaded ZIP. Connected Sites contained no ROPureOEM site.
-- Global sales-to-info email replacement on the existing website: source unavailable. All new preview contact links use info@ropureoem.com.
-- WT-T13 image correction: neither the product page/data nor a verified WT-T13 photo was available. No substitute or invented photo was used.
-- Complete website v5 preview/live link: unavailable until the existing website source and correct product photo are supplied.
+Checks passed: all page-local href/src targets exist; JSON-LD parses; JavaScript syntax; product search; quote model prefill; quote recipient, subject and body; original final logos unchanged.
 
-This package is the completed brand portion of v5. It does not represent completion of the website work.
+Pending: silver WT-T13 image from catalogue page 11. The supplied catalogue exceeded the download tool's 32 MiB transfer limit. A smaller page-11 PDF or the silver product image is required. WT-T13.jpg still contains the v4 gold/blue-light T15 photo and must not be treated as corrected.
+
+Browser rendering was not tested because this environment's managed browser QA tool was unavailable. This is a portable static preview, not a verified hosted deployment.
