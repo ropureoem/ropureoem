@@ -70,6 +70,16 @@ def add_languages(doc, page, chinese=False):
             nav['class'] = ['wrap', 'language-switch']
             parent.append(nav)
 
+def add_help_options(doc, page):
+    trigger = doc.select_one('.help')
+    if trigger is None:
+        return
+    # Native disclosure preserves a usable contact choice without JavaScript.
+    target = trigger.find_parent(class_='help-widget') or trigger
+    email = relative('get-quote.html', page)
+    widget = BeautifulSoup(f'''<details class="help-widget"><summary class="help">Need help?</summary><div class="help-panel" role="group" aria-labelledby="help-panel-title"><strong id="help-panel-title">Contact us</strong><a class="help-option" data-contact="whatsapp" href="https://wa.me/8618928823858" target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="help-option" data-contact="email" href="{email}"><span>Email us</span><small>info@ropureoem.com</small></a></div></details>''', 'html.parser').details
+    target.replace_with(widget)
+
 def refresh_legacy_switches():
     # Historical previews use the maintained production language pair; assets stay local.
     def add(text, name):
@@ -96,6 +106,10 @@ def generate():
     for source in pages:
         path=source.relative_to(ROOT)
         en=BeautifulSoup(source.read_text(),'html.parser')
+        # Default closed in HTML: mobile must not wait for JavaScript to collapse it.
+        for menu in en.select('details.nav-menu'):
+            menu.attrs.pop('open',None)
+        add_help_options(en,path)
         add_languages(en,path)
         source.write_text(str(en))
         zh=BeautifulSoup(str(en),'html.parser')

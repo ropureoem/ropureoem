@@ -15,7 +15,8 @@
       "source_type": "AI-generated",
       "prompt_scene": "Unbranded shipping container; two workers in plain navy workwear loading blank brown cartons at a factory dock.",
       "status": "pass",
-      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, WaterTech watermark or old domains. No old-site/reference photographs used."
+      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, third-party watermarks or old domains. No old-site/reference photographs used.",
+      "placement": "index.html#factory-gallery"
     },
     {
       "output": "images/homepage-factory/purifier-assembly.webp",
@@ -28,7 +29,8 @@
       "source_type": "AI-generated",
       "prompt_scene": "Bright water purifier assembly workshop; four technicians in navy workwear with white purifier housings and filter components.",
       "status": "pass",
-      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, WaterTech watermark or old domains. No old-site/reference photographs used."
+      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, third-party watermarks or old domains. No old-site/reference photographs used.",
+      "placement": "index.html#factory-gallery"
     },
     {
       "output": "images/homepage-factory/warehouse-dispatch.webp",
@@ -41,7 +43,8 @@
       "source_type": "AI-generated",
       "prompt_scene": "Warehouse dispatch bay; plain cartons on three wooden pallets, clear stretch wrap, a manual pallet jack and simple storage shelving.",
       "status": "pass",
-      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, WaterTech watermark or old domains. No old-site/reference photographs used."
+      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, third-party watermarks or old domains. No old-site/reference photographs used.",
+      "placement": "about.html#factory-dispatch"
     }
   ]
 }

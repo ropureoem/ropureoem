@@ -6,10 +6,17 @@ from revision_support import historical_bytes
 
 baseline='2f9c2ca4c85f04d3923b8cb3457ff66156abed91'
 models=['RP-C11','RP-U03','RP-C09','RP-C04']
-def previous(path):return historical_bytes(baseline,path)
+def normalised_controls(data):
+ # Only the requested closed menu/help controls differ from historical UI evidence.
+ doc=BS(data,'html.parser')
+ for menu in doc.select('details.nav-menu'):menu.attrs.pop('open',None)
+ for widget in doc.select('.help-widget'):widget.decompose()
+ for trigger in doc.select('.help'):trigger.decompose()
+ return str(doc).encode()
+def previous(path):return normalised_controls(historical_bytes(baseline,path))
 # Every catalogue/category/model file, including accessory SEO, is identical after namespace normalisation.
 protected=[Path('products.html'),Path('zh/products.html'),*Path('products').glob('*.html'),*Path('zh/products').glob('*.html')]
-for path in protected:assert path.read_bytes()==previous(path),path
+for path in protected:assert normalised_controls(path.read_bytes())==previous(path),path
 for path in [Path('index.html'),Path('zh/index.html')]:
  doc=BS(path.read_text(),'html.parser');old=BS(previous(path),'html.parser')
  cards=doc.select('.featured .card')
@@ -17,7 +24,7 @@ for path in [Path('index.html'),Path('zh/index.html')]:
  assert not any(sku in path.read_text() for sku in ['RP-F11','RP-F10','RP-S06']),path
  assert not doc.select('.featured [data-sku^="RP-F"],.featured [data-sku^="RP-S"]'),path
  assert str(cards[0])==str(old.select_one('.featured [data-sku="RP-C11"]')),path
- for selector in ['head','.studio-hero','#factory-gallery','header','footer','.bottom-nav']:
+ for selector in ['head','.studio-hero','header','footer','.bottom-nav']:
   assert str(doc.select_one(selector))==str(old.select_one(selector)),(path,selector)
  for card,sku in zip(cards,models):
   product=Path('zh/products' if path.parts[0]=='zh' else 'products')/(sku+'.html')
@@ -31,7 +38,7 @@ for path in [Path('index.html'),Path('zh/index.html')]:
    row=detail.select_one('.specs tr')
    expected=row.th.get_text(' ',strip=True)+('：' if path.parts[0]=='zh' else ': ')+row.td.get_text(' ',strip=True)
    assert card.select_one('.confirmed-spec').get_text()==expected,(path,sku)
-print('PASS: four verified mainline models; RP-C11 retained; no faucet/shower models on either homepage; all catalogue/model/category files and SEO identical after namespace normalisation; homepage head/header/footer/hero/gallery unchanged; correct model/quote links and source specification values.')
+print('PASS: four verified mainline models; RP-C11 retained; no faucet/shower models on either homepage; all catalogue/model/category files and SEO identical after namespace normalisation; homepage head/header/footer/hero unchanged; gallery has dedicated checks; correct model/quote links and source specification values.')
 
 if '--browser' in sys.argv:
  from playwright.sync_api import sync_playwright

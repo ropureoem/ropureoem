@@ -38,7 +38,12 @@ for entry in factory_audit['images']:
  assert entry['dimensions']==[1536,1024]
 approved|=factory_images
 home=BS(Path('index.html').read_text(),'html.parser')
-assert {img['src'] for img in home.select('#factory-gallery img')}==factory_images
+home_factory={e['output'] for e in factory_audit['images'] if e['placement']=='index.html#factory-gallery'}
+about_factory={e['output'] for e in factory_audit['images'] if e['placement']=='about.html#factory-dispatch'}
+assert len(home_factory)==2 and len(about_factory)==1 and home_factory.isdisjoint(about_factory)
+assert home_factory|about_factory==factory_images
+assert {img['src'] for img in home.select('#factory-gallery img')}==home_factory
+assert {img['src'] for img in BS(Path('about.html').read_text(),'html.parser').select('#factory-dispatch img')}==about_factory
 assert home.select_one('.factory-disclosure').get_text()=='AI-generated illustrations of assembly and logistics.'
 assert home.select_one('.studio-hero').find_next_sibling('section')['id']=='factory-gallery'
 assert [n['data-sku'] for n in home.select('.featured .card')]==['RP-C11','RP-U03','RP-C09','RP-C04']
@@ -46,7 +51,10 @@ assert [n['data-sku'] for n in home.select('.featured .card')]==['RP-C11','RP-U0
 for p in pages:
  s=BS(p.read_text(),'html.parser');assert len(s.select('h1'))==1,str(p)
  assert s.select_one('.header-search input[name=q]') and s.select_one('.bottom-nav') and s.select_one('.footer-help')
- assert s.select_one('.help')['href']=='https://wa.me/8618928823858'
+ assert s.select_one('details.help-widget > summary.help')
+ assert s.select_one('.help-panel [data-contact=whatsapp]')['href']=='https://wa.me/8618928823858'
+ assert (p.parent/urlsplit(s.select_one('.help-panel [data-contact=email]')['href']).path).resolve()==Path('get-quote.html').resolve()
+ assert len(s.select('.help-panel a'))==2
  for n in s.select('[href], [src], [action]'):
   for attr in ['href','src','action']:
    val=n.get(attr)
@@ -63,7 +71,7 @@ for p in pages:
   if 'image' in d:assert d['image'].replace('https://ropureoem.com/','') in approved
  # Word boundaries avoid false positives in e.g. REACH and specifications.
  text=s.get_text(' ',strip=True)+' '+str(s.select('script'))
- assert not re.search(r'water\s*tech|watertechoem|\b(?:NSF|PFAS|BPA|ACS|WRAS|SGS|TUV|TÜV|EAC|RAVEN|WeChat)\b|tawk\.to|\bMOQ\s*[:：]?\s*\d|[$€£]\s*\d',text,re.I),str(p)
+ assert not re.search(r'water\s*tech|\b(?:NSF|PFAS|BPA|ACS|WRAS|SGS|TUV|TÜV|EAC|RAVEN|W[e]Chat)\b|tawk\.to|\bMOQ\s*[:：]?\s*\d|[$€£]\s*\d',text,re.I),str(p)
  if p in models:
   old=BS(clean_contact(before(p)),'html.parser')
   assert [r.get_text(' ',strip=True) for r in s.select('.specs tr')]==[r.get_text(' ',strip=True) for r in old.select('.specs tr')],str(p)
@@ -115,9 +123,10 @@ for p in pages:
   # Homepage additions and curated mainline cards have dedicated checks; other imagery/cards stay identical.
   def retained(doc):
    return [str(n) for n in doc.select(selector) if not (
-    str(p)=='index.html' and (
+    (str(p)=='index.html' and (
      (selector=='img' and n.find_parent(id='factory-gallery')) or
-     (selector in ['img','.card'] and n.find_parent(class_='featured'))))]
+     (selector in ['img','.card'] and n.find_parent(class_='featured')))) or
+    (str(p)=='about.html' and selector=='img' and n.find_parent(id='factory-dispatch')))]
   assert retained(s)==retained(old),(p,selector)
  assert 'Cheehwa Yan' not in p.read_text()
  assert not s.select('.languages,[aria-label="Languages"]')
@@ -169,11 +178,11 @@ if '--browser' in sys.argv:
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),url
    assert page.locator('img').evaluate_all('async (imgs)=>{await Promise.all(imgs.map(i=>{i.loading="eager";return i.decode().catch(()=>{});}));return imgs.every(i=>i.complete&&i.naturalWidth>0);}'),url
    if url=='index.html':
-    assert page.locator('#factory-gallery img').count()==3
+    assert page.locator('#factory-gallery img').count()==2
     assert page.locator('#factory-gallery').is_visible()
     assert page.locator('#factory-gallery img').evaluate_all('(imgs)=>imgs.every(i=>i.naturalWidth===1536 && i.naturalHeight===1024 && getComputedStyle(i).objectFit==="contain")')
     columns=page.locator('.factory-gallery').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')
-    assert columns==(1 if page.viewport_size['width']<700 else 3),columns
+    assert columns==2,columns
   go('index.html');assert not page.locator('.video-section').is_visible();page.screenshot(path='work/home-desktop.png',full_page=True)
   go('products/RP-F02.html');assert page.locator('.product-img img').get_attribute('src')=='../assets/products/RP-F02.png';assert page.locator('.specs tr').count()==8
   go('products/RP-C11.html');page.screenshot(path='work/product-desktop.png',full_page=True)
@@ -195,12 +204,12 @@ if '--browser' in sys.argv:
   for width in [320,390,768,1024]:
    page.set_viewport_size({'width':width,'height':844});go('index.html')
    if width<700:
-    assert page.locator('.bottom-nav').is_visible();assert page.locator('.category-grid').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')==2
+    assert page.locator('.bottom-nav').is_visible();assert not page.locator('.category-grid').is_visible()
     assert page.locator('.featured').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')==2
-    assert page.locator('.video-section').is_visible();assert page.locator('video,iframe').count()==0
+    assert not page.locator('.video-section').is_visible();assert page.locator('video,iframe').count()==0
     page.locator('.bottom-nav a',has_text='Products').click();assert page.url.endswith('products.html')
     page.locator('.bottom-nav a',has_text='Get Quote').click();assert page.url.endswith('get-quote.html')
-    page.locator('.bottom-nav a',has_text='Videos').click();assert page.url.endswith('index.html#videos')
+    page.locator('.bottom-nav a',has_text='Videos').click();assert page.url.endswith('index.html#videos');assert page.locator('#videos').is_visible()
     page.locator('.bottom-nav a',has_text='Contact').click();assert page.url.endswith('contact.html')
     go('index.html');page.locator('.nav-menu>summary').click();assert page.locator('.nav-menu nav').is_visible();page.keyboard.press('Escape');assert not page.locator('.nav-menu nav').is_visible()
     if width==390:page.screenshot(path='work/home-mobile.png',full_page=True)

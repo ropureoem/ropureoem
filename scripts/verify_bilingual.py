@@ -71,9 +71,13 @@ if '--browser' in sys.argv:
    search,switch=boxes
    assert abs(search['y']+search['height']/2-switch['y']-switch['height']/2)<2,boxes
    assert switch['x']>=search['x']+search['width'],boxes
-   assert search['width']<=191,boxes
+   if page.viewport_size['width']>=700:assert search['width']<=191,boxes
    assert page.locator('.header-tools > .language-switch a').evaluate_all('(links)=>links.every(a=>getComputedStyle(a).backgroundColor==="rgba(0, 0, 0, 0)" && a.getBoundingClientRect().height<=32)')
    if page.viewport_size['width']<700:
+    tools=page.locator('.header-tools').bounding_box()
+    assert abs(search['x']-tools['x'])<1,boxes
+    assert abs(switch['x']+switch['width']-tools['x']-tools['width'])<1,boxes
+    assert search['width']>190,boxes
     logo=page.locator('.header-in > .logo').bounding_box()
     quote=page.locator('.header-in > .quote').bounding_box()
     assert abs(logo['y']+logo['height']/2-quote['y']-quote['height']/2)<2
@@ -107,4 +111,4 @@ if '--browser' in sys.argv:
   page.goto(base+'zh/index.html');page.screenshot(path='work/zh-home.png',full_page=True)
   browser.close()
  assert not errors,errors
- print('PASS: Chromium EN↔ZH same-page navigation (home/product/contact), 320–1440px; compact search + inline EN/ZH on the same row; Chinese content; Chinese range/search/count; language-switch query and quote-model preservation; no JS/resource errors.')
+ print('PASS: Chromium EN↔ZH same-page navigation (home/product/contact), 320–1440px; full-width mobile search + right-aligned inline EN/ZH on the same row; Chinese content; Chinese range/search/count; language-switch query and quote-model preservation; no JS/resource errors.')
