@@ -11,8 +11,9 @@ Open index.html directly after extracting the entire ZIP. All site links, CSS, J
 - Approved final logos in all 75 headers and footers; approved standalone icons for favicons and touch icons.
 - Deep teal #00343D, ice cyan #8CE2E4, coral #FF786C; light neutral supporting surfaces. No forest-green/amber UI.
 - info@ropureoem.com everywhere, including mailto links, quote form recipient, confirmation text and JSON-LD.
+- WT-T13 now uses the correct silver faucet PNG from catalogue page 12; the wrong gold/blue-light JPG was removed.
 - Original 62 products, product specifications, category navigation, search and quote flow retained.
 - Exact final logo originals remain in public/brand/, unchanged.
 - VI guide and machine-readable palette: docs/brand/; shared CSS tokens: styles/brand-tokens.css.
 
-See STATUS.md for image-correction status and verification limits.
+See STATUS.md for completion details, image provenance, and verification limits.

@@ -1,9 +1,9 @@
-# v5 verification and remaining image correction
+# v5 completion and verification
 
 Completed: full 75-page/62-product website migration; approved final logo and icon integration on every page; petrol/cyan/coral UI; all 164 old email occurrences replaced with info@ropureoem.com across HTML and JavaScript.
 
-Checks passed: all page-local href/src targets exist; JSON-LD parses; JavaScript syntax; product search; quote model prefill; quote recipient, subject and body; original final logos unchanged.
+WT-T13 corrected: the silver 360-degree rotatable faucet filter (standard housing), confirmed by catalogue page 12. Original PNG bytes come from assets/img/WT-T13-correct.png in user commit e67af9c5f5e2169a360645f2deb64afb4e0dd36c (Git blob 02c365217e5421c6978d4d35997a94664031c323). All product, category, related-product and structured-data references now use that PNG. The incorrect gold/blue-light WT-T15 photo formerly stored as WT-T13.jpg has been removed from the site and package.
 
-Pending: silver WT-T13 image from catalogue page 11. The supplied catalogue exceeded the download tool's 32 MiB transfer limit. A smaller page-11 PDF or the silver product image is required. WT-T13.jpg still contains the v4 gold/blue-light T15 photo and must not be treated as corrected.
+Checks passed: 75 pages and 62 product detail pages preserved; all page-local href/src targets exist; JSON-LD parses; JavaScript syntax; product search; quote model prefill; quote recipient, subject and body; original final logos unchanged. Final package integrity and silver PNG bytes verified. No image-correction work remains pending.
 
-Browser rendering was not tested because this environment's managed browser QA tool was unavailable. This is a portable static preview, not a verified hosted deployment.
+Browser rendering was not tested because this environment's managed browser QA tool was unavailable. This is a complete portable static preview, not a verified hosted deployment.
