@@ -1,0 +1,915 @@
+{
+  "version": 6,
+  "summary": {
+    "total": 62,
+    "passed": 4,
+    "pending_source_review_or_unsuitable": 58,
+    "processing_failures": 0
+  },
+  "images": [
+    {
+      "sku": "WT-CT03",
+      "source": "assets/img/WT-CT03.jpg",
+      "source_sha256": "06e3fc574c653ad753bd1d43c80cd7b7b56c5226807eefcd243bed42632c4599",
+      "source_dimensions": [
+        649,
+        1245
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT04",
+      "source": "assets/img/WT-CT04.jpg",
+      "source_sha256": "b1e9c5b3429cb67728b9d995bfb05433a7d290f1069afec6a4b9874ce56f7600",
+      "source_dimensions": [
+        1042,
+        1370
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT06",
+      "source": "assets/img/WT-CT06.jpg",
+      "source_sha256": "03bfd9385c0a24e310dcf24274cbfba54b2df695dec756d89f15708c8f951312",
+      "source_dimensions": [
+        933,
+        1650
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT09",
+      "source": "assets/img/WT-CT09.jpg",
+      "source_sha256": "95b23a79bb8c87b74391a601333a643934fe4ac22ee2b78279347e8ccd0e7dc6",
+      "source_dimensions": [
+        1200,
+        1291
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT15",
+      "source": "assets/img/WT-CT15.jpg",
+      "source_sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170",
+      "source_dimensions": [
+        876,
+        1658
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT16",
+      "source": "assets/img/WT-CT16.jpg",
+      "source_sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170",
+      "source_dimensions": [
+        876,
+        1658
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT17",
+      "source": "assets/img/WT-CT17.jpg",
+      "source_sha256": "d8dd6f0f973a78200f16dee42de6e861d5a13fcd2368e17d28508d4a12d140de",
+      "source_dimensions": [
+        1200,
+        674
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT18",
+      "source": "assets/img/WT-CT18.jpg",
+      "source_sha256": "9329f9fe343de06ec06eb42e38a1c056a1a67afea8c5b9af0e1acaabee795b9d",
+      "source_dimensions": [
+        417,
+        570
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT19",
+      "source": "assets/img/WT-CT19.jpg",
+      "source_sha256": "7501f594c00f2cfa59349d96f199b4b6476153d117f8d6e7aae2bcba2728fbbb",
+      "source_dimensions": [
+        1200,
+        1111
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT20",
+      "source": "assets/img/WT-CT20.jpg",
+      "source_sha256": "ad7b184b9c4a7952d6e3089330e33520148a54d66ab61360586aa967fc4fcb8b",
+      "source_dimensions": [
+        504,
+        489
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT21",
+      "source": "assets/img/WT-CT21.jpg",
+      "source_sha256": "e8ad6eab9daf0c9718c6ef1c0ef8620c429aa45222e04b81193294acc02297ce",
+      "source_dimensions": [
+        1200,
+        995
+      ],
+      "status": "pass",
+      "output": "assets/products/WT-CT21.png",
+      "operations": [
+        "Normalize near-white background pixels only",
+        "Trim external whitespace",
+        "Downsample only; center complete source on white 4:3 canvas"
+      ],
+      "processing_failure": false,
+      "output_sha256": "84eac1e1d3fa3b6601ea184d0f36c4550dc5fa444ad9628f8d879f53eef39609",
+      "dimensions": [
+        1200,
+        900
+      ],
+      "reason": "Repo model mapping retained; final visual inspection: complete product, neutral finish, no visible Chinese text or other brand, white background."
+    },
+    {
+      "sku": "WT-CT22",
+      "source": "assets/img/WT-CT22.jpg",
+      "source_sha256": "b0d1440c493da96175b435d20a997e6747f5a0879ef2485de8bfce4a810d1032",
+      "source_dimensions": [
+        1200,
+        674
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT23",
+      "source": "assets/img/WT-CT23.jpg",
+      "source_sha256": "a2a4a5a7b22e40a77f5c3041c5b9c807da296d510b2633e19c6bd5f7c1b3614f",
+      "source_dimensions": [
+        1200,
+        1180
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-CT26",
+      "source": "assets/img/WT-CT26.jpg",
+      "source_sha256": "de2c35339999214ae059a0519f59ee538e9a4ef7ef11cab1952cd8d37ffc2170",
+      "source_dimensions": [
+        876,
+        1658
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH02",
+      "source": "assets/img/WT-SH02.jpg",
+      "source_sha256": "ea5d264a66d56a27e6d022f611599ef5da8fcf2af81762a5567af2aae1117d31",
+      "source_dimensions": [
+        441,
+        669
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH04",
+      "source": "assets/img/WT-SH04.jpg",
+      "source_sha256": "c0f2a84899ed360b2e5f0cc85681e41d3056e8745d4276ba325bcabf4df5ea4b",
+      "source_dimensions": [
+        414,
+        694
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH11",
+      "source": "assets/img/WT-SH11.jpg",
+      "source_sha256": "b49bb07d26827ea49955d7cb0409a582da377e43698b2e63485c1a6f6af776cd",
+      "source_dimensions": [
+        213,
+        649
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH12",
+      "source": "assets/img/WT-SH12.jpg",
+      "source_sha256": "aebc8a6bb1bffc94bd5711ddaab3688c8ea4b3d1d314f6ae6bfb74be8d8fb96c",
+      "source_dimensions": [
+        347,
+        1041
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH13",
+      "source": "assets/img/WT-SH13.jpg",
+      "source_sha256": "3561e8943c7ff1c8a4dc27df2c00cdb4338472341f75c82c28ee24c2ea23af22",
+      "source_dimensions": [
+        251,
+        672
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH14",
+      "source": "assets/img/WT-SH14.jpg",
+      "source_sha256": "a619cdc48f9af19b138d6a3a7f307c812ecc3ff8371e01a80263c81be0eb30f4",
+      "source_dimensions": [
+        422,
+        800
+      ],
+      "status": "pass",
+      "output": "assets/products/WT-SH14.png",
+      "operations": [
+        "Normalize near-white background pixels only",
+        "Trim external whitespace",
+        "Downsample only; center complete source on white 4:3 canvas"
+      ],
+      "processing_failure": false,
+      "output_sha256": "9eb1ca45fbaa6e96a6f8c63fa1b3d70c284077b72c89ced3cd1b11f29033f5ea",
+      "dimensions": [
+        524,
+        393
+      ],
+      "reason": "Repo model mapping retained; final visual inspection: complete product, neutral finish, no visible Chinese text or other brand, white background."
+    },
+    {
+      "sku": "WT-SH15",
+      "source": "assets/img/WT-SH15.jpg",
+      "source_sha256": "bc5b2a7ea2ab0510a1531a364f4a5354c201f32984b78385a7d68a1647122523",
+      "source_dimensions": [
+        320,
+        860
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH16",
+      "source": "assets/img/WT-SH16.jpg",
+      "source_sha256": "606d3bef186578d20d78dc7d64cec12bf5aad6dc1336aa3ad2e84722c2ac7cf6",
+      "source_dimensions": [
+        215,
+        584
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH17",
+      "source": "assets/img/WT-SH17.jpg",
+      "source_sha256": "0bbcaff7526afba7955850b4c17f642f03d626c13a03c47fa888bbde295296f2",
+      "source_dimensions": [
+        480,
+        1080
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH18",
+      "source": "assets/img/WT-SH18.jpg",
+      "source_sha256": "ddb9cff948012b0d3143a216b76cfc486d7593aff81787106ba612f1ad9353c7",
+      "source_dimensions": [
+        1200,
+        1579
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH19",
+      "source": "assets/img/WT-SH19.jpg",
+      "source_sha256": "d9f8f985bc936a686bf9d0898f822e8d61c63c30174d6abf3c4313131e3be37d",
+      "source_dimensions": [
+        221,
+        484
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH20",
+      "source": "assets/img/WT-SH20.jpg",
+      "source_sha256": "7edd75cda41b24de3266ffabd60920c0579ac2c698793be8e3710f61f20e9f44",
+      "source_dimensions": [
+        293,
+        502
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH21",
+      "source": "assets/img/WT-SH21.jpg",
+      "source_sha256": "c8a46740fea0eee4f222029f2878e6162007679cecfbf6ed01b134c43958b68f",
+      "source_dimensions": [
+        1200,
+        953
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-SH22",
+      "source": "assets/img/WT-SH22.jpg",
+      "source_sha256": "8c3bb67db31b5836b1f39ccc485c95e3d5a7e3949c7a58817ff0f07acd6b19cc",
+      "source_dimensions": [
+        549,
+        1479
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T01",
+      "source": "assets/img/WT-T01.jpg",
+      "source_sha256": "083e43734df7d2b340d6054ed444e8fe67b2e81260c8d59648ae54210304b258",
+      "source_dimensions": [
+        1200,
+        1301
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T13",
+      "source": "assets/img/WT-T13-correct.png",
+      "source_sha256": "7e6cb642e94714d7645fbb7179107d170dfbe69eb54e82cb6c3e79af445c3535",
+      "source_dimensions": [
+        435,
+        376
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Correct silver standard housing, catalogue page 12 / v5 provenance confirmed. Tabletop background fails white-background standard; preserved original, awaiting conservative isolation or clean source. Never substitute WT-T15."
+    },
+    {
+      "sku": "WT-T14",
+      "source": "assets/img/WT-T14.jpg",
+      "source_sha256": "4fcf9f3bf39e5f2cbfa7ff6aea364173e846d7912f06c369d67bfe6b3156f24b",
+      "source_dimensions": [
+        1200,
+        1032
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T17",
+      "source": "assets/img/WT-T17.jpg",
+      "source_sha256": "c73434e1adb82474ee27081d549866fa5b35a7bc9ca2dee6daff769cb9b9eb92",
+      "source_dimensions": [
+        540,
+        489
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T19",
+      "source": "assets/img/WT-T19.jpg",
+      "source_sha256": "01d177a3b670cd600bcf616953f1f9e48bcbf912a999ed042449a653b99f6966",
+      "source_dimensions": [
+        389,
+        413
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T20",
+      "source": "assets/img/WT-T20.jpg",
+      "source_sha256": "5b8d00606f67c2c05cf86ef4cb52df1aaad2d8170f4752ea46d8492bc745bec7",
+      "source_dimensions": [
+        432,
+        402
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T21",
+      "source": "assets/img/WT-T21.jpg",
+      "source_sha256": "358de9bea9618ec4bd77eab50d7e613ccacb085a81270618e4b1b2553200b89c",
+      "source_dimensions": [
+        450,
+        470
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T22",
+      "source": "assets/img/WT-T22.jpg",
+      "source_sha256": "b912423f28228629e0254a7e5ca448bc94b4db60d9aa2a4cee918134b52b3e5f",
+      "source_dimensions": [
+        325,
+        308
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T24",
+      "source": "assets/img/WT-T24.jpg",
+      "source_sha256": "40b73dbc1710768c494a23eb58cf54d5eaab9be257d8e48d40f7d8c224ae78c4",
+      "source_dimensions": [
+        421,
+        223
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T25",
+      "source": "assets/img/WT-T25.jpg",
+      "source_sha256": "318ab4dd575bf61200aa4499649041426220a405f5220e97ef3509d708070670",
+      "source_dimensions": [
+        1116,
+        1179
+      ],
+      "status": "pass",
+      "output": "assets/products/WT-T25.png",
+      "operations": [
+        "Normalize near-white background pixels only",
+        "Trim external whitespace",
+        "Downsample only; center complete source on white 4:3 canvas"
+      ],
+      "processing_failure": false,
+      "output_sha256": "09dcbaae06add7847153169fa81b140860c6739488b9e48d0ae93da8ebdd9f5f",
+      "dimensions": [
+        1200,
+        900
+      ],
+      "reason": "Repo model mapping retained; final visual inspection: complete product, neutral finish, no visible Chinese text or other brand, white background."
+    },
+    {
+      "sku": "WT-T27",
+      "source": "assets/img/WT-T27.jpg",
+      "source_sha256": "4490a4b98126ab6c13a46c60cc70341839c013dc80b83dc7d45972e4dd6d9b5a",
+      "source_dimensions": [
+        1128,
+        1130
+      ],
+      "status": "pass",
+      "output": "assets/products/WT-T27.png",
+      "operations": [
+        "Normalize near-white background pixels only",
+        "Trim external whitespace",
+        "Downsample only; center complete source on white 4:3 canvas"
+      ],
+      "processing_failure": false,
+      "output_sha256": "c58ceca3a9fc1ad3e66ea50bba30bf4409544ec35819d035c8cc63482cde3d96",
+      "dimensions": [
+        1200,
+        900
+      ],
+      "reason": "Repo model mapping retained; final visual inspection: complete product, neutral finish, no visible Chinese text or other brand, white background."
+    },
+    {
+      "sku": "WT-T29",
+      "source": "assets/img/WT-T29.jpg",
+      "source_sha256": "34b3d30eef6d5464e821723d17d6b8687fe8bcc60a84e0afad0e839f38d35f89",
+      "source_dimensions": [
+        1200,
+        829
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-T30",
+      "source": "assets/img/WT-T30.jpg",
+      "source_sha256": "55d68728049e259901f228e07a957fc99080d6a797e84186319f77c20a835465",
+      "source_dimensions": [
+        975,
+        708
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR01",
+      "source": "assets/img/WT-UR01.jpg",
+      "source_sha256": "98abc2f8d99991b222d7f8fb1141fbd5bdc43afdd400262e86526819af3d8b17",
+      "source_dimensions": [
+        476,
+        522
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR02",
+      "source": "assets/img/WT-UR02.jpg",
+      "source_sha256": "d108912dd71642dff65cb44a28e229eb70f236893e054f4f5a24f8a8d48b14d4",
+      "source_dimensions": [
+        1200,
+        1816
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR04",
+      "source": "assets/img/WT-UR04.jpg",
+      "source_sha256": "6be73025926296741162d892cdedca2713af447d6498e75121bd25673fd1a511",
+      "source_dimensions": [
+        598,
+        1538
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR05",
+      "source": "assets/img/WT-UR05.jpg",
+      "source_sha256": "74721e347dd7badfeee1efbef074aaa89209407f09e02539486cc26a5d32b2f1",
+      "source_dimensions": [
+        1200,
+        1200
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR06",
+      "source": "assets/img/WT-UR06.jpg",
+      "source_sha256": "737da455580e9907e6e5b4001918e42d2f22cb73d2200d32bc9f5c722ee414f4",
+      "source_dimensions": [
+        1067,
+        1470
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR12",
+      "source": "assets/img/WT-UR12.jpg",
+      "source_sha256": "c56c59f18bee577486e29ab0f40faf25b4adaac9c1600988f94d227a9e1d0207",
+      "source_dimensions": [
+        1200,
+        1096
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR13",
+      "source": "assets/img/WT-UR13.jpg",
+      "source_sha256": "fe6604f40e2d52e4cebfb2e52f9f9afb815ae5edd1032ddd1097b924e297fc5b",
+      "source_dimensions": [
+        1200,
+        628
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR14",
+      "source": "assets/img/WT-UR14.jpg",
+      "source_sha256": "dc81b63fc219ee50baff3d588c4f54c1284cdead610c94eb55c3fdafc2c0af78",
+      "source_dimensions": [
+        1106,
+        1334
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR15",
+      "source": "assets/img/WT-UR15.jpg",
+      "source_sha256": "02f3e00bb6a8a3e9ed93429444f773d8827e1a46a10120b0c395efea2747b853",
+      "source_dimensions": [
+        1200,
+        632
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR16",
+      "source": "assets/img/WT-UR16.jpg",
+      "source_sha256": "ec9f03b7d821073b73760b04ed2c208a8aaea8d681fd94dfc78fd369ea896183",
+      "source_dimensions": [
+        1200,
+        1291
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR17",
+      "source": "assets/img/WT-UR17.jpg",
+      "source_sha256": "4b6582872404870235ebcbad957af0d8591c10a24ea67a9d4f47c6c5fdeedfda",
+      "source_dimensions": [
+        1200,
+        849
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR19",
+      "source": "assets/img/WT-UR19.jpg",
+      "source_sha256": "eb17ec789074ed3075af4c655aab299c3be005dffbc0e80689e1fc3dbc3043be",
+      "source_dimensions": [
+        1200,
+        1000
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR23",
+      "source": "assets/img/WT-UR23.jpg",
+      "source_sha256": "b5d5dd1bb10d2d40b46837447e33edbcfc61de91fb84572576ad38f2f9f9abdb",
+      "source_dimensions": [
+        750,
+        486
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR24",
+      "source": "assets/img/WT-UR24.jpg",
+      "source_sha256": "f576911b69ac00a70224bd36fb56d2431b9c8688272110c2accfe65943b10b58",
+      "source_dimensions": [
+        865,
+        1041
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR25",
+      "source": "assets/img/WT-UR25.jpg",
+      "source_sha256": "bb3ede661babdee4cb5a632fa6d4b0b40ceb8af348758263af2e2c550dda43dd",
+      "source_dimensions": [
+        290,
+        351
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR26",
+      "source": "assets/img/WT-UR26.jpg",
+      "source_sha256": "d2561551f648bf09924a28209eea9d94c8667800d2df3a2c6109e28aeea8a401",
+      "source_dimensions": [
+        326,
+        521
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR27",
+      "source": "assets/img/WT-UR27.jpg",
+      "source_sha256": "66121e35c5d35700477941c0d4baaea6fd10f97bd74adadf941bec3be0e99bc2",
+      "source_dimensions": [
+        606,
+        557
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-UR28",
+      "source": "assets/img/WT-UR28.jpg",
+      "source_sha256": "636c8ee265779f391d13f4d81fbc57cfe35f3ef46c33635cea02365f7d4cda27",
+      "source_dimensions": [
+        798,
+        724
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-WS01",
+      "source": "assets/img/WT-WS01.jpg",
+      "source_sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c",
+      "source_dimensions": [
+        893,
+        1715
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-WS02",
+      "source": "assets/img/WT-WS02.jpg",
+      "source_sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c",
+      "source_dimensions": [
+        893,
+        1715
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    },
+    {
+      "sku": "WT-WS03",
+      "source": "assets/img/WT-WS03.jpg",
+      "source_sha256": "737e7d30ad2d8c0bf7e84bde5d97e989da528cb6223a42c682442a7150f0256c",
+      "source_dimensions": [
+        893,
+        1715
+      ],
+      "status": "pending",
+      "output": null,
+      "operations": [],
+      "processing_failure": false,
+      "reason": "Source not approved for display: mixed background, composition, edge clearance or legible-label identity requires further source review. No retouch attempted."
+    }
+  ]
+}

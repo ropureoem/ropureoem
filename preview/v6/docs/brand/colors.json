@@ -1,0 +1,19 @@
+{
+  "brand": {
+    "petrol": "#00343D",
+    "iceCyan": "#8CE2E4",
+    "coral": "#FF786C",
+    "white": "#FFFFFF"
+  },
+  "approvedLightArtwork": {
+    "rippleAndRO": "#168C96",
+    "wave": "#153B43",
+    "wordmark": "#15313E"
+  },
+  "approvedDarkArtwork": {
+    "wave": "#F5F5EF"
+  },
+  "contact": {
+    "email": "info@ropureoem.com"
+  }
+}

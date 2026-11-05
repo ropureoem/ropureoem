@@ -1,0 +1,562 @@
+{
+  "WT-CT03": {
+    "sku": "WT-CT03",
+    "description": "Instant-heating RO with removable jug",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "RO capacity / production",
+        "75 / 100 GPD; \u22650.19 / 0.26 L/min"
+      ],
+      [
+        "Raw / pure-water tanks",
+        "5.5 / 1.2 L"
+      ],
+      [
+        "Filtration",
+        "Five-in-one RO with mineral stage"
+      ],
+      [
+        "Rated purified volume",
+        "4000 L"
+      ],
+      [
+        "Dimensions",
+        "340 \u00d7 210 \u00d7 390 mm"
+      ],
+      [
+        "Temperatures",
+        "25 / 45 / 65 / 85 / 100\u00b0C"
+      ],
+      [
+        "Volumes",
+        "150 / 300 / 500 mL / continuous"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT03.jpg"
+  },
+  "WT-CT04": {
+    "sku": "WT-CT04",
+    "description": "RO dispenser with electronic cooling",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "75 / 100 GPD"
+      ],
+      [
+        "Raw / pure-water tanks",
+        "5.5 / 1.2 L"
+      ],
+      [
+        "Filtration",
+        "Five-in-one RO with mineral stage"
+      ],
+      [
+        "Rated purified volume",
+        "4000 L"
+      ],
+      [
+        "Dimensions",
+        "380 \u00d7 210 \u00d7 390 mm"
+      ],
+      [
+        "Temperatures",
+        "15 / 25 / 45 / 65 / 85 / 100\u00b0C"
+      ],
+      [
+        "Volumes",
+        "150 / 300 / 500 mL / continuous"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT04.jpg"
+  },
+  "WT-CT06": {
+    "sku": "WT-CT06",
+    "description": "Installation-free instant-hot purifier",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "Filtration",
+        "4 stages; no RO"
+      ],
+      [
+        "Water tank",
+        "2.7 L; removable"
+      ],
+      [
+        "Heating time",
+        "Approx. 3 seconds"
+      ],
+      [
+        "Temperature settings",
+        "7"
+      ],
+      [
+        "Rated power",
+        "2150 W"
+      ],
+      [
+        "Dimensions",
+        "283 \u00d7 210 \u00d7 312 mm"
+      ],
+      [
+        "Installation",
+        "No plumbing installation required"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT06.jpg"
+  },
+  "WT-CT17": {
+    "sku": "WT-CT17",
+    "description": "RO purifier with heating jug",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "75 / 100 GPD"
+      ],
+      [
+        "Dimensions (L\u00d7W\u00d7H)",
+        "360 \u00d7 175 \u00d7 320 mm / 405 \u00d7 172 \u00d7 311.5 mm; by tank configuration"
+      ],
+      [
+        "Raw-water tank",
+        "3.2 L"
+      ],
+      [
+        "Pure-water tank",
+        "None / 0.8 L"
+      ],
+      [
+        "Filtration",
+        "PPC + RO + post-carbon"
+      ],
+      [
+        "Heating power",
+        "Confirmed per order"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT17.jpg"
+  },
+  "WT-CT18": {
+    "sku": "WT-CT18",
+    "description": "All-in-one cartridge countertop purifier",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "Confirmed per order"
+      ],
+      [
+        "Filtration",
+        "5-in-1 composite RO cartridge"
+      ],
+      [
+        "Dimensions",
+        "Confirmed per order"
+      ],
+      [
+        "Heating",
+        "Instant heating; configuration by order"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT18.jpg"
+  },
+  "WT-CT19": {
+    "sku": "WT-CT19",
+    "description": "RO purifier with ice, hot and cold water",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "50 / 75 / 100 GPD"
+      ],
+      [
+        "RO production",
+        "\u22650.13 / \u22650.19 / \u22650.26 L/min"
+      ],
+      [
+        "Ice capacity",
+        "12 kg / 24 h"
+      ],
+      [
+        "Rated power",
+        "2180 W"
+      ],
+      [
+        "Dimensions",
+        "235 \u00d7 457 \u00d7 455 mm"
+      ],
+      [
+        "Rated purified volume",
+        "2000 L"
+      ],
+      [
+        "Filtration",
+        "PP + CTO + PP + RO + C"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT19.jpg"
+  },
+  "WT-CT20": {
+    "sku": "WT-CT20",
+    "description": "Countertop RO with compressor cooling",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "Confirmed per order"
+      ],
+      [
+        "RO production",
+        "Confirmed per order"
+      ],
+      [
+        "Heating / cooling capacity",
+        "20 L/h at \u226590\u00b0C / 2.5\u20133 L/h at \u226410\u00b0C"
+      ],
+      [
+        "Rated power",
+        "2228 W"
+      ],
+      [
+        "Dimensions",
+        "470 \u00d7 200 \u00d7 438 mm"
+      ],
+      [
+        "Filtration",
+        "PP + CTO + RO + C"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT20.jpg"
+  },
+  "WT-CT23": {
+    "sku": "WT-CT23",
+    "description": "Instant-heating RO dispenser",
+    "category": "Countertop Systems",
+    "specs": [
+      [
+        "Technology",
+        "RO purification"
+      ],
+      [
+        "Heating",
+        "Instant heating"
+      ],
+      [
+        "Hot tank",
+        "None"
+      ],
+      [
+        "Installation",
+        "Wall / countertop"
+      ],
+      [
+        "Maintenance",
+        "Side-access cartridges"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-CT23.jpg"
+  },
+  "WT-UR02": {
+    "sku": "WT-UR02",
+    "description": "RO with instant-hot faucet and chilled",
+    "category": "Under-Sink RO Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "1000 GPD"
+      ],
+      [
+        "RO production",
+        "2.6 L/min"
+      ],
+      [
+        "Rated purified volume",
+        "4000 L"
+      ],
+      [
+        "Heating",
+        "Instant heating at the faucet; adjustable"
+      ],
+      [
+        "Cooling",
+        "Dual-chip semiconductor cooling; 6\u00b0C"
+      ],
+      [
+        "Dimensions",
+        "457 \u00d7 148 \u00d7 437 mm"
+      ],
+      [
+        "Net weight / rated power",
+        "16 kg / 2200 W"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-UR02.jpg"
+  },
+  "WT-UR06": {
+    "sku": "WT-UR06",
+    "description": "Compact two-cartridge RO platform",
+    "category": "Under-Sink RO Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "400 / 600 / 800 / 1000 / 1200 GPD"
+      ],
+      [
+        "Filtration",
+        "PPC + RO"
+      ],
+      [
+        "Rated purified volume",
+        "6000 L"
+      ],
+      [
+        "Dimensions L\u00d7W\u00d7H",
+        "400 \u00d7 130 \u00d7 320 mm"
+      ],
+      [
+        "Options",
+        "Dual water / recirculation / heating"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-UR06.jpg"
+  },
+  "WT-UR12": {
+    "sku": "WT-UR12",
+    "description": "Dual-drive extended-output RO system",
+    "category": "Under-Sink RO Systems",
+    "specs": [
+      [
+        "Extended-output designation",
+        "Confirmed per order"
+      ],
+      [
+        "RO drive",
+        "Confirmed per order"
+      ],
+      [
+        "Internal water-drive chamber",
+        "Confirmed per order"
+      ],
+      [
+        "Extended dispensing claim",
+        "Confirmed per order"
+      ],
+      [
+        "Filtration",
+        "PCB + RO + post-carbon"
+      ],
+      [
+        "Faucet modes",
+        "Direct drinking / produce washing"
+      ],
+      [
+        "Faucet option",
+        "Instant heating"
+      ],
+      [
+        "Dimensions",
+        "Confirmed per order"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-UR12.jpg"
+  },
+  "WT-UR14": {
+    "sku": "WT-UR14",
+    "description": "Under-sink RO with storage heating",
+    "category": "Under-Sink RO Systems",
+    "specs": [
+      [
+        "RO capacity",
+        "400\u2013800 GPD"
+      ],
+      [
+        "Dimensions (L\u00d7W\u00d7H)",
+        "340 \u00d7 220 \u00d7 385 mm"
+      ],
+      [
+        "Hot-water tank",
+        "2L"
+      ],
+      [
+        "Tank heating power",
+        "1200 W"
+      ],
+      [
+        "Tank holding temperature",
+        "75\u00b0C"
+      ],
+      [
+        "45\u00b0C water flow",
+        "\u22651.3 L/min"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-UR14.jpg"
+  },
+  "WT-UR25": {
+    "sku": "WT-UR25",
+    "description": "Under-sink cooling companion",
+    "category": "Under-Sink RO Systems",
+    "specs": [
+      [
+        "Cooling capacity",
+        "2.7 L/h"
+      ],
+      [
+        "Cooling",
+        "Compressor; 5\u201310\u00b0C"
+      ],
+      [
+        "Cold-water tank",
+        "1.4 L"
+      ],
+      [
+        "Dispensing flow",
+        "1.2 L/min"
+      ],
+      [
+        "Dimensions (L\u00d7W\u00d7H)",
+        "369 \u00d7 151 \u00d7 362 mm"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-UR25.jpg"
+  },
+  "WT-UR26": {
+    "sku": "WT-UR26",
+    "description": "Stainless-steel instant-heating faucet",
+    "category": "Under-Sink RO Systems",
+    "specs": [
+      [
+        "Material",
+        "Stainless steel"
+      ],
+      [
+        "Heating",
+        "Thick-film instant heat"
+      ],
+      [
+        "Temperatures",
+        "45 / 60 / 85 / 100\u00b0C"
+      ],
+      [
+        "Rated power",
+        "2100 W"
+      ],
+      [
+        "Voltage / frequency",
+        "Configurable to target country"
+      ],
+      [
+        "Other configurations",
+        "Confirmed per order"
+      ]
+    ],
+    "source": "assets/img/WT-UR26.jpg"
+  }
+}

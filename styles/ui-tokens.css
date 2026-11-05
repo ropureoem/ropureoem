@@ -1,0 +1,7 @@
+:root {
+ --ink:var(--brand-petrol);--paper:var(--brand-white);--action:var(--brand-ice-cyan);--accent:var(--brand-coral);
+ --muted:#49636A;--line:#D4E5E7;--tint:#F1F8F9;--hover:#00515E;--footer-muted:#B8D4D8;
+ --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;--space-14:56px;--space-16:64px;--space-20:80px;--space-24:96px;
+ --radius-control:8px;--radius-card:12px;--radius-panel:16px;--container:1280px;
+ --shadow-hover:0 8px 24px rgba(0,52,61,.08);
+}
