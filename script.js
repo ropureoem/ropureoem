@@ -38,3 +38,25 @@ function sendQuote(e){
  }
  form.addEventListener('submit',e=>{e.preventDefault();filterProducts(true);});input.addEventListener('input',()=>filterProducts(true));range.addEventListener('change',()=>filterProducts(true));filterProducts(false);
 })();
+/* 2026-11-06 product-image fix: every "Product image pending" placeholder is replaced with the real catalogue photograph (assets/img/<SKU>.jpg). The shared stylesheet shows every product photo in the same 4:3 frame with one saturation/contrast treatment, so the restored photos match the 45 photos that were already published. */
+(function restoreProductPhotos(){
+  document.querySelectorAll('.image-pending').forEach(function(pending){
+    var skuSpan=pending.querySelector('span');
+    if(!skuSpan) return;
+    var sku=skuSpan.textContent.trim();
+    if(!/^RP-[A-Z]\d{2}$/.test(sku)) return;
+    var img=document.createElement('img');
+    img.src='/assets/img/'+sku+'.jpg';
+    img.alt=sku+' product photograph';
+    img.width=1200; img.height=900; img.loading='lazy'; img.decoding='async';
+    pending.replaceWith(img);
+  });
+})();
+/* 2026-11-06 catalogue merge: 62 SKUs remain orderable, but the split-tank softeners (RP-W01/W02/W03) and the sparkling-water series (RP-C05/C06/C14) are each shown as one entry, so the catalogue lists 58 entries. The header still said "62 models" on every page; relabel it instead of editing the nav in 150 files. */
+(function relabelModelCount(){
+  var map={'All 62 models':'All models','View all 62 models \u2192':'View all models \u2192','\u5168\u90e8 62 \u6b3e\u578b\u53f7':'\u5168\u90e8\u578b\u53f7','\u67e5\u770b\u5168\u90e8 62 \u6b3e\u578b\u53f7 \u2192':'\u67e5\u770b\u5168\u90e8\u578b\u53f7 \u2192'};
+  document.querySelectorAll('a').forEach(function(a){
+    var t=a.textContent.trim();
+    if(map[t]) a.textContent=map[t];
+  });
+})();
