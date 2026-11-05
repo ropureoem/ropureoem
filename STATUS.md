@@ -44,3 +44,26 @@ The image audit retains original v5 page hashes as historical provenance. Verifi
 - Local sample `/zh/about.html`: title `关于 ROPureOEM — 净水器 OEM / ODM 制造商`, H1 `关于 ROPureOEM`, robots `noindex, nofollow`. Local sample `/about.html`: title `About ROPureOEM — Water Purifier OEM / ODM Manufacturer`, H1 `About ROPureOEM`, no robots tag; English title/H1 unchanged.
 - `git diff --check`: PASS. Image files, image audits, historical v5 files, robots.txt, CNAME and Pages workflow have no changes.
 - Live checks require network access to ropureoem.com: current proxy rejects HTTPS CONNECT with 403 before reaching the origin. Local results above do not claim live verification. The user explicitly took over live sitemap/noindex/title/H1/mobile-header verification; only GitHub Pages deployment status is checked after the single main commit.
+
+
+## New homepage illustrations (2026-11-06)
+
+Three original images were generated independently with OpenAI image_gen from text prompts, without old-site/reference photos. Each was visually reviewed for unwanted text/signs/brands/watermarks/domains. The generated 1536×1024 frame is retained in full; only WebP encoding (quality 86) is applied. The gallery includes a visible AI-generated illustration disclosure in English and Chinese, without claiming to show an actual company facility.
+
+The section `#factory-gallery` is immediately below `.studio-hero` and before the model-search/category section on both homepages. Desktop: three columns; mobile: one column. Files and site URLs:
+
+- `images/homepage-factory/container-loading.webp` — https://ropureoem.com/images/homepage-factory/container-loading.webp
+- `images/homepage-factory/purifier-assembly.webp` — https://ropureoem.com/images/homepage-factory/purifier-assembly.webp
+- `images/homepage-factory/warehouse-dispatch.webp` — https://ropureoem.com/images/homepage-factory/warehouse-dispatch.webp
+
+`docs/brand/homepage-factory-image-audit.json` records generation method, scene prompts, dimensions, sizes, SHA-256 hashes and visual review. Product image sources/outputs/audits remain unchanged. No video or video placeholder was changed.
+
+Validation:
+
+- `work/venv/bin/python scripts/verify_v6.py --browser`: PASS, existing product images/specifications, all 75 English titles/H1/descriptions/keywords/hreflang/canonicals, responsive homepage/gallery/catalogue/quote/navigation at 320/390/768/1024/1440px; no JS/HTTP failures.
+- `work/venv/bin/python scripts/verify_bilingual.py --browser`: PASS, EN/ZH pairing, image reuse, compact search-row language controls across 10 widths from 320 to 1440px, 75/75 ZH noindex and 0/75 EN noindex, English-only sitemap 75 URLs / 0 ZH.
+- `work/venv/bin/python scripts/verify_homepage_factory.py`: PASS, 1280/1440px desktop on EN/ZH source and portable preview (8 combinations); all three images decode at original dimensions, full 3:2 frame, three-column alignment, no horizontal overflow, visible AI disclosure, working header language switches, no JS/resource errors. Screenshots/results are saved under ignored `work/`.
+- `work/venv/bin/python scripts/package_v6.py`: PASS, rebuilt `releases/ropureoem-v6-preview.zip`; 150 bilingual HTML files with new images, byte-matched preview tree and correct sitemap/robots metadata.
+- `git diff --check`: PASS. No CNAME, robots.txt, Pages workflow, old-site assets, product images, product image audits or sitemap changes in this image update.
+
+Live-domain checks remain assigned to the user as previously requested; Pages deployment is checked separately after pushing this image commit to main.

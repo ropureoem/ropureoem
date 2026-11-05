@@ -27,6 +27,18 @@ with zipfile.ZipFile(io.BytesIO(before('releases/ropureoem-v5-preview.zip'))) as
   original=oldzip.read(name)
   assert without_legacy_switches(current.read(name))==(clean_contact(original) if Path(name).suffix in ['.html','.txt','.md'] else original),name
 approved={e['output'] for e in json.loads(Path('docs/brand/product-image-audit.json').read_text())['images'] if e['status']=='pass'}
+factory_audit=json.loads(Path('docs/brand/homepage-factory-image-audit.json').read_text())
+factory_images={e['output'] for e in factory_audit['images']}
+assert len(factory_images)==3 and all(e['source_type']=='AI-generated' and e['status']=='pass' for e in factory_audit['images'])
+for entry in factory_audit['images']:
+ assert hashlib.sha256(Path(entry['output']).read_bytes()).hexdigest()==entry['sha256']
+ assert entry['dimensions']==[1536,1024]
+approved|=factory_images
+home=BS(Path('index.html').read_text(),'html.parser')
+assert {img['src'] for img in home.select('#factory-gallery img')}==factory_images
+assert home.select_one('.factory-disclosure').get_text()=='AI-generated illustrations of assembly and logistics.'
+assert home.select_one('.studio-hero').find_next_sibling('section')['id']=='factory-gallery'
+
 for p in pages:
  s=BS(p.read_text(),'html.parser');assert len(s.select('h1'))==1,str(p)
  assert s.select_one('.header-search input[name=q]') and s.select_one('.bottom-nav') and s.select_one('.footer-help')
@@ -96,7 +108,9 @@ for p in pages:
  s=BS(p.read_text(),'html.parser')
  old=BS(subprocess.check_output(['git','show',image_baseline+':'+str(p)]),'html.parser')
  for selector in ['img','.image-pending','.specs','.card','.product-img']:
-  assert [str(n) for n in s.select(selector)]==[str(n) for n in old.select(selector)],(p,selector)
+  # Only the three audited homepage illustrations may be added; existing imagery stays identical.
+  nodes=[n for n in s.select(selector) if not (selector=='img' and n.find_parent(id='factory-gallery'))]
+  assert [str(n) for n in nodes]==[str(n) for n in old.select(selector)],(p,selector)
  assert 'Cheehwa Yan' not in p.read_text()
  assert not s.select('.languages,[aria-label="Languages"]')
  assert not [n for n in s.select('header button,footer button,header a,footer a') if n.get_text(strip=True) in ['RU','KK']]
@@ -145,6 +159,12 @@ if '--browser' in sys.argv:
    response=page.goto(base+url);assert response.status==200
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),url
    assert page.locator('img').evaluate_all('async (imgs)=>{await Promise.all(imgs.map(i=>{i.loading="eager";return i.decode().catch(()=>{});}));return imgs.every(i=>i.complete&&i.naturalWidth>0);}'),url
+   if url=='index.html':
+    assert page.locator('#factory-gallery img').count()==3
+    assert page.locator('#factory-gallery').is_visible()
+    assert page.locator('#factory-gallery img').evaluate_all('(imgs)=>imgs.every(i=>i.naturalWidth===1536 && i.naturalHeight===1024 && getComputedStyle(i).objectFit==="contain")')
+    columns=page.locator('.factory-gallery').evaluate('(e)=>getComputedStyle(e).gridTemplateColumns.split(" ").length')
+    assert columns==(1 if page.viewport_size['width']<700 else 3),columns
   go('index.html');assert not page.locator('.video-section').is_visible();page.screenshot(path='work/home-desktop.png',full_page=True)
   go('products/WT-T13.html');assert page.locator('.product-img img').get_attribute('src')=='../assets/products/WT-T13.png';assert page.locator('.specs tr').count()==8
   go('products/WT-CT21.html');page.screenshot(path='work/product-desktop.png',full_page=True)

@@ -1,0 +1,47 @@
+{
+  "generation_method": "OpenAI image_gen: three independent text-to-image generations with no reference images. Photorealistic 3:2 documentary style; explicitly no text, Chinese characters, logos, other brands, watermarks or domains.",
+  "generated_date": "2026-11-06",
+  "processing": "WebP encoding at quality 86 / method 6 only. Full generated frame retained at original dimensions; no cropping, retouching or resizing.",
+  "disclosure": "AI-generated illustrations of assembly and logistics.",
+  "images": [
+    {
+      "output": "images/homepage-factory/container-loading.webp",
+      "sha256": "115a6291e4fb154197290b9fc285bb5338d64adfb448ef46d80d264a8432d2df",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 178874,
+      "source_type": "AI-generated",
+      "prompt_scene": "Unbranded shipping container; two workers in plain navy workwear loading blank brown cartons at a factory dock.",
+      "status": "pass",
+      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, WaterTech watermark or old domains. No old-site/reference photographs used."
+    },
+    {
+      "output": "images/homepage-factory/purifier-assembly.webp",
+      "sha256": "6675ac924f1dab7e339634539e8ab2b8c2594159414a88684c841ebcc98fea27",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 182494,
+      "source_type": "AI-generated",
+      "prompt_scene": "Bright water purifier assembly workshop; four technicians in navy workwear with white purifier housings and filter components.",
+      "status": "pass",
+      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, WaterTech watermark or old domains. No old-site/reference photographs used."
+    },
+    {
+      "output": "images/homepage-factory/warehouse-dispatch.webp",
+      "sha256": "3453bbd133663d94edff84af68d730da27e316bdf9752abe1b75a2b50bc4c557",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 178962,
+      "source_type": "AI-generated",
+      "prompt_scene": "Warehouse dispatch bay; plain cartons on three wooden pallets, clear stretch wrap, a manual pallet jack and simple storage shelving.",
+      "status": "pass",
+      "visual_review": "Reviewed individually: no visible Chinese text/signage, brand names, WaterTech watermark or old domains. No old-site/reference photographs used."
+    }
+  ]
+}

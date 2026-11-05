@@ -10,7 +10,7 @@ subprocess.run([sys.executable, 'scripts/generate_sitemap.py'], check=True)
 root=Path('.');dest=root/'preview/v6';dest.mkdir(parents=True,exist_ok=True)
 files=[*root.glob('*.html'),*root.glob('*.txt'),*root.glob('*.css'),*root.glob('*.js'),root/'CNAME',root/'sitemap.xml',root/'README.md',root/'STATUS.md']
 for p in files:shutil.copy2(p,dest/p.name)
-for name in ['assets','public','styles','products','docs','zh']:
+for name in ['assets','public','styles','products','docs','zh','images']:
  shutil.copytree(root/name,dest/name,dirs_exist_ok=True)
 # Every resource must resolve inside the portable directory.
 for page in dest.rglob('*.html'):
