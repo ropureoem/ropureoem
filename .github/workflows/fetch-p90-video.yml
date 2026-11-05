@@ -1,0 +1,27 @@
+name: Fetch P90-1 interim video (one-off)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-video:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Download P90-1 video
+        run: |
+          mkdir -p assets/video
+          curl -L --fail --retry 3 -o assets/video/p90-1-product.mp4 "https://tmpfiles.org/dl/wxApJojjuFq0/p90-1--.mp4"
+          ls -l assets/video/p90-1-product.mp4
+          test "$(stat -c%s assets/video/p90-1-product.mp4)" = "18365143"
+      - name: Commit video
+        run: |
+          git config user.name "cheehwayan"
+          git config user.email "cheehwayan2026@gmail.com"
+          git add assets/video/p90-1-product.mp4
+          git commit -m "feat(video): add interim P90-1 product video" || echo "nothing to commit"
+          git push
