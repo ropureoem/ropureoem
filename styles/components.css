@@ -43,3 +43,59 @@
 .variant-specs strong{display:block;margin-bottom:4px}
 .variant-specs ul{margin:0;padding-left:18px}
 .variant:hover .variant-specs,.variant:focus .variant-specs,.variant:focus-within .variant-specs,.variant:active .variant-specs{opacity:1;transform:none}
+
+/* ---- Five-step loop (home-process) : one closed loop, icons carry the meaning ---- */
+.steps-loop{position:relative;max-width:880px;height:300px;margin:64px auto 88px}
+.steps-loop-path{position:absolute;inset:0;width:100%;height:100%}
+.steps-loop-path .loop-solid{fill:none;stroke:var(--brand-ice-cyan);stroke-width:2;vector-effect:non-scaling-stroke}
+.steps-loop-path .loop-return{fill:none;stroke:var(--brand-petrol);stroke-width:2;stroke-dasharray:7 6;vector-effect:non-scaling-stroke}
+.steps-loop-nodes{position:absolute;inset:0;list-style:none;margin:0;padding:0}
+.loop-node{position:absolute;left:var(--nx);top:var(--ny);transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;margin:0;padding:0}
+.loop-disc{width:84px;height:84px;border:1.5px solid var(--brand-petrol);border-radius:50%;background:var(--brand-white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--brand-petrol)}
+.loop-disc svg{width:30px;height:30px}
+.loop-num{font-size:11px;font-weight:700;letter-spacing:.12em;line-height:1}
+.loop-label{display:block;max-width:170px;margin-top:10px;font-size:15px;font-weight:600;line-height:1.45;text-align:center;color:var(--brand-petrol)}
+.loop-node.hot .loop-disc{border-color:var(--brand-coral);color:var(--brand-coral)}
+.loop-arrow{position:absolute;width:13px;height:13px;border-top:2px solid var(--brand-petrol);border-right:2px solid var(--brand-petrol);transform:translate(-50%,-50%) rotate(45deg)}
+.loop-arrow.a1{left:36.5%;top:0}
+.loop-arrow.a2{left:63.5%;top:0}
+.loop-arrow.a3{left:100%;top:50%}
+.loop-arrow.a4{left:50%;top:100%}
+.loop-arrow.a5{left:0;top:50%}
+.loop-arrow.down{transform:translate(-50%,-50%) rotate(135deg)}
+.loop-arrow.left{transform:translate(-50%,-50%) rotate(225deg)}
+.loop-arrow.up{transform:translate(-50%,-50%) rotate(315deg)}
+.loop-return-label{position:absolute;left:10%;top:50%;transform:translate(-50%,-50%);background:var(--brand-white);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;line-height:1.4;color:var(--brand-petrol);white-space:nowrap}
+.loop-centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34%;height:auto;pointer-events:none}
+.loop-centre .lc-main{fill:none;stroke:var(--brand-petrol);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.loop-centre .lc-water{fill:none;stroke:var(--brand-ice-cyan);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:699px){
+.steps-loop{height:230px;margin:48px auto 76px}
+.loop-arrow.a3{left:98%}
+.loop-arrow.a5{left:2%}
+.loop-return-label{left:13%}
+.loop-disc{width:62px;height:62px;gap:2px}
+.loop-disc svg{width:22px;height:22px}
+.loop-num{font-size:10px}
+.loop-label{max-width:96px;margin-top:8px;font-size:13px;line-height:1.4}
+.loop-arrow{width:11px;height:11px}
+.loop-return-label{font-size:11px;padding:3px 10px}
+.loop-centre{width:40%}
+}
+
+
+/* ---- Homepage airier spacing (2026-11-06): section gaps ~1.5x of the intended 80px, more card air. Scoped with :has(.studio-hero) so only the two homepages are affected; the old .home rules in this file never matched (no .home ancestor exists) and are left alone. Loop internals untouched. ---- */
+main:has(>section.studio-hero)>section+section{margin-top:120px}
+main:has(>section.studio-hero) .section-heading{margin-bottom:36px}
+main:has(>section.studio-hero) .factory-section .section-heading{margin:0}
+main:has(>section.studio-hero) .section>h2{margin-bottom:28px}
+main:has(>section.studio-hero) .section-sub{margin-bottom:28px}
+main:has(>section.studio-hero) .studio-hero{padding-block:72px}
+main:has(>section.studio-hero) .grid,main:has(>section.studio-hero) .category-grid{gap:32px}
+main:has(>section.studio-hero) .featured{margin-top:32px}
+main:has(>section.studio-hero) .card{padding:24px}
+main:has(>section.studio-hero) .category-card{padding:32px;gap:16px}
+main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .trust>div{padding:32px}
+@media(max-width:1099px){main:has(>section.studio-hero)>section+section{margin-top:84px}}
+@media(max-width:899px){main:has(>section.studio-hero) .studio-hero{padding-block:36px}}
+@media(max-width:699px){main:has(>section.studio-hero)>section+section{margin-top:60px}main:has(>section.studio-hero) .studio-hero{padding-top:24px;padding-bottom:16px}main:has(>section.studio-hero) .grid,main:has(>section.studio-hero) .featured,main:has(>section.studio-hero) .category-grid{gap:24px}main:has(>section.studio-hero) .card{padding:16px}main:has(>section.studio-hero) .category-card{padding:24px;gap:12px}main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .trust>div{padding:24px}}
