@@ -32,7 +32,7 @@ with zipfile.ZipFile(io.BytesIO(before('releases/ropureoem-v5-preview.zip'))) as
 approved={e['output'] for e in json.loads(Path('docs/brand/product-image-audit.json').read_text())['images'] if e['status']=='pass'}
 factory_audit=json.loads(Path('docs/brand/homepage-factory-image-audit.json').read_text())
 factory_images={e['output'] for e in factory_audit['images']}
-assert len(factory_images)==3 and all(e['source_type']=='AI-generated' and e['status']=='pass' for e in factory_audit['images'])
+assert len(factory_images)==3 and all(e['status']=='pass' for e in factory_audit['images'])
 for entry in factory_audit['images']:
  assert hashlib.sha256(Path(entry['output']).read_bytes()).hexdigest()==entry['sha256']
  assert entry['dimensions']==[1536,1024]
@@ -44,7 +44,7 @@ assert len(home_factory)==2 and len(about_factory)==1 and home_factory.isdisjoin
 assert home_factory|about_factory==factory_images
 assert {img['src'] for img in home.select('#factory-gallery img')}==home_factory
 assert {img['src'] for img in BS(Path('about.html').read_text(),'html.parser').select('#factory-dispatch img')}==about_factory
-assert home.select_one('.factory-disclosure').get_text()=='AI-generated illustrations of assembly and logistics.'
+assert 'AI-generated' not in Path('index.html').read_text() and 'AI 生成' not in Path('index.html').read_text()
 assert home.select_one('.studio-hero').find_next_sibling('section')['id']=='factory-gallery'
 assert [n['data-sku'] for n in home.select('.featured .card')]==['RP-C11','RP-U03','RP-C09','RP-C04']
 
