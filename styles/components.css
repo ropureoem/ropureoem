@@ -31,3 +31,15 @@
 /* 2026-11-06 fix 4: homepage factory video. The P90-1 video on the homepage sits in .hp-video, not .video-section, so .product-video capped it at 300px wide. Same full-width, up-to-82vh treatment as fix 1. */
 /* 2026-11-06 header/video fix: factory video is 16:9 (854x480). Override the 9:16 aspect-ratio from .product-video so the player is 16:9 with no black bars. */
 .hp-video .product-video{max-width:none;max-height:82vh;aspect-ratio:16/9;width:100%}
+
+/* Variant gallery — one family page, one image per variant; hover (or keyboard focus / tap) shows that variant's specifications. */
+.variant-gallery-wrap{margin-block:var(--space-5) var(--space-4)}
+.variant-gallery-wrap>h2{margin-bottom:8px}
+.variant-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.variant{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper);margin:0}
+.variant img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain}
+.variant figcaption{padding:12px 16px;font-weight:700;font-size:14px;color:var(--ink)}
+.variant-specs{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.88);color:#fff;padding:16px;font-size:14px;line-height:1.5;opacity:0;transform:translateY(8px);transition:opacity .15s ease,transform .15s ease;pointer-events:none}
+.variant-specs strong{display:block;margin-bottom:4px}
+.variant-specs ul{margin:0;padding-left:18px}
+.variant:hover .variant-specs,.variant:focus .variant-specs,.variant:focus-within .variant-specs,.variant:active .variant-specs{opacity:1;transform:none}
