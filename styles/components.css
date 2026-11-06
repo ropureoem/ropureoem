@@ -27,3 +27,5 @@
 .product-img img,.card-img img,.studio-hero figure img{filter:saturate(1.08) contrast(1.05) brightness(1.01);background:#fff}
 /* 2026-11-06 fix 3: keep the header search usable now the nav has six items. The wider nav squeezed the search form (flex:0 1 220px) and collapsed its input; fix the form width and free space by tightening the logo, header gap and nav gap at wide widths. */
 @media(min-width:1200px){.header-in{gap:16px}.logo{flex-basis:170px}.logo img{width:170px}.nav-menu nav{gap:12px}.header-search{flex:0 0 200px}.header-search input{flex:1;min-width:0;width:auto}}
+/* 2026-11-06 fix 4: homepage factory video. The P90-1 video on the homepage sits in .hp-video, not .video-section, so .product-video capped it at 300px wide. Same full-width, up-to-82vh treatment as fix 1. */
+.hp-video .product-video{max-width:none;max-height:82vh}
