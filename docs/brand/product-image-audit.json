@@ -12,7 +12,7 @@
       "RP-F11"
     ],
     "source_verification": "ba76b98、releases/ropureoem-v5-preview.zip、preview/v5 的实际产品主图引用及 SHA-256 全部一致",
-    "duplicate_hash_conclusion": "RP-C05/RP-C06/RP-C14 和 RP-W01/RP-W02/RP-W03 在 v5 已各自引用同哈希图片；不是 v6 映射错误。保留历史映射，不声称已独立证明硬件外观。"
+    "duplicate_hash_conclusion": "RP-C05/RP-C06/RP-C14 和 RP-W01/RP-W02/RP-W03 在 v5 已各自引用同哈希图片；不是 v6 映射错误。保留历史映射，不声称已独立证明硬件外观。", "pending_source_check_2026_11_06": "docs/brand/product-image-pending-source-check-2026-11-06.md；2026-11-06 三图源核查：干净替换图 0 张；14 个中文面板型号需工厂新照片，3 个 logo 型号待 Photoshop 去 logo。"
   },
   "images": [
     {
