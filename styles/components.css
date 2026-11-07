@@ -151,3 +151,5 @@ main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .tr
 .pill-link{display:block;text-align:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--tint);font-weight:700;text-decoration:none}
 .pill-link:hover{text-decoration:none;border-color:var(--ink)}
 @media(max-width:699px){.hp-media-grid{gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}.cert-box{padding:20px}}
+.hp-keywords{text-align:center;color:var(--muted);font-size:14px;max-width:none;margin:32px 0 88px}
+@media(max-width:699px){.hp-keywords{margin:24px 0 60px}}
