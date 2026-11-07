@@ -140,7 +140,7 @@ main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .tr
 @media(max-width:699px){.guide-card{grid-template-columns:132px minmax(0,1fr);gap:12px}.guide-card--text{grid-template-columns:minmax(0,1fr)}.guide-card-body{padding:16px 16px 16px 0}.guide-card--text .guide-card-body{padding:16px 20px}.guide-card-body h3{font-size:17px}.guide-card-body p{font-size:14px}}
 
 /* 2026-11-07 round 3: factory media 2x2 grid, cert box (Fu Min style), insights pill. */
-.hp-media-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:24px}.hp-media-grid>#videos{grid-column:1/-1}
+.hp-media-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-block:24px}.hp-media-grid>#videos{grid-column:1/-1}
 .hp-media{margin:0;min-width:0}
 .hp-media video,.hp-media img{display:block;width:100%;height:auto;border-radius:12px}
 .hp-media video{aspect-ratio:16/9;object-fit:cover;background:#000;max-width:none}
@@ -150,4 +150,4 @@ main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .tr
 .cert-box .section-heading{margin-bottom:16px}
 .pill-link{display:block;text-align:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--tint);font-weight:700;text-decoration:none}
 .pill-link:hover{text-decoration:none;border-color:var(--ink)}
-@media(max-width:699px){.hp-media-grid{gap:12px;grid-template-columns:minmax(0,1fr)}.cert-box{padding:20px}}
+@media(max-width:699px){.hp-media-grid{gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}.cert-box{padding:20px}}
