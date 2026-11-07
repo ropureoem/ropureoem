@@ -451,10 +451,12 @@ main .hp-cta .cta-dot{color:#8fb9bd}
   /* --- 10. RP-C14 banner: 16:10, text 18px, padding 16px, deeper gradient --- */
   main:has(>section.studio-hero) .poster-banner-link img{aspect-ratio:8/5}
   main:has(>section.studio-hero) .poster-banner-caption{font-size:18px;padding:2rem 16px 16px;background:linear-gradient(180deg,transparent 0%,rgba(0,32,38,.25) 45%,rgba(0,32,38,.88) 100%)}
-  /* --- 11. OEM vs ODM: padding 20px, gap 16px, H3 20px --- */
-  main:has(>section.studio-hero) .hp-grid-2{gap:16px}
-  main:has(>section.studio-hero) .hp-grid-2 .hp-path{padding:20px}
-  main:has(>section.studio-hero) .hp-grid-2 .hp-path h3{font-size:20px}
+  /* --- 11. OEM vs ODM: 2-col side-by-side on mobile, compact, links pinned to bottom --- */
+  main:has(>section.studio-hero) .hp-grid-2{gap:12px}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path{padding:16px;display:flex;flex-direction:column}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path h3{font-size:17px}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path p{font-size:14px;line-height:1.55}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path p:last-child{margin-top:auto;margin-bottom:0}
   /* --- 12. five-step loop -> vertical list with 32px numbered circles --- */
   main:has(>section.studio-hero) .home-process .steps-loop{max-width:none;height:auto;margin:32px 0 24px;display:flex;flex-direction:column;gap:12px}
   main:has(>section.studio-hero) .steps-loop-path,
@@ -499,4 +501,21 @@ main .hp-cta .cta-dot{color:#8fb9bd}
   .help-widget{display:none}
   .wa-float{bottom:72px;right:16px;width:48px;height:48px}
   .wa-float svg{width:26px;height:26px}
+}
+
+/* ---- 2026-11-07 mobile compact batch 2: hero AI bg, tighter gaps + headings ---- */
+@media(max-width:699px){
+  /* hero: AI purifier background (old-site look), dark overlay keeps white text readable */
+  main:has(>section.studio-hero) .studio-hero{
+    background:
+      linear-gradient(180deg,rgba(0,52,61,.88) 0%,rgba(0,52,61,.60) 45%,rgba(0,52,61,.45) 100%),
+      url(../assets/hero/hero-ai-purifier-mobile.webp) right bottom/cover no-repeat,
+      linear-gradient(135deg,#00343D 0%,#00424E 55%,#00515E 100%);
+  }
+  /* section gaps: 60px -> 40px */
+  main:has(>section.studio-hero)>section+section{margin-top:40px}
+  /* section headings one size smaller: 26px -> 24px */
+  main:has(>section.studio-hero) .section-heading h2{font-size:24px}
+  /* cert: tiles are already 3-col (2 rows) on mobile — the most compact; just tighten spacing */
+  main:has(>section.studio-hero) .cert-tiles{margin-block:16px 12px}
 }
