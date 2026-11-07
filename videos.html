@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Factory Videos | ROPureOEM</title>
+<meta name="description" content="Watch factory and product videos from ROPureOEM. Swipe through full-screen videos, like and share."/>
+<link rel="canonical" href="https://ropureoem.com/videos.html"/>
+<link rel="alternate" hreflang="en" href="https://ropureoem.com/videos.html"/>
+<link rel="alternate" hreflang="zh" href="https://ropureoem.com/zh/videos.html"/>
+<link rel="icon" type="image/svg+xml" href="public/brand/ROPureOEM_Final_icon_light.svg"/>
+<link rel="stylesheet" href="styles/brand-tokens.css"/>
+<link rel="stylesheet" href="styles/ui-tokens.css"/>
+<link rel="stylesheet" href="styles/components.css"/>
+
+<style>
+.videos-page{background:#000}
+.videos-topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:#0b0e11;color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.videos-topbar h1{font-size:24px;margin:0;color:#fff}
+.videos-topbar h1 span{font-size:14px;opacity:.65;font-weight:600;margin-left:8px}
+.videos-topbar .dir-btn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+.video-feed{position:relative;height:calc(100dvh - 88px - 64px);min-height:520px;overflow-y:auto;scroll-snap-type:y mandatory;background:#000;scrollbar-width:none}
+.video-feed::-webkit-scrollbar{display:none}
+.video-slide{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;align-items:center;justify-content:center;background:#000;overflow:hidden}
+.video-slide video{width:100%;height:100%;object-fit:contain;background:#000;display:block;cursor:pointer}
+.video-count{position:absolute;top:14px;left:16px;z-index:3;font-size:13px;font-weight:600;color:#fff;background:rgba(0,0,0,.55);padding:6px 12px;border-radius:999px}
+.video-actions{position:absolute;right:14px;bottom:150px;display:flex;flex-direction:column;gap:18px;align-items:center;z-index:3}
+.video-actions button{background:none;border:0;color:#fff;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;font-weight:600;cursor:pointer;padding:0}
+.video-actions svg{width:34px;height:34px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.7))}
+.video-actions .liked svg{fill:#ff2d55;stroke:#ff2d55}
+.video-actions .count{min-width:34px;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.video-info{position:absolute;left:18px;right:76px;bottom:96px;color:#fff;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.8)}
+.video-info h2{font-size:21px;line-height:1.3;margin:0 0 6px;color:#fff}
+.video-info p{font-size:14px;line-height:1.5;opacity:.92;margin:0 0 10px;max-width:56ch}
+.video-info a{color:#8CE2E4;font-weight:700;font-size:14px;text-decoration:none}
+.video-info a:hover{text-decoration:underline}
+.video-dir-panel{position:fixed;top:0;right:0;bottom:0;width:min(360px,92vw);background:#101418;color:#fff;z-index:60;transform:translateX(102%);transition:transform .25s ease;overflow-y:auto;padding:18px;box-shadow:-8px 0 24px rgba(0,0,0,.5)}
+.video-dir-panel.open{transform:none}
+.video-dir-panel h2{font-size:18px;color:#fff;margin:0 0 4px}
+.video-dir-panel .dir-sub{font-size:13px;opacity:.75;margin:0 0 14px}
+.video-dir-panel .dir-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;width:36px;height:36px;font-size:18px;cursor:pointer}
+.video-dir-item{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;padding:10px 12px;margin-bottom:10px;cursor:pointer}
+.video-dir-item:hover{background:rgba(255,255,255,.14)}
+.video-dir-item .n{flex:0 0 22px;font-weight:700;opacity:.7}
+.video-dir-item .t{font-size:14px;font-weight:600;line-height:1.35}
+.video-dir-item .d{font-size:12px;opacity:.7}
+.video-toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);background:rgba(0,0,0,.85);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:70;opacity:0;pointer-events:none;transition:opacity .2s}
+.video-toast.show{opacity:1}
+@media(max-width:699px){.videos-topbar{padding:14px 16px}.videos-topbar h1{font-size:20px}.video-feed{height:calc(100dvh - 132px - 56px);min-height:480px}.video-info{right:64px;bottom:88px}.video-info h2{font-size:19px}.video-actions{bottom:132px;right:10px}.video-actions svg{width:30px;height:30px}}
+</style>
+
+</head>
+<body class="videos-page">
+<header class="site-header"><div class="wrap header-in"><a aria-label="ROPureOEM home" class="logo" href="index.html"><img alt="ROPureOEM" height="480" src="public/brand/ROPureOEM_Final_logo_dark.png" width="1600"/></a><details class="nav-menu"><summary>Menu</summary><nav aria-label="Main navigation"><a href="index.html">Home</a><details class="products-menu"><summary>Products</summary><div><a href="products.html?range=under-sink">Under-Sink RO</a><a href="products.html?range=countertop">Countertop</a><a href="products.html?range=hot-cold-ice">Hot/Cold/Ice</a><a href="products.html?range=softener">Water Softening</a><a href="products.html?range=shower">Shower Filters</a><a href="products.html?range=faucet">Faucet Filters</a><a href="products.html">All 57 models</a></div></details><a href="oem-odm.html">OEM / ODM</a><a href="certification.html">Certification</a><a href="about.html">About</a><a href="insights/index.html">Insights</a></nav></details><div class="header-tools"><form action="products.html" class="header-search" method="get"><label class="sr-only" for="site-search">Search models</label><input id="site-search" name="q" placeholder="SKU or product" type="search"/><button aria-label="Search models" type="submit">Search</button></form><nav aria-label="Language selection" class="language-switch"><a aria-current="true" data-language="en" href="videos.html" hreflang="en" lang="en">EN</a><a data-language="zh" href="zh/videos.html" hreflang="zh" lang="zh">ZH</a></nav></div><a class="btn quote" href="get-quote.html">Get a Quote</a></div></header>
+<main>
+<div class="videos-topbar"><h1>Factory Videos<span id="video-counter">1 / 10</span></h1><button class="dir-btn" type="button" data-dir-open>Video directory</button></div>
+<div class="video-feed" id="video-feed">
+<section class="video-slide" data-id="factory-video">
+<video src="assets/video/factory-video.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">1 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>Factory Environment</h2><p>Factory Environment, ROPureOEM builds your brand!</p><p><a href="get-quote.html">Get a quote &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="w61">
+<video src="assets/video/w61.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">2 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>W61 Countertop RO</h2><p>Countertop RO with heating, cooling and ice. 4000L rated volume.</p><p><a href="products/RP-C14.html">View RP-C14 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="w60-promo">
+<video src="assets/video/w60-promo.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">3 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>W60 Countertop RO</h2><p>Countertop RO with heating, cooling and ice. 4000L rated volume.</p><p><a href="products/RP-C14.html">View RP-C14 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="p90-product">
+<video src="assets/video/p90-product.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">4 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>P90 Sparkling Water Maker</h2><p>Countertop sparkling water maker with ice water and hot water.</p><p><a href="products/RP-C15.html">View RP-C15 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="p90-1-product">
+<video src="assets/video/p90-1-product.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">5 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>P90-1 Hydrogen Water Maker</h2><p>Countertop hydrogen-rich water maker, hot and ice water.</p><p><a href="products/RP-C15.html">View RP-C15 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="w9">
+<video src="assets/video/w9.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">6 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>W9 Under-Sink RO</h2><p>Under-sink 1000G RO with smart faucet.</p><p><a href="products/RP-U04.html">View RP-U04 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="w10-en">
+<video src="assets/video/w10-en.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">7 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>W10 Under-Sink Hot & Cold</h2><p>Under-sink hot and cold RO, 1000G.</p><p><a href="products/RP-U02.html">View RP-U02 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="g1012">
+<video src="assets/video/g1012.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">8 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>G1012 Under-Sink RO</h2><p>Under-sink RO, 600G, 3-second cartridge change.</p><p><a href="products/RP-U12.html">View RP-U12 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="m2401-ice">
+<video src="assets/video/m2401-ice.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">9 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>M2401 Ice Maker RO</h2><p>Countertop RO with ice maker.</p><p><a href="products/RP-C09.html">View RP-C09 &nearr;</a></p></div>
+</section>
+<section class="video-slide" data-id="t01-install">
+<video src="assets/video/t01-install.mp4" muted loop playsinline preload="metadata"></video>
+<span class="video-count">10 / 10</span>
+<div class="video-actions">
+<button class="act-like" type="button" aria-label="Like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span class="count like-count">0</span></button>
+<button type="button" aria-label="Views"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg><span class="count view-count">0</span></button>
+<button class="act-share" type="button" aria-label="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg><span class="count">Shares</span></button>
+<button class="act-mute" type="button" aria-label="Sound"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg><span class="count mute-state">Muted</span></button>
+</div>
+<div class="video-info"><h2>T01 Installation</h2><p>Countertop water purifier installation guide.</p><p><a href="products/RP-C12.html">View RP-C12 &nearr;</a></p></div>
+</section>
+</div>
+</main>
+<aside class="video-dir-panel" id="video-dir" aria-label="Video directory">
+<button class="dir-close" type="button" id="dir-close" aria-label="Close">&times;</button>
+<h2>Video directory</h2>
+<p class="dir-sub">10 videos — factory, countertop and under-sink models.</p>
+<button class="video-dir-item" type="button" data-target="factory-video"><span class="n">1</span><span><span class="t">Factory Environment</span><br/><span class="d">Factory Environment, ROPureOEM builds your brand!</span></span></button>
+<button class="video-dir-item" type="button" data-target="w61"><span class="n">2</span><span><span class="t">W61 Countertop RO</span><br/><span class="d">Countertop RO with heating, cooling and ice. 4000L rated volume.</span></span></button>
+<button class="video-dir-item" type="button" data-target="w60-promo"><span class="n">3</span><span><span class="t">W60 Countertop RO</span><br/><span class="d">Countertop RO with heating, cooling and ice. 4000L rated volume.</span></span></button>
+<button class="video-dir-item" type="button" data-target="p90-product"><span class="n">4</span><span><span class="t">P90 Sparkling Water Maker</span><br/><span class="d">Countertop sparkling water maker with ice water and hot water.</span></span></button>
+<button class="video-dir-item" type="button" data-target="p90-1-product"><span class="n">5</span><span><span class="t">P90-1 Hydrogen Water Maker</span><br/><span class="d">Countertop hydrogen-rich water maker, hot and ice water.</span></span></button>
+<button class="video-dir-item" type="button" data-target="w9"><span class="n">6</span><span><span class="t">W9 Under-Sink RO</span><br/><span class="d">Under-sink 1000G RO with smart faucet.</span></span></button>
+<button class="video-dir-item" type="button" data-target="w10-en"><span class="n">7</span><span><span class="t">W10 Under-Sink Hot & Cold</span><br/><span class="d">Under-sink hot and cold RO, 1000G.</span></span></button>
+<button class="video-dir-item" type="button" data-target="g1012"><span class="n">8</span><span><span class="t">G1012 Under-Sink RO</span><br/><span class="d">Under-sink RO, 600G, 3-second cartridge change.</span></span></button>
+<button class="video-dir-item" type="button" data-target="m2401-ice"><span class="n">9</span><span><span class="t">M2401 Ice Maker RO</span><br/><span class="d">Countertop RO with ice maker.</span></span></button>
+<button class="video-dir-item" type="button" data-target="t01-install"><span class="n">10</span><span><span class="t">T01 Installation</span><br/><span class="d">Countertop water purifier installation guide.</span></span></button>
+</aside>
+<div class="video-toast" id="video-toast" role="status"></div>
+<footer class="site-footer"><div class="wrap footer-in"><div><a class="footer-logo" href="index.html"><img alt="ROPureOEM" height="480" loading="lazy" src="public/brand/ROPureOEM_Final_logo_dark.png" width="1600"/></a><p>Water products for brand owners and distributors.</p></div><div><h2>Models</h2><a href="products.html?range=under-sink">Under-Sink RO</a><a href="products.html?range=countertop">Countertop</a><a href="products.html?range=hot-cold-ice">Hot/Cold/Ice</a><a href="products.html?range=softener">Water Softening</a><a href="products.html?range=shower">Shower Filters</a><a href="products.html?range=faucet">Faucet Filters</a></div><div><h2>OEM / ODM</h2><a href="oem-odm.html">Process</a><a href="certification.html">Certification support</a><a href="about.html">About</a><a href="get-quote.html">Get a Quote</a><a href="insights/index.html">Insights</a><a class="footer-help" href="get-quote.html">Need help?</a></div><div><h2>Contact</h2><p>ROPureOEM</p><a href="mailto:info@ropureoem.com">info@ropureoem.com</a><a href="https://wa.me/8618928823858">WhatsApp +86 189 2882 3858</a><a href="contact.html">Contact</a></div></div><div class="wrap footer-base"><small>© 2026 ROPureOEM · Specifications confirmed per model and order.</small><a href="#top">Back to top ↑</a></div><nav aria-label="Language selection" class="wrap language-switch"><a aria-current="true" data-language="en" href="index.html" hreflang="en" lang="en">EN</a><a data-language="zh" href="zh/videos.html" hreflang="zh" lang="zh">ZH</a></nav></footer><details class="help-widget"><summary class="help">Need help?</summary><div aria-labelledby="help-panel-title" class="help-panel" role="group"><strong id="help-panel-title">Contact us</strong><a class="help-option" data-contact="whatsapp" href="https://wa.me/8618928823858" rel="noopener noreferrer" target="_blank">WhatsApp</a><a class="help-option" data-contact="email" href="get-quote.html"><span>Email us</span><small>info@ropureoem.com</small></a></div></details><nav aria-label="Mobile navigation" class="bottom-nav"><a href="index.html">Home</a><a href="products.html">Products</a><a class="quote" href="get-quote.html">Get Quote</a><a href="insights/index.html">Insights</a><a href="contact.html">Contact</a></nav><script src="script.js"></script></body>
+</html>
+
+
+<script>
+(function(){
+var feed=document.getElementById('video-feed');
+var slides=Array.prototype.slice.call(document.querySelectorAll('.video-slide'));
+var counter=document.getElementById('video-counter');
+var panel=document.getElementById('video-dir');
+var toast=document.getElementById('video-toast');
+var toastTimer=null;
+function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){toast.classList.remove('show');},1800);}
+function key(kind,id){return 'ropureoem_video_'+kind+'_'+id;}
+function getViews(id){return parseInt(localStorage.getItem(key('views',id))||'0',10);}
+function getLiked(id){return localStorage.getItem(key('liked',id))==='1';}
+function setLiked(id,v){localStorage.setItem(key('liked',id),v?'1':'0');}
+function bumpViews(id){var n=getViews(id)+1;localStorage.setItem(key('views',id),String(n));return n;}
+function renderCounts(slide){
+  var id=slide.getAttribute('data-id');
+  slide.querySelector('.act-like').classList.toggle('liked',getLiked(id));
+  slide.querySelector('.like-count').textContent=getLiked(id)?'1':'0';
+  slide.querySelector('.view-count').textContent=String(getViews(id));
+}
+slides.forEach(renderCounts);
+function activate(slide){
+  var id=slide.getAttribute('data-id');
+  var video=slide.querySelector('video');
+  slides.forEach(function(s){var v=s.querySelector('video');if(s!==slide&&!v.paused){v.pause();}});
+  slide.querySelector('.view-count').textContent=String(bumpViews(id));
+  if(video.paused){video.play().catch(function(){});}
+  counter.textContent=(slides.indexOf(slide)+1)+' / '+slides.length;
+}
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>=0.55){activate(e.target);}});
+},{root:feed,threshold:[0.55]});
+slides.forEach(function(s){io.observe(s);});
+slides.forEach(function(slide){
+  var video=slide.querySelector('video');
+  video.addEventListener('click',function(){if(video.paused){video.play().catch(function(){});}else{video.pause();}});
+  slide.querySelector('.act-like').addEventListener('click',function(){
+    var id=slide.getAttribute('data-id');setLiked(id,!getLiked(id));renderCounts(slide);
+  });
+  slide.querySelector('.act-share').addEventListener('click',function(){
+    var id=slide.getAttribute('data-id');
+    var url=location.origin+location.pathname+'#'+id;
+    var title=slide.querySelector('h2').textContent;
+    if(navigator.share){navigator.share({title:title,url:url}).catch(function(){});}
+    else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){showToast('Link copied');}).catch(function(){showToast(url);});}
+    else{showToast(url);}
+  });
+  slide.querySelector('.act-mute').addEventListener('click',function(){
+    var muted=!video.muted;
+    slides.forEach(function(s){s.querySelector('video').muted=muted;});
+    document.querySelectorAll('.mute-state').forEach(function(el){el.textContent=muted?'Muted':'Sound on';});
+  });
+});
+document.querySelectorAll('[data-dir-open]').forEach(function(b){b.addEventListener('click',function(){panel.classList.add('open');});});
+document.getElementById('dir-close').addEventListener('click',function(){panel.classList.remove('open');});
+panel.querySelectorAll('.video-dir-item').forEach(function(item){
+  item.addEventListener('click',function(){
+    var slide=document.querySelector('.video-slide[data-id="'+item.getAttribute('data-target')+'"]');
+    panel.classList.remove('open');
+    if(slide){slide.scrollIntoView({behavior:'smooth'});}
+  });
+});
+if(slides.length){counter.textContent='1 / '+slides.length;}
+})();
+</script>
+
+</body>
+</html>
