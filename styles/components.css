@@ -31,6 +31,8 @@
 /* 2026-11-06 fix 4: homepage factory video. The P90-1 video on the homepage sits in .hp-video, not .video-section, so .product-video capped it at 300px wide. Same full-width, up-to-82vh treatment as fix 1. */
 /* 2026-11-06 header/video fix: factory video is 16:9 (854x480). Override the 9:16 aspect-ratio from .product-video so the player is 16:9 with no black bars. */
 .hp-video .product-video{max-width:none;max-height:82vh;aspect-ratio:16/9;width:100%}
+/* 2026-11-07: product-page video (RP-C14 W61, 16:9). Scoped to main > .hp-video so only product-page videos are affected; the homepage factory video lives in .hp-media-grid and is styled separately. */
+main>.hp-video>.product-video{max-width:none;max-height:82vh;aspect-ratio:16/9;width:100%}
 
 /* Variant gallery — one family page, one image per variant; hover (or keyboard focus / tap) shows that variant's specifications. */
 .variant-gallery-wrap{margin-block:var(--space-5) var(--space-4)}
@@ -45,7 +47,7 @@
 .variant:hover .variant-specs,.variant:focus .variant-specs,.variant:focus-within .variant-specs,.variant:active .variant-specs{opacity:1;transform:none}
 
 /* ---- Five-step loop (home-process) : one closed loop, icons carry the meaning ---- */
-.steps-loop{position:relative;max-width:880px;height:300px;margin:64px auto 88px}
+.steps-loop{position:relative;max-width:880px;height:300px;margin:104px auto 88px}
 .steps-loop-path{position:absolute;inset:0;width:100%;height:100%}
 .steps-loop-path .loop-solid{fill:none;stroke:var(--brand-ice-cyan);stroke-width:2;vector-effect:non-scaling-stroke}
 .steps-loop-path .loop-return{fill:none;stroke:var(--brand-petrol);stroke-width:2;stroke-dasharray:7 6;vector-effect:non-scaling-stroke}
@@ -70,7 +72,7 @@
 .loop-centre .lc-main{fill:none;stroke:var(--brand-petrol);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .loop-centre .lc-water{fill:none;stroke:var(--brand-ice-cyan);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:699px){
-.steps-loop{height:230px;margin:48px auto 76px}
+.steps-loop{height:230px;margin:112px auto 76px}
 .loop-arrow.a3{left:98%}
 .loop-arrow.a5{left:2%}
 .loop-return-label{left:13%}
@@ -138,14 +140,14 @@ main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .tr
 @media(max-width:699px){.guide-card{grid-template-columns:132px minmax(0,1fr);gap:12px}.guide-card--text{grid-template-columns:minmax(0,1fr)}.guide-card-body{padding:16px 16px 16px 0}.guide-card--text .guide-card-body{padding:16px 20px}.guide-card-body h3{font-size:17px}.guide-card-body p{font-size:14px}}
 
 /* 2026-11-07 round 3: factory media 2x2 grid, cert box (Fu Min style), insights pill. */
-.hp-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-block:24px}
+.hp-media-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-block:24px}.hp-media-grid>#videos{grid-column:1/-1}
 .hp-media{margin:0;min-width:0}
 .hp-media video,.hp-media img{display:block;width:100%;height:auto;border-radius:12px}
-.hp-media video{aspect-ratio:16/9;object-fit:cover;background:#000}
+.hp-media video{aspect-ratio:16/9;object-fit:cover;background:#000;max-width:none}
 .hp-media img{aspect-ratio:4/3;object-fit:cover}
 .hp-media .fine,.hp-media figcaption{margin:8px 0 0}
 .cert-box{background:var(--tint);border:1px solid var(--line);border-radius:16px;padding:32px}
 .cert-box .section-heading{margin-bottom:16px}
 .pill-link{display:block;text-align:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--tint);font-weight:700;text-decoration:none}
 .pill-link:hover{text-decoration:none;border-color:var(--ink)}
-@media(max-width:699px){.hp-media-grid{gap:12px}.cert-box{padding:20px}}
+@media(max-width:699px){.hp-media-grid{gap:12px;grid-template-columns:minmax(0,1fr)}.cert-box{padding:20px}}
