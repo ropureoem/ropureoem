@@ -116,6 +116,36 @@ main:has(>section.studio-hero) .cert-grid>div,main:has(>section.studio-hero) .tr
    to a 21:9 band so it does not dominate the page; on mobile (<=600px) the
    original uncropped image is kept exactly as before. */
 @media(min-width:601px){.hp-fig-wide img{aspect-ratio:21/9;object-fit:cover}}
-/* 7. Mobile bottom nav — six items now (Insights added); slightly tighter so
-   all six labels fit at 390px. Get a Quote keeps its highlighted style. */
-@media(max-width:699px){.bottom-nav{grid-template-columns:repeat(6,1fr);gap:2px;padding:6px 6px calc(6px + env(safe-area-inset-bottom))}.bottom-nav a{font-size:11px}}
+/* 7. Mobile bottom nav — five items now (Videos removed); slightly tighter so
+   all five labels fit at 390px. Get a Quote keeps its highlighted style. */
+@media(max-width:699px){.bottom-nav{grid-template-columns:repeat(5,1fr);gap:2px;padding:6px 6px calc(6px + env(safe-area-inset-bottom))}.bottom-nav a{font-size:11px}}
+
+/* 2026-11-07 round 2: certification tiles — compact, code only, no long copy. */
+.cert-tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-block:20px 16px}
+.cert-tile{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:14px 6px;text-align:center;font-size:15px;font-weight:700;line-height:1.3;overflow-wrap:anywhere}
+@media(max-width:699px){.cert-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.cert-tile{padding:12px 4px;font-size:14px}}
+
+/* 2026-11-07 round 2: insight horizontal cards — thumbnail left, text right, stacked. */
+.guide-list{display:grid;gap:20px}
+.guide-card{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--paper)}
+.guide-card>img{display:block;width:100%;height:100%;object-fit:cover}
+.guide-card-body{padding:20px 20px 20px 0;display:flex;flex-direction:column}
+.guide-card-body h3{margin:0 0 6px;font-size:20px;line-height:1.3}
+.guide-card-body p{margin:0 0 10px}
+.guide-card-body p:last-child{margin-top:auto;margin-bottom:0}
+.guide-card--text{grid-template-columns:minmax(0,1fr)}
+.guide-card--text .guide-card-body{padding:20px 24px}
+@media(max-width:699px){.guide-card{grid-template-columns:132px minmax(0,1fr);gap:12px}.guide-card--text{grid-template-columns:minmax(0,1fr)}.guide-card-body{padding:16px 16px 16px 0}.guide-card--text .guide-card-body{padding:16px 20px}.guide-card-body h3{font-size:17px}.guide-card-body p{font-size:14px}}
+
+/* 2026-11-07 round 3: factory media 2x2 grid, cert box (Fu Min style), insights pill. */
+.hp-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-block:24px}
+.hp-media{margin:0;min-width:0}
+.hp-media video,.hp-media img{display:block;width:100%;height:auto;border-radius:12px}
+.hp-media video{aspect-ratio:16/9;object-fit:cover;background:#000}
+.hp-media img{aspect-ratio:4/3;object-fit:cover}
+.hp-media .fine,.hp-media figcaption{margin:8px 0 0}
+.cert-box{background:var(--tint);border:1px solid var(--line);border-radius:16px;padding:32px}
+.cert-box .section-heading{margin-bottom:16px}
+.pill-link{display:block;text-align:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--tint);font-weight:700;text-decoration:none}
+.pill-link:hover{text-decoration:none;border-color:var(--ink)}
+@media(max-width:699px){.hp-media-grid{gap:12px}.cert-box{padding:20px}}
