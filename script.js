@@ -60,21 +60,3 @@ function sendQuote(e){
     if(map[t]) a.textContent=map[t];
   });
 })();
-
-/* 2026-11-06: bottom-nav Videos opens the factory video fullscreen directly. */
-(function playFactoryVideoFullscreen(){
-  var link=document.querySelector('.bottom-nav a[href$="#videos"]');
-  var video=document.querySelector('#videos video');
-  if(!link||!video) return;
-  link.addEventListener('click',function(e){
-    e.preventDefault();
-    video.scrollIntoView({behavior:'smooth',block:'center'});
-    var p=video.play();
-    if(p&&p.catch) p.catch(function(){});
-    try{
-      if(video.requestFullscreen){var r=video.requestFullscreen();if(r&&r.catch)r.catch(function(){});}
-      else if(video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-      else if(video.webkitEnterFullscreen) video.webkitEnterFullscreen();
-    }catch(err){}
-  });
-})();
