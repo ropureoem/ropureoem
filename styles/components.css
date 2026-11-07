@@ -437,7 +437,6 @@ main .hp-cta .cta-dot{color:#8fb9bd}
   main:has(>section.studio-hero) .home-featured .card .confirmed-spec{display:block;font-size:14px}
   main:has(>section.studio-hero) .home-featured .card .fine{display:block;font-size:14px}
   main:has(>section.studio-hero) .home-featured .card-actions a[href*="get-quote.html?model="]{display:inline-flex}
-  main:has(>section.studio-hero) .home-featured .card-img{aspect-ratio:auto;height:180px}
   main:has(>section.studio-hero) .home-featured .card .btn{min-height:44px;font-size:14px}
   /* --- 10. RP-C14 banner: 16:10, text 18px, padding 16px, deeper gradient --- */
   main:has(>section.studio-hero) .poster-banner-link img{aspect-ratio:8/5}
