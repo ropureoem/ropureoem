@@ -352,7 +352,7 @@ main .hp-cta .cta-dot{color:#8fb9bd}
   main:has(>section.studio-hero) #factory .hp-media #videos video{object-fit:cover}
   /* --- scenario cards: align description + model lines (audit #7) --- */
   main:has(>section.studio-hero) .hp-grid-4 .hp-card-body h3{min-height:calc(2 * 1.3em)}
-  main:has(>section.studio-hero) .hp-grid-4 .hp-card-body h3 + p{min-height:calc(2 * 1.65em)}
+  main:has(>section.studio-hero) .hp-grid-4 .hp-card-body h3 + p{min-height:calc(3 * 1.65em)}
   main:has(>section.studio-hero) .hp-grid-4 .hp-card-body>p:nth-of-type(3){min-height:calc(2 * 1.65em)}
   main:has(>section.studio-hero) .hp-grid-4 .hp-card-body p a{white-space:nowrap}
   /* --- featured cards: align MOQ rows (audit #8) --- */
@@ -416,7 +416,7 @@ main .hp-cta .cta-dot{color:#8fb9bd}
   .studio-hero .hp-trust strong{display:inline;font-size:12px}
   /* --- 4. hero buttons: side by side, 44px, smaller text (shorter block) --- */
   main:has(>section.studio-hero) .studio-hero p:has(>.btn){display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  main:has(>section.studio-hero) .studio-hero p:has(>.btn) .btn{width:100%;min-height:44px;font-size:14px;padding:10px 8px}
+  main:has(>section.studio-hero) .studio-hero p:has(>.btn) .btn{width:100%;min-height:44px;font-size:13px;padding:10px 8px}
   /* --- 5. hero figure: hidden on mobile (no link, not meaningful; shortens the block) --- */
   main:has(>section.studio-hero) .studio-hero figure{display:none}
   main:has(>section.studio-hero) .studio-hero{padding-top:16px;padding-bottom:16px}
@@ -448,16 +448,17 @@ main .hp-cta .cta-dot{color:#8fb9bd}
   main:has(>section.studio-hero) .home-featured .card .confirmed-spec,
   main:has(>section.studio-hero) .home-featured .card .fine{display:none}
   main:has(>section.studio-hero) .home-featured .card-actions a[href*="get-quote.html?model="]{display:none}
-  main:has(>section.studio-hero) .home-featured .card .btn{min-height:44px;font-size:13px;padding:10px 8px}
+  main:has(>section.studio-hero) .home-featured .card .btn{min-height:44px;font-size:12px;padding:10px 6px}
   /* --- 10. RP-C14 banner: 16:10, text 18px, padding 16px, deeper gradient --- */
   main:has(>section.studio-hero) .poster-banner-link img{aspect-ratio:8/5}
   main:has(>section.studio-hero) .poster-banner-caption{font-size:18px;padding:2rem 16px 16px;background:linear-gradient(180deg,transparent 0%,rgba(0,32,38,.25) 45%,rgba(0,32,38,.88) 100%)}
   /* --- 11. OEM vs ODM: 2-col side-by-side on mobile, compact, links pinned to bottom --- */
   main:has(>section.studio-hero) .hp-grid-2{gap:12px}
-  main:has(>section.studio-hero) .hp-grid-2 .hp-path{padding:16px;display:flex;flex-direction:column}
-  main:has(>section.studio-hero) .hp-grid-2 .hp-path h3{font-size:17px}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path{padding:14px;display:flex;flex-direction:column}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path h3{font-size:17px;min-height:calc(3 * 1.3em)}
   main:has(>section.studio-hero) .hp-grid-2 .hp-path p{font-size:14px;line-height:1.55}
   main:has(>section.studio-hero) .hp-grid-2 .hp-path p:last-child{margin-top:auto;margin-bottom:0}
+  main:has(>section.studio-hero) .hp-grid-2 .hp-path p:last-child a{font-size:11px;letter-spacing:-.02em;white-space:nowrap}
   /* --- 12. five-step loop -> vertical list with 32px numbered circles --- */
   main:has(>section.studio-hero) .home-process .steps-loop{max-width:none;height:auto;margin:32px 0 24px;display:flex;flex-direction:column;gap:12px}
   main:has(>section.studio-hero) .steps-loop-path,
@@ -597,3 +598,59 @@ main:has(>section.studio-hero) .home-featured .card p{margin-bottom:8px}
 /* 2026-11-07: faint water-droplet texture on the top header and bottom nav bars (user request: add droplets, faded, for a premium feel). Tile is a sparse, low-alpha condensation bead pattern; nav text stays fully readable. */
 .site-header{background-color:var(--ink);background-image:url("../assets/nav-droplets.png");background-repeat:repeat;background-size:240px 240px}
 .bottom-nav{background-color:var(--ink);background-image:url("../assets/nav-droplets.png");background-repeat:repeat;background-size:240px 240px}
+
+/* ================================================================
+   2026-11-07 premium polish round 2 — surpass the old site on
+   first-impression quality. Visual only: no content, copy, model
+   numbers, prices or links changed. Palette unchanged.
+   Targets: (A) one visual system — kill hardcoded hex + mixed
+   radii left in the homepage inline <style>; (B) hero headline
+   impact on wide desktop; (C) "View all" as a subtle pill;
+   (D) products-page category rhythm; (E) scenario-card image
+   panels read as designed panels, not pasted white boxes.
+   ================================================================ */
+
+/* ---- A. one visual system (beats the inline <style> in index.html
+   via higher specificity: main .hp-card etc.) ---- */
+main .hp-card{border-color:var(--line);border-radius:16px}
+main .hp-path{border-color:var(--line);border-radius:16px}
+main .hp-cert{border-color:var(--line);border-radius:16px}
+main .hp-faq details{border-top-color:var(--line)}
+main .hp-faq details:last-of-type{border-bottom-color:var(--line)}
+main .poster-banner{border-radius:20px}
+
+/* ---- E. scenario-card image panels (desktop only; mobile keeps its
+   2-col square blocks from the mobile batch) ---- */
+@media(min-width:700px){
+  main .hp-card>img{height:240px;padding:20px;background:linear-gradient(180deg,#fff,#F1F8F9);border-bottom:1px solid var(--line)}
+}
+
+/* ---- B. hero headline impact on the wide-desktop collage ---- */
+@media(min-width:1440px){
+  main:has(>section.studio-hero) .studio-hero .hero-copy h1{font-size:2.875rem;max-width:640px}
+}
+
+/* ---- C. "View all" links as subtle pills (only the homepage
+   Featured link uses .section-heading>a today) ---- */
+main .section-heading>a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:700;text-decoration:none;white-space:nowrap}
+main .section-heading>a:hover{border-color:var(--ink);background:var(--tint);text-decoration:none}
+
+/* ---- D. products-page category rhythm ---- */
+main:has(.catalogue-filters) .catalogue-filters{border-radius:16px;box-shadow:var(--shadow-card)}
+main:has(.catalogue-filters)>h2{margin-top:64px;padding-top:32px;border-top:1px solid var(--line)}
+main:has(.catalogue-filters) #result-count{font-size:14px;font-weight:700;color:var(--muted)}
+
+/* ================================================================
+   2026-11-07: OEM vs ODM — dark vs light cards so the two choices
+   read as distinct at a glance (user request). OEM (first card) is
+   dark petrol #00343D with white / ice-cyan text; ODM (second card)
+   stays pale blue-grey. Scoped to the two homepages via
+   :has(>section.studio-hero); :first-child is OEM and :last-child
+   is ODM in both EN and ZH. Specificity beats the inline <style>
+   .hp-path background and the desktop paper background.
+   ================================================================ */
+main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child{background:var(--brand-petrol);border-color:var(--brand-petrol);border-top-color:var(--brand-ice-cyan);color:var(--brand-white)}
+main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child h3{color:var(--brand-white)}
+main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child p{color:#D7E8E8}
+main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child p a{color:var(--brand-ice-cyan)}
+main:has(>section.studio-hero) .hp-grid-2 .hp-path:last-child{background:#F4F8F8}
