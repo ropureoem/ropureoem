@@ -653,3 +653,10 @@ main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child h3{color:var(--br
 main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child p{color:#D7E8E8}
 main:has(>section.studio-hero) .hp-grid-2 .hp-path:first-child p a{color:var(--brand-ice-cyan)}
 main:has(>section.studio-hero) .hp-grid-2 .hp-path:last-child{background:#F4F8F8}
+
+/* 2026-11-08 mobile comparison picker (see script.js mobileCompare): hidden by
+   default; JS shows it as flex on narrow screens only. */
+.spec-compare-picker{display:none;gap:12px;margin:16px 0 0}
+.spec-compare-picker label{flex:1;min-width:0;font-size:14px;font-weight:600}
+.spec-compare-picker select{width:100%;font-size:14px;min-height:44px}
+@media(max-width:699px){.specs.compare-two th,.specs.compare-two td{padding:10px 12px}}
