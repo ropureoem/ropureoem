@@ -194,6 +194,7 @@ slides.forEach(function(slide){
     var id=slide.getAttribute('data-id');
     var url=location.origin+location.pathname+'#'+id;
     var title=slide.querySelector('h2').textContent;
+    if(/MicroMessenger/i.test(navigator.userAgent)){showToast('Tap ··· at the top right, then Share');return;}
     if(navigator.share){navigator.share({title:title,url:url}).catch(function(){});}
     else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){showToast('Link copied');}).catch(function(){showToast(url);});}
     else{showToast(url);}
