@@ -100,3 +100,64 @@ function sendQuote(e){
     nav.appendChild(langs.cloneNode(true));
   }
 })();
+
+/* 2026-11-08 mobile comparison: a .specs table with 3+ variant columns is
+   unreadable on phones — the Specification column takes ~35% and each variant
+   gets ~10%, so long names stack one character per line. On narrow screens
+   show a two-variant picker instead: two dropdowns, only the two chosen
+   variant columns stay visible. Desktop keeps the full table. */
+(function mobileCompare(){
+  var mq=matchMedia('(max-width: 699px)');
+  var zh=document.documentElement.lang==='zh';
+  var tables=[];
+  document.querySelectorAll('table.specs').forEach(function(table){
+    var headRow=table.querySelector('tr');
+    if(!headRow) return;
+    var variantCells=headRow.querySelectorAll('td');
+    if(variantCells.length<2) return;
+    var names=[];
+    variantCells.forEach(function(td){
+      var strong=td.querySelector('strong');
+      names.push((strong?strong.textContent:td.textContent).trim());
+    });
+    var picker=document.createElement('div');
+    picker.className='spec-compare-picker';
+    picker.innerHTML='<label>'+(zh?'对比 A':'Compare A')+' <select data-pick="0"></select></label>'+
+      '<label>'+(zh?'对比 B':'Compare B')+' <select data-pick="1"></select></label>';
+    var selects=picker.querySelectorAll('select');
+    selects.forEach(function(sel,k){
+      names.forEach(function(name,i){
+        var opt=document.createElement('option');
+        opt.value=i; opt.textContent=name;
+        sel.appendChild(opt);
+      });
+      sel.value=k===0?0:1;
+    });
+    table.parentNode.insertBefore(picker,table);
+    tables.push({table:table,picker:picker,selects:selects,count:names.length});
+  });
+  function apply(){
+    tables.forEach(function(t){
+      var show=mq.matches;
+      t.picker.style.display=show?'flex':'none';
+      var a=parseInt(t.selects[0].value,10), b=parseInt(t.selects[1].value,10);
+      t.table.querySelectorAll('tr').forEach(function(row){
+        row.querySelectorAll('td').forEach(function(td,i){
+          td.style.display=(!show||i===a||i===b)?'':'none';
+        });
+      });
+      t.table.classList.toggle('compare-two',show);
+    });
+  }
+  tables.forEach(function(t){
+    t.selects.forEach(function(sel,k){
+      sel.addEventListener('change',function(){
+        var other=t.selects[1-k];
+        if(sel.value===other.value) other.value=(parseInt(sel.value,10)+1)%t.count;
+        apply();
+      });
+    });
+  });
+  mq.addEventListener('change',apply);
+  apply();
+})();
