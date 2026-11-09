@@ -757,3 +757,29 @@ main .hp-card>img{height:300px;padding:16px 20px}
   .topbar-set[aria-hidden="true"]{display:none}
   .topbar{overflow:visible}
 }
+
+/* ================================================================
+   2026-11-09: slim desktop header (user: nav bar too thick on PC
+   at 1920px). Desktop only (>=1200px); mobile (<=699px) untouched.
+   Bar: min-height 88px -> 64px, padding-block 12px -> 6px; logo
+   240px -> 190px (1600x480 source, so 57px tall; total bar ~69px).
+   Search: 200px at >=1200px, 240px at >=1440px (was 280px).
+   Quote button padding tightened 12px 20px -> 10px 16px.
+   scroll-padding-top 120px -> 80px at >=1200px (bar 69px + ~11px).
+   NOTE: the pre-existing mobile rule scroll-padding-top:132px
+   (max-width:699px) is shadowed by the later 120px rule above, so
+   mobile effectively uses 120px today and still does after this
+   change; left untouched on purpose.
+   ================================================================ */
+@media(min-width:1200px){
+  .header-in{min-height:64px;padding-block:6px;gap:16px}
+  .logo{flex-basis:190px}
+  .logo img{width:190px}
+  .nav-menu nav{gap:12px}
+  .header-tools>.header-search{flex-basis:200px}
+  .header-in>.quote{padding:10px 16px;min-height:40px}
+  html{scroll-padding-top:80px}
+}
+@media(min-width:1440px){
+  .header-tools>.header-search{flex-basis:240px}
+}
