@@ -660,3 +660,80 @@ main:has(>section.studio-hero) .hp-grid-2 .hp-path:last-child{background:#F4F8F8
 .spec-compare-picker label{flex:1;min-width:0;font-size:14px;font-weight:600}
 .spec-compare-picker select{width:100%;font-size:14px;min-height:44px}
 @media(max-width:699px){.specs.compare-two th,.specs.compare-two td{padding:10px 12px}}
+
+/* ================================================================
+   2026-11-09 desktop fixes (1920px audit) + P80 delisting support.
+   Local only. Layout/CSS only; no copy, spec, price or factory
+   changes. Appended at the end so these rules win at equal
+   specificity over the rules above.
+   NOTE: the live stylesheet is styles/components.css — styles.css
+   is legacy (only preview/v5 links it) and was left untouched.
+   ================================================================ */
+
+/* --- (7) anchor offset: sticky header must not cover section titles --- */
+html{scroll-padding-top:120px}
+main section[id],main .hp-cta{scroll-margin-top:120px}
+
+/* --- (8) footer: trim the empty dark space below the link columns --- */
+.site-footer{padding-block:48px 32px}
+.footer-in{padding:40px 20px 32px}
+.footer-base{margin-top:20px}
+
+/* --- (10) product cards: pin the buttons to the card bottom --- */
+.card .card-actions{margin-top:auto}
+
+/* --- (11)+(6) card images: zoom into the baked-in white margins so the
+   product fills more of the 4/3 frame (image files untouched) --- */
+.card-img img{transform:scale(1.18)}
+
+/* --- (12) products page: tighter gap between filters and first heading;
+   hide the header search on this page only (the in-page filter search
+   is the live one wired to script.js) --- */
+main:has(.catalogue-filters)>h2{margin-top:24px;padding-top:20px}
+body:has(.catalogue-filters) .header-search{display:none}
+
+/* --- (14) RP-C14 variant comparison: columns size to content,
+   first column narrow, never break a word mid-token --- */
+.variant-gallery-wrap table.specs{table-layout:auto}
+.variant-gallery-wrap table.specs th{width:150px}
+.variant-gallery-wrap table.specs th,.variant-gallery-wrap table.specs td{overflow-wrap:normal;word-break:normal;hyphens:none;font-size:13px;line-height:1.5}
+
+/* --- (15) text-only variant cards (no photo published yet) --- */
+.variant-noimg{display:grid;place-items:center;aspect-ratio:4/3;background:var(--tint);color:var(--muted);font-size:14px;font-weight:600;text-align:center;padding:16px}
+
+/* --- (16) RP-C14 videos side by side on desktop, stacked on mobile --- */
+.video-duo .hp-video .product-video{max-width:none;width:100%;aspect-ratio:16/9;max-height:82vh}
+@media(min-width:700px){.video-duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-block:24px}}
+
+/* --- (17) product hero: zoom into the baked-in white margins --- */
+.product-img{overflow:hidden}
+.product-img img{transform:scale(1.25)}
+
+/* --- (2) scenario cards: taller image panel so portrait products
+   (under-sink unit, freestanding dispenser, softener) render wider;
+   all four cards share the same box --- */
+main .hp-card>img{height:300px;padding:16px 20px}
+
+/* --- (5) homepage Insights: vertical cards in 3 columns so the text
+   column is no longer a wide strip with ~40% empty space --- */
+@media(min-width:700px){
+  main:has(>section.studio-hero) .hp-guides{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  main:has(>section.studio-hero) .hp-guides .guide-card{display:flex;flex-direction:column}
+  main:has(>section.studio-hero) .hp-guides .guide-card>img{width:100%;height:200px;object-fit:cover}
+  main:has(>section.studio-hero) .hp-guides .guide-card-body{padding:20px}
+}
+
+/* --- (3) RP-C14 banner: taller frame, product end of the image --- */
+@media(min-width:1100px){
+  main:has(>section.studio-hero) .poster-banner-link img{aspect-ratio:2/1;max-height:560px;object-position:100% 50%}
+}
+
+/* --- (1) hero collage (>=1440px): copy gets its own column instead of
+   sitting on top of the main product photo --- */
+@media(min-width:1440px){
+  main:has(>section.studio-hero) .studio-hero{grid-template-columns:1.05fr 1fr 1fr;grid-template-rows:1fr 1fr}
+  main:has(>section.studio-hero) .hero-img-main{grid-column:2;grid-row:1/-1}
+  main:has(>section.studio-hero) .hero-img-top{grid-column:3;grid-row:1}
+  main:has(>section.studio-hero) .hero-img-bottom{grid-column:3;grid-row:2}
+  main:has(>section.studio-hero) .studio-hero .hero-copy{grid-column:1;grid-row:1/-1;background:linear-gradient(135deg,#00343D 0%,#00424E 55%,#00515E 100%);border:1px solid rgba(140,226,228,.28);border-radius:18px;padding:48px 40px}
+}
