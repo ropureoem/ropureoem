@@ -377,7 +377,7 @@ main .hp-cta .cta-dot{color:#8fb9bd}
 
 /* ---------- desktop hero collage (min-width:1440px only) ---------- */
 @media(min-width:1440px){
-  main:has(>section.studio-hero) .studio-hero{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:600px;padding:0;background:none;border:0;box-shadow:none;border-radius:0}
+  main:has(>section.studio-hero) .studio-hero{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch;min-height:600px;padding:0;background:none;border:0;box-shadow:none;border-radius:0}
   main:has(>section.studio-hero) .hero-media{display:contents}
   main:has(>section.studio-hero) .hero-img{display:block;width:100%;height:100%;object-fit:cover;border-radius:18px}
   main:has(>section.studio-hero) .hero-img-main{grid-column:1;grid-row:1/-1;object-position:50% 50%}
@@ -712,26 +712,32 @@ body:has(.catalogue-filters) .header-search{display:none}
 /* --- (2) scenario cards: taller image panel so portrait products
    (under-sink unit, freestanding dispenser, softener) render wider;
    all four cards share the same box --- */
-main .hp-card>img{height:300px;padding:16px 20px}
+main .hp-card>img{height:360px;padding:16px 12px;object-fit:cover;object-position:50% 50%}
 
 /* --- (5) homepage Insights: vertical cards in 3 columns so the text
    column is no longer a wide strip with ~40% empty space --- */
 @media(min-width:700px){
   main:has(>section.studio-hero) .hp-guides{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
   main:has(>section.studio-hero) .hp-guides .guide-card{display:flex;flex-direction:column}
-  main:has(>section.studio-hero) .hp-guides .guide-card>img{width:100%;height:200px;object-fit:cover}
+  main:has(>section.studio-hero) .hp-guides .guide-card>img{width:100%;height:300px;object-fit:contain;background:#fff}
   main:has(>section.studio-hero) .hp-guides .guide-card-body{padding:20px}
 }
 
 /* --- (3) RP-C14 banner: taller frame, product end of the image --- */
 @media(min-width:1100px){
   main:has(>section.studio-hero) .poster-banner-link img{aspect-ratio:2/1;max-height:560px;object-position:100% 50%}
+  /* --- RP-C14 banner: caption becomes a left-side text block (desktop),
+     filling the empty gradient; machine stays right --- */
+  main:has(>section.studio-hero) .poster-banner-caption{left:0;right:auto;top:0;bottom:0;display:flex;align-items:center;max-width:42%;padding:0 24px 0 48px;background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,0));color:#00343D;font-size:clamp(22px,2vw,30px);font-weight:700}
 }
 
 /* --- (1) hero collage (>=1440px): copy gets its own column instead of
    sitting on top of the main product photo --- */
 @media(min-width:1440px){
-  main:has(>section.studio-hero) .studio-hero{grid-template-columns:1.05fr 1fr 1fr;grid-template-rows:1fr 1fr}
+  main:has(>section.studio-hero) .studio-hero{grid-template-columns:1.05fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr))}
+  /* --- hero collage: keep the product in frame once rows grow taller --- */
+  main:has(>section.studio-hero) .hero-img-main{object-position:65% 50%}
+  main:has(>section.studio-hero) .hero-img-bottom{object-position:60% 50%}
   main:has(>section.studio-hero) .hero-img-main{grid-column:2;grid-row:1/-1}
   main:has(>section.studio-hero) .hero-img-top{grid-column:3;grid-row:1}
   main:has(>section.studio-hero) .hero-img-bottom{grid-column:3;grid-row:2}
