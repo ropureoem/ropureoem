@@ -737,3 +737,23 @@ main .hp-card>img{height:300px;padding:16px 20px}
   main:has(>section.studio-hero) .hero-img-bottom{grid-column:3;grid-row:2}
   main:has(>section.studio-hero) .studio-hero .hero-copy{grid-column:1;grid-row:1/-1;background:linear-gradient(135deg,#00343D 0%,#00424E 55%,#00515E 100%);border:1px solid rgba(140,226,228,.28);border-radius:18px;padding:48px 40px}
 }
+
+/* 2026-11-09: mobile-only scrolling topbar (mirrors amyskinoem .topbar pattern:
+   two identical sets, translateX(-50%), ~30s, pause on hover).
+   Normal flow above the sticky header: scrolls away, never overlaps the nav.
+   Hidden on desktop. */
+.topbar{display:none}
+@media(max-width:699px){
+  .topbar{display:block;background:var(--ink);color:var(--footer-muted);font-size:12px;letter-spacing:.04em;overflow:hidden}
+  .topbar .wrap{display:flex;width:max-content;max-width:none;margin:0;padding:7px 0;align-items:center;animation:topbar-marquee 30s linear infinite}
+  .topbar-set{display:flex;flex-shrink:0;align-items:center;gap:2px 10px;padding-right:10px}
+  .topbar span{white-space:nowrap}
+  .topbar i{font-style:normal;color:var(--action)}
+  .topbar:hover .wrap{animation-play-state:paused}
+}
+@keyframes topbar-marquee{to{transform:translateX(-50%)}}
+@media(max-width:699px) and (prefers-reduced-motion:reduce){
+  .topbar .wrap{animation:none;width:auto;max-width:1200px;flex-wrap:wrap;justify-content:center}
+  .topbar-set[aria-hidden="true"]{display:none}
+  .topbar{overflow:visible}
+}
