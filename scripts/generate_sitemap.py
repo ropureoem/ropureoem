@@ -61,7 +61,7 @@ def main():
             loc = url.find('{*}loc').text
             lm = url.find('{*}lastmod')
             old[loc] = lm.text if lm is not None else TODAY
-    langs = ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja']
+    langs = ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de']
     counts = {}
     urls = []
     for lang in langs:
@@ -69,8 +69,8 @@ def main():
         counts[lang] = len(pages)
         for rel in pages:
             urls.append((url_for(lang, rel), old.get(url_for(lang, rel), TODAY)))
-    assert counts == {'en': 65, 'zh': 65, 'es': 19, 'pt': 19, 'it': 19, 'ru': 19, 'ar': 19, 'fr': 19, 'id': 19, 'ja': 19}, f'Unexpected sitemap counts: {counts}'
-    assert len(urls) == len({u for u, _ in urls}) == 282
+    assert counts == {'en': 65, 'zh': 65, 'es': 19, 'pt': 19, 'it': 19, 'ru': 19, 'ar': 19, 'fr': 19, 'id': 19, 'ja': 19, 'de': 19}, f'Unexpected sitemap counts: {counts}'
+    assert len(urls) == len({u for u, _ in urls}) == 301
     assert not any('/404' in u or 'countertop-vs-under-sink' in u for u, _ in urls)
     assert not any('/RP-' in u and u.rsplit('/', 1)[-1][:-5] in VARIANTS for u, _ in urls)
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -78,7 +78,7 @@ def main():
     xml += '</urlset>\n'
     sitemap.write_text(xml)
     print(f'Generated sitemap.xml: {len(urls)} unique URLs '
-          f'(en {counts["en"]} + zh {counts["zh"]} + es {counts["es"]} + pt {counts["pt"]} + it {counts["it"]} + ru {counts["ru"]} + ar {counts["ar"]} + fr {counts["fr"]} + id {counts["id"]} + ja {counts["ja"]}); '
+          f'(en {counts["en"]} + zh {counts["zh"]} + es {counts["es"]} + pt {counts["pt"]} + it {counts["it"]} + ru {counts["ru"]} + ar {counts["ar"]} + fr {counts["fr"]} + id {counts["id"]} + ja {counts["ja"]} + de {counts["de"]}); '
           f'new URLs dated {TODAY}.')
 
 if __name__ == '__main__':
