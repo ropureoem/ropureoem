@@ -926,3 +926,35 @@ main .hp-card>img{height:360px;padding:16px 12px;object-fit:cover;object-positio
    EN and on every language edition). Hide the marker; the in-text numbers
    stay. Applies to oem-odm.html in all languages. */
 .steps{list-style:none}
+
+/* ================================================================
+   2026-11-15 fix: 1280px header — language switcher folds to two
+   rows and the search box is squeezed to ~103px (input 35px).
+   Root cause, measured at 1280px on index.html:
+   .header-tools>.language-switch was capped at max-width:160px with
+   flex-wrap:wrap, so the 12 languages folded into 2 rows of 6
+   (switcher 160x72, header 84px tall). The switcher + nav
+   (min-content 605px) + logo 190px + quote 114px left only ~103px
+   for the search form, whose button alone is 64px.
+   Budget at 1280px (content width 1248px after 16px side padding):
+   logo 150 + nav min-content ~547 (13px, 8px gaps) + quote ~96 +
+   gaps 24 + tools 412 (search 180 + gap 8 + switcher ~224) = ~1229.
+   Fix: single-row switcher (compact 12px links, 4px gaps, no
+   max-width), tighter logo/nav/quote, search flex-basis 180px.
+   Scoped to >=1200px (desktop header); mobile/tablet rules untouched.
+   Appended last so it wins same-specificity ties with the older
+   >=1200px / >=1440px blocks above (search basis 200/240px).
+   ================================================================ */
+@media(min-width:1200px){
+  .header-in{gap:8px;padding-inline:16px}
+  .logo{flex-basis:150px;min-width:0}
+  .logo img{width:150px}
+  .nav-menu{min-width:0}
+  .nav-menu nav{gap:8px;font-size:13px}
+  .header-tools{gap:8px}
+  .header-tools>.language-switch{flex-wrap:nowrap;max-width:none;gap:4px}
+  .header-tools>.language-switch a{font-size:12px}
+  .header-tools>.header-search{flex:0 1 180px}
+  .header-search button{padding:8px 6px;font-size:13px}
+  .header-in>.quote{padding:10px 12px;font-size:13px}
+}
