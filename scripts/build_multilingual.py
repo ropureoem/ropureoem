@@ -55,19 +55,28 @@ KEYS = sorted(TRANSLATIONS, key=len, reverse=True)
 LONG_KEYS = [k for k in KEYS if len(k) >= 5 and not k.endswith('.')]
 PATTERN = re.compile('|'.join(re.escape(k) for k in LONG_KEYS)) if LONG_KEYS else None
 
-MONTHS = {'January': 'enero', 'February': 'febrero', 'March': 'marzo', 'April': 'abril',
-          'May': 'mayo', 'June': 'junio', 'July': 'julio', 'August': 'agosto',
-          'September': 'septiembre', 'October': 'octubre', 'November': 'noviembre',
-          'December': 'diciembre'}
+MONTHS_BY_LANG = {
+    'es': {'January': 'enero', 'February': 'febrero', 'March': 'marzo', 'April': 'abril',
+           'May': 'mayo', 'June': 'junio', 'July': 'julio', 'August': 'agosto',
+           'September': 'septiembre', 'October': 'octubre', 'November': 'noviembre',
+           'December': 'diciembre'},
+    'pt': {'January': 'janeiro', 'February': 'fevereiro', 'March': 'março', 'April': 'abril',
+           'May': 'maio', 'June': 'junho', 'July': 'julho', 'August': 'agosto',
+           'September': 'setembro', 'October': 'outubro', 'November': 'novembro',
+           'December': 'dezembro'},
+}
+MONTHS = MONTHS_BY_LANG.get(LANG, MONTHS_BY_LANG['es'])
 
 def translate(text):
     if text in TRANSLATIONS:
         return TRANSLATIONS[text]
     m = re.fullmatch(r'(RP-[A-Z0-9-]+) product photograph', text)
     if m:
-        return f'Fotografía del producto {m[1]}'
+        return f'Foto do produto {m[1]}' if LANG == 'pt' else f'Fotografía del producto {m[1]}'
     m = re.fullmatch(r'(\d+) models\. Specifications are confirmed per model and order\.', text)
     if m:
+        if LANG == 'pt':
+            return f'{m[1]} modelos. Especificações confirmadas por modelo e pedido.'
         return f'{m[1]} modelos. Especificaciones confirmadas por modelo y pedido.'
     m = re.fullmatch(r'(\d+) (January|February|March|April|May|June|July|August|September|October|November|December) (\d{4})', text)
     if m:
@@ -90,10 +99,11 @@ def url_for(lang, rel):
 
 def available_langs(rel):
     langs = ['en']
-    if (ROOT / 'zh' / rel).exists():
-        langs.append('zh')
-    if (ROOT / LANG / rel).exists() or rel in PHASE1:
-        langs.append(LANG)
+    # Every language edition that exists for this page, in canonical order.
+    # The target language counts when it is in PHASE1 (generated this run).
+    for lang in ['zh', 'es', 'it', 'pt', 'ru']:
+        if (ROOT / lang / rel).exists() or (lang == LANG and rel in PHASE1):
+            langs.append(lang)
     return langs
 
 def rebuild_languages(doc, page, current_lang, langs):
@@ -219,7 +229,8 @@ def generate_page(rel):
 
 # --- surgical counterpart update (EN/ZH pages): regex only, rest untouched ---
 SWITCHER_RE = re.compile(r'(<nav[^>]*class="[^"]*language-switch[^"]*"[^>]*>)(.*?)(</nav>)', re.S)
-HREFLANG_RUN_RE = re.compile(r'(?:<link[^>]*hreflang="(?:en|zh)"[^>]*/>\s*)+')
+# Full hreflang run: x-default + every language edition present on the page.
+HREFLANG_RUN_RE = re.compile(r'(?:<link[^>]*hreflang="(?:x-default|en|zh|es|it|pt|ru)"[^>]*/>\s*)+')
 
 def counterpart_href(lang, rel, from_lang):
     """Relative href from a page in from_lang to the same page in lang."""
@@ -274,13 +285,19 @@ def main():
     for rel in PHASE1:
         missing = generate_page(rel)
         all_missing |= missing
-        print(f'generated es/{rel}')
+        print(f'generated {LANG}/{rel}')
     if UPDATE_COUNTERPARTS:
         for rel in PHASE1:
-            update_counterpart(rel, 'en')
-            if (ROOT / 'zh' / rel).exists():
-                update_counterpart(rel, 'zh')
-        print('counterparts updated (EN + ZH switchers/hreflang for the 19 pages)')
+            # Every existing edition of the page gets the new language in its
+            # switcher + hreflang group (EN + ZH + ES for the pt run; the
+            # generated edition itself is skipped).
+            for from_lang in ['en', 'zh', 'es']:
+                if from_lang == LANG:
+                    continue
+                if from_lang != 'en' and not (ROOT / from_lang / rel).exists():
+                    continue
+                update_counterpart(rel, from_lang)
+        print('counterparts updated (EN + ZH + ES switchers/hreflang for the 19 pages)')
     print(f'Generated {len(PHASE1)} {LANG} pages.')
     if all_missing:
         print('Untranslated copy requiring review:', json.dumps(sorted(all_missing), ensure_ascii=False))

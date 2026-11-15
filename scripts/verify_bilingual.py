@@ -1,9 +1,9 @@
-"""Validate the multilingual site: EN 90 / ZH 89 / ES 19 files; for the 19
-phase-1 pages, EN/ZH/ES symmetry (lang, canonical, hreflang group incl.
+"""Validate the multilingual site: EN 90 / ZH 89 / ES 19 / PT 19 files; for the 19
+phase-1 pages, EN/ZH/ES/PT symmetry (lang, canonical, hreflang group incl.
 x-default, header/footer switchers), exactly one h1, no broken relative
-links, no untranslated English residue and no Chinese leakage in the ES
+links, no untranslated English residue and no Chinese leakage in the ES and PT
 pages, valid JSON-LD, and a sitemap that lists exactly the published pages
-(EN 65 + ZH 65 + ES 19 = 149).
+(EN 65 + ZH 65 + ES 19 + PT 19 = 168).
 
 Run: python3 scripts/verify_bilingual.py   (from the repo root)
 """
@@ -25,11 +25,12 @@ PHASE1 = [
     'insights/under-sink-installation-space.html',
     'insights/voltage-plug-by-country.html',
 ]
-# Text that is legitimately identical in English and Spanish (brands, codes,
-# abbreviations, units, numbers, contact data).
+# Text that is legitimately identical in English and Spanish/Portuguese (brands, codes,
+# abbreviations, units, numbers, contact data). 'Menu' is the standard word in
+# Brazilian Portuguese, identical in form to the English.
 IDENTICAL_OK = re.compile(
     r'^(?:ROPureOEM|WhatsApp.*|info@ropureoem\.com|SKU:.*|RP-.*|OEM / ODM|OEM vs ODM|'
-    r'EN|ZH|ES|FOB Shenzhen|MOQ.*|CE.*|UKCA.*|RoHS|REACH|CB.*|NSF.*|ACS|'
+    r'EN|ZH|ES|FOB Shenzhen|MOQ.*|CE.*|UKCA.*|RoHS|REACH|CB.*|NSF.*|ACS|Menu|'
     r'Videos|.*\d.*|\+86.*|[\W_]*)$')
 
 def url_for(lang, rel):
@@ -64,25 +65,31 @@ def check(cond, msg):
     if not cond:
         errors.append(msg)
 
-# --- 1. file counts (EN 90 incl. 404, ZH 89 incl. 404, ES 19) ---
+# --- 1. file counts (EN 90 incl. 404, ZH 89 incl. 404, ES 19, PT 19) ---
 en_files = sorted(p.relative_to(ROOT).as_posix() for p in
                   [*ROOT.glob('*.html'), *ROOT.glob('products/*.html'), *ROOT.glob('insights/*.html')])
 zh_files = sorted(p.relative_to(ROOT / 'zh').as_posix() for p in (ROOT / 'zh').rglob('*.html'))
 es_files = sorted(p.relative_to(ROOT / 'es').as_posix() for p in (ROOT / 'es').rglob('*.html'))
+pt_files = sorted(p.relative_to(ROOT / 'pt').as_posix() for p in (ROOT / 'pt').rglob('*.html'))
 check(len(en_files) == 90, f'EN files {len(en_files)} != 90')
 check(len(zh_files) == 89, f'ZH files {len(zh_files)} != 89')
 check(len(es_files) == 19 and es_files == sorted(PHASE1), f'ES files {len(es_files)} != 19 phase-1')
+check(len(pt_files) == 19 and pt_files == sorted(PHASE1), f'PT files {len(pt_files)} != 19 phase-1')
 check(not (ROOT / 'es' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
       'countertop article must not have an ES edition yet')
+check(not (ROOT / 'pt' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
+      'countertop article must not have a PT edition yet')
 
 # --- 2. per-page checks for the 19 ---
 for rel in PHASE1:
     en = BS(page_path('en', rel).read_text(), 'html.parser')
     zh = BS(page_path('zh', rel).read_text(), 'html.parser')
     es = BS(page_path('es', rel).read_text(), 'html.parser')
+    pt = BS(page_path('pt', rel).read_text(), 'html.parser')
     expected_hreflang = {'x-default': url_for('en', rel), 'en': url_for('en', rel),
-                         'zh': url_for('zh', rel), 'es': url_for('es', rel)}
-    for lang, doc in [('en', en), ('zh', zh), ('es', es)]:
+                         'zh': url_for('zh', rel), 'es': url_for('es', rel),
+                         'pt': url_for('pt', rel)}
+    for lang, doc in [('en', en), ('zh', zh), ('es', es), ('pt', pt)]:
         check(doc.html['lang'] == lang, f'{lang}/{rel}: lang={doc.html.get("lang")}')
         check(len(doc.select('h1')) == 1, f'{lang}/{rel}: {len(doc.select("h1"))} h1')
         check(doc.select_one('link[rel=canonical]')['href'] == url_for(lang, rel),
@@ -91,16 +98,17 @@ for rel in PHASE1:
               f'{lang}/{rel}: hreflang group not symmetric')
         for area in ['header', 'footer']:
             links = doc.select(area + ' .language-switch a')
-            check([a.get_text(strip=True) for a in links] == ['EN', 'ZH', 'ES'],
+            check([a.get_text(strip=True) for a in links] == ['EN', 'ZH', 'ES', 'PT'],
                   f'{lang}/{rel} {area}: switcher labels {[a.get_text(strip=True) for a in links]}')
             targets = [resolve(page_path(lang, rel), a['href']) for a in links]
-            expect = [page_path(l, rel).resolve() for l in ['en', 'zh', 'es']]
+            expect = [page_path(l, rel).resolve() for l in ['en', 'zh', 'es', 'pt']]
             check(targets == expect, f'{lang}/{rel} {area}: switcher hrefs {targets} != {expect}')
             cur = [a for a in links if a.get('aria-current') == 'true']
             check(len(cur) == 1 and cur[0].get('data-language') == lang,
                   f'{lang}/{rel} {area}: aria-current wrong')
         check(doc.select_one('.language-switch')['aria-label'] ==
-              {'en': 'Language selection', 'zh': '语言切换', 'es': 'Selección de idioma'}[lang],
+              {'en': 'Language selection', 'zh': '语言切换', 'es': 'Selección de idioma',
+               'pt': 'Selecionar idioma'}[lang],
               f'{lang}/{rel}: switcher aria-label wrong')
         for node in doc.select('script[type="application/ld+json"]'):
             try:
@@ -121,22 +129,24 @@ for rel in PHASE1:
                           f'{lang}/{rel}: missing fragment {val}')
         # numbers preserved in the lede
         en_lede = en.select_one('.lede')
-        es_lede = es.select_one('.lede')
-        if en_lede and es_lede:
-            check(re.findall(r'\d+(?:[.,]\d+)*', en_lede.get_text()) ==
-                  re.findall(r'\d+(?:[.,]\d+)*', es_lede.get_text()),
-                  f'es/{rel}: lede numbers differ from EN')
-    # --- 3. ES translation residue: node-by-node vs EN ---
-    en_texts, es_texts = text_nodes(en), text_nodes(es)
-    check(len(en_texts) == len(es_texts),
-          f'es/{rel}: text-node count {len(es_texts)} != EN {len(en_texts)}')
-    for e, s in zip(en_texts, es_texts):
-        if e == s and re.search(r'[A-Za-z]{3}', e) and not IDENTICAL_OK.match(e):
-            check(False, f'es/{rel}: untranslated residue: {e!r}')
-        check(not re.search(r'[\u4e00-\u9fff]', s), f'es/{rel}: Chinese leakage: {s!r}')
-    raw = page_path('es', rel).read_text()
-    check(not re.search(r'[\u4e00-\u9fff]', raw), f'es/{rel}: CJK characters in file')
-    check('translate-zh-params' not in raw, f'es/{rel}: stray reference')
+        for other_lang, other_doc in [('es', es), ('pt', pt)]:
+            other_lede = other_doc.select_one('.lede')
+            if en_lede and other_lede:
+                check(re.findall(r'\d+(?:[.,]\d+)*', en_lede.get_text()) ==
+                      re.findall(r'\d+(?:[.,]\d+)*', other_lede.get_text()),
+                      f'{other_lang}/{rel}: lede numbers differ from EN')
+    # --- 3. ES/PT translation residue: node-by-node vs EN ---
+    for other_lang, other_doc in [('es', es), ('pt', pt)]:
+        en_texts, other_texts = text_nodes(en), text_nodes(other_doc)
+        check(len(en_texts) == len(other_texts),
+              f'{other_lang}/{rel}: text-node count {len(other_texts)} != EN {len(en_texts)}')
+        for e, s in zip(en_texts, other_texts):
+            if e == s and re.search(r'[A-Za-z]{3}', e) and not IDENTICAL_OK.match(e):
+                check(False, f'{other_lang}/{rel}: untranslated residue: {e!r}')
+            check(not re.search(r'[\u4e00-\u9fff]', s), f'{other_lang}/{rel}: Chinese leakage: {s!r}')
+        raw = page_path(other_lang, rel).read_text()
+        check(not re.search(r'[\u4e00-\u9fff]', raw), f'{other_lang}/{rel}: CJK characters in file')
+        check('translate-zh-params' not in raw, f'{other_lang}/{rel}: stray reference')
 
 # --- 4. the two pre-existing defects are fixed ---
 for rel in ['insights/index.html', 'insights/water-purifier-oem-moq.html',
@@ -146,7 +156,7 @@ for rel in ['insights/index.html', 'insights/water-purifier-oem-moq.html',
             'insights/voltage-plug-by-country.html']:
     doc = BS(page_path('en', rel).read_text(), 'html.parser')
     langs = [a.get('data-language') for a in doc.select('header .language-switch a')]
-    check(langs == ['en', 'zh', 'es'], f'en/{rel}: insights switcher {langs}')
+    check(langs == ['en', 'zh', 'es', 'pt'], f'en/{rel}: insights switcher {langs}')
 for rel in ['zh/index.html', 'zh/videos.html']:
     check('../insights/index.html' not in (ROOT / rel).read_text(),
           f'{rel}: still links to English insights index')
@@ -162,11 +172,12 @@ check(ct.select('link[hreflang]') == [],
 # --- 5. sitemap ---
 tree = ET.parse(ROOT / 'sitemap.xml')
 urls = [n.text for n in tree.getroot().findall('{*}url/{*}loc')]
-check(len(urls) == len(set(urls)) == 149, f'sitemap has {len(urls)} urls, expected 149')
+check(len(urls) == len(set(urls)) == 168, f'sitemap has {len(urls)} urls, expected 168')
 check(not any('404' in u or 'countertop-vs-under-sink' in u for u in urls),
       'sitemap contains excluded page')
 for rel in PHASE1:
     check(url_for('es', rel) in urls, f'sitemap missing es {rel}')
+    check(url_for('pt', rel) in urls, f'sitemap missing pt {rel}')
 for url in urls:
     check(url.startswith(BASE), f'sitemap url outside site: {url}')
 for url in tree.getroot().findall('{*}url'):
@@ -178,8 +189,8 @@ if errors:
     for e in errors:
         print(' -', e)
     sys.exit(1)
-print('PASS: EN 90 / ZH 89 / ES 19 files; 19 pages EN/ZH/ES symmetric '
-      '(lang, canonical, x-default+en+zh+es hreflang, header/footer EN/ZH/ES '
+print('PASS: EN 90 / ZH 89 / ES 19 / PT 19 files; 19 pages EN/ZH/ES/PT symmetric '
+      '(lang, canonical, x-default+en+zh+es+pt hreflang, header/footer EN/ZH/ES/PT '
       'switchers, 1 h1); no broken relative links; no untranslated English '
-      'residue or Chinese leakage in ES; both pre-existing defects fixed; '
-      'countertop article untouched; sitemap 149 URLs (EN 65 + ZH 65 + ES 19).')
+      'residue or Chinese leakage in ES/PT; both pre-existing defects fixed; '
+      'countertop article untouched; sitemap 168 URLs (EN 65 + ZH 65 + ES 19 + PT 19).')
