@@ -47,6 +47,12 @@ LANG_NAME = {'en': 'English', 'zh': 'Chinese', 'es': 'Spanish',
              'fr': 'French', 'ar': 'Arabic', 'id': 'Indonesian',
              'ja': 'Japanese', 'de': 'German'}
 
+# RTL languages (2026-11-15: Arabic is the only RTL language of the 9).
+# Generated pages get dir="rtl" on <html>; the shared stylesheet carries the
+# [dir="rtl"] overrides in styles/components.css. Arrows (→/←/↗/↑) are kept
+# as-is: the wordlists already carry them in the translated strings.
+RTL_LANGS = {'ar'}
+
 TRANSLATIONS = {}
 _tsv = ROOT / 'scripts' / 'i18n' / f'{LANG}.tsv'
 if _tsv.exists():
@@ -358,6 +364,8 @@ def generate_page(rel):
     for menu in doc.select('details.nav-menu'):
         menu.attrs.pop('open', None)
     doc.html['lang'] = LANG
+    if LANG in RTL_LANGS:
+        doc.html['dir'] = 'rtl'
     missing = set()
     for node in doc.find_all(string=True):
         if isinstance(node, Doctype) or node.parent.name in ('script', 'style') or not node.strip():

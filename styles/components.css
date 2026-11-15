@@ -868,3 +868,61 @@ main .hp-card>img{height:360px;padding:16px 12px;object-fit:cover;object-positio
    on mobile). Left-aligned row matching the other Contact links. */
 .site-footer .footer-in .language-switch{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 12px;padding:12px 0 0}
 .site-footer .footer-in .language-switch a{display:inline-flex;align-items:center;min-height:44px;padding:4px 0;font-size:14px}
+
+/* ================================================================
+   RTL (2026-11-15): Arabic edition only (html[dir="rtl"]).
+   Scoped overrides; shared LTR styles untouched. Flex/grid and
+   logical properties (padding-inline, margin-inline) flip
+   automatically; only physical left/right properties are mirrored
+   here. Arrows (→/←/↗/↑) are kept as-is per the ar wordlist.
+   ================================================================ */
+[dir="rtl"] .products-menu>div{left:auto;right:0}
+[dir="rtl"] .products-menu>summary::after{margin-left:0;margin-right:6px}
+[dir="rtl"] .specs th,[dir="rtl"] .specs td{text-align:right}
+[dir="rtl"] .cat-card .arrow{float:left}
+[dir="rtl"] .section-heading .eyebrow::before{margin-right:0;margin-left:10px}
+[dir="rtl"] .studio-hero .hp-trust li{border-left:0;border-right:1px solid rgba(140,226,228,.35)}
+[dir="rtl"] .studio-hero .hp-trust li:first-child{padding-right:0;border-right:0}
+[dir="rtl"] .hero-copy .hp-keywords{text-align:right}
+[dir="rtl"] .guide-card-body{padding:20px 0 20px 20px}
+[dir="rtl"] .home-featured .card ul.confirmed-spec,[dir="rtl"] .variant-specs ul{padding-left:0;padding-right:18px}
+[dir="rtl"] .cert-markets span{margin-right:0;margin-left:8px}
+[dir="rtl"] .video-cover-open{text-align:right}
+/* Dark panels: mirror the 135deg diagonal (→225deg) and the off-centre
+   radial glows, at every width. */
+[dir="rtl"] main:has(>section.studio-hero) .studio-hero{background:radial-gradient(900px 420px at 12% -10%,rgba(140,226,228,.32),transparent 60%),radial-gradient(720px 420px at 108% 108%,rgba(255,120,108,.16),transparent 55%),linear-gradient(225deg,#00343D 0%,#00424E 55%,#00515E 100%)}
+[dir="rtl"] .cert-box{background:radial-gradient(700px 260px at 15% 0%,rgba(140,226,228,.20),transparent 60%),linear-gradient(225deg,#00343D 0%,#00424E 60%,#00515E 100%)}
+[dir="rtl"] main .hp-cta{background:radial-gradient(800px 300px at 50% -20%,rgba(140,226,228,.28),transparent 60%),linear-gradient(225deg,#07333B 0%,#00424E 60%,#00515E 100%)}
+/* Mobile topbar marquee runs left in LTR; in RTL the row starts at the
+   right edge, so the loop must run the other way or it opens a gap. */
+[dir="rtl"] .topbar .wrap{animation-name:topbar-marquee-rtl}
+@keyframes topbar-marquee-rtl{to{transform:translateX(50%)}}
+@media(min-width:1440px){
+  /* Hero copy is its own solid panel (the effective rule is the 135deg
+     opaque gradient, NOT the old translucent overlay): mirror the
+     diagonal only. Border-radius is uniform 18px, no change needed. */
+  [dir="rtl"] main:has(>section.studio-hero) .studio-hero .hero-copy{background:linear-gradient(225deg,#00343D 0%,#00424E 55%,#00515E 100%)}
+}
+/* RP-C14 banner: deliberately NOT mirrored. The photo cannot be flipped
+   (the control-panel text would read backwards), and the machine sits at
+   the photo's right end — moving the caption right would put the text on
+   top of the machine. Caption stays left over the empty light area; the
+   Arabic text right-aligns inside it and stays readable. */
+@media(max-width:699px){
+  [dir="rtl"] .studio-hero .hp-trust li{border-right:0}
+  [dir="rtl"] .hero-copy .hp-keywords{text-align:center}
+  [dir="rtl"] .guide-card-body{padding:14px 0 14px 14px}
+  [dir="rtl"] .steps-timeline::before{left:auto;right:27px}
+  [dir="rtl"] .steps-timeline li{text-align:right}
+  [dir="rtl"] .header-tools>.language-switch{margin-left:0;margin-right:auto}
+  /* Mobile hero keeps its AI-purifier photo background; the photo anchor
+     mirrors to the left and the diagonal to 225deg. */
+  [dir="rtl"] main:has(>section.studio-hero) .studio-hero{background:linear-gradient(180deg,rgba(0,52,61,.88) 0%,rgba(0,52,61,.60) 45%,rgba(0,52,61,.45) 100%),url(../assets/hero/hero-ai-purifier-mobile.webp) left bottom/cover no-repeat,linear-gradient(225deg,#00343D 0%,#00424E 55%,#00515E 100%)}
+}
+
+/* Pre-existing defect found during the 2026-11-15 Arabic RTL check: every
+   <li> in ol.steps already carries its own "N." prefix in the text, so the
+   <ol>'s decimal marker rendered a duplicate ("1. 1. Choose a model" on
+   EN and on every language edition). Hide the marker; the in-text numbers
+   stay. Applies to oem-odm.html in all languages. */
+.steps{list-style:none}
