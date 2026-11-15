@@ -18,7 +18,7 @@ Usage: python3 scripts/build_multilingual.py [es] [--update-counterparts]
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 import json, posixpath, re, sys
-from bs4 import BeautifulSoup, Doctype
+from bs4 import BeautifulSoup, Comment, Doctype
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = 'https://ropureoem.com/'
@@ -422,7 +422,12 @@ def generate_page(rel):
         doc.html['dir'] = 'rtl'
     missing = set()
     for node in doc.find_all(string=True):
-        if isinstance(node, Doctype) or node.parent.name in ('script', 'style') or not node.strip():
+        # HTML comments are invisible dev notes (e.g. '<!-- RP-F03 merged into
+        # RP-F02 -->'): translating them via replace_with() strips the comment
+        # markers and the text becomes visible on the page (2026-11-15: es
+        # RP-C02 shipped 'RP-C02 fusionado en RP-C01' as visible text between
+        # </head> and <body>). Leave comments byte-identical, like Doctype.
+        if isinstance(node, (Doctype, Comment)) or node.parent.name in ('script', 'style') or not node.strip():
             continue
         translated = translate(str(node).strip())
         if translated == str(node).strip() and _looks_untranslated(translated):
