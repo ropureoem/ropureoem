@@ -18,7 +18,7 @@ Usage: python3 scripts/build_multilingual.py [es] [--update-counterparts]
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 import json, posixpath, re, sys
-from bs4 import BeautifulSoup, Comment, Doctype
+from bs4 import BeautifulSoup, Comment, Doctype, NavigableString
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE = 'https://ropureoem.com/'
@@ -329,12 +329,32 @@ def rebuild_languages(doc, page, current_lang, langs):
     """Strip old switchers + hreflang, rebuild for the full language set."""
     for node in doc.select('.language-switch,link[hreflang]'):
         node.decompose()
+    # The old hreflang run leaves its inter-link whitespace behind as bare
+    # '\n' text nodes; appending new links after them used to press all 13
+    # links onto one line, and each rebuild accumulated more blank lines
+    # (2026-11-15, item 6). Drop whitespace-only head children after the
+    # last stylesheet, then emit one link per line (each preceded by '\n'),
+    # inserted before the JSON-LD script when the page has one, so the
+    # output is byte-stable across rebuilds.
+    _seen_style = False
+    for child in list(doc.head.children):
+        if getattr(child, 'name', None) == 'link' and child.get('rel') == ['stylesheet']:
+            _seen_style = True
+        elif _seen_style and isinstance(child, NavigableString) and not child.strip():
+            child.extract()
     en_rel = str(page.relative_to(ROOT / LANG)) if current_lang == LANG else str(page)
     # hreflang group: x-default (English) + one link per existing language.
+    _anchor = doc.head.select_one('script[type="application/ld+json"]')
     for lang in ['x-default'] + langs:
         target_lang = 'en' if lang == 'x-default' else lang
         href = url_for(target_lang, en_rel)
-        doc.head.append(doc.new_tag('link', rel='alternate', hreflang=lang, href=href))
+        tag = doc.new_tag('link', rel='alternate', hreflang=lang, href=href)
+        if _anchor is not None:
+            _anchor.insert_before(NavigableString('\n'))
+            _anchor.insert_before(tag)
+        else:
+            doc.head.append(NavigableString('\n'))
+            doc.head.append(tag)
     for parent in [doc.header, doc.footer]:
         if parent is None:
             continue
