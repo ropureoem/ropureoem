@@ -8,12 +8,15 @@ pages, valid JSON-LD, and a sitemap that lists exactly the published pages
 Phase-1 new languages (it/ru/fr/ar/id/ja/de, 19 pages each) and phase-2 product
 pages (es/pt/it/ru/fr/ar/id/ja/de, 69 RP-* pages each) are asserted in section 1b.
 Phase-2 lands in batches: batch 1 is the C series (20 RP-C* pages per language);
-batch 2 is the F+S series (27 RP-F*/RP-S* pages per language). A language whose
+batch 2 is the F+S series (27 RP-F*/RP-S* pages per language); batch 3 is the
+U+W series (22 RP-U*/RP-W* pages per language). A language whose
 C batch is complete is asserted exactly in section 1b and contributes 17 URLs
 to the sitemap (20 pages minus the 3 merged variants RP-C02/RP-C05/RP-C06,
 which the sitemap excludes); a language whose F+S batch is also complete
 contributes a further 12 URLs (27 pages minus the 15 merged variants
-RP-F03/F04/F05/F07/F09/F11/F12/F13 and RP-S02/S04/S05/S06/S08/S09/S13).
+RP-F03/F04/F05/F07/F09/F11/F12/F13 and RP-S02/S04/S05/S06/S08/S09/S13);
+a language whose U+W batch is also complete contributes a further 17 URLs
+(22 pages minus the 5 merged variants RP-U10/RP-U13/RP-U25/RP-W02/RP-W03).
 A full 69-page phase-2 edition contributes 46 sitemap URLs (69 minus the 23
 merged variants).
 The assertions are written before those pages exist: a language whose edition
@@ -61,6 +64,16 @@ FS_BATCH = ['RP-F01', 'RP-F02', 'RP-F03', 'RP-F04', 'RP-F05', 'RP-F06', 'RP-F07'
 FS_PATHS = ['products/' + n + '.html' for n in FS_BATCH]
 FS_SITEMAP = ['RP-F01', 'RP-F02', 'RP-F06', 'RP-F08', 'RP-F10',
               'RP-S01', 'RP-S03', 'RP-S07', 'RP-S10', 'RP-S11', 'RP-S12', 'RP-S14']
+# Phase-2 batch 3: the U+W series (22 pages; 17 enter the sitemap, excluding
+# the 5 merged variants RP-U10/RP-U13/RP-U25/RP-W02/RP-W03).
+UW_BATCH = ['RP-U01', 'RP-U02', 'RP-U03', 'RP-U04', 'RP-U05', 'RP-U06', 'RP-U07',
+            'RP-U08', 'RP-U09', 'RP-U10', 'RP-U11', 'RP-U12', 'RP-U13', 'RP-U14',
+            'RP-U15', 'RP-U16', 'RP-U17', 'RP-U18', 'RP-U25',
+            'RP-W01', 'RP-W02', 'RP-W03']
+UW_PATHS = ['products/' + n + '.html' for n in UW_BATCH]
+UW_SITEMAP = [n for n in UW_BATCH if n not in ('RP-U10', 'RP-U13', 'RP-U25', 'RP-W02', 'RP-W03')]
+# All 69 phase-2 pages minus the 23 merged variants = the 46 sitemap names.
+P2_SITEMAP = sorted(C_SITEMAP + FS_SITEMAP + UW_SITEMAP)
 # Canonical 11-language order (user-fixed 2026-11-15): every switcher and
 # hreflang group on the site lists all 11, even before every edition exists.
 LANGS11 = ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de']
@@ -112,8 +125,8 @@ es_files = sorted(p.relative_to(ROOT / 'es').as_posix() for p in (ROOT / 'es').r
 pt_files = sorted(p.relative_to(ROOT / 'pt').as_posix() for p in (ROOT / 'pt').rglob('*.html'))
 check(len(en_files) == 90, f'EN files {len(en_files)} != 90')
 check(len(zh_files) == 89, f'ZH files {len(zh_files)} != 89')
-check(es_files == sorted(PHASE1 + C_PATHS + FS_PATHS), f'ES files {len(es_files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch')
-check(pt_files == sorted(PHASE1 + C_PATHS + FS_PATHS), f'PT files {len(pt_files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch')
+check(es_files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS), f'ES files {len(es_files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
+check(pt_files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS), f'PT files {len(pt_files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
 check(not (ROOT / 'es' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
       'countertop article must not have an ES edition yet')
 check(not (ROOT / 'pt' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
@@ -137,8 +150,8 @@ for lang in PHASE1_NEW_LANGS:
     if len(files) < len(PHASE1):
         skipped.append(f'{lang}/ phase-1: in progress ({len(files)}/19 pages)')
         continue
-    check(files == sorted(PHASE1 + C_PATHS + FS_PATHS),
-          f'{lang.upper()} files {len(files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch')
+    check(files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS),
+          f'{lang.upper()} files {len(files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
     check(not (d / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
           f'countertop article must not have a {lang.upper()} edition yet')
     complete_p1_new.append(lang)
@@ -284,8 +297,8 @@ for lang in complete_p2_fs:
         check(url_for(lang, 'products/' + name + '.html') in urls,
               f'sitemap missing {lang} products/{name}')
 for lang in complete_p2:
-    for name in PHASE2:
-        check(url_for(lang, 'products/' + name) in urls,
+    for name in P2_SITEMAP:
+        check(url_for(lang, 'products/' + name + '.html') in urls,
               f'sitemap missing {lang} products/{name}')
 for url in urls:
     check(url.startswith(BASE), f'sitemap url outside site: {url}')
@@ -298,7 +311,7 @@ if errors:
     for e in errors:
         print(' -', e)
     sys.exit(1)
-print('PASS: EN 90 / ZH 89 files; ES/PT 19 phase-1 + 20 C-batch + 27 F+S-batch; 19 pages '
+print('PASS: EN 90 / ZH 89 files; ES/PT 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch; 19 pages '
       'EN/ZH/ES/PT symmetric (lang, canonical, x-default+11 hreflang, '
       'header/footer 11-language switchers, 1 h1); no broken relative links; '
       'no untranslated English residue or Chinese leakage in ES/PT; both '

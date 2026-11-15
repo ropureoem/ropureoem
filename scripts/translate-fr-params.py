@@ -464,6 +464,32 @@ TRANSLATIONS = [
 ]
 # Longest first so longer phrases win over their substrings.
 TRANSLATIONS.sort(key=lambda x: -len(x[0]))
+# Pre-mask translations already present in the node (left by the build's TSV
+# pass): an English key can be a substring of its own translation
+# ('post-carbon' inside 'post-carbone'), so a rule would re-fire on
+# already-translated text and corrupt it ('post-carbonee' — seen on
+# RP-C07). A translation is masked only if it is not itself an English key
+# and not a substring of any English key ('Beige' in 'Beige, gold ring';
+# 'Vert' in 'Vertical cartridge on horizontal base'): masking one of those
+# would break the English source before its own rule can match. Longest
+# first so a long translation masks before its substring. Mask tokens never
+# occur in source HTML.
+_SOURCES = {en for en, _ in TRANSLATIONS}
+_MASK = sorted({xx for _, xx in TRANSLATIONS
+                if xx not in _SOURCES and not any(xx in en for en in _SOURCES)},
+               key=len, reverse=True)
+def _mask(t):
+    masked = {}
+    for j, xx in enumerate(_MASK):
+        if xx in t:
+            tok = '\x00M%03d\x00' % j
+            t = t.replace(xx, tok)
+            masked[tok] = xx
+    return t, masked
+def _unmask(t, masked):
+    for tok, xx in masked.items():
+        t = t.replace(tok, xx)
+    return t
 
 text_re = re.compile(r'>([^<]+)<')
 dry = '--dry-run' in sys.argv
@@ -473,13 +499,13 @@ files_changed = []
 for path in sorted(glob.glob('fr/products/*.html')):
     s = open(path, encoding='utf-8').read()
     def repl(m):
-        t = m.group(1)
+        t, masked = _mask(m.group(1))
         for en, fr in TRANSLATIONS:
             if en in t:
                 n = t.count(en)
                 counts[en] += n
                 t = t.replace(en, fr)
-        return '>' + t + '<'
+        return '>' + _unmask(t, masked) + '<'
     new = text_re.sub(repl, s)
     if new != s:
         files_changed.append(path)
