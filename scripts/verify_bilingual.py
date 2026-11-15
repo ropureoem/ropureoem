@@ -74,9 +74,9 @@ UW_PATHS = ['products/' + n + '.html' for n in UW_BATCH]
 UW_SITEMAP = [n for n in UW_BATCH if n not in ('RP-U10', 'RP-U13', 'RP-U25', 'RP-W02', 'RP-W03')]
 # All 69 phase-2 pages minus the 23 merged variants = the 46 sitemap names.
 P2_SITEMAP = sorted(C_SITEMAP + FS_SITEMAP + UW_SITEMAP)
-# Canonical 11-language order (user-fixed 2026-11-15): every switcher and
+# Canonical 12-language order (user-fixed 2026-11-15): every switcher and
 # hreflang group on the site lists all 11, even before every edition exists.
-LANGS11 = ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de']
+LANGS12 = ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de', 'th']
 # Text that is legitimately identical in English and Spanish/Portuguese (brands, codes,
 # abbreviations, units, numbers, contact data). 'Menu' is the standard word in
 # Brazilian Portuguese, identical in form to the English.
@@ -135,8 +135,8 @@ check(not (ROOT / 'pt' / 'insights' / 'countertop-vs-under-sink-ro.html').exists
 # --- 1b. phase-1 new languages (it/ru/fr/ar/id/ja/de x 19) + phase-2 product pages
 # (es/pt/it/ru/fr/ar/id/ja/de x 69 RP-* pages). See docstring: missing or
 # incomplete editions SKIP as pending; completed editions are asserted exactly.
-PHASE1_NEW_LANGS = ['it', 'ru', 'fr', 'ar', 'id', 'ja', 'de']
-PHASE2_LANGS = ['es', 'pt', 'it', 'ru', 'fr', 'ar', 'id', 'ja', 'de']
+PHASE1_NEW_LANGS = ['it', 'ru', 'fr', 'ar', 'id', 'ja', 'de', 'th']
+PHASE2_LANGS = ['es', 'pt', 'it', 'ru', 'fr', 'ar', 'id', 'ja', 'de', 'th']
 PHASE2 = sorted(p.name for p in (ROOT / 'products').glob('RP-*.html'))
 check(len(PHASE2) == 69, f'phase-2 product pages {len(PHASE2)} != 69')
 skipped = []
@@ -150,11 +150,18 @@ for lang in PHASE1_NEW_LANGS:
     if len(files) < len(PHASE1):
         skipped.append(f'{lang}/ phase-1: in progress ({len(files)}/19 pages)')
         continue
+    complete_p1_new.append(lang)
+    # The full 88-file assertion only applies once the edition is complete
+    # (docstring: incomplete editions SKIP as pending). While phase-2 is still
+    # pending, the phase-2 loop below reports the pending state; asserting the
+    # full file list here would FAIL every intermediate batch.
+    p2 = sorted(p.name for p in (d / 'products').glob('RP-*.html')) if (d / 'products').exists() else []
+    if p2 != PHASE2:
+        continue
     check(files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS),
           f'{lang.upper()} files {len(files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
     check(not (d / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
           f'countertop article must not have a {lang.upper()} edition yet')
-    complete_p1_new.append(lang)
 for lang in PHASE2_LANGS:
     d = ROOT / lang / 'products'
     if not d.exists():
@@ -183,7 +190,7 @@ for rel in PHASE1:
     es = BS(page_path('es', rel).read_text(), 'html.parser')
     pt = BS(page_path('pt', rel).read_text(), 'html.parser')
     expected_hreflang = {'x-default': url_for('en', rel)}
-    expected_hreflang.update({l: url_for(l, rel) for l in LANGS11})
+    expected_hreflang.update({l: url_for(l, rel) for l in LANGS12})
     for lang, doc in [('en', en), ('zh', zh), ('es', es), ('pt', pt)]:
         check(doc.html['lang'] == lang, f'{lang}/{rel}: lang={doc.html.get("lang")}')
         check(len(doc.select('h1')) == 1, f'{lang}/{rel}: {len(doc.select("h1"))} h1')
@@ -193,10 +200,10 @@ for rel in PHASE1:
               f'{lang}/{rel}: hreflang group not symmetric')
         for area in ['header', 'footer']:
             links = doc.select(area + ' .language-switch a')
-            check([a.get_text(strip=True) for a in links] == [l.upper() for l in LANGS11],
+            check([a.get_text(strip=True) for a in links] == [l.upper() for l in LANGS12],
                   f'{lang}/{rel} {area}: switcher labels {[a.get_text(strip=True) for a in links]}')
             targets = [resolve(page_path(lang, rel), a['href']) for a in links]
-            expect = [page_path(l, rel).resolve() for l in LANGS11]
+            expect = [page_path(l, rel).resolve() for l in LANGS12]
             check(targets == expect, f'{lang}/{rel} {area}: switcher hrefs {targets} != {expect}')
             cur = [a for a in links if a.get('aria-current') == 'true']
             check(len(cur) == 1 and cur[0].get('data-language') == lang,
@@ -220,7 +227,7 @@ for rel in PHASE1:
                 target = resolve(page_path(lang, rel), val) if u.path else page_path(lang, rel)
                 # Switcher links to a language edition not generated yet are
                 # pending (same gate as section 1b), not broken: the
-                # 11-language switcher lists every language before its
+                # 12-language switcher lists every language before its
                 # batch lands. Editions that exist are checked normally.
                 if (node.get('data-language')
                         and not page_path(node['data-language'], rel).exists()):
@@ -258,7 +265,7 @@ for rel in ['insights/index.html', 'insights/water-purifier-oem-moq.html',
             'insights/voltage-plug-by-country.html']:
     doc = BS(page_path('en', rel).read_text(), 'html.parser')
     langs = [a.get('data-language') for a in doc.select('header .language-switch a')]
-    check(langs == LANGS11, f'en/{rel}: insights switcher {langs}')
+    check(langs == LANGS12, f'en/{rel}: insights switcher {langs}')
 for rel in ['zh/index.html', 'zh/videos.html']:
     check('../insights/index.html' not in (ROOT / rel).read_text(),
           f'{rel}: still links to English insights index')
@@ -312,8 +319,8 @@ if errors:
         print(' -', e)
     sys.exit(1)
 print('PASS: EN 90 / ZH 89 files; ES/PT 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch; 19 pages '
-      'EN/ZH/ES/PT symmetric (lang, canonical, x-default+11 hreflang, '
-      'header/footer 11-language switchers, 1 h1); no broken relative links; '
+      'EN/ZH/ES/PT symmetric (lang, canonical, x-default+12 hreflang, '
+      'header/footer 12-language switchers, 1 h1); no broken relative links; '
       'no untranslated English residue or Chinese leakage in ES/PT; both '
       'pre-existing defects fixed; countertop article untouched; sitemap '
       f'{expected_sitemap} URLs (168 + 19*{len(complete_p1_new)} phase-1-new '

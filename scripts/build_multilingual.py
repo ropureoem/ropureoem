@@ -41,11 +41,11 @@ PHASE1 = [
 ARIA_LABEL = {'en': 'Language selection', 'zh': '语言切换', 'es': 'Selección de idioma',
               'it': 'Seleziona lingua', 'pt': 'Selecionar idioma', 'ru': 'Выбор языка',
               'fr': 'Sélection de la langue', 'ar': 'اختيار اللغة', 'id': 'Pilih bahasa',
-              'ja': '言語を選択', 'de': 'Sprache wählen'}
+              'ja': '言語を選択', 'de': 'Sprache wählen', 'th': 'เลือกภาษา'}
 LANG_NAME = {'en': 'English', 'zh': 'Chinese', 'es': 'Spanish',
              'it': 'Italian', 'pt': 'Portuguese', 'ru': 'Russian',
              'fr': 'French', 'ar': 'Arabic', 'id': 'Indonesian',
-             'ja': 'Japanese', 'de': 'German'}
+             'ja': 'Japanese', 'de': 'German', 'th': 'Thai'}
 
 # RTL languages (2026-11-15: Arabic is the only RTL language of the 9).
 # Generated pages get dir="rtl" on <html>; the shared stylesheet carries the
@@ -126,6 +126,10 @@ MONTHS_BY_LANG = {
            'May': 'Mai', 'June': 'Juni', 'July': 'Juli', 'August': 'August',
            'September': 'September', 'October': 'Oktober', 'November': 'November',
            'December': 'Dezember'},
+    'th': {'January': 'มกราคม', 'February': 'กุมภาพันธ์', 'March': 'มีนาคม', 'April': 'เมษายน',
+           'May': 'พฤษภาคม', 'June': 'มิถุนายน', 'July': 'กรกฎาคม', 'August': 'สิงหาคม',
+           'September': 'กันยายน', 'October': 'ตุลาคม', 'November': 'พฤศจิกายน',
+           'December': 'ธันวาคม'},
 }
 MONTHS = MONTHS_BY_LANG.get(LANG, MONTHS_BY_LANG['es'])
 # Date order per language (templates use {d} day, {m} month, {y} year).
@@ -133,7 +137,7 @@ DATE_FMT = {
     'es': '{d} de {m} de {y}', 'pt': '{d} de {m} de {y}',
     'it': '{d} {m} {y}', 'fr': '{d} {m} {y}', 'id': '{d} {m} {y}',
     'ar': '{d} {m} {y}', 'ru': '{d} {m} {y} г.',
-    'ja': '{y}年{m}{d}日', 'de': '{d}. {m} {y}',
+    'ja': '{y}年{m}{d}日', 'de': '{d}. {m} {y}', 'th': '{d} {m} {y}',
 }
 
 # Regex fallbacks for strings that are generated, not in the TSV: the product
@@ -149,30 +153,33 @@ PHOTO_TEXT = {
     'it': 'Foto del prodotto {id}', 'ru': 'Фото продукта {id}',
     'fr': 'Photo du produit {id}', 'ar': 'صورة المنتج {id}',
     'id': 'Foto produk {id}', 'ja': '{id}の製品写真', 'de': 'Produktfoto {id}',
+    'th': 'ภาพถ่ายผลิตภัณฑ์ {id}',
 }
 ABOUT_TEXT = {
     'es': 'Acerca de {id}', 'pt': 'Sobre {id}', 'it': 'Informazioni su {id}',
     'ru': 'О {id}', 'fr': 'À propos de {id}', 'ar': 'حول {id}',
     'id': 'Tentang {id}', 'ja': '{id}について', 'de': 'Über {id}',
+    'th': 'เกี่ยวกับ {id}',
 }
 QUOTE_TEXT = {
     'es': 'Solicitar presupuesto para {id}', 'pt': 'Solicitar orçamento para {id}',
     'it': 'Richiedi un preventivo per {id}', 'ru': 'Запросить цену для {id}',
     'fr': 'Demander un devis pour {id}', 'ar': 'اطلب عرض سعر لـ {id}',
     'id': 'Minta penawaran untuk {id}', 'ja': '{id}の見積もりを依頼する',
-    'de': 'Angebot anfordern für {id}',
+    'de': 'Angebot anfordern für {id}', 'th': 'ขอใบเสนอราคาสำหรับ {id}',
 }
 MORE_TEXT = {
     'es': 'Más {rest}', 'pt': 'Mais {rest}', 'it': 'Altri {rest}',
     'ru': 'Ещё {rest}', 'fr': 'Plus de {rest}', 'ar': 'المزيد من {rest}',
     'id': 'Lebih banyak {rest}', 'ja': 'その他の{rest}', 'de': 'Weitere {rest}',
+    'th': '{rest} เพิ่มเติม',
 }
 BACK_TEXT = {
     'es': '← Volver a {rest}', 'pt': '← Voltar para {rest}',
     'it': '← Torna a {rest}', 'ru': '← Назад к {rest}',
     'fr': '← Retour à {rest}', 'ar': '← عودة إلى {rest}',
     'id': '← Kembali ke {rest}', 'ja': '← {rest}に戻る',
-    'de': '← Zurück zu {rest}',
+    'de': '← Zurück zu {rest}', 'th': '← กลับไปที่ {rest}',
 }
 SPEC_ROWS_TEXT = {
     'es': '{n} filas de especificaciones del catálogo de ROPureOEM.',
@@ -184,6 +191,7 @@ SPEC_ROWS_TEXT = {
     'id': '{n} baris spesifikasi dari katalog ROPureOEM.',
     'ja': 'ROPureOEMカタログの仕様 {n} 行。',
     'de': '{n} Spezifikationszeilen aus dem ROPureOEM-Katalog.',
+    'th': '{n} แถวข้อมูลจำเพาะจากแคตตาล็อก ROPureOEM.',
 }
 MODELS_TEXT = {
     'es': '{n} modelos. Especificaciones confirmadas por modelo y pedido.',
@@ -193,6 +201,7 @@ MODELS_TEXT = {
     'id': '{n} model. Spesifikasi dikonfirmasi per model dan pesanan.',
     'ja': '{n}モデル。仕様はモデル・ご注文ごとに確認いたします。',
     'de': '{n} Modelle. Spezifikationen werden je Modell und Auftrag bestätigt.',
+    'th': '{n} รุ่น ข้อมูลจำเพาะได้รับการยืนยันตามรุ่นและคำสั่งซื้อ.',
 }
 
 
@@ -296,10 +305,10 @@ def url_for(lang, rel):
 
 def available_langs(rel):
     # The switcher lists the site's full language set (user-fixed 2026-11-15):
-    # EN, ZH, ES, PT, IT, RU, AR, FR, ID, JA, DE — even before every edition
+    # EN, ZH, ES, PT, IT, RU, AR, FR, ID, JA, DE, TH — even before every edition
     # of this page exists. Links resolve once that language batch lands
     # (verify_bilingual.py gates not-yet-generated editions as SKIP, not FAIL).
-    return ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de']
+    return ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de', 'th']
 
 def rebuild_languages(doc, page, current_lang, langs):
     """Strip old switchers + hreflang, rebuild for the full language set."""
@@ -389,7 +398,7 @@ def _looks_untranslated(s):
         return False
     return not re.fullmatch(
         r'(?:ROPureOEM|WhatsApp.*|info@ropureoem\.com|SKU:.*|RP-.*|'
-        r'OEM / ODM|EN|ZH|ES|PT|IT|RU|FR|AR|ID|JA|DE|FOB Shenzhen|MOQ.*|CE.*|UKCA.*|RoHS|'
+        r'OEM / ODM|EN|ZH|ES|PT|IT|RU|FR|AR|ID|JA|DE|TH|FOB Shenzhen|MOQ.*|CE.*|UKCA.*|RoHS|'
         r'REACH|GPD.*|\+86.*|[\W_\d]*)', s)
 
 
@@ -478,7 +487,7 @@ def generate_page(rel):
 # --- surgical counterpart update (EN/ZH pages): regex only, rest untouched ---
 SWITCHER_RE = re.compile(r'(<nav[^>]*class="[^"]*language-switch[^"]*"[^>]*>)(.*?)(</nav>)', re.S)
 # Full hreflang run: x-default + every language edition present on the page.
-HREFLANG_RUN_RE = re.compile(r'(?:<link[^>]*hreflang="(?:x-default|en|zh|es|it|pt|ru|fr|ar|id|ja|de)"[^>]*/>\s*)+')
+HREFLANG_RUN_RE = re.compile(r'(?:<link[^>]*hreflang="(?:x-default|en|zh|es|it|pt|ru|fr|ar|id|ja|de|th)"[^>]*/>\s*)+')
 
 def counterpart_href(lang, rel, from_lang):
     """Relative href from a page in from_lang to the same page in lang."""
@@ -521,10 +530,10 @@ def update_counterpart(rel, from_lang):
         # Normalise hrefs of existing anchors too (EN insights had none for ZH).
         for a in soup.find_all('a'):
             a['href'] = counterpart_href(a['data-language'], rel, from_lang)
-        # Keep anchors in canonical 11-language order (EN, ZH, ES, PT, IT,
-        # RU, AR, FR, ID, JA, DE) even when a language is appended later.
+        # Keep anchors in canonical 12-language order (EN, ZH, ES, PT, IT,
+        # RU, AR, FR, ID, JA, DE, TH) even when a language is appended later.
         order = {'en': 0, 'zh': 1, 'es': 2, 'pt': 3, 'it': 4, 'ru': 5,
-                 'ar': 6, 'fr': 7, 'id': 8, 'ja': 9, 'de': 10}
+                 'ar': 6, 'fr': 7, 'id': 8, 'ja': 9, 'de': 10, 'th': 11}
         anchors = sorted(soup.find_all('a'),
                          key=lambda a: order.get(a.get('data-language'), 99))
         return open_tag + ''.join(str(a) for a in anchors) + close
