@@ -75,10 +75,20 @@ def _norm_key(k):
 
 # Normalised lookup: the exact-form key wins when both 'X' and 'X.' exist.
 NORM = {}
+# Normalised keys whose WINNING TSV entry ended with '.': only for those may
+# _pattern_sub drop the value's trailing period mid-sentence. A value ending
+# in '.' whose key had no period (e.g. ru 'см.' = 'see', an abbreviation)
+# must keep its period (2026-11-15: the old blanket strip turned
+# 'см. RP-C01' into 'см RP-C01' in 65 ru head fields).
+PERIOD_NORM = set()
 for _k, _v in TRANSLATIONS.items():
     _nk = _norm_key(_k)
     if _nk not in NORM or _k == _nk:
         NORM[_nk] = _v
+        if _k.endswith('.'):
+            PERIOD_NORM.add(_nk)
+        else:
+            PERIOD_NORM.discard(_nk)
 KEYS = sorted(NORM, key=len, reverse=True)
 # Substring matching uses the normalised keys (len >= 5): sentence keys that
 # end with '.' were previously excluded entirely, so a node containing such a
@@ -233,8 +243,11 @@ def _models_sentence(n):
 
 def _fix_trailing_period(result, text):
     """Make the replacement's final period match the input's: a normalised
-    lookup must not add a period the source did not have, nor drop one it had."""
-    if text.endswith('.') and not result.endswith('.'):
+    lookup must not add a period the source did not have, nor drop one it had.
+    A CJK sentence-final mark (。/！/？) already closes the sentence, so no
+    ASCII period is appended after it (2026-11-15: ja metas rebuilt as
+    'モデル。.' instead of 'モデル。')."""
+    if text.endswith('.') and not result.endswith(('.', '。', '！', '？', '!', '?')):
         return result + '.'
     if not text.endswith('.') and result.endswith('.'):
         return result[:-1]
@@ -245,16 +258,18 @@ def _pattern_sub(text):
     """Substring substitution with normalised keys. A key's own trailing period
     must not leak into the middle of a longer sentence: when the match is
     followed by more text, the replacement's final period is dropped (the
-    source's own punctuation stays)."""
+    source's own punctuation stays). Only keys that themselves ended with '.'
+    get this treatment — a value like ru 'см.' (abbreviation 'see') keeps its
+    period when its key had none."""
     def repl(m):
         val = NORM[m[0]]
         after = text[m.end():m.end() + 1]
-        if val.endswith('.') and after and after != '.':
+        if val.endswith('.') and m[0] in PERIOD_NORM and after:
             val = val[:-1]
-        elif val.endswith('.') and after == '.':
-            val = val[:-1]  # source period stays; avoids '..'
         return val
-    return PATTERN.sub(repl, text)
+    # A replacement ending in a CJK full stop leaves the source's ASCII
+    # period stranded ('モデル。.'): collapse it (2026-11-15, ja rebuild).
+    return PATTERN.sub(repl, text).replace('。.', '。')
 
 
 def translate(text):
@@ -424,6 +439,38 @@ def generate_page(rel):
     source = ROOT / rel
     target = ROOT / LANG / rel
     doc = BeautifulSoup(source.read_text(), 'html.parser')
+    # --- Wave-2 regression guard (2026-11-15, item 6) ---
+    # The 23 merged/retired stubs and 14 family pages got their titles/metas
+    # fixed directly in the <lang> HTML (commit 7d1a922), because the English
+    # meta is built from lede fragments in forms no TSV key matches
+    # (lowercased first word, '; see RP-XX' suffix, truncated first sentence).
+    # If a rebuild re-translates a head field to exactly the English source
+    # (translate() changed nothing) while the existing <lang> page already
+    # carries a translated value, keep the existing value instead of shipping
+    # English residue, and flag the English string for TSV coverage.
+    # Partial residue (boilerplate translated, head clause not) is covered by
+    # the TSV fragment keys added with this guard, not by this fallback.
+    _EN_HEAD = {}
+    _OLD_HEAD = {}
+    if target.exists():
+        _old = BeautifulSoup(target.read_text(), 'html.parser')
+        def _head_val(d, sel, attr=None):
+            n = d.select_one(sel) if sel else d.title
+            if n is None:
+                return None
+            return n['content'] if attr else n.get_text()
+        _OLD_HEAD = {
+            'title': _head_val(_old, None),
+            'meta': _head_val(_old, 'meta[name=description]', 'content'),
+            'og:title': _head_val(_old, 'meta[property="og:title"]', 'content'),
+            'og:description': _head_val(_old, 'meta[property="og:description"]', 'content'),
+        }
+    _EN_HEAD = {
+        'title': doc.title.get_text() if doc.title else None,
+        'meta': (doc.select_one('meta[name=description]') or {}).get('content'),
+        'og:title': (doc.select_one('meta[property="og:title"]') or {}).get('content'),
+        'og:description': (doc.select_one('meta[property="og:description"]') or {}).get('content'),
+    }
     for menu in doc.select('details.nav-menu'):
         menu.attrs.pop('open', None)
     doc.html['lang'] = LANG
@@ -459,6 +506,28 @@ def generate_page(rel):
         if node['content'] == translate(node['content']) and _looks_untranslated(node['content']):
             missing.add(node['content'])
         node['content'] = translate(node['content'])
+    # Wave-2 regression guard: restore the existing translated head value when
+    # the fresh translation is byte-identical to the English source.
+    if _OLD_HEAD:
+        def _restore(sel, field, attr=None):
+            node = doc.select_one(sel) if sel else doc.title
+            if node is None:
+                return
+            cur = node['content'] if attr else node.get_text()
+            en = _EN_HEAD.get(field)
+            old = _OLD_HEAD.get(field)
+            if en is not None and cur == en and old is not None and old != en:
+                if attr:
+                    node['content'] = old
+                else:
+                    node.string = old
+                print(f'WARNING {LANG}/{rel} [{field}]: fresh translation is '
+                      f'English; kept existing translated value')
+                missing.add(en)
+        _restore(None, 'title')
+        _restore('meta[name=description]', 'meta', 'content')
+        _restore('meta[property="og:title"]', 'og:title', 'content')
+        _restore('meta[property="og:description"]', 'og:description', 'content')
     for node in doc.select('script[type="application/ld+json"]'):
         data = json.loads(node.string)
         # JSON-LD copy was never checked for residues: the two untranslated
