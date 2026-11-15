@@ -235,16 +235,14 @@ def url_for(lang, rel):
     return BASE + prefix + rel
 
 def available_langs(rel):
-    langs = ['en']
-    # Every language edition that exists for this page, in canonical order.
-    # The target language counts when it is in PHASE1 (generated this run).
-    for lang in ['zh', 'es', 'it', 'pt', 'ru']:
-        if (ROOT / lang / rel).exists() or (lang == LANG and rel in PHASE1):
-            langs.append(lang)
-    return langs
+    # The switcher lists the site's full language set (user-fixed 2026-11-15):
+    # EN, ZH, ES, PT, IT, RU, AR, FR, ID, JA, DE — even before every edition
+    # of this page exists. Links resolve once that language batch lands
+    # (verify_bilingual.py gates not-yet-generated editions as SKIP, not FAIL).
+    return ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de']
 
 def rebuild_languages(doc, page, current_lang, langs):
-    """Strip old switchers + hreflang, rebuild for the langs that exist."""
+    """Strip old switchers + hreflang, rebuild for the full language set."""
     for node in doc.select('.language-switch,link[hreflang]'):
         node.decompose()
     en_rel = str(page.relative_to(ROOT / LANG)) if current_lang == LANG else str(page)
@@ -456,7 +454,13 @@ def update_counterpart(rel, from_lang):
         # Normalise hrefs of existing anchors too (EN insights had none for ZH).
         for a in soup.find_all('a'):
             a['href'] = counterpart_href(a['data-language'], rel, from_lang)
-        return open_tag + ''.join(str(x) for x in soup.contents) + close
+        # Keep anchors in canonical 11-language order (EN, ZH, ES, PT, IT,
+        # RU, AR, FR, ID, JA, DE) even when a language is appended later.
+        order = {'en': 0, 'zh': 1, 'es': 2, 'pt': 3, 'it': 4, 'ru': 5,
+                 'ar': 6, 'fr': 7, 'id': 8, 'ja': 9, 'de': 10}
+        anchors = sorted(soup.find_all('a'),
+                         key=lambda a: order.get(a.get('data-language'), 99))
+        return open_tag + ''.join(str(a) for a in anchors) + close
     text, n_sw = SWITCHER_RE.subn(fix_switcher, text)
     if n_sw == 0:
         print(f'WARN no switcher found in {path}')
@@ -472,15 +476,16 @@ def main():
     if UPDATE_COUNTERPARTS:
         for rel in PHASE1:
             # Every existing edition of the page gets the new language in its
-            # switcher + hreflang group (EN + ZH + ES for the pt run; the
-            # generated edition itself is skipped).
-            for from_lang in ['en', 'zh', 'es']:
+            # switcher + hreflang group (all 11 languages; editions that do
+            # not exist yet for this page are skipped by the exists-guard).
+            for from_lang in ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar',
+                              'fr', 'id', 'ja', 'de']:
                 if from_lang == LANG:
                     continue
                 if from_lang != 'en' and not (ROOT / from_lang / rel).exists():
                     continue
                 update_counterpart(rel, from_lang)
-        print('counterparts updated (EN + ZH + ES switchers/hreflang for the 19 pages)')
+        print('counterparts updated (all existing editions: switchers/hreflang for the 19 pages)')
     print(f'Generated {len(PHASE1)} {LANG} pages.')
     if all_missing:
         print('Untranslated copy requiring review:', json.dumps(sorted(all_missing), ensure_ascii=False))
