@@ -7,12 +7,17 @@ pages, valid JSON-LD, and a sitemap that lists exactly the published pages
 
 Phase-1 new languages (it/ru/fr/ar/id/ja/de, 19 pages each) and phase-2 product
 pages (es/pt/it/ru/fr/ar/id/ja/de, 69 RP-* pages each) are asserted in section 1b.
+Phase-2 lands in batches: batch 1 is the C series (20 RP-C* pages per language);
+a language whose C batch is complete is asserted exactly in section 1b and
+contributes 17 URLs to the sitemap (20 pages minus the 3 merged variants
+RP-C02/RP-C05/RP-C06, which the sitemap excludes). A full 69-page phase-2
+edition contributes 46 sitemap URLs (69 minus the 23 merged variants).
 The assertions are written before those pages exist: a language whose edition
 is missing — or present but incomplete (generation in progress) — is reported
 SKIP (pending), not FAIL; once an edition is complete the count and the exact
 file list are asserted, and the sitemap total grows with it
-(168 + 19 per completed phase-1-new language + 69 per completed phase-2
-language).
+(168 + 19 per completed phase-1-new language + 17 per completed C-batch
+language + 46 per completed full phase-2 language).
 
 Run: python3 scripts/verify_bilingual.py   (from the repo root)
 """
@@ -34,6 +39,13 @@ PHASE1 = [
     'insights/under-sink-installation-space.html',
     'insights/voltage-plug-by-country.html',
 ]
+# Phase-2 batch 1: the C series (20 pages; 17 enter the sitemap, excluding the
+# 3 merged variants RP-C02/RP-C05/RP-C06).
+C_BATCH = ['RP-C01', 'RP-C02', 'RP-C03', 'RP-C04', 'RP-C05', 'RP-C06', 'RP-C07',
+           'RP-C08', 'RP-C09', 'RP-C10', 'RP-C11', 'RP-C12', 'RP-C13', 'RP-C14',
+           'RP-C15', 'RP-C17', 'RP-C19', 'RP-C21', 'RP-C23', 'RP-C24']
+C_PATHS = ['products/' + n + '.html' for n in C_BATCH]
+C_SITEMAP = [n for n in C_BATCH if n not in ('RP-C02', 'RP-C05', 'RP-C06')]
 # Canonical 11-language order (user-fixed 2026-11-15): every switcher and
 # hreflang group on the site lists all 11, even before every edition exists.
 LANGS11 = ['en', 'zh', 'es', 'pt', 'it', 'ru', 'ar', 'fr', 'id', 'ja', 'de']
@@ -85,8 +97,8 @@ es_files = sorted(p.relative_to(ROOT / 'es').as_posix() for p in (ROOT / 'es').r
 pt_files = sorted(p.relative_to(ROOT / 'pt').as_posix() for p in (ROOT / 'pt').rglob('*.html'))
 check(len(en_files) == 90, f'EN files {len(en_files)} != 90')
 check(len(zh_files) == 89, f'ZH files {len(zh_files)} != 89')
-check(len(es_files) == 19 and es_files == sorted(PHASE1), f'ES files {len(es_files)} != 19 phase-1')
-check(len(pt_files) == 19 and pt_files == sorted(PHASE1), f'PT files {len(pt_files)} != 19 phase-1')
+check(es_files == sorted(PHASE1 + C_PATHS), f'ES files {len(es_files)} != 19 phase-1 + 20 C-batch')
+check(pt_files == sorted(PHASE1 + C_PATHS), f'PT files {len(pt_files)} != 19 phase-1 + 20 C-batch')
 check(not (ROOT / 'es' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
       'countertop article must not have an ES edition yet')
 check(not (ROOT / 'pt' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
@@ -100,7 +112,7 @@ PHASE2_LANGS = ['es', 'pt', 'it', 'ru', 'fr', 'ar', 'id', 'ja', 'de']
 PHASE2 = sorted(p.name for p in (ROOT / 'products').glob('RP-*.html'))
 check(len(PHASE2) == 69, f'phase-2 product pages {len(PHASE2)} != 69')
 skipped = []
-complete_p1_new, complete_p2 = [], []
+complete_p1_new, complete_p2_c, complete_p2 = [], [], []
 for lang in PHASE1_NEW_LANGS:
     d = ROOT / lang
     if not d.exists():
@@ -110,7 +122,8 @@ for lang in PHASE1_NEW_LANGS:
     if len(files) < len(PHASE1):
         skipped.append(f'{lang}/ phase-1: in progress ({len(files)}/19 pages)')
         continue
-    check(files == sorted(PHASE1), f'{lang.upper()} files {len(files)} != 19 phase-1')
+    check(files == sorted(PHASE1 + C_PATHS),
+          f'{lang.upper()} files {len(files)} != 19 phase-1 + 20 C-batch')
     check(not (d / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
           f'countertop article must not have a {lang.upper()} edition yet')
     complete_p1_new.append(lang)
@@ -120,6 +133,9 @@ for lang in PHASE2_LANGS:
         skipped.append(f'{lang}/products/ phase-2 (69 pages): not generated yet')
         continue
     files = sorted(p.name for p in d.glob('RP-*.html'))
+    if files == [n + '.html' for n in C_BATCH]:
+        complete_p2_c.append(lang)
+        continue
     if len(files) < len(PHASE2):
         skipped.append(f'{lang}/products/ phase-2: in progress ({len(files)}/69 pages)')
         continue
@@ -224,10 +240,12 @@ check(ct.select('link[hreflang]') == [],
 # --- 5. sitemap ---
 tree = ET.parse(ROOT / 'sitemap.xml')
 urls = [n.text for n in tree.getroot().findall('{*}url/{*}loc')]
-expected_sitemap = 168 + 19 * len(complete_p1_new) + 69 * len(complete_p2)
+expected_sitemap = (168 + 19 * len(complete_p1_new) + 17 * len(complete_p2_c)
+                    + 46 * len(complete_p2))
 check(len(urls) == len(set(urls)) == expected_sitemap,
       f'sitemap has {len(urls)} urls, expected {expected_sitemap} '
-      f'(168 + 19*{len(complete_p1_new)} phase-1-new + 69*{len(complete_p2)} phase-2)')
+      f'(168 + 19*{len(complete_p1_new)} phase-1-new + 17*{len(complete_p2_c)} '
+      f'C-batch + 46*{len(complete_p2)} phase-2)')
 check(not any('404' in u or 'countertop-vs-under-sink' in u for u in urls),
       'sitemap contains excluded page')
 for rel in PHASE1:
@@ -236,6 +254,10 @@ for rel in PHASE1:
 for lang in complete_p1_new:
     for rel in PHASE1:
         check(url_for(lang, rel) in urls, f'sitemap missing {lang} {rel}')
+for lang in complete_p2_c:
+    for name in C_SITEMAP:
+        check(url_for(lang, 'products/' + name + '.html') in urls,
+              f'sitemap missing {lang} products/{name}')
 for lang in complete_p2:
     for name in PHASE2:
         check(url_for(lang, 'products/' + name) in urls,
@@ -251,13 +273,13 @@ if errors:
     for e in errors:
         print(' -', e)
     sys.exit(1)
-print('PASS: EN 90 / ZH 89 / ES 19 / PT 19 files; 19 pages EN/ZH/ES/PT symmetric '
-      '(lang, canonical, x-default+11 hreflang, header/footer 11-language '
-      'switchers, 1 h1); no broken relative links; no untranslated English '
-      'residue or Chinese leakage in ES/PT; both pre-existing defects fixed; '
-      'countertop article untouched; sitemap '
+print('PASS: EN 90 / ZH 89 files; ES/PT 19 phase-1 + 20 C-batch; 19 pages '
+      'EN/ZH/ES/PT symmetric (lang, canonical, x-default+11 hreflang, '
+      'header/footer 11-language switchers, 1 h1); no broken relative links; '
+      'no untranslated English residue or Chinese leakage in ES/PT; both '
+      'pre-existing defects fixed; countertop article untouched; sitemap '
       f'{expected_sitemap} URLs (168 + 19*{len(complete_p1_new)} phase-1-new '
-      f'+ 69*{len(complete_p2)} phase-2).')
+      f'+ 17*{len(complete_p2_c)} C-batch + 46*{len(complete_p2)} phase-2).')
 if skipped:
     print('SKIP (pending, not yet generated):')
     for s in skipped:

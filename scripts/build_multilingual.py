@@ -140,11 +140,50 @@ DATE_FMT = {
 # photograph alt text and the 'N models. Specifications…' lede. Wording matches
 # each language's TSV entries for the same sentences (e.g. de 'je Modell',
 # ja '仕様はモデル・ご注文ごとに確認いたします').
+# Stage-2 product pages (2026-11-15): the same treatment for the product
+# heading, quote button, 'More …' / '← Back to …' headings and the
+# 'N specification rows from the ROPureOEM catalogue.' line. These are
+# templated per model / count, so a regex beats one TSV key per model.
 PHOTO_TEXT = {
     'es': 'Fotografía del producto {id}', 'pt': 'Foto do produto {id}',
     'it': 'Foto del prodotto {id}', 'ru': 'Фото продукта {id}',
     'fr': 'Photo du produit {id}', 'ar': 'صورة المنتج {id}',
     'id': 'Foto produk {id}', 'ja': '{id}の製品写真', 'de': 'Produktfoto {id}',
+}
+ABOUT_TEXT = {
+    'es': 'Acerca de {id}', 'pt': 'Sobre {id}', 'it': 'Informazioni su {id}',
+    'ru': 'О {id}', 'fr': 'À propos de {id}', 'ar': 'حول {id}',
+    'id': 'Tentang {id}', 'ja': '{id}について', 'de': 'Über {id}',
+}
+QUOTE_TEXT = {
+    'es': 'Solicitar presupuesto para {id}', 'pt': 'Solicitar orçamento para {id}',
+    'it': 'Richiedi un preventivo per {id}', 'ru': 'Запросить цену для {id}',
+    'fr': 'Demander un devis pour {id}', 'ar': 'اطلب عرض سعر لـ {id}',
+    'id': 'Minta penawaran untuk {id}', 'ja': '{id}の見積もりを依頼する',
+    'de': 'Angebot anfordern für {id}',
+}
+MORE_TEXT = {
+    'es': 'Más {rest}', 'pt': 'Mais {rest}', 'it': 'Altri {rest}',
+    'ru': 'Ещё {rest}', 'fr': 'Plus de {rest}', 'ar': 'المزيد من {rest}',
+    'id': 'Lebih banyak {rest}', 'ja': 'その他の{rest}', 'de': 'Weitere {rest}',
+}
+BACK_TEXT = {
+    'es': '← Volver a {rest}', 'pt': '← Voltar para {rest}',
+    'it': '← Torna a {rest}', 'ru': '← Назад к {rest}',
+    'fr': '← Retour à {rest}', 'ar': '← عودة إلى {rest}',
+    'id': '← Kembali ke {rest}', 'ja': '← {rest}に戻る',
+    'de': '← Zurück zu {rest}',
+}
+SPEC_ROWS_TEXT = {
+    'es': '{n} filas de especificaciones del catálogo de ROPureOEM.',
+    'pt': '{n} linhas de especificações do catálogo da ROPureOEM.',
+    'it': '{n} righe di specifiche dal catalogo ROPureOEM.',
+    'ru': '{n} строк спецификаций из каталога ROPureOEM.',
+    'fr': '{n} lignes de spécifications du catalogue ROPureOEM.',
+    'ar': '{n} صفوف مواصفات من كتالوج ROPureOEM.',
+    'id': '{n} baris spesifikasi dari katalog ROPureOEM.',
+    'ja': 'ROPureOEMカタログの仕様 {n} 行。',
+    'de': '{n} Spezifikationszeilen aus dem ROPureOEM-Katalog.',
 }
 MODELS_TEXT = {
     'es': '{n} modelos. Especificaciones confirmadas por modelo y pedido.',
@@ -218,6 +257,21 @@ def translate(text):
     m = re.fullmatch(r'(RP-[A-Z0-9-]+) product photograph', text)
     if m:
         return PHOTO_TEXT.get(LANG, PHOTO_TEXT['es']).format(id=m[1])
+    m = re.fullmatch(r'About (RP-[A-Z0-9-]+)', text)
+    if m:
+        return ABOUT_TEXT.get(LANG, ABOUT_TEXT['es']).format(id=m[1])
+    m = re.fullmatch(r'Get a Quote for (RP-[A-Z0-9-]+)', text)
+    if m:
+        return QUOTE_TEXT.get(LANG, QUOTE_TEXT['es']).format(id=m[1])
+    m = re.fullmatch(r'More (.+)', text)
+    if m:
+        return MORE_TEXT.get(LANG, MORE_TEXT['es']).format(rest=translate(m[1]))
+    m = re.fullmatch(r'← Back to (.+)', text)
+    if m:
+        return BACK_TEXT.get(LANG, BACK_TEXT['es']).format(rest=translate(m[1]))
+    m = re.fullmatch(r'(\d+) specification rows from the ROPureOEM catalogue\.', text)
+    if m:
+        return SPEC_ROWS_TEXT.get(LANG, SPEC_ROWS_TEXT['es']).format(n=m[1])
     m = re.fullmatch(r'(\d+) models\. Specifications are confirmed per model and order\.', text)
     if m:
         return _models_sentence(int(m[1]))
