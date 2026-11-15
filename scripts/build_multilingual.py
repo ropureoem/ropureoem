@@ -334,8 +334,8 @@ def rebuild_languages(doc, page, current_lang, langs):
     # links onto one line, and each rebuild accumulated more blank lines
     # (2026-11-15, item 6). Drop whitespace-only head children after the
     # last stylesheet, then emit one link per line (each preceded by '\n'),
-    # inserted before the JSON-LD script when the page has one, so the
-    # output is byte-stable across rebuilds.
+    # appended at the end of <head> as before, so the output is byte-stable
+    # across rebuilds.
     _seen_style = False
     for child in list(doc.head.children):
         if getattr(child, 'name', None) == 'link' and child.get('rel') == ['stylesheet']:
@@ -344,17 +344,13 @@ def rebuild_languages(doc, page, current_lang, langs):
             child.extract()
     en_rel = str(page.relative_to(ROOT / LANG)) if current_lang == LANG else str(page)
     # hreflang group: x-default (English) + one link per existing language.
-    _anchor = doc.head.select_one('script[type="application/ld+json"]')
+    # Appended at the end of <head>, as before (the committed editions have
+    # the JSON-LD script before the hreflang run); only the separator is new.
     for lang in ['x-default'] + langs:
         target_lang = 'en' if lang == 'x-default' else lang
         href = url_for(target_lang, en_rel)
-        tag = doc.new_tag('link', rel='alternate', hreflang=lang, href=href)
-        if _anchor is not None:
-            _anchor.insert_before(NavigableString('\n'))
-            _anchor.insert_before(tag)
-        else:
-            doc.head.append(NavigableString('\n'))
-            doc.head.append(tag)
+        doc.head.append(NavigableString('\n'))
+        doc.head.append(doc.new_tag('link', rel='alternate', hreflang=lang, href=href))
     for parent in [doc.header, doc.footer]:
         if parent is None:
             continue
