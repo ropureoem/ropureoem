@@ -5,6 +5,15 @@ links, no untranslated English residue and no Chinese leakage in the ES and PT
 pages, valid JSON-LD, and a sitemap that lists exactly the published pages
 (EN 65 + ZH 65 + ES 19 + PT 19 = 168).
 
+Phase-1 new languages (it/ru/fr/ar/id, 19 pages each) and phase-2 product
+pages (es/pt/it/ru/fr/ar/id, 69 RP-* pages each) are asserted in section 1b.
+The assertions are written before those pages exist: a language whose edition
+is missing — or present but incomplete (generation in progress) — is reported
+SKIP (pending), not FAIL; once an edition is complete the count and the exact
+file list are asserted, and the sitemap total grows with it
+(168 + 19 per completed phase-1-new language + 69 per completed phase-2
+language).
+
 Run: python3 scripts/verify_bilingual.py   (from the repo root)
 """
 from pathlib import Path
@@ -79,6 +88,40 @@ check(not (ROOT / 'es' / 'insights' / 'countertop-vs-under-sink-ro.html').exists
       'countertop article must not have an ES edition yet')
 check(not (ROOT / 'pt' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
       'countertop article must not have a PT edition yet')
+
+# --- 1b. phase-1 new languages (it/ru/fr/ar/id x 19) + phase-2 product pages
+# (es/pt/it/ru/fr/ar/id x 69 RP-* pages). See docstring: missing or
+# incomplete editions SKIP as pending; completed editions are asserted exactly.
+PHASE1_NEW_LANGS = ['it', 'ru', 'fr', 'ar', 'id']
+PHASE2_LANGS = ['es', 'pt', 'it', 'ru', 'fr', 'ar', 'id']
+PHASE2 = sorted(p.name for p in (ROOT / 'products').glob('RP-*.html'))
+check(len(PHASE2) == 69, f'phase-2 product pages {len(PHASE2)} != 69')
+skipped = []
+complete_p1_new, complete_p2 = [], []
+for lang in PHASE1_NEW_LANGS:
+    d = ROOT / lang
+    if not d.exists():
+        skipped.append(f'{lang}/ phase-1 (19 pages): not generated yet')
+        continue
+    files = sorted(p.relative_to(d).as_posix() for p in d.rglob('*.html'))
+    if len(files) < len(PHASE1):
+        skipped.append(f'{lang}/ phase-1: in progress ({len(files)}/19 pages)')
+        continue
+    check(files == sorted(PHASE1), f'{lang.upper()} files {len(files)} != 19 phase-1')
+    check(not (d / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
+          f'countertop article must not have a {lang.upper()} edition yet')
+    complete_p1_new.append(lang)
+for lang in PHASE2_LANGS:
+    d = ROOT / lang / 'products'
+    if not d.exists():
+        skipped.append(f'{lang}/products/ phase-2 (69 pages): not generated yet')
+        continue
+    files = sorted(p.name for p in d.glob('RP-*.html'))
+    if len(files) < len(PHASE2):
+        skipped.append(f'{lang}/products/ phase-2: in progress ({len(files)}/69 pages)')
+        continue
+    check(files == PHASE2, f'{lang.upper()} product files {len(files)} != 69 phase-2')
+    complete_p2.append(lang)
 
 # --- 2. per-page checks for the 19 ---
 for rel in PHASE1:
@@ -172,12 +215,22 @@ check(ct.select('link[hreflang]') == [],
 # --- 5. sitemap ---
 tree = ET.parse(ROOT / 'sitemap.xml')
 urls = [n.text for n in tree.getroot().findall('{*}url/{*}loc')]
-check(len(urls) == len(set(urls)) == 168, f'sitemap has {len(urls)} urls, expected 168')
+expected_sitemap = 168 + 19 * len(complete_p1_new) + 69 * len(complete_p2)
+check(len(urls) == len(set(urls)) == expected_sitemap,
+      f'sitemap has {len(urls)} urls, expected {expected_sitemap} '
+      f'(168 + 19*{len(complete_p1_new)} phase-1-new + 69*{len(complete_p2)} phase-2)')
 check(not any('404' in u or 'countertop-vs-under-sink' in u for u in urls),
       'sitemap contains excluded page')
 for rel in PHASE1:
     check(url_for('es', rel) in urls, f'sitemap missing es {rel}')
     check(url_for('pt', rel) in urls, f'sitemap missing pt {rel}')
+for lang in complete_p1_new:
+    for rel in PHASE1:
+        check(url_for(lang, rel) in urls, f'sitemap missing {lang} {rel}')
+for lang in complete_p2:
+    for name in PHASE2:
+        check(url_for(lang, 'products/' + name) in urls,
+              f'sitemap missing {lang} products/{name}')
 for url in urls:
     check(url.startswith(BASE), f'sitemap url outside site: {url}')
 for url in tree.getroot().findall('{*}url'):
@@ -193,4 +246,10 @@ print('PASS: EN 90 / ZH 89 / ES 19 / PT 19 files; 19 pages EN/ZH/ES/PT symmetric
       '(lang, canonical, x-default+en+zh+es+pt hreflang, header/footer EN/ZH/ES/PT '
       'switchers, 1 h1); no broken relative links; no untranslated English '
       'residue or Chinese leakage in ES/PT; both pre-existing defects fixed; '
-      'countertop article untouched; sitemap 168 URLs (EN 65 + ZH 65 + ES 19 + PT 19).')
+      'countertop article untouched; sitemap '
+      f'{expected_sitemap} URLs (168 + 19*{len(complete_p1_new)} phase-1-new '
+      f'+ 69*{len(complete_p2)} phase-2).')
+if skipped:
+    print('SKIP (pending, not yet generated):')
+    for s in skipped:
+        print(' -', s)
