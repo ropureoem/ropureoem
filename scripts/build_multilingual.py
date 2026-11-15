@@ -137,8 +137,15 @@ def rebuild_languages(doc, page, current_lang, langs):
                 search.wrap(tools)
             tools.append(nav)
         else:
-            nav['class'] = ['wrap', 'language-switch']
-            parent.append(nav)
+            # Footer switcher lives inside the Contact column, right after
+            # the Contact link (2026-11-15: moved out of the page bottom so
+            # it stays reachable above the mobile bottom nav). No `wrap`
+            # class inside the footer grid cell.
+            contact = parent.select_one('.footer-in a[href$="contact.html"]')
+            if contact is not None:
+                contact.insert_after(nav)
+            else:
+                parent.append(nav)
 
 def es_target_exists(rel):
     return rel in PHASE1 or (ROOT / LANG / rel).exists()

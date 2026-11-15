@@ -859,3 +859,9 @@ main .hp-card>img{height:360px;padding:16px 12px;object-fit:cover;object-positio
   .topbar .wrap{height:auto;padding:7px 0}
   .site-header{top:0}
 }
+
+/* 2026-11-15: footer language switcher moved into the Contact column
+   (was at the very bottom of the page, covered by the sticky bottom nav
+   on mobile). Left-aligned row matching the other Contact links. */
+.site-footer .footer-in .language-switch{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 12px;padding:12px 0 0}
+.site-footer .footer-in .language-switch a{display:inline-flex;align-items:center;min-height:44px;padding:4px 0;font-size:14px}

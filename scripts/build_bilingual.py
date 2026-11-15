@@ -67,8 +67,15 @@ def add_languages(doc, page, chinese=False):
                 search.wrap(tools)
             tools.append(nav)
         else:
-            nav['class'] = ['wrap', 'language-switch']
-            parent.append(nav)
+            # Footer switcher lives inside the Contact column, right after
+            # the Contact link (2026-11-15: moved out of the page bottom so
+            # it stays reachable above the mobile bottom nav). No `wrap`
+            # class inside the footer grid cell.
+            contact = parent.select_one('.footer-in a[href$="contact.html"]')
+            if contact is not None:
+                contact.insert_after(nav)
+            else:
+                parent.append(nav)
 
 def add_help_options(doc, page):
     trigger = doc.select_one('.help')
