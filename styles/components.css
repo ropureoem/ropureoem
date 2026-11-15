@@ -595,8 +595,8 @@ main:has(>section.studio-hero) .home-featured .card p{margin-bottom:8px}
   .step-label{margin-top:0;font-size:15px;max-width:none}
 }
 
-/* 2026-11-07: faint water-droplet texture on the top header and bottom nav bars (user request: add droplets, faded, for a premium feel). Tile is a sparse, low-alpha condensation bead pattern; nav text stays fully readable. */
-.site-header{background-color:var(--ink);background-image:url("../assets/nav-droplets.png");background-repeat:repeat;background-size:240px 240px}
+/* 2026-11-15: droplet texture on the header removed (user: looked cluttered/superfluous). Header is now plain dark var(--ink). */
+.site-header{background-color:var(--ink)}
 
 /* ================================================================
    2026-11-07 premium polish round 2 — surpass the old site on
