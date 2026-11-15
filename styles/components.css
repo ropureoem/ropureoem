@@ -733,15 +733,23 @@ main .hp-card>img{height:360px;padding:16px 12px;object-fit:cover;object-positio
 
 /* --- (1) hero collage (>=1440px): copy gets its own column instead of
    sitting on top of the main product photo --- */
+/* --- 2026-11-15 fix: collage height is fixed (660px) and decoupled from
+   the copy column. Before, the grid rows were 1fr of a container whose
+   height was set by the copy, so longer copy (es: hero 874px vs zh 669px)
+   stretched the rows and moved both right-hand images down / cut the
+   bottom one off at the fold. Now .hero-media is a fixed 660px sub-grid
+   in column 2; the copy in column 1 can be any height without moving
+   the images. Copy keeps its own column; nothing else changed. --- */
 @media(min-width:1440px){
-  main:has(>section.studio-hero) .studio-hero{grid-template-columns:1.05fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr))}
+  main:has(>section.studio-hero) .studio-hero{grid-template-columns:1.05fr 2fr;grid-template-rows:minmax(0,1fr)}
+  main:has(>section.studio-hero) .hero-media{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;grid-column:2;grid-row:1;height:660px}
   /* --- hero collage: keep the product in frame once rows grow taller --- */
   main:has(>section.studio-hero) .hero-img-main{object-position:65% 50%}
   main:has(>section.studio-hero) .hero-img-bottom{object-position:60% 50%}
-  main:has(>section.studio-hero) .hero-img-main{grid-column:2;grid-row:1/-1}
-  main:has(>section.studio-hero) .hero-img-top{grid-column:3;grid-row:1}
-  main:has(>section.studio-hero) .hero-img-bottom{grid-column:3;grid-row:2}
-  main:has(>section.studio-hero) .studio-hero .hero-copy{grid-column:1;grid-row:1/-1;background:linear-gradient(135deg,#00343D 0%,#00424E 55%,#00515E 100%);border:1px solid rgba(140,226,228,.28);border-radius:18px;padding:48px 40px}
+  main:has(>section.studio-hero) .hero-img-main{grid-column:1;grid-row:1/-1}
+  main:has(>section.studio-hero) .hero-img-top{grid-column:2;grid-row:1}
+  main:has(>section.studio-hero) .hero-img-bottom{grid-column:2;grid-row:2}
+  main:has(>section.studio-hero) .studio-hero .hero-copy{grid-column:1;grid-row:1;background:linear-gradient(135deg,#00343D 0%,#00424E 55%,#00515E 100%);border:1px solid rgba(140,226,228,.28);border-radius:18px;padding:48px 40px}
 }
 
 /* 2026-11-09: mobile-only scrolling topbar (mirrors amyskinoem .topbar pattern:
