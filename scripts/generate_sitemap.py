@@ -69,8 +69,8 @@ def main():
         counts[lang] = len(pages)
         for rel in pages:
             urls.append((url_for(lang, rel), old.get(url_for(lang, rel), TODAY)))
-    assert counts == {'en': 65, 'zh': 65, 'es': 65, 'pt': 65, 'it': 65, 'ru': 65, 'ar': 65, 'fr': 65, 'id': 65, 'ja': 65, 'de': 65, 'th': 19}, f'Unexpected sitemap counts: {counts}'
-    assert len(urls) == len({u for u, _ in urls}) == 734
+    assert counts == {'en': 65, 'zh': 65, 'es': 65, 'pt': 65, 'it': 65, 'ru': 65, 'ar': 65, 'fr': 65, 'id': 65, 'ja': 65, 'de': 65, 'th': 36}, f'Unexpected sitemap counts: {counts}'
+    assert len(urls) == len({u for u, _ in urls}) == 751
     assert not any('/404' in u or 'countertop-vs-under-sink' in u for u, _ in urls)
     assert not any('/RP-' in u and u.rsplit('/', 1)[-1][:-5] in VARIANTS for u, _ in urls)
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
