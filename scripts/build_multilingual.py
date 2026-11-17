@@ -33,6 +33,7 @@ PHASE1 = [
     'products/faucet.html', 'products/softener.html',
     'insights/index.html', 'insights/water-purifier-oem-moq.html',
     'insights/water-purifier-certification-europe.html',
+    'insights/countertop-vs-under-sink-ro.html',
     'insights/choose-flow-by-water-quality.html',
     'insights/under-sink-installation-space.html',
     'insights/voltage-plug-by-country.html',

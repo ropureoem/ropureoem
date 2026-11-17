@@ -1,11 +1,11 @@
-"""Validate the multilingual site: EN 90 / ZH 89 / ES 19 / PT 19 files; for the 19
+"""Validate the multilingual site: EN 90 / ZH 90 / ES 20 / PT 20 files; for the 20
 phase-1 pages, EN/ZH/ES/PT symmetry (lang, canonical, hreflang group incl.
 x-default, header/footer switchers), exactly one h1, no broken relative
 links, no untranslated English residue and no Chinese leakage in the ES and PT
 pages, valid JSON-LD, and a sitemap that lists exactly the published pages
-(EN 65 + ZH 65 + ES 19 + PT 19 = 168).
+(EN 66 + ZH 66 + ES 20 + PT 20 = 172).
 
-Phase-1 new languages (it/ru/fr/ar/id/ja/de, 19 pages each) and phase-2 product
+Phase-1 new languages (it/ru/fr/ar/id/ja/de/th, 20 pages each) and phase-2 product
 pages (es/pt/it/ru/fr/ar/id/ja/de, 69 RP-* pages each) are asserted in section 1b.
 Phase-2 lands in batches: batch 1 is the C series (20 RP-C* pages per language);
 batch 2 is the F+S series (27 RP-F*/RP-S* pages per language); batch 3 is the
@@ -23,7 +23,7 @@ The assertions are written before those pages exist: a language whose edition
 is missing — or present but incomplete (generation in progress) — is reported
 SKIP (pending), not FAIL; once an edition is complete the count and the exact
 file list are asserted, and the sitemap total grows with it
-(168 + 19 per completed phase-1-new language + 17 per completed C-batch
+(172 + 20 per completed phase-1-new language + 17 per completed C-batch
 language + 12 per completed F+S-batch language + 46 per completed full
 phase-2 language).
 
@@ -43,6 +43,7 @@ PHASE1 = [
     'products/faucet.html', 'products/softener.html',
     'insights/index.html', 'insights/water-purifier-oem-moq.html',
     'insights/water-purifier-certification-europe.html',
+    'insights/countertop-vs-under-sink-ro.html',
     'insights/choose-flow-by-water-quality.html',
     'insights/under-sink-installation-space.html',
     'insights/voltage-plug-by-country.html',
@@ -117,22 +118,18 @@ def check(cond, msg):
     if not cond:
         errors.append(msg)
 
-# --- 1. file counts (EN 90 incl. 404, ZH 89 incl. 404, ES 19, PT 19) ---
+# --- 1. file counts (EN 90 incl. 404, ZH 90 incl. 404, ES 20, PT 20) ---
 en_files = sorted(p.relative_to(ROOT).as_posix() for p in
                   [*ROOT.glob('*.html'), *ROOT.glob('products/*.html'), *ROOT.glob('insights/*.html')])
 zh_files = sorted(p.relative_to(ROOT / 'zh').as_posix() for p in (ROOT / 'zh').rglob('*.html'))
 es_files = sorted(p.relative_to(ROOT / 'es').as_posix() for p in (ROOT / 'es').rglob('*.html'))
 pt_files = sorted(p.relative_to(ROOT / 'pt').as_posix() for p in (ROOT / 'pt').rglob('*.html'))
 check(len(en_files) == 90, f'EN files {len(en_files)} != 90')
-check(len(zh_files) == 89, f'ZH files {len(zh_files)} != 89')
-check(es_files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS), f'ES files {len(es_files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
-check(pt_files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS), f'PT files {len(pt_files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
-check(not (ROOT / 'es' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
-      'countertop article must not have an ES edition yet')
-check(not (ROOT / 'pt' / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
-      'countertop article must not have a PT edition yet')
+check(len(zh_files) == 90, f'ZH files {len(zh_files)} != 90')
+check(es_files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS), f'ES files {len(es_files)} != 20 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
+check(pt_files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS), f'PT files {len(pt_files)} != 20 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
 
-# --- 1b. phase-1 new languages (it/ru/fr/ar/id/ja/de x 19) + phase-2 product pages
+# --- 1b. phase-1 new languages (it/ru/fr/ar/id/ja/de/th x 20) + phase-2 product pages
 # (es/pt/it/ru/fr/ar/id/ja/de x 69 RP-* pages). See docstring: missing or
 # incomplete editions SKIP as pending; completed editions are asserted exactly.
 PHASE1_NEW_LANGS = ['it', 'ru', 'fr', 'ar', 'id', 'ja', 'de', 'th']
@@ -144,11 +141,11 @@ complete_p1_new, complete_p2_c, complete_p2_fs, complete_p2 = [], [], [], []
 for lang in PHASE1_NEW_LANGS:
     d = ROOT / lang
     if not d.exists():
-        skipped.append(f'{lang}/ phase-1 (19 pages): not generated yet')
+        skipped.append(f'{lang}/ phase-1 (20 pages): not generated yet')
         continue
     files = sorted(p.relative_to(d).as_posix() for p in d.rglob('*.html'))
     if len(files) < len(PHASE1):
-        skipped.append(f'{lang}/ phase-1: in progress ({len(files)}/19 pages)')
+        skipped.append(f'{lang}/ phase-1: in progress ({len(files)}/20 pages)')
         continue
     complete_p1_new.append(lang)
     # The full 88-file assertion only applies once the edition is complete
@@ -159,9 +156,7 @@ for lang in PHASE1_NEW_LANGS:
     if p2 != PHASE2:
         continue
     check(files == sorted(PHASE1 + C_PATHS + FS_PATHS + UW_PATHS),
-          f'{lang.upper()} files {len(files)} != 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
-    check(not (d / 'insights' / 'countertop-vs-under-sink-ro.html').exists(),
-          f'countertop article must not have a {lang.upper()} edition yet')
+          f'{lang.upper()} files {len(files)} != 20 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch')
 for lang in PHASE2_LANGS:
     d = ROOT / lang / 'products'
     if not d.exists():
@@ -183,7 +178,7 @@ for lang in PHASE2_LANGS:
     check(files == PHASE2, f'{lang.upper()} product files {len(files)} != 69 phase-2')
     complete_p2.append(lang)
 
-# --- 2. per-page checks for the 19 ---
+# --- 2. per-page checks for the 20 ---
 for rel in PHASE1:
     en = BS(page_path('en', rel).read_text(), 'html.parser')
     zh = BS(page_path('zh', rel).read_text(), 'html.parser')
@@ -260,6 +255,7 @@ for rel in PHASE1:
 # --- 4. the two pre-existing defects are fixed ---
 for rel in ['insights/index.html', 'insights/water-purifier-oem-moq.html',
             'insights/water-purifier-certification-europe.html',
+            'insights/countertop-vs-under-sink-ro.html',
             'insights/choose-flow-by-water-quality.html',
             'insights/under-sink-installation-space.html',
             'insights/voltage-plug-by-country.html']:
@@ -271,24 +267,28 @@ for rel in ['zh/index.html', 'zh/videos.html']:
           f'{rel}: still links to English insights index')
     check('href="insights/index.html"' in (ROOT / rel).read_text(),
           f'{rel}: missing corrected insights link')
-# countertop article untouched: EN-only, EN-only switcher/hreflang
+# countertop article published: full 12-language switcher + 13 hreflang links
 ct = BS((ROOT / 'insights' / 'countertop-vs-under-sink-ro.html').read_text(), 'html.parser')
-check([a.get('data-language') for a in ct.select('header .language-switch a')] == ['en'],
-      'countertop article switcher changed')
-check(ct.select('link[hreflang]') == [],
-      'countertop article hreflang changed (it has none)')
+check([a.get('data-language') for a in ct.select('header .language-switch a')] == LANGS12,
+      'countertop article header switcher not 12 languages')
+check([a.get('data-language') for a in ct.select('footer .language-switch a')] == LANGS12,
+      'countertop article footer switcher not 12 languages')
+check(len(ct.select('link[hreflang]')) == 13,
+      'countertop article hreflang != 13 links')
 
 # --- 5. sitemap ---
 tree = ET.parse(ROOT / 'sitemap.xml')
 urls = [n.text for n in tree.getroot().findall('{*}url/{*}loc')]
-expected_sitemap = (168 + 19 * len(complete_p1_new) + 17 * len(complete_p2_c)
+expected_sitemap = (172 + 20 * len(complete_p1_new) + 17 * len(complete_p2_c)
                     + 12 * len(complete_p2_fs) + 46 * len(complete_p2))
 check(len(urls) == len(set(urls)) == expected_sitemap,
       f'sitemap has {len(urls)} urls, expected {expected_sitemap} '
-      f'(168 + 19*{len(complete_p1_new)} phase-1-new + 17*{len(complete_p2_c)} '
+      f'(172 + 20*{len(complete_p1_new)} phase-1-new + 17*{len(complete_p2_c)} '
       f'C-batch + 12*{len(complete_p2_fs)} F+S-batch + 46*{len(complete_p2)} phase-2)')
-check(not any('404' in u or 'countertop-vs-under-sink' in u for u in urls),
+check(not any('404' in u for u in urls),
       'sitemap contains excluded page')
+check(any('countertop-vs-under-sink' in u for u in urls),
+      'sitemap missing countertop article')
 for rel in PHASE1:
     check(url_for('es', rel) in urls, f'sitemap missing es {rel}')
     check(url_for('pt', rel) in urls, f'sitemap missing pt {rel}')
@@ -318,12 +318,12 @@ if errors:
     for e in errors:
         print(' -', e)
     sys.exit(1)
-print('PASS: EN 90 / ZH 89 files; ES/PT 19 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch; 19 pages '
+print('PASS: EN 90 / ZH 90 files; ES/PT 20 phase-1 + 20 C-batch + 27 F+S-batch + 22 U+W-batch; 20 pages '
       'EN/ZH/ES/PT symmetric (lang, canonical, x-default+12 hreflang, '
       'header/footer 12-language switchers, 1 h1); no broken relative links; '
       'no untranslated English residue or Chinese leakage in ES/PT; both '
-      'pre-existing defects fixed; countertop article untouched; sitemap '
-      f'{expected_sitemap} URLs (168 + 19*{len(complete_p1_new)} phase-1-new '
+      'pre-existing defects fixed; countertop article published in 12 languages; sitemap '
+      f'{expected_sitemap} URLs (172 + 20*{len(complete_p1_new)} phase-1-new '
       f'+ 17*{len(complete_p2_c)} C-batch + 12*{len(complete_p2_fs)} F+S-batch '
       f'+ 46*{len(complete_p2)} phase-2).')
 if skipped:

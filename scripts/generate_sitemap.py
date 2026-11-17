@@ -2,10 +2,10 @@
 
 Inclusion rule (per multilingual plan 2026-11-15, section 1.4/4): only published
 pages. Excluded: 404.html, the 23 merged variant product pages (listed only
-through their family pages), the unreleased countertop Insights article, and
-any page that has no file in that language. lastmod is preserved from the
-existing sitemap for URLs already listed; new URLs get today's date.
-Format stays <loc> + <lastmod>, no hreflang in the sitemap.
+through their family pages), and any page that has no file in that language.
+lastmod is preserved from the existing sitemap for URLs already listed; new
+URLs get today's date. Format stays <loc> + <lastmod>, no hreflang in the
+sitemap.
 """
 from pathlib import Path
 from datetime import date
@@ -23,7 +23,7 @@ VARIANTS = {
     'RP-S06', 'RP-S08', 'RP-S09', 'RP-S13', 'RP-U10', 'RP-U13', 'RP-U25',
     'RP-W02', 'RP-W03',
 }
-EXCLUDED = {'404.html', 'insights/countertop-vs-under-sink-ro.html'}
+EXCLUDED = {'404.html'}
 
 def lang_pages(lang):
     """Relative EN paths that exist in this language and belong in the sitemap."""
@@ -69,9 +69,9 @@ def main():
         counts[lang] = len(pages)
         for rel in pages:
             urls.append((url_for(lang, rel), old.get(url_for(lang, rel), TODAY)))
-    assert counts == {'en': 65, 'zh': 65, 'es': 65, 'pt': 65, 'it': 65, 'ru': 65, 'ar': 65, 'fr': 65, 'id': 65, 'ja': 65, 'de': 65, 'th': 65}, f'Unexpected sitemap counts: {counts}'
-    assert len(urls) == len({u for u, _ in urls}) == 780
-    assert not any('/404' in u or 'countertop-vs-under-sink' in u for u, _ in urls)
+    assert counts == {'en': 66, 'zh': 66, 'es': 66, 'pt': 66, 'it': 66, 'ru': 66, 'ar': 66, 'fr': 66, 'id': 66, 'ja': 66, 'de': 66, 'th': 66}, f'Unexpected sitemap counts: {counts}'
+    assert len(urls) == len({u for u, _ in urls}) == 792
+    assert not any('/404' in u for u, _ in urls)
     assert not any('/RP-' in u and u.rsplit('/', 1)[-1][:-5] in VARIANTS for u, _ in urls)
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     xml += ''.join(f'  <url><loc>{escape(u)}</loc><lastmod>{lm}</lastmod></url>\n' for u, lm in urls)
