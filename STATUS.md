@@ -2,7 +2,9 @@
 
 ## Final bilingual revision
 
-The user's updated language requirement supersedes the initial English-only plan. English remains at `/`; all 75 pages now have real Chinese counterparts under `/zh/`: 62 product-detail pages, five category documents, seven top-level business pages (home, products, OEM/ODM, certification, about, quote and contact), plus 404. Total: 75 EN + 75 ZH = 150 HTML pages; only 75 English URLs are in the sitemap.
+Current as of 2026-11-20.
+
+English remains at `/`. The site lists 46 active product pages across 12 languages. The November 18 audit covered 1,084 live HTML pages and 804 sitemap URLs. The current checkout includes 1,105 site HTML files, including the ten added 404 pages, and 816 sitemap URLs following the separate Insights publication.
 
 `scripts/build_bilingual.py` uses reviewed local translations in `scripts/i18n/zh.tsv`. It translates product titles, descriptions, navigation, UI copy and specification labels. All specification values/units are copied verbatim, apart from the explicit unresolved-value phrase translated as “按订单确认（Confirmed per order）”. It adds matching EN/ZH links to header and footer and reciprocal en/zh hreflang/canonicals for every production pair. Query parameters and fragments are preserved when switching. Historical v5 preview/download contact copy is sanitized and language links point to the maintained production pair; v5 source images remain identical.
 
